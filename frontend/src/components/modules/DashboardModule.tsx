@@ -10,6 +10,8 @@ import {
   DollarSign,
   Truck,
   Sparkles,
+  Calculator,
+  CalendarDays,
   ChevronRight,
   ArrowUpRight,
   ArrowDownRight,
@@ -28,7 +30,7 @@ export default function DashboardModule({ setActiveModule }: DashboardModuleProp
   const lowStockItems = MOCK_INVENTORY.filter((i) => i.status === 'Low Stock' || i.status === 'Critical');
 
   return (
-    <div className="space-y-6 animate-in fade-in duration-200">
+    <div className="space-y-6 animate-fade-up duration-200">
       {/* Top Banner */}
       <div className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 rounded-2xl p-6 text-white shadow-xl border border-slate-800 relative overflow-hidden">
         <div className="absolute right-0 top-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -45,13 +47,15 @@ export default function DashboardModule({ setActiveModule }: DashboardModuleProp
               onClick={() => setActiveModule('bom')}
               className="bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs px-4 py-2.5 rounded-xl shadow-lg shadow-blue-600/30 transition-all flex items-center gap-2"
             >
-              ⚡ Launch BOM Calculator
+              <Calculator className="w-4 h-4" />
+              Launch BOM Calculator
             </button>
             <button
               onClick={() => setActiveModule('production_planning')}
               className="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-bold text-xs px-4 py-2.5 rounded-xl transition-all"
             >
-              🏭 View Line Schedule
+              <CalendarDays className="w-4 h-4" />
+              View Line Schedule
             </button>
           </div>
         </div>

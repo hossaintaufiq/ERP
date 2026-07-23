@@ -1,12 +1,15 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   Search,
   Bell,
   Moon,
   Sun,
   ShieldCheck,
+  Calculator,
+  CalendarDays,
+  Receipt,
   ChevronDown,
   User,
   Sparkles,
@@ -38,6 +41,31 @@ export default function Header({
 }: HeaderProps) {
   const [roleDropdownOpen, setRoleDropdownOpen] = useState(false);
   const currentRoleObj = MOCK_USER_ROLES.find((r) => r.id === activeRole) || MOCK_USER_ROLES[0];
+  const roleDropdownRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (!roleDropdownOpen) return;
+
+    const onMouseDown = (e: MouseEvent) => {
+      const target = e.target as Node | null;
+      if (!target) return;
+      if (roleDropdownRef.current && !roleDropdownRef.current.contains(target)) {
+        setRoleDropdownOpen(false);
+      }
+    };
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setRoleDropdownOpen(false);
+    };
+
+    document.addEventListener('mousedown', onMouseDown);
+    document.addEventListener('keydown', onKeyDown);
+
+    return () => {
+      document.removeEventListener('mousedown', onMouseDown);
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  }, [roleDropdownOpen]);
 
   return (
     <header className="h-16 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-6 flex items-center justify-between sticky top-0 z-10 shadow-sm transition-colors duration-200">
@@ -48,7 +76,7 @@ export default function Header({
           <input
             type="text"
             placeholder="Search PO #, Buyer (Zara, H&M), Style #, Material, Employee..."
-            className="w-full bg-slate-100 dark:bg-slate-800/80 text-xs text-slate-900 dark:text-slate-100 pl-9 pr-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700/60 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all placeholder:text-slate-400"
+            className="w-full bg-slate-100 dark:bg-slate-800/80 text-sm text-slate-900 dark:text-slate-100 pl-9 pr-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700/60 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all placeholder:text-slate-400"
           />
         </div>
       </div>
@@ -59,32 +87,35 @@ export default function Header({
         <div className="hidden lg:flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 p-1 rounded-lg border border-slate-200 dark:border-slate-700/60 text-[11px] font-semibold">
           <button
             onClick={() => setActiveModule('bom')}
-            className={`px-2.5 py-1 rounded transition-colors ${
+            className={`inline-flex items-center gap-2 px-2.5 py-1 rounded transition-colors ${
               activeModule === 'bom' ? 'bg-blue-600 text-white' : 'text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
             }`}
           >
-            ⚡ BOM Calc
+            <Calculator className="w-4 h-4" />
+            <span>BOM Calc</span>
           </button>
           <button
             onClick={() => setActiveModule('production_planning')}
-            className={`px-2.5 py-1 rounded transition-colors ${
+            className={`inline-flex items-center gap-2 px-2.5 py-1 rounded transition-colors ${
               activeModule === 'production_planning' ? 'bg-blue-600 text-white' : 'text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
             }`}
           >
-            🏭 Line Schedule
+            <CalendarDays className="w-4 h-4" />
+            <span>Line Schedule</span>
           </button>
           <button
             onClick={() => setActiveModule('payroll')}
-            className={`px-2.5 py-1 rounded transition-colors ${
+            className={`inline-flex items-center gap-2 px-2.5 py-1 rounded transition-colors ${
               activeModule === 'payroll' ? 'bg-blue-600 text-white' : 'text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
             }`}
           >
-            💳 Payroll
+            <Receipt className="w-4 h-4" />
+            <span>Payroll</span>
           </button>
         </div>
 
         {/* Role Switcher Selector (Module 19) */}
-        <div className="relative">
+        <div ref={roleDropdownRef} className="relative">
           <button
             onClick={() => setRoleDropdownOpen(!roleDropdownOpen)}
             className="flex items-center gap-2 bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 hover:border-blue-500 transition-all text-xs font-semibold"
@@ -100,7 +131,7 @@ export default function Header({
           </button>
 
           {roleDropdownOpen && (
-            <div className="absolute right-0 mt-2 w-64 bg-white dark:bg-slate-900 rounded-xl shadow-2xl border border-slate-200 dark:border-slate-800 py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
+            <div className="absolute right-0 mt-2 w-64 bg-white dark:bg-slate-900 rounded-xl shadow-2xl border border-slate-200 dark:border-slate-800 py-2 z-50 animate-fade-up duration-200">
               <div className="px-3 py-1.5 border-b border-slate-100 dark:border-slate-800 text-[11px] font-bold text-slate-400 uppercase tracking-wider">
                 Module 19: Select Active User Role
               </div>

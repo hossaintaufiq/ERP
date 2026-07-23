@@ -119,15 +119,15 @@ export const NAV_CATEGORIES: NavCategory[] = [
 
 export default function Sidebar({ activeModule, setActiveModule, unreadNotificationsCount }: SidebarProps) {
   return (
-    <aside className="w-72 h-screen bg-stone-50 dark:bg-stone-950 text-stone-700 dark:text-stone-300 flex flex-col flex-shrink-0 border-r border-stone-200 dark:border-stone-800 select-none z-20">
+    <aside className="w-72 h-screen bg-white dark:bg-[rgb(15_18_22)] text-stone-700 dark:text-stone-300 flex flex-col flex-shrink-0 border-r border-stone-200 dark:border-stone-800 select-none z-20">
       {/* Brand Header */}
       <div className="p-5 border-b border-stone-200 dark:border-stone-800 flex items-center gap-3">
-        <div className="w-10 h-10 rounded-lg bg-brand-800 dark:bg-brand-700 flex items-center justify-center text-white shadow-sm ring-1 ring-stone-900/10">
+        <div className="w-10 h-10 rounded-xl bg-brand-600 flex items-center justify-center text-white shadow-glow ring-1 ring-brand-400/30">
           <Factory className="w-5 h-5" />
         </div>
         <div>
           <h1 className="font-bold text-stone-900 dark:text-stone-100 tracking-tight text-[15px]">GARMENTS ERP</h1>
-          <p className="text-[11px] text-stone-500 dark:text-stone-500 font-medium tracking-wide">Enterprise Manufacturing</p>
+          <p className="text-[11px] text-brand-600 dark:text-brand-400 font-medium tracking-wide">Enterprise Manufacturing</p>
         </div>
       </div>
 
@@ -153,7 +153,7 @@ export default function Sidebar({ activeModule, setActiveModule, unreadNotificat
                     }`}
                   >
                     <div className="flex items-center gap-2.5 min-w-0">
-                      <Icon className={`w-4 h-4 flex-shrink-0 ${isActive ? 'text-white' : 'text-stone-400 group-hover:text-stone-600 dark:group-hover:text-stone-300'}`} />
+                      <Icon className={`w-4 h-4 flex-shrink-0 ${isActive ? 'text-white' : 'text-stone-400 group-hover:text-brand-600 dark:group-hover:text-brand-400'}`} />
                       <span className="truncate">{item.label}</span>
                     </div>
 
@@ -167,8 +167,8 @@ export default function Sidebar({ activeModule, setActiveModule, unreadNotificat
                         <span
                           className={`text-[10px] px-1.5 py-0.5 rounded font-medium ${
                             isActive
-                              ? 'bg-brand-900/50 text-stone-200'
-                              : 'bg-stone-100 text-stone-500 border border-stone-200 dark:bg-stone-800 dark:text-stone-400 dark:border-stone-700'
+                              ? 'bg-brand-700/80 text-brand-100'
+                              : 'bg-brand-50 text-brand-700 border border-brand-100 dark:bg-brand-950 dark:text-brand-400 dark:border-brand-900'
                           }`}
                         >
                           {item.badge}
@@ -185,12 +185,12 @@ export default function Sidebar({ activeModule, setActiveModule, unreadNotificat
       </div>
 
       {/* Footer Info */}
-      <div className="p-3 border-t border-stone-200 dark:border-stone-800 bg-stone-100/50 dark:bg-stone-950 flex items-center justify-between text-xs text-stone-500">
+      <div className="p-3 border-t border-stone-200 dark:border-stone-800 bg-brand-50/60 dark:bg-brand-950/30 flex items-center justify-between text-xs text-stone-500">
         <div className="flex items-center gap-2">
-          <div className="w-1.5 h-1.5 rounded-full bg-status-success" />
+          <div className="w-1.5 h-1.5 rounded-full bg-status-success shadow-[0_0_8px_rgb(31_138_106/0.6)]" />
           <span className="font-mono text-[11px]">System Online · v4.2</span>
         </div>
-        <span className="text-[10px] bg-stone-200 dark:bg-stone-800 px-2 py-0.5 rounded text-stone-600 dark:text-stone-400 font-mono">20 Modules</span>
+        <span className="text-[10px] bg-brand-100 dark:bg-brand-900 px-2 py-0.5 rounded text-brand-700 dark:text-brand-300 font-mono">20 Modules</span>
       </div>
     </aside>
   );

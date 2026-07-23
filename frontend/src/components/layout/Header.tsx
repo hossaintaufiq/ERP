@@ -65,8 +65,8 @@ export default function Header({
   const shortcutClass = (active: boolean) =>
     `inline-flex items-center gap-2 px-2.5 py-1 rounded-md transition-colors ${
       active
-        ? 'bg-brand-800 dark:bg-brand-700 text-white'
-        : 'text-stone-600 dark:text-stone-300 hover:bg-stone-200/80 dark:hover:bg-stone-700'
+        ? 'bg-brand-600 text-white shadow-sm'
+        : 'text-stone-600 dark:text-stone-300 hover:bg-brand-50 dark:hover:bg-brand-950/50 hover:text-brand-700 dark:hover:text-brand-300'
     }`;
 
   return (
@@ -131,7 +131,7 @@ export default function Header({
                     }}
                     className={`w-full text-left px-3 py-2 text-xs flex items-center justify-between hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors ${
                       activeRole === r.id
-                        ? 'bg-stone-100 dark:bg-stone-800 text-brand-800 dark:text-brand-300 font-semibold'
+                        ? 'bg-brand-50 dark:bg-brand-950/40 text-brand-800 dark:text-brand-300 font-semibold'
                         : 'text-stone-700 dark:text-stone-300'
                     }`}
                   >
@@ -164,8 +164,8 @@ export default function Header({
         </button>
 
         <div className="flex items-center gap-2 pl-2 border-l border-stone-200 dark:border-stone-800">
-          <div className="w-8 h-8 rounded-full bg-brand-800 dark:bg-brand-700 text-white font-semibold flex items-center justify-center text-xs">
-            RG
+          <div className="w-8 h-8 rounded-full bg-brand-600 text-white font-semibold flex items-center justify-center text-xs shadow-glow">
+            GE
           </div>
           <div className="hidden xl:block text-left">
             <div className="text-xs font-semibold leading-tight text-stone-900 dark:text-stone-100">Al-Mustafiz Rahman</div>

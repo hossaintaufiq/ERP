@@ -104,7 +104,7 @@ export default function Home() {
           />
 
           {/* Dynamic Module Workspace */}
-          <main className="flex-1 overflow-y-auto p-6 md:p-8 bg-stone-100/40 dark:bg-stone-950/80">
+          <main className="flex-1 overflow-y-auto p-6 md:p-8 bg-transparent">
             <div className="max-w-7xl mx-auto space-y-6">
               {renderModuleView()}
             </div>

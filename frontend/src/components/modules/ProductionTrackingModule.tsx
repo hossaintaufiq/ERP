@@ -76,7 +76,7 @@ export default function ProductionTrackingModule() {
               <div className="w-full bg-slate-200 dark:bg-slate-700 h-2.5 rounded-full overflow-hidden">
                 <div
                   className={`h-full rounded-full transition-all ${
-                    line.efficiency >= 90 ? 'bg-stone-1000' : line.efficiency >= 80 ? 'bg-stone-1000' : 'bg-stone-1000'
+                    line.efficiency >= 90 ? 'bg-brand-600' : line.efficiency >= 80 ? 'bg-brand-600' : 'bg-brand-600'
                   }`}
                   style={{ width: `${Math.min(line.efficiency, 100)}%` }}
                 />

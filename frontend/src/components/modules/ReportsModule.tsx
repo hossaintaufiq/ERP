@@ -39,7 +39,7 @@ export default function ReportsModule() {
 
         <button
           onClick={() => alert(`Exporting ${reportType} (${timeline}) as CSV...`)}
-          className="bg-status-success hover:bg-stone-1000 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-lg shadow-emerald-600/30 flex items-center gap-2"
+          className="bg-status-success hover:bg-brand-600 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-lg shadow-emerald-600/30 flex items-center gap-2"
         >
           <Download className="w-4 h-4" /> Export Report (CSV / Excel)
         </button>

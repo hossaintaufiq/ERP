@@ -115,19 +115,19 @@ export default function QcModule() {
             <div>
               <div className="flex justify-between font-bold"><span>Skipped Stitches</span><span>42%</span></div>
               <div className="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full mt-1 overflow-hidden">
-                <div className="bg-stone-1000 h-full rounded-full" style={{ width: '42%' }} />
+                <div className="bg-brand-600 h-full rounded-full" style={{ width: '42%' }} />
               </div>
             </div>
             <div>
               <div className="flex justify-between font-bold"><span>Thread Tension Faults</span><span>28%</span></div>
               <div className="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full mt-1 overflow-hidden">
-                <div className="bg-stone-1000 h-full rounded-full" style={{ width: '28%' }} />
+                <div className="bg-brand-600 h-full rounded-full" style={{ width: '28%' }} />
               </div>
             </div>
             <div>
               <div className="flex justify-between font-bold"><span>Shade Difference</span><span>18%</span></div>
               <div className="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full mt-1 overflow-hidden">
-                <div className="bg-stone-1000 h-full rounded-full" style={{ width: '18%' }} />
+                <div className="bg-brand-600 h-full rounded-full" style={{ width: '18%' }} />
               </div>
             </div>
           </div>

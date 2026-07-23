@@ -27,7 +27,7 @@ export default function PayrollModule() {
           <h2 className="text-2xl font-extrabold text-slate-900 dark:text-slate-100">Automated Monthly Salary Disburser</h2>
           <p className="text-xs text-slate-500">Computes basic wage, housing allowance, overtime hours pay, attendance bonus, tax withholdings, and payslip generation.</p>
         </div>
-        <button className="bg-status-success hover:bg-stone-1000 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-lg shadow-emerald-600/30 flex items-center gap-2">
+        <button className="bg-status-success hover:bg-brand-600 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-lg shadow-emerald-600/30 flex items-center gap-2">
           <Sparkles className="w-4 h-4" /> Run Automated Payroll for July 2026
         </button>
       </div>

@@ -128,7 +128,7 @@ export default function StyleModule({ setActiveModule }: StyleModuleProps) {
             <div className="p-4 bg-slate-50 dark:bg-slate-800/60 rounded-xl space-y-1.5">
               {selectedStyle.accessories.map((acc, idx) => (
                 <div key={idx} className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-semibold">
-                  <span className="w-1.5 h-1.5 rounded-full bg-stone-1000" /> {acc}
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-600" /> {acc}
                 </div>
               ))}
             </div>

@@ -199,7 +199,7 @@ export default function InventoryModule() {
                       Current Stock: <strong>{item.currentStock} {item.unit}</strong> (Below safety threshold {item.minAlertLevel} {item.unit})
                     </div>
                   </div>
-                  <button className="bg-rose-600 hover:bg-stone-1000 text-white font-bold px-3 py-1.5 rounded-lg">
+                  <button className="bg-rose-600 hover:bg-brand-600 text-white font-bold px-3 py-1.5 rounded-lg">
                     Generate PR →
                   </button>
                 </div>

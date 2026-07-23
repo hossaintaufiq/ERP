@@ -68,7 +68,7 @@ export default function MachineModule() {
                   <span className="text-status-success font-mono">{mc.efficiency}%</span>
                 </div>
                 <div className="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
-                  <div className="bg-stone-1000 h-full rounded-full" style={{ width: `${mc.efficiency}%` }} />
+                  <div className="bg-brand-600 h-full rounded-full" style={{ width: `${mc.efficiency}%` }} />
                 </div>
               </div>
             </div>

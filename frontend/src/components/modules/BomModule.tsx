@@ -199,7 +199,7 @@ export default function BomModule() {
               {calculatedItems.map((item, idx) => (
                 <tr key={idx} className="hover:bg-slate-50 dark:hover:bg-slate-800/40">
                   <td className="py-3 px-3 font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-stone-1000" />
+                    <span className="w-2 h-2 rounded-full bg-brand-600" />
                     {item.material}
                   </td>
                   <td className="py-3 px-3">

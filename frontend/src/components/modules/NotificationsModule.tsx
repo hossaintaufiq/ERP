@@ -85,14 +85,14 @@ export default function NotificationsModule() {
           >
             <div className="flex items-start gap-3">
               <div className={`p-2.5 rounded-xl ${
-                item.severity === 'high' ? 'bg-stone-1000 text-white' : item.severity === 'medium' ? 'bg-stone-1000 text-white' : 'bg-stone-1000 text-white'
+                item.severity === 'high' ? 'bg-brand-600 text-white' : item.severity === 'medium' ? 'bg-brand-600 text-white' : 'bg-brand-600 text-white'
               }`}>
                 {item.type === 'stock' ? <Boxes className="w-4 h-4" /> : item.type === 'shipment' ? <Truck className="w-4 h-4" /> : item.type === 'payroll' ? <DollarSign className="w-4 h-4" /> : <AlertTriangle className="w-4 h-4" />}
               </div>
               <div className="space-y-1">
                 <div className="flex items-center gap-2">
                   <h4 className="font-extrabold text-sm text-slate-900 dark:text-slate-100">{item.title}</h4>
-                  {!item.read && <span className="w-2 h-2 rounded-full bg-stone-1000 animate-ping" />}
+                  {!item.read && <span className="w-2 h-2 rounded-full bg-brand-600 animate-ping" />}
                 </div>
                 <p className="text-xs text-slate-600 dark:text-slate-300">{item.message}</p>
                 <div className="text-[10px] text-slate-400 font-mono">{item.timestamp}</div>

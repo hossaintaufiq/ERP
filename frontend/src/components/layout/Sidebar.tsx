@@ -146,9 +146,10 @@ export default function Sidebar({ activeModule, setActiveModule, unreadNotificat
 
                 return (
                   <button
+                    type="button"
                     key={item.id}
                     onClick={() => setActiveModule(item.id)}
-                    className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition-all group ${
+                    className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition-all group relative z-10 cursor-pointer ${
                       isActive ? 'nav-active' : 'nav-inactive'
                     }`}
                   >

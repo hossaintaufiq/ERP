@@ -44,7 +44,7 @@ export default function SalesModule() {
       {/* Example Order Highlight Banner (As explicitly requested by user) */}
       <div className="bg-gradient-to-r from-stone-900 via-stone-950 to-stone-950 text-white rounded-2xl p-6 shadow-xl border border-stone-800 space-y-4">
         <div className="flex justify-between items-center">
-          <span className="bg-stone-1000/20 text-stone-400 text-xs font-bold px-2.5 py-1 rounded border border-brand-600/40">
+          <span className="bg-brand-600/20 text-stone-400 text-xs font-bold px-2.5 py-1 rounded border border-brand-600/40">
             Featured Active Order (#SO-1023)
           </span>
           <span className="text-xs font-mono text-slate-300">Delivery Target: 25 August 2026</span>

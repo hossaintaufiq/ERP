@@ -22,8 +22,6 @@ import {
   FileSpreadsheet,
   ShieldAlert,
   Bell,
-  ChevronRight,
-  Sparkles,
   Factory
 } from 'lucide-react';
 
@@ -121,17 +119,15 @@ export const NAV_CATEGORIES: NavCategory[] = [
 
 export default function Sidebar({ activeModule, setActiveModule, unreadNotificationsCount }: SidebarProps) {
   return (
-    <aside className="w-72 h-screen bg-white dark:bg-slate-950 text-slate-700 dark:text-slate-300 flex flex-col flex-shrink-0 border-r border-slate-200 dark:border-slate-800 select-none z-20">
+    <aside className="w-72 h-screen bg-stone-50 dark:bg-stone-950 text-stone-700 dark:text-stone-300 flex flex-col flex-shrink-0 border-r border-stone-200 dark:border-stone-800 select-none z-20">
       {/* Brand Header */}
-      <div className="p-5 border-b border-slate-200 dark:border-slate-800 flex items-center gap-3">
-        <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 via-indigo-500 to-purple-600 flex items-center justify-center text-white shadow-lg shadow-blue-500/20 ring-1 ring-white/20">
+      <div className="p-5 border-b border-stone-200 dark:border-stone-800 flex items-center gap-3">
+        <div className="w-10 h-10 rounded-lg bg-brand-800 dark:bg-brand-700 flex items-center justify-center text-white shadow-sm ring-1 ring-stone-900/10">
           <Factory className="w-5 h-5" />
         </div>
         <div>
-          <div className="flex items-center gap-1.5">
-            <h1 className="font-extrabold text-slate-900 dark:text-white tracking-tight text-base">GARMENTS ERP</h1>
-          </div>
-          <p className="text-xs text-slate-600 dark:text-slate-400 font-medium">Garment & Apparel Manufacturing</p>
+          <h1 className="font-bold text-stone-900 dark:text-stone-100 tracking-tight text-[15px]">GARMENTS ERP</h1>
+          <p className="text-[11px] text-stone-500 dark:text-stone-500 font-medium tracking-wide">Enterprise Manufacturing</p>
         </div>
       </div>
 
@@ -139,7 +135,7 @@ export default function Sidebar({ activeModule, setActiveModule, unreadNotificat
       <div className="flex-1 overflow-y-auto px-3 py-4 space-y-6">
         {NAV_CATEGORIES.map((cat, idx) => (
           <div key={idx} className="space-y-1">
-            <div className="px-3 text-[11px] font-bold uppercase tracking-wider text-slate-500">
+            <div className="px-3 text-[10px] font-semibold uppercase tracking-[0.12em] text-stone-400 dark:text-stone-500">
               {cat.title}
             </div>
             <div className="space-y-0.5 mt-1.5">
@@ -152,20 +148,18 @@ export default function Sidebar({ activeModule, setActiveModule, unreadNotificat
                   <button
                     key={item.id}
                     onClick={() => setActiveModule(item.id)}
-                    className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold transition-all group ${
-                      isActive
-                        ? 'bg-blue-600 text-white shadow-md shadow-blue-600/30'
-                        : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/80 hover:text-slate-900 dark:hover:text-slate-100'
+                    className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition-all group ${
+                      isActive ? 'nav-active' : 'nav-inactive'
                     }`}
                   >
                     <div className="flex items-center gap-2.5 min-w-0">
-                      <Icon className={`w-4 h-4 flex-shrink-0 ${isActive ? 'text-white' : 'text-slate-400 group-hover:text-blue-400'}`} />
+                      <Icon className={`w-4 h-4 flex-shrink-0 ${isActive ? 'text-white' : 'text-stone-400 group-hover:text-stone-600 dark:group-hover:text-stone-300'}`} />
                       <span className="truncate">{item.label}</span>
                     </div>
 
                     <div className="flex items-center gap-1.5 flex-shrink-0">
                       {isNotifications && unreadNotificationsCount > 0 && (
-                        <span className="bg-rose-500 text-white text-[10px] font-extrabold px-1.5 py-0.5 rounded-full animate-pulse">
+                        <span className="bg-status-danger text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">
                           {unreadNotificationsCount}
                         </span>
                       )}
@@ -173,14 +167,14 @@ export default function Sidebar({ activeModule, setActiveModule, unreadNotificat
                         <span
                           className={`text-[10px] px-1.5 py-0.5 rounded font-medium ${
                             isActive
-                              ? 'bg-blue-700 text-blue-100'
-                              : 'bg-slate-100 text-slate-600 border border-slate-200 dark:bg-slate-800 dark:text-slate-400 dark:border-slate-700/60'
+                              ? 'bg-brand-900/50 text-stone-200'
+                              : 'bg-stone-100 text-stone-500 border border-stone-200 dark:bg-stone-800 dark:text-stone-400 dark:border-stone-700'
                           }`}
                         >
                           {item.badge}
                         </span>
                       )}
-                      <span className="text-[10px] opacity-40 font-mono">#{item.number}</span>
+                      <span className="text-[10px] opacity-35 font-mono">#{item.number}</span>
                     </div>
                   </button>
                 );
@@ -191,12 +185,12 @@ export default function Sidebar({ activeModule, setActiveModule, unreadNotificat
       </div>
 
       {/* Footer Info */}
-      <div className="p-3 border-t border-slate-200/80 dark:border-slate-800/80 bg-slate-50/70 dark:bg-slate-950/60 flex items-center justify-between text-xs text-slate-600 dark:text-slate-500">
+      <div className="p-3 border-t border-stone-200 dark:border-stone-800 bg-stone-100/50 dark:bg-stone-950 flex items-center justify-between text-xs text-stone-500">
         <div className="flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
-          <span className="font-mono text-[11px]">System Online (v4.2)</span>
+          <div className="w-1.5 h-1.5 rounded-full bg-status-success" />
+          <span className="font-mono text-[11px]">System Online · v4.2</span>
         </div>
-        <span className="text-[10px] bg-slate-800/90 dark:bg-slate-800 px-2 py-0.5 rounded text-slate-100 dark:text-slate-400 font-mono">20 Modules</span>
+        <span className="text-[10px] bg-stone-200 dark:bg-stone-800 px-2 py-0.5 rounded text-stone-600 dark:text-stone-400 font-mono">20 Modules</span>
       </div>
     </aside>
   );

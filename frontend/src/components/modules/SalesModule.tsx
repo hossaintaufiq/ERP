@@ -30,21 +30,21 @@ export default function SalesModule() {
       {/* Module Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <div className="flex items-center gap-2 text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
+          <div className="flex items-center gap-2 text-xs font-bold text-brand-700 dark:text-brand-400 uppercase tracking-wider">
             Module 3: Sales & Orders Desk
           </div>
           <h2 className="text-2xl font-extrabold text-slate-900 dark:text-slate-100">Master Production Order Desk</h2>
           <p className="text-xs text-slate-500">Every garment begins with an order. Track color ways, size breakdowns, unit pricing, and delivery milestones.</p>
         </div>
-        <button className="bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-lg shadow-blue-600/30 flex items-center gap-2">
+        <button className="bg-brand-800 hover:bg-brand-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-lg shadow-brand-900/30 flex items-center gap-2">
           <Plus className="w-4 h-4" /> Create New Sales Order (#SO)
         </button>
       </div>
 
       {/* Example Order Highlight Banner (As explicitly requested by user) */}
-      <div className="bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 text-white rounded-2xl p-6 shadow-xl border border-blue-800 space-y-4">
+      <div className="bg-gradient-to-r from-stone-900 via-stone-950 to-stone-950 text-white rounded-2xl p-6 shadow-xl border border-stone-800 space-y-4">
         <div className="flex justify-between items-center">
-          <span className="bg-blue-500/20 text-blue-300 text-xs font-bold px-2.5 py-1 rounded border border-blue-500/40">
+          <span className="bg-stone-1000/20 text-stone-400 text-xs font-bold px-2.5 py-1 rounded border border-brand-600/40">
             Featured Active Order (#SO-1023)
           </span>
           <span className="text-xs font-mono text-slate-300">Delivery Target: 25 August 2026</span>
@@ -53,7 +53,7 @@ export default function SalesModule() {
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-4 text-xs">
           <div>
             <div className="text-slate-400 text-[10px] uppercase font-bold">Order Number</div>
-            <div className="text-base font-black text-blue-400 font-mono">#SO-1023</div>
+            <div className="text-base font-black text-brand-500 font-mono">#SO-1023</div>
           </div>
           <div>
             <div className="text-slate-400 text-[10px] uppercase font-bold">Buyer Brand</div>
@@ -86,7 +86,7 @@ export default function SalesModule() {
         <div className="lg:col-span-2 glass-panel rounded-2xl p-5 space-y-4">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
             <h3 className="font-extrabold text-sm text-slate-900 dark:text-slate-100 flex items-center gap-2">
-              <ShoppingBag className="w-4 h-4 text-blue-500" /> Active Order Registry
+              <ShoppingBag className="w-4 h-4 text-brand-600" /> Active Order Registry
             </h3>
 
             {/* Filter */}
@@ -127,10 +127,10 @@ export default function SalesModule() {
                       key={ord.orderNumber}
                       onClick={() => setSelectedOrder(ord)}
                       className={`cursor-pointer transition-colors ${
-                        isSelected ? 'bg-blue-50/80 dark:bg-blue-950/40 text-blue-900 dark:text-blue-200' : 'hover:bg-slate-50 dark:hover:bg-slate-800/40'
+                        isSelected ? 'bg-stone-100/80 dark:bg-stone-900/40 text-brand-900 dark:text-brand-200' : 'hover:bg-slate-50 dark:hover:bg-slate-800/40'
                       }`}
                     >
-                      <td className="py-3 px-3 font-mono font-bold text-blue-600 dark:text-blue-400">{ord.orderNumber}</td>
+                      <td className="py-3 px-3 font-mono font-bold text-brand-700 dark:text-brand-400">{ord.orderNumber}</td>
                       <td className="py-3 px-3 font-semibold">{ord.buyer}</td>
                       <td className="py-3 px-3">
                         <div className="font-bold text-slate-900 dark:text-slate-100">{ord.productName}</div>
@@ -142,14 +142,14 @@ export default function SalesModule() {
                         <span
                           className={`badge ${
                             ord.status === 'In Production'
-                              ? 'bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-300'
+                              ? 'bg-stone-100 text-brand-800 dark:bg-stone-900 dark:text-brand-300'
                               : ord.status === 'Cutting'
-                              ? 'bg-pink-100 text-pink-800 dark:bg-pink-950 dark:text-pink-300'
+                              ? 'bg-stone-100 text-stone-700 dark:bg-stone-900 dark:text-stone-400'
                               : ord.status === 'Sewing'
-                              ? 'bg-indigo-100 text-indigo-800 dark:bg-indigo-950 dark:text-indigo-300'
+                              ? 'bg-stone-100 text-brand-800 dark:bg-stone-900 dark:text-brand-300'
                               : ord.status === 'Delayed'
-                              ? 'bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-300'
-                              : 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300'
+                              ? 'bg-rose-100 text-rose-800 dark:bg-stone-900 dark:text-rose-300'
+                              : 'bg-emerald-100 text-emerald-800 dark:bg-stone-900 dark:text-emerald-300'
                           }`}
                         >
                           {ord.status}
@@ -173,9 +173,9 @@ export default function SalesModule() {
           <div className="flex justify-between items-start border-b border-slate-200 dark:border-slate-800 pb-3">
             <div>
               <div className="text-[10px] uppercase font-bold text-slate-400">Order Detail Card</div>
-              <h3 className="font-black text-lg text-blue-600 dark:text-blue-400 font-mono">{selectedOrder.orderNumber}</h3>
+              <h3 className="font-black text-lg text-brand-700 dark:text-brand-400 font-mono">{selectedOrder.orderNumber}</h3>
             </div>
-            <span className="badge bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-300 font-bold">
+            <span className="badge bg-stone-100 text-brand-800 dark:bg-stone-900 dark:text-brand-300 font-bold">
               {selectedOrder.status}
             </span>
           </div>
@@ -214,11 +214,11 @@ export default function SalesModule() {
             </div>
             <div className="flex justify-between">
               <span className="text-slate-500">Total Order Value:</span>
-              <span className="font-black text-emerald-600 dark:text-emerald-400 text-sm">${selectedOrder.totalAmount.toLocaleString()}</span>
+              <span className="font-black text-status-success dark:text-stone-400 text-sm">${selectedOrder.totalAmount.toLocaleString()}</span>
             </div>
             <div className="flex justify-between">
               <span className="text-slate-500">Delivery Deadline:</span>
-              <span className="font-bold text-blue-600 dark:text-blue-400 font-mono">{selectedOrder.deliveryDate}</span>
+              <span className="font-bold text-brand-700 dark:text-brand-400 font-mono">{selectedOrder.deliveryDate}</span>
             </div>
           </div>
         </div>

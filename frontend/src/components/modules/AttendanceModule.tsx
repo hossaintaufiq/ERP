@@ -40,7 +40,7 @@ export default function AttendanceModule() {
     <div className="space-y-6 animate-in fade-in duration-200">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <div className="flex items-center gap-2 text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
+          <div className="flex items-center gap-2 text-xs font-bold text-brand-700 dark:text-brand-400 uppercase tracking-wider">
             Module 12: Biometric Attendance
           </div>
           <h2 className="text-2xl font-extrabold text-slate-900 dark:text-slate-100 font-sans">Turnstile Biometric & RFID Telemetry</h2>
@@ -49,7 +49,7 @@ export default function AttendanceModule() {
 
         <button
           onClick={simulateScan}
-          className="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-lg shadow-emerald-600/30 flex items-center gap-2"
+          className="bg-status-success hover:bg-stone-1000 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-lg shadow-emerald-600/30 flex items-center gap-2"
         >
           <Play className="w-4 h-4" /> Simulate Biometric Scan
         </button>
@@ -60,10 +60,10 @@ export default function AttendanceModule() {
         <div
           onClick={() => setScanType('fingerprint')}
           className={`glass-panel p-4 rounded-xl cursor-pointer flex items-center gap-3 border-2 transition-all ${
-            scanType === 'fingerprint' ? 'border-blue-600 bg-blue-50/50 dark:bg-blue-950/40' : 'border-transparent'
+            scanType === 'fingerprint' ? 'border-brand-700 bg-stone-100/50 dark:bg-stone-900/40' : 'border-transparent'
           }`}
         >
-          <Fingerprint className="w-8 h-8 text-blue-500" />
+          <Fingerprint className="w-8 h-8 text-brand-600" />
           <div>
             <div className="font-extrabold text-sm text-slate-900 dark:text-slate-100">Fingerprint Scanner</div>
             <div className="text-[10px] text-slate-400">Optic Gate Scanner #01</div>
@@ -73,10 +73,10 @@ export default function AttendanceModule() {
         <div
           onClick={() => setScanType('rfid')}
           className={`glass-panel p-4 rounded-xl cursor-pointer flex items-center gap-3 border-2 transition-all ${
-            scanType === 'rfid' ? 'border-blue-600 bg-blue-50/50 dark:bg-blue-950/40' : 'border-transparent'
+            scanType === 'rfid' ? 'border-brand-700 bg-stone-100/50 dark:bg-stone-900/40' : 'border-transparent'
           }`}
         >
-          <CreditCard className="w-8 h-8 text-purple-500" />
+          <CreditCard className="w-8 h-8 text-brand-600" />
           <div>
             <div className="font-extrabold text-sm text-slate-900 dark:text-slate-100">RFID Proximity Card</div>
             <div className="text-[10px] text-slate-400">Smart Card Reader #02</div>
@@ -86,7 +86,7 @@ export default function AttendanceModule() {
         <div
           onClick={() => setScanType('face')}
           className={`glass-panel p-4 rounded-xl cursor-pointer flex items-center gap-3 border-2 transition-all ${
-            scanType === 'face' ? 'border-blue-600 bg-blue-50/50 dark:bg-blue-950/40' : 'border-transparent'
+            scanType === 'face' ? 'border-brand-700 bg-stone-100/50 dark:bg-stone-900/40' : 'border-transparent'
           }`}
         >
           <ScanFace className="w-8 h-8 text-emerald-500" />
@@ -116,18 +116,18 @@ export default function AttendanceModule() {
             <tbody className="divide-y divide-slate-100 dark:divide-slate-800 font-medium">
               {logs.map((log) => (
                 <tr key={log.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/40">
-                  <td className="py-3 px-3 font-mono font-bold text-blue-600">{log.code}</td>
+                  <td className="py-3 px-3 font-mono font-bold text-brand-700">{log.code}</td>
                   <td className="py-3 px-3 font-bold text-slate-900 dark:text-slate-100">{log.name}</td>
                   <td className="py-3 px-3 font-mono text-slate-600 dark:text-slate-300">{log.time}</td>
                   <td className="py-3 px-3 text-slate-500">{log.mode}</td>
                   <td className="py-3 px-3 font-bold text-slate-900 dark:text-slate-100">{log.hours}</td>
-                  <td className="py-3 px-3 font-bold text-emerald-600">{log.ot}</td>
+                  <td className="py-3 px-3 font-bold text-status-success">{log.ot}</td>
                   <td className="py-3 px-3">
                     <span
                       className={`badge ${
                         log.status.includes('On Time')
-                          ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300'
-                          : 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300'
+                          ? 'bg-emerald-100 text-emerald-800 dark:bg-stone-900 dark:text-emerald-300'
+                          : 'bg-amber-100 text-amber-800 dark:bg-stone-900 dark:text-amber-300'
                       }`}
                     >
                       {log.status}

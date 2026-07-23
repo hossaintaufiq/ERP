@@ -27,14 +27,14 @@ export default function InventoryModule() {
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <div className="flex items-center gap-2 text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
+          <div className="flex items-center gap-2 text-xs font-bold text-brand-700 dark:text-brand-400 uppercase tracking-wider">
             Module 6: Inventory Management
           </div>
           <h2 className="text-2xl font-extrabold text-slate-900 dark:text-slate-100">Raw Materials & Warehouse Control</h2>
           <p className="text-xs text-slate-500">Tracks fabric rolls, trims, buttons, poly bags, master export cartons, finished goods, returns, and safety alerts.</p>
         </div>
 
-        <button className="bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-lg shadow-blue-600/30 flex items-center gap-2">
+        <button className="bg-brand-800 hover:bg-brand-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-lg shadow-brand-900/30 flex items-center gap-2">
           <Plus className="w-4 h-4" /> Add Stock Entry / GRN
         </button>
       </div>
@@ -44,7 +44,7 @@ export default function InventoryModule() {
         <button
           onClick={() => setActiveTab('raw')}
           className={`px-4 py-2 rounded-xl transition-all ${
-            activeTab === 'raw' ? 'bg-blue-600 text-white shadow' : 'text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'
+            activeTab === 'raw' ? 'bg-brand-800 text-white shadow' : 'text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'
           }`}
         >
           Raw Materials (Fabric, Buttons, Thread, Labels, Cartons, Poly Bags)
@@ -52,7 +52,7 @@ export default function InventoryModule() {
         <button
           onClick={() => setActiveTab('finished')}
           className={`px-4 py-2 rounded-xl transition-all ${
-            activeTab === 'finished' ? 'bg-blue-600 text-white shadow' : 'text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'
+            activeTab === 'finished' ? 'bg-brand-800 text-white shadow' : 'text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'
           }`}
         >
           Finished Goods Warehouse
@@ -60,7 +60,7 @@ export default function InventoryModule() {
         <button
           onClick={() => setActiveTab('returns')}
           className={`px-4 py-2 rounded-xl transition-all ${
-            activeTab === 'returns' ? 'bg-blue-600 text-white shadow' : 'text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'
+            activeTab === 'returns' ? 'bg-brand-800 text-white shadow' : 'text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'
           }`}
         >
           Returns & Damaged Items
@@ -68,7 +68,7 @@ export default function InventoryModule() {
         <button
           onClick={() => setActiveTab('alerts')}
           className={`px-4 py-2 rounded-xl transition-all flex items-center gap-1.5 ${
-            activeTab === 'alerts' ? 'bg-rose-600 text-white shadow' : 'text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/40'
+            activeTab === 'alerts' ? 'bg-rose-600 text-white shadow' : 'text-status-danger dark:text-stone-400 bg-stone-100 dark:bg-stone-900/40'
           }`}
         >
           <AlertTriangle className="w-3.5 h-3.5" /> Stock Safety Alerts ({inventory.filter((i) => i.status !== 'In Stock').length})
@@ -107,7 +107,7 @@ export default function InventoryModule() {
               <tbody className="divide-y divide-slate-100 dark:divide-slate-800 font-medium">
                 {filteredItems.map((item) => (
                   <tr key={item.id} className="hover:bg-slate-50 dark:hover:bg-slate-800/40">
-                    <td className="py-3 px-3 font-mono font-bold text-blue-600 dark:text-blue-400">{item.code}</td>
+                    <td className="py-3 px-3 font-mono font-bold text-brand-700 dark:text-brand-400">{item.code}</td>
                     <td className="py-3 px-3 font-bold text-slate-900 dark:text-slate-100">{item.name}</td>
                     <td className="py-3 px-3">
                       <span className="badge bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300 text-[10px]">
@@ -125,10 +125,10 @@ export default function InventoryModule() {
                       <span
                         className={`badge ${
                           item.status === 'In Stock'
-                            ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300'
+                            ? 'bg-emerald-100 text-emerald-800 dark:bg-stone-900 dark:text-emerald-300'
                             : item.status === 'Low Stock'
-                            ? 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300'
-                            : 'bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-300 animate-pulse'
+                            ? 'bg-amber-100 text-amber-800 dark:bg-stone-900 dark:text-amber-300'
+                            : 'bg-rose-100 text-rose-800 dark:bg-stone-900 dark:text-rose-300 animate-pulse'
                         }`}
                       >
                         {item.status}
@@ -154,7 +154,7 @@ export default function InventoryModule() {
               <span>Customs Ready</span>
             </div>
             <div className="flex justify-between py-2 border-t border-slate-200 dark:border-slate-700">
-              <span className="font-mono text-blue-600 font-bold">#SO-1023 (Zara Polo)</span>
+              <span className="font-mono text-brand-700 font-bold">#SO-1023 (Zara Polo)</span>
               <span>250 Export Cartons (5,000 Pcs)</span>
               <span>Warehouse C - Bay 01</span>
               <span className="badge bg-emerald-100 text-emerald-800 font-bold">Cleared</span>
@@ -165,8 +165,8 @@ export default function InventoryModule() {
 
       {activeTab === 'returns' && (
         <div className="glass-panel rounded-2xl p-6 text-xs space-y-4">
-          <h3 className="font-extrabold text-sm text-slate-900 dark:text-slate-100 text-rose-600">Damaged & Return Goods Ledger</h3>
-          <div className="p-4 bg-rose-50 dark:bg-rose-950/40 rounded-xl space-y-2 border border-rose-200 dark:border-rose-900/60">
+          <h3 className="font-extrabold text-sm text-slate-900 dark:text-slate-100 text-status-danger">Damaged & Return Goods Ledger</h3>
+          <div className="p-4 bg-stone-100 dark:bg-stone-900/40 rounded-xl space-y-2 border border-rose-200 dark:border-rose-900/60">
             <div className="flex justify-between font-bold text-rose-900 dark:text-rose-200">
               <span>Item Description</span>
               <span>Defect Cause</span>
@@ -185,21 +185,21 @@ export default function InventoryModule() {
 
       {activeTab === 'alerts' && (
         <div className="glass-panel rounded-2xl p-6 text-xs space-y-4">
-          <h3 className="font-extrabold text-sm text-rose-600 flex items-center gap-2">
+          <h3 className="font-extrabold text-sm text-status-danger flex items-center gap-2">
             <AlertTriangle className="w-4 h-4" /> Material Re-Order Trigger Alert List
           </h3>
           <div className="space-y-3">
             {inventory
               .filter((i) => i.status !== 'In Stock')
               .map((item) => (
-                <div key={item.id} className="p-4 bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900/60 rounded-xl flex items-center justify-between">
+                <div key={item.id} className="p-4 bg-stone-100 dark:bg-stone-900/40 border border-rose-200 dark:border-rose-900/60 rounded-xl flex items-center justify-between">
                   <div>
                     <div className="font-bold text-rose-900 dark:text-rose-100">{item.name} ({item.code})</div>
-                    <div className="text-[11px] text-rose-700 dark:text-rose-400">
+                    <div className="text-[11px] text-rose-700 dark:text-stone-400">
                       Current Stock: <strong>{item.currentStock} {item.unit}</strong> (Below safety threshold {item.minAlertLevel} {item.unit})
                     </div>
                   </div>
-                  <button className="bg-rose-600 hover:bg-rose-500 text-white font-bold px-3 py-1.5 rounded-lg">
+                  <button className="bg-rose-600 hover:bg-stone-1000 text-white font-bold px-3 py-1.5 rounded-lg">
                     Generate PR →
                   </button>
                 </div>

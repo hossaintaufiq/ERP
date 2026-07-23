@@ -21,13 +21,13 @@ export default function PayrollModule() {
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <div className="flex items-center gap-2 text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
+          <div className="flex items-center gap-2 text-xs font-bold text-brand-700 dark:text-brand-400 uppercase tracking-wider">
             Module 13: Payroll & Compensation
           </div>
           <h2 className="text-2xl font-extrabold text-slate-900 dark:text-slate-100">Automated Monthly Salary Disburser</h2>
           <p className="text-xs text-slate-500">Computes basic wage, housing allowance, overtime hours pay, attendance bonus, tax withholdings, and payslip generation.</p>
         </div>
-        <button className="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-lg shadow-emerald-600/30 flex items-center gap-2">
+        <button className="bg-status-success hover:bg-stone-1000 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-lg shadow-emerald-600/30 flex items-center gap-2">
           <Sparkles className="w-4 h-4" /> Run Automated Payroll for July 2026
         </button>
       </div>
@@ -46,7 +46,7 @@ export default function PayrollModule() {
                 <th className="py-3 px-3 text-right">Overtime Pay (OT)</th>
                 <th className="py-3 px-3 text-right">Attendance Bonus</th>
                 <th className="py-3 px-3 text-right">Tax / PF Deductions</th>
-                <th className="py-3 px-3 text-right font-black text-blue-600">Net Payable Salary</th>
+                <th className="py-3 px-3 text-right font-black text-brand-700">Net Payable Salary</th>
                 <th className="py-3 px-3 text-right">Payslip</th>
               </tr>
             </thead>
@@ -68,16 +68,16 @@ export default function PayrollModule() {
                     <td className="py-3 px-3 text-slate-600 dark:text-slate-400">{emp.department}</td>
                     <td className="py-3 px-3 text-right font-mono">BDT {basic.toLocaleString()}</td>
                     <td className="py-3 px-3 text-right font-mono text-slate-500">BDT {hra.toLocaleString()}</td>
-                    <td className="py-3 px-3 text-right font-mono text-emerald-600 font-bold">+BDT {ot.toLocaleString()}</td>
-                    <td className="py-3 px-3 text-right font-mono text-indigo-600">+BDT {bonus.toLocaleString()}</td>
-                    <td className="py-3 px-3 text-right font-mono text-rose-500">-BDT {deductions.toLocaleString()}</td>
-                    <td className="py-3 px-3 text-right font-mono font-black text-blue-600 dark:text-blue-400 text-sm">
+                    <td className="py-3 px-3 text-right font-mono text-status-success font-bold">+BDT {ot.toLocaleString()}</td>
+                    <td className="py-3 px-3 text-right font-mono text-brand-700">+BDT {bonus.toLocaleString()}</td>
+                    <td className="py-3 px-3 text-right font-mono text-status-danger">-BDT {deductions.toLocaleString()}</td>
+                    <td className="py-3 px-3 text-right font-mono font-black text-brand-700 dark:text-brand-400 text-sm">
                       BDT {netSalary.toLocaleString()}
                     </td>
                     <td className="py-3 px-3 text-right">
                       <button
                         onClick={() => setSelectedPayslipEmp(emp)}
-                        className="bg-blue-600 hover:bg-blue-500 text-white font-bold text-[11px] px-3 py-1 rounded-lg shadow"
+                        className="bg-brand-800 hover:bg-brand-700 text-white font-bold text-[11px] px-3 py-1 rounded-lg shadow"
                       >
                         Generate Payslip 📄
                       </button>
@@ -97,7 +97,7 @@ export default function PayrollModule() {
             {/* Modal Header */}
             <div className="flex justify-between items-start border-b border-slate-200 dark:border-slate-800 pb-4">
               <div>
-                <div className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">GARMENTS ERP APPAREL LTD.</div>
+                <div className="text-xs font-bold text-brand-700 dark:text-brand-400 uppercase tracking-wider">GARMENTS ERP APPAREL LTD.</div>
                 <h3 className="text-xl font-black text-slate-900 dark:text-slate-100">Official Monthly Payslip</h3>
                 <div className="text-xs text-slate-400">Pay Period: July 2026</div>
               </div>
@@ -126,23 +126,23 @@ export default function PayrollModule() {
             {/* Earnings vs Deductions Breakdown */}
             <div className="grid grid-cols-2 gap-4 text-xs">
               <div className="space-y-2">
-                <div className="font-extrabold uppercase tracking-wider text-emerald-600 text-[10px]">Earnings</div>
+                <div className="font-extrabold uppercase tracking-wider text-status-success text-[10px]">Earnings</div>
                 <div className="flex justify-between"><span>Basic Salary:</span><span className="font-mono">BDT {(selectedPayslipEmp.salary * 0.6).toLocaleString()}</span></div>
                 <div className="flex justify-between"><span>HRA & Allowance:</span><span className="font-mono">BDT {(selectedPayslipEmp.salary * 0.25).toLocaleString()}</span></div>
-                <div className="flex justify-between"><span>Overtime Pay:</span><span className="font-mono text-emerald-600 font-bold">+BDT 4,500</span></div>
-                <div className="flex justify-between"><span>Attendance Bonus:</span><span className="font-mono text-indigo-600">+BDT 1,500</span></div>
+                <div className="flex justify-between"><span>Overtime Pay:</span><span className="font-mono text-status-success font-bold">+BDT 4,500</span></div>
+                <div className="flex justify-between"><span>Attendance Bonus:</span><span className="font-mono text-brand-700">+BDT 1,500</span></div>
               </div>
 
               <div className="space-y-2">
-                <div className="font-extrabold uppercase tracking-wider text-rose-500 text-[10px]">Deductions & Tax</div>
-                <div className="flex justify-between"><span>Provident Fund (PF):</span><span className="font-mono text-rose-500">-BDT {(selectedPayslipEmp.salary * 0.03).toLocaleString()}</span></div>
-                <div className="flex justify-between"><span>Income Tax Withholding:</span><span className="font-mono text-rose-500">-BDT {(selectedPayslipEmp.salary * 0.02).toLocaleString()}</span></div>
+                <div className="font-extrabold uppercase tracking-wider text-status-danger text-[10px]">Deductions & Tax</div>
+                <div className="flex justify-between"><span>Provident Fund (PF):</span><span className="font-mono text-status-danger">-BDT {(selectedPayslipEmp.salary * 0.03).toLocaleString()}</span></div>
+                <div className="flex justify-between"><span>Income Tax Withholding:</span><span className="font-mono text-status-danger">-BDT {(selectedPayslipEmp.salary * 0.02).toLocaleString()}</span></div>
               </div>
             </div>
 
-            <div className="p-4 bg-blue-50 dark:bg-blue-950/40 rounded-xl flex justify-between items-center text-xs">
-              <span className="font-extrabold text-blue-900 dark:text-blue-100 uppercase">Net Disbursed Amount:</span>
-              <span className="font-black text-blue-600 dark:text-blue-400 text-lg font-mono">
+            <div className="p-4 bg-stone-100 dark:bg-stone-900/40 rounded-xl flex justify-between items-center text-xs">
+              <span className="font-extrabold text-brand-900 dark:text-brand-100 uppercase">Net Disbursed Amount:</span>
+              <span className="font-black text-brand-700 dark:text-brand-400 text-lg font-mono">
                 BDT {(selectedPayslipEmp.salary + 4500 + 1500 - selectedPayslipEmp.salary * 0.05).toLocaleString()}
               </span>
             </div>
@@ -150,7 +150,7 @@ export default function PayrollModule() {
             <div className="flex justify-end gap-2">
               <button
                 onClick={() => alert('Printing Payslip PDF...')}
-                className="bg-blue-600 text-white font-bold text-xs px-4 py-2 rounded-xl shadow flex items-center gap-2"
+                className="bg-brand-800 text-white font-bold text-xs px-4 py-2 rounded-xl shadow flex items-center gap-2"
               >
                 <Printer className="w-4 h-4" /> Print Payslip PDF
               </button>

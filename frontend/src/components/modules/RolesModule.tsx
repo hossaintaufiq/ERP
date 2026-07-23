@@ -33,7 +33,7 @@ export default function RolesModule({ activeRole, setActiveRole }: RolesModulePr
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <div className="flex items-center gap-2 text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
+          <div className="flex items-center gap-2 text-xs font-bold text-brand-700 dark:text-brand-400 uppercase tracking-wider">
             Module 19: Role-Based Access Control (RBAC)
           </div>
           <h2 className="text-2xl font-extrabold text-slate-900 dark:text-slate-100">User Roles & Permission Matrix</h2>
@@ -50,11 +50,11 @@ export default function RolesModule({ activeRole, setActiveRole }: RolesModulePr
               key={r.id}
               onClick={() => setActiveRole(r.id)}
               className={`glass-panel p-4 rounded-xl cursor-pointer border-2 transition-all space-y-2 ${
-                isSelected ? 'border-purple-600 bg-purple-50/50 dark:bg-purple-950/40 shadow-lg' : 'border-transparent hover:border-slate-300'
+                isSelected ? 'border-brand-700 bg-stone-100/50 dark:bg-stone-900/40 shadow-lg' : 'border-transparent hover:border-slate-300'
               }`}
             >
               <div className="flex justify-between items-start">
-                <ShieldCheck className="w-5 h-5 text-purple-500" />
+                <ShieldCheck className="w-5 h-5 text-brand-600" />
                 <span className={`text-[10px] px-2 py-0.5 rounded font-bold ${r.color}`}>{r.badge}</span>
               </div>
               <div className="font-extrabold text-sm text-slate-900 dark:text-slate-100">{r.name}</div>

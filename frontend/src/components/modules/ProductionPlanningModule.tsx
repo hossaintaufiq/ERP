@@ -51,7 +51,7 @@ export default function ProductionPlanningModule() {
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <div className="flex items-center gap-2 text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
+          <div className="flex items-center gap-2 text-xs font-bold text-brand-700 dark:text-brand-400 uppercase tracking-wider">
             Module 9: Production Planning & Schedule
           </div>
           <h2 className="text-2xl font-extrabold text-slate-900 dark:text-slate-100">8-Stage Garment Production Pipeline</h2>
@@ -81,7 +81,7 @@ export default function ProductionPlanningModule() {
                   <h3 className="font-extrabold text-sm text-slate-900 dark:text-slate-100">{stage.name}</h3>
                   <div className="flex justify-between items-center text-[10px] text-slate-500 font-medium">
                     <span>Target: {stage.dailyTargetPcs.toLocaleString()}</span>
-                    <span className="font-bold text-emerald-600 dark:text-emerald-400">{stage.efficiencyPercent}% Eff</span>
+                    <span className="font-bold text-status-success dark:text-stone-400">{stage.efficiencyPercent}% Eff</span>
                   </div>
                 </div>
 
@@ -97,7 +97,7 @@ export default function ProductionPlanningModule() {
                         key={ord.orderNumber}
                         className="p-3 bg-slate-50 dark:bg-slate-800/80 rounded-xl border border-slate-200 dark:border-slate-700 space-y-2 text-xs shadow-sm hover:shadow transition-shadow"
                       >
-                        <div className="flex justify-between items-center font-mono font-bold text-blue-600 dark:text-blue-400 text-[11px]">
+                        <div className="flex justify-between items-center font-mono font-bold text-brand-700 dark:text-brand-400 text-[11px]">
                           <span>{ord.orderNumber}</span>
                           <span className="text-slate-500 font-sans">{ord.buyer}</span>
                         </div>
@@ -109,7 +109,7 @@ export default function ProductionPlanningModule() {
 
                         <button
                           onClick={() => advanceOrderStage(ord.orderNumber)}
-                          className="w-full text-[10px] font-bold bg-blue-600 hover:bg-blue-500 text-white py-1 rounded-lg transition-colors flex items-center justify-center gap-1"
+                          className="w-full text-[10px] font-bold bg-brand-800 hover:bg-brand-700 text-white py-1 rounded-lg transition-colors flex items-center justify-center gap-1"
                         >
                           Advance to Next Stage →
                         </button>

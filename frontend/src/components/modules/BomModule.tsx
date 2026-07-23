@@ -70,7 +70,7 @@ export default function BomModule() {
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <div className="flex items-center gap-2 text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
+          <div className="flex items-center gap-2 text-xs font-bold text-brand-700 dark:text-brand-400 uppercase tracking-wider">
             Module 5: Bill of Materials (BOM)
           </div>
           <h2 className="text-2xl font-extrabold text-slate-900 dark:text-slate-100">Automated ERP Requirement Calculator</h2>
@@ -87,14 +87,14 @@ export default function BomModule() {
       </div>
 
       {/* Style & Quantity Selector Control Card */}
-      <div className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 rounded-2xl p-6 text-white shadow-xl border border-slate-800 space-y-6">
+      <div className="bg-gradient-to-r from-slate-900 via-indigo-950 to-stone-950 rounded-2xl p-6 text-white shadow-xl border border-slate-800 space-y-6">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-slate-800 pb-4">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-xl bg-blue-600 flex items-center justify-center font-bold text-lg shadow-lg">
+            <div className="w-12 h-12 rounded-xl bg-brand-800 flex items-center justify-center font-bold text-lg shadow-lg">
               <Calculator className="w-6 h-6" />
             </div>
             <div>
-              <span className="text-xs text-blue-400 font-bold uppercase tracking-wider">Target Order Configuration</span>
+              <span className="text-xs text-brand-500 font-bold uppercase tracking-wider">Target Order Configuration</span>
               <h3 className="text-lg font-black">{selectedStyle.name} ({selectedStyle.styleNumber})</h3>
             </div>
           </div>
@@ -108,7 +108,7 @@ export default function BomModule() {
                 onClick={() => setTargetQuantity(qty)}
                 className={`px-3 py-1.5 rounded-lg font-bold transition-all ${
                   targetQuantity === qty
-                    ? 'bg-blue-600 text-white shadow'
+                    ? 'bg-brand-800 text-white shadow'
                     : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
                 }`}
               >
@@ -141,7 +141,7 @@ export default function BomModule() {
           <div className="md:col-span-2 space-y-2">
             <div className="flex justify-between items-center font-bold">
               <label className="text-slate-400">2. Adjust Order Production Quantity</label>
-              <span className="text-blue-400 text-base font-black font-mono">{targetQuantity.toLocaleString()} Shirts / Pieces</span>
+              <span className="text-brand-500 text-base font-black font-mono">{targetQuantity.toLocaleString()} Shirts / Pieces</span>
             </div>
             <input
               type="range"
@@ -160,7 +160,7 @@ export default function BomModule() {
       <div className="glass-panel rounded-2xl p-6 space-y-6">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <div>
-            <div className="flex items-center gap-2 text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase">
+            <div className="flex items-center gap-2 text-xs font-bold text-status-success dark:text-stone-400 uppercase">
               <Sparkles className="w-4 h-4" /> Live ERP Automated Requirement Engine
             </div>
             <h3 className="text-lg font-black text-slate-900 dark:text-slate-100">
@@ -171,11 +171,11 @@ export default function BomModule() {
           <div className="flex items-center gap-4 text-xs font-bold bg-slate-100 dark:bg-slate-800 px-4 py-2 rounded-xl">
             <div>
               <span className="text-slate-400">BOM Budget: </span>
-              <span className="text-emerald-600 dark:text-emerald-400 font-mono text-sm">${totalCostBudget.toLocaleString(undefined, { maximumFractionDigits: 2 })}</span>
+              <span className="text-status-success dark:text-stone-400 font-mono text-sm">${totalCostBudget.toLocaleString(undefined, { maximumFractionDigits: 2 })}</span>
             </div>
             <div>
               <span className="text-slate-400">Raw Material / Pcs: </span>
-              <span className="text-blue-600 dark:text-blue-400 font-mono">${costPerGarment.toFixed(2)}</span>
+              <span className="text-brand-700 dark:text-brand-400 font-mono">${costPerGarment.toFixed(2)}</span>
             </div>
           </div>
         </div>
@@ -188,7 +188,7 @@ export default function BomModule() {
                 <th className="py-3 px-3">Item / Material Description</th>
                 <th className="py-3 px-3">Category</th>
                 <th className="py-3 px-3 text-center">Unit Consumption (1 Piece)</th>
-                <th className="py-3 px-3 text-right text-blue-600 dark:text-blue-400 font-mono font-black">
+                <th className="py-3 px-3 text-right text-brand-700 dark:text-brand-400 font-mono font-black">
                   ERP Total Needed ({targetQuantity.toLocaleString()} Pcs)
                 </th>
                 <th className="py-3 px-3 text-right">Est. Unit Price</th>
@@ -199,7 +199,7 @@ export default function BomModule() {
               {calculatedItems.map((item, idx) => (
                 <tr key={idx} className="hover:bg-slate-50 dark:hover:bg-slate-800/40">
                   <td className="py-3 px-3 font-bold text-slate-900 dark:text-slate-100 flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-blue-500" />
+                    <span className="w-2 h-2 rounded-full bg-stone-1000" />
                     {item.material}
                   </td>
                   <td className="py-3 px-3">
@@ -210,11 +210,11 @@ export default function BomModule() {
                   <td className="py-3 px-3 text-center font-mono text-slate-600 dark:text-slate-300">
                     {item.consumptionPerPiece} {item.unit}
                   </td>
-                  <td className="py-3 px-3 text-right font-mono font-black text-blue-600 dark:text-blue-400 text-sm">
+                  <td className="py-3 px-3 text-right font-mono font-black text-brand-700 dark:text-brand-400 text-sm">
                     {item.totalNeeded.toLocaleString()} {item.unit}
                   </td>
                   <td className="py-3 px-3 text-right font-mono text-slate-500">${item.unitPrice.toFixed(3)}</td>
-                  <td className="py-3 px-3 text-right font-mono font-bold text-emerald-600 dark:text-emerald-400">
+                  <td className="py-3 px-3 text-right font-mono font-bold text-status-success dark:text-stone-400">
                     ${item.totalCost.toLocaleString(undefined, { maximumFractionDigits: 2 })}
                   </td>
                 </tr>
@@ -250,7 +250,7 @@ export default function BomModule() {
               onChange={(e) => setNewMaterialUnit(e.target.value)}
               className="bg-white dark:bg-slate-900 px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 focus:outline-none"
             />
-            <button type="submit" className="bg-blue-600 text-white font-bold py-2 rounded-lg hover:bg-blue-500 transition-colors">
+            <button type="submit" className="bg-brand-800 text-white font-bold py-2 rounded-lg hover:bg-brand-700 transition-colors">
               Add to BOM
             </button>
           </div>

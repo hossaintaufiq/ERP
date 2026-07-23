@@ -30,7 +30,7 @@ export default function ReportsModule() {
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
         <div>
-          <div className="flex items-center gap-2 text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
+          <div className="flex items-center gap-2 text-xs font-bold text-brand-700 dark:text-brand-400 uppercase tracking-wider">
             Module 18: Executive Reports Generator
           </div>
           <h2 className="text-2xl font-extrabold text-slate-900 dark:text-slate-100">Enterprise Analytics & CSV Export</h2>
@@ -39,7 +39,7 @@ export default function ReportsModule() {
 
         <button
           onClick={() => alert(`Exporting ${reportType} (${timeline}) as CSV...`)}
-          className="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-lg shadow-emerald-600/30 flex items-center gap-2"
+          className="bg-status-success hover:bg-stone-1000 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-lg shadow-emerald-600/30 flex items-center gap-2"
         >
           <Download className="w-4 h-4" /> Export Report (CSV / Excel)
         </button>
@@ -54,7 +54,7 @@ export default function ReportsModule() {
               onClick={() => setReportType(tab.id)}
               className={`px-3.5 py-2 rounded-xl transition-all whitespace-nowrap ${
                 reportType === tab.id
-                  ? 'bg-blue-600 text-white shadow'
+                  ? 'bg-brand-800 text-white shadow'
                   : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200'
               }`}
             >
@@ -70,7 +70,7 @@ export default function ReportsModule() {
               key={t}
               onClick={() => setTimeline(t)}
               className={`px-3 py-1.5 rounded-lg transition-all ${
-                timeline === t ? 'bg-white dark:bg-slate-900 text-blue-600 shadow' : 'text-slate-500'
+                timeline === t ? 'bg-white dark:bg-slate-900 text-brand-700 shadow' : 'text-slate-500'
               }`}
             >
               {t} Filter
@@ -83,16 +83,16 @@ export default function ReportsModule() {
       <div className="glass-panel rounded-2xl p-6 space-y-4">
         <div className="flex justify-between items-center border-b border-slate-200 dark:border-slate-800 pb-3">
           <div>
-            <div className="text-xs font-bold text-blue-600 uppercase font-mono">{timeline} Summary Filter Active</div>
+            <div className="text-xs font-bold text-brand-700 uppercase font-mono">{timeline} Summary Filter Active</div>
             <h3 className="text-lg font-black text-slate-900 dark:text-slate-100 capitalize">
               {reportTabs.find((r) => r.id === reportType)?.title} ({timeline} View)
             </h3>
           </div>
-          <span className="badge bg-blue-100 text-blue-800 font-bold">Verified Audit Record</span>
+          <span className="badge bg-stone-100 text-brand-800 font-bold">Verified Audit Record</span>
         </div>
 
         <div className="p-8 border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-xl text-center space-y-3">
-          <FileSpreadsheet className="w-12 h-12 text-blue-500 mx-auto" />
+          <FileSpreadsheet className="w-12 h-12 text-brand-600 mx-auto" />
           <h4 className="font-extrabold text-sm text-slate-900 dark:text-slate-100">
             {reportTabs.find((r) => r.id === reportType)?.title} Compiled
           </h4>

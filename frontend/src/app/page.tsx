@@ -82,7 +82,7 @@ export default function Home() {
 
   return (
     <div className={darkMode ? 'dark' : ''}>
-      <div className="flex h-screen overflow-hidden bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans transition-colors duration-200">
+      <div className="flex h-screen overflow-hidden bg-canvas dark:bg-canvas-dark text-stone-900 dark:text-stone-100 font-sans transition-colors duration-200">
         {/* Left Sidebar with 20 modules navigation */}
         <Sidebar
           activeModule={activeModule}
@@ -104,7 +104,7 @@ export default function Home() {
           />
 
           {/* Dynamic Module Workspace */}
-          <main className="flex-1 overflow-y-auto p-6 md:p-8 bg-slate-100/60 dark:bg-slate-950/60">
+          <main className="flex-1 overflow-y-auto p-6 md:p-8 bg-stone-100/40 dark:bg-stone-950/80">
             <div className="max-w-7xl mx-auto space-y-6">
               {renderModuleView()}
             </div>

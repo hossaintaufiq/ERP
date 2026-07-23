@@ -458,13 +458,13 @@ export const MOCK_NOTIFICATIONS: NotificationItem[] = [
 ];
 
 export const MOCK_USER_ROLES = [
-  { id: 'owner', name: 'Owner / Managing Director', badge: 'Full Access', color: 'bg-purple-100 text-purple-800 dark:bg-purple-950 dark:text-purple-300' },
-  { id: 'gm', name: 'General Manager', badge: 'Executive Access', color: 'bg-indigo-100 text-indigo-800 dark:bg-indigo-950 dark:text-indigo-300' },
-  { id: 'prod_mgr', name: 'Production Manager', badge: 'Floor Operations', color: 'bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-300' },
-  { id: 'store_mgr', name: 'Store & Inventory Manager', badge: 'Warehouse Access', color: 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300' },
-  { id: 'hr', name: 'HR & Payroll Manager', badge: 'Personnel Access', color: 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300' },
-  { id: 'accounts', name: 'Finance & Accounts', badge: 'Financial Ledgers', color: 'bg-teal-100 text-teal-800 dark:bg-teal-950 dark:text-teal-300' },
-  { id: 'qc', name: 'QC Inspector / Lead', badge: 'Quality Gate', color: 'bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-300' },
-  { id: 'sales', name: 'Sales & Merchandising', badge: 'Commercial Desk', color: 'bg-cyan-100 text-cyan-800 dark:bg-cyan-950 dark:text-cyan-300' },
-  { id: 'operator', name: 'Shop Floor Operator', badge: 'Line View Only', color: 'bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-300' },
+  { id: 'owner', name: 'Owner / Managing Director', badge: 'Full Access', color: 'bg-stone-200 text-stone-800 dark:bg-stone-800 dark:text-stone-300' },
+  { id: 'gm', name: 'General Manager', badge: 'Executive Access', color: 'bg-stone-100 text-brand-800 dark:bg-stone-800 dark:text-stone-300' },
+  { id: 'prod_mgr', name: 'Production Manager', badge: 'Floor Operations', color: 'bg-stone-100 text-brand-800 dark:bg-stone-800 dark:text-stone-300' },
+  { id: 'store_mgr', name: 'Store & Inventory Manager', badge: 'Warehouse Access', color: 'bg-stone-100 text-stone-700 dark:bg-stone-800 dark:text-stone-400' },
+  { id: 'hr', name: 'HR & Payroll Manager', badge: 'Personnel Access', color: 'bg-stone-100 text-stone-700 dark:bg-stone-800 dark:text-stone-400' },
+  { id: 'accounts', name: 'Finance & Accounts', badge: 'Financial Ledgers', color: 'bg-stone-100 text-stone-700 dark:bg-stone-800 dark:text-stone-400' },
+  { id: 'qc', name: 'QC Inspector / Lead', badge: 'Quality Gate', color: 'bg-stone-100 text-stone-700 dark:bg-stone-800 dark:text-stone-400' },
+  { id: 'sales', name: 'Sales & Merchandising', badge: 'Commercial Desk', color: 'bg-stone-100 text-stone-700 dark:bg-stone-800 dark:text-stone-400' },
+  { id: 'operator', name: 'Shop Floor Operator', badge: 'Line View Only', color: 'bg-stone-100 text-stone-600 dark:bg-stone-800 dark:text-stone-400' },
 ];

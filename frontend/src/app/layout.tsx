@@ -19,8 +19,8 @@ export const viewport: Viewport = {
   maximumScale: 5,
   viewportFit: 'cover',
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#f7f6f3' },
-    { media: '(prefers-color-scheme: dark)', color: '#0c0f12' },
+    { media: '(prefers-color-scheme: light)', color: '#f1f4f8' },
+    { media: '(prefers-color-scheme: dark)', color: '#0b111c' },
   ],
 };
 
@@ -31,7 +31,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="antialiased selection:bg-brand-500/25 selection:text-inherit">
+      <body className="antialiased selection:bg-brand-600/20 selection:text-inherit">
         <AppProviders>{children}</AppProviders>
       </body>
     </html>

@@ -36,11 +36,19 @@ export default function LoginScreen({ onSuccess }: { onSuccess?: () => void }) {
   };
 
   return (
-    <div className="min-h-[100dvh] flex items-center justify-center bg-background p-4 sm:p-6">
-      <Card className="w-full max-w-md shadow-panel">
+    <div className="min-h-[100dvh] flex items-center justify-center p-4 sm:p-6 relative overflow-hidden bg-background">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            'radial-gradient(ellipse 80% 50% at 50% -10%, hsl(215 62% 28% / 0.08), transparent 55%), linear-gradient(180deg, hsl(214 28% 97%), hsl(214 24% 94%))',
+        }}
+      />
+      <Card className="relative w-full max-w-md shadow-panel border-border/80">
         <CardHeader className="space-y-3 sm:space-y-4 p-5 sm:p-6">
           <div className="flex items-center gap-3">
-            <div className="w-11 h-11 rounded-xl bg-primary text-primary-foreground flex items-center justify-center shadow-glow shrink-0">
+            <div className="w-11 h-11 rounded-lg bg-primary text-primary-foreground flex items-center justify-center shadow-sm shrink-0">
               <Factory className="w-5 h-5" />
             </div>
             <div className="min-w-0">

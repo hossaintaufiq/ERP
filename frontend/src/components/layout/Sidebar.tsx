@@ -178,12 +178,12 @@ export default function Sidebar({
       )}
     >
       <div className="p-4 sm:p-5 flex items-center gap-3 min-h-[4rem]">
-        <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-primary-foreground shadow-glow ring-1 ring-primary/30 shrink-0">
+        <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-primary-foreground shadow-sm ring-1 ring-primary/20 shrink-0">
           <Factory className="w-5 h-5" />
         </div>
         <div className="min-w-0">
-          <h1 className="font-bold tracking-tight text-[15px] truncate">GARMENTS ERP</h1>
-          <p className="text-[11px] text-primary font-medium tracking-wide truncate">Enterprise Manufacturing</p>
+          <h1 className="font-semibold tracking-tight text-[15px] truncate text-foreground">GARMENTS ERP</h1>
+          <p className="text-[11px] text-muted-foreground font-medium tracking-wide truncate">Enterprise Manufacturing</p>
         </div>
       </div>
       <Separator />

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,80 +6,93 @@
 
 @layer base {
   :root {
-    /* Legacy ERP tokens */
-    --canvas: 247 246 243;
+    /* Legacy RGB tokens (surface helpers) */
+    --canvas: 241 244 248;
     --surface: 255 255 255;
-    --surface-muted: 247 246 243;
+    --surface-muted: 241 244 248;
     --surface-raised: 255 255 255;
-    --border-legacy: 228 226 222;
-    --text: 28 25 23;
-    --text-muted: 87 83 78;
-    --accent-legacy: 29 114 124;
-    --accent-hover: 28 92 101;
+    --border-legacy: 214 220 228;
+    --text: 15 23 42;
+    --text-muted: 71 85 105;
+    --accent-legacy: 30 64 115;
+    --accent-hover: 23 48 90;
 
-    /* shadcn/ui — deep teal primary on stone neutrals */
-    --background: 40 20% 97%;
-    --foreground: 24 10% 10%;
+    /*
+      Enterprise ERP grading — cool slate neutrals + navy primary
+      (SAP / Dynamics / NetSuite-adjacent: dense, calm, high contrast)
+    */
+    --background: 214 28% 96%;
+    --foreground: 222 47% 11%;
     --card: 0 0% 100%;
-    --card-foreground: 24 10% 10%;
+    --card-foreground: 222 47% 11%;
     --popover: 0 0% 100%;
-    --popover-foreground: 24 10% 10%;
-    --primary: 186 62% 30%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 40 12% 94%;
-    --secondary-foreground: 24 10% 18%;
-    --muted: 40 12% 94%;
-    --muted-foreground: 25 5% 40%;
-    --accent: 186 35% 94%;
-    --accent-foreground: 186 62% 24%;
-    --destructive: 0 62% 50%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 215 62% 28%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 214 20% 93%;
+    --secondary-foreground: 222 35% 18%;
+    --muted: 214 20% 93%;
+    --muted-foreground: 215 16% 40%;
+    --accent: 214 32% 94%;
+    --accent-foreground: 215 62% 24%;
+    --destructive: 0 72% 46%;
     --destructive-foreground: 0 0% 100%;
-    --border: 30 10% 88%;
-    --input: 30 10% 88%;
-    --ring: 186 62% 30%;
-    --radius: 0.625rem;
-    --chart-1: 186 62% 37%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 45%;
-    --chart-4: 43 74% 49%;
-    --chart-5: 27 87% 55%;
+    --border: 214 18% 86%;
+    --input: 214 18% 86%;
+    --ring: 215 62% 28%;
+    --radius: 0.5rem;
+
+    --chart-1: 215 62% 36%;
+    --chart-2: 199 70% 40%;
+    --chart-3: 160 50% 36%;
+    --chart-4: 38 85% 48%;
+    --chart-5: 0 65% 50%;
+
+    --success: 160 55% 32%;
+    --warning: 38 90% 42%;
+    --info: 199 75% 40%;
   }
 
   .dark {
-    --canvas: 12 15 18;
-    --surface: 22 27 32;
-    --surface-muted: 15 18 22;
-    --surface-raised: 30 36 42;
-    --border-legacy: 42 50 58;
-    --text: 245 245 244;
-    --text-muted: 168 162 158;
-    --accent-legacy: 63 170 179;
-    --accent-hover: 116 203 208;
+    --canvas: 11 17 28;
+    --surface: 17 24 39;
+    --surface-muted: 11 17 28;
+    --surface-raised: 30 41 59;
+    --border-legacy: 51 65 85;
+    --text: 241 245 249;
+    --text-muted: 148 163 184;
+    --accent-legacy: 96 165 250;
+    --accent-hover: 147 197 253;
 
-    --background: 210 20% 6%;
-    --foreground: 40 10% 96%;
-    --card: 210 16% 10%;
-    --card-foreground: 40 10% 96%;
-    --popover: 210 16% 10%;
-    --popover-foreground: 40 10% 96%;
-    --primary: 185 48% 45%;
-    --primary-foreground: 210 20% 6%;
-    --secondary: 210 14% 16%;
-    --secondary-foreground: 40 10% 96%;
-    --muted: 210 14% 16%;
-    --muted-foreground: 30 8% 65%;
-    --accent: 186 30% 16%;
-    --accent-foreground: 185 55% 72%;
-    --destructive: 0 62% 45%;
+    --background: 222 47% 7%;
+    --foreground: 210 40% 96%;
+    --card: 217 33% 12%;
+    --card-foreground: 210 40% 96%;
+    --popover: 217 33% 12%;
+    --popover-foreground: 210 40% 96%;
+    --primary: 213 90% 62%;
+    --primary-foreground: 222 47% 8%;
+    --secondary: 217 25% 18%;
+    --secondary-foreground: 210 40% 96%;
+    --muted: 217 25% 18%;
+    --muted-foreground: 215 16% 65%;
+    --accent: 217 30% 18%;
+    --accent-foreground: 213 90% 72%;
+    --destructive: 0 70% 48%;
     --destructive-foreground: 0 0% 100%;
-    --border: 210 14% 18%;
-    --input: 210 14% 18%;
-    --ring: 185 48% 45%;
-    --chart-1: 185 48% 45%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+    --border: 217 25% 20%;
+    --input: 217 25% 20%;
+    --ring: 213 90% 62%;
+
+    --chart-1: 213 90% 62%;
+    --chart-2: 199 80% 55%;
+    --chart-3: 160 55% 48%;
+    --chart-4: 38 90% 55%;
+    --chart-5: 0 70% 58%;
+
+    --success: 160 50% 45%;
+    --warning: 38 90% 52%;
+    --info: 199 80% 55%;
   }
 
   * {
@@ -92,28 +105,25 @@
   }
 
   body {
-    font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+    font-family: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
     @apply bg-background text-foreground;
-    background-image:
-      radial-gradient(ellipse 70% 45% at 0% -10%, hsl(186 62% 37% / 0.09), transparent 55%),
-      radial-gradient(ellipse 50% 35% at 100% 0%, hsl(43 74% 49% / 0.04), transparent 50%);
+    /* Subtle cool wash — no loud brand blobs */
+    background-image: linear-gradient(180deg, hsl(214 28% 97%) 0%, hsl(214 24% 95%) 100%);
   }
 
   .dark body,
   .dark {
-    background-image:
-      radial-gradient(ellipse 70% 45% at 0% -10%, hsl(185 48% 45% / 0.14), transparent 55%),
-      radial-gradient(ellipse 50% 35% at 100% 0%, hsl(185 48% 45% / 0.06), transparent 50%);
+    background-image: linear-gradient(180deg, hsl(222 47% 7%) 0%, hsl(222 40% 8%) 100%);
   }
 
   ::selection {
-    @apply bg-primary/25 text-inherit;
+    @apply bg-primary/20 text-inherit;
   }
 }
 
 ::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -121,16 +131,16 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-stone-300/80 dark:bg-stone-700/80 rounded-full;
+  @apply bg-slate-300/90 dark:bg-slate-600/80 rounded-md;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-brand-400/70 dark:bg-brand-600/70;
+  @apply bg-brand-500/60 dark:bg-brand-400/50;
 }
 
 @layer components {
   .glass-panel {
-    @apply bg-card/95 backdrop-blur-md border border-border shadow-panel dark:shadow-panel-dark rounded-panel transition-shadow hover:shadow-md;
+    @apply bg-card border border-border shadow-panel dark:shadow-panel-dark rounded-panel transition-shadow hover:shadow-md;
   }
 
   .panel {
@@ -142,11 +152,11 @@
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground text-sm font-semibold px-4 py-2.5 rounded-lg transition-all shadow-sm hover:shadow-glow;
+    @apply inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground text-sm font-semibold px-4 py-2.5 rounded-md transition-colors shadow-sm;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 bg-secondary hover:bg-accent text-secondary-foreground text-sm font-semibold px-4 py-2.5 rounded-lg border border-border transition-colors;
+    @apply inline-flex items-center justify-center gap-2 bg-secondary hover:bg-accent text-secondary-foreground text-sm font-semibold px-4 py-2.5 rounded-md border border-border transition-colors;
   }
 
   .text-accent {
@@ -154,10 +164,10 @@
   }
 
   .hero-banner {
-    @apply relative overflow-hidden rounded-panel p-6 text-white border border-brand-800/50 shadow-panel-dark;
+    @apply relative overflow-hidden rounded-panel p-6 text-white border border-slate-800/40 shadow-panel-dark;
     background:
-      radial-gradient(ellipse 80% 120% at 100% 0%, rgb(38 143 153 / 0.35), transparent 55%),
-      linear-gradient(135deg, #0f1c22 0%, #163038 45%, #1c4b53 100%);
+      radial-gradient(ellipse 70% 100% at 100% -20%, rgb(59 130 246 / 0.22), transparent 55%),
+      linear-gradient(135deg, #0b1220 0%, #132337 48%, #1a365d 100%);
   }
 
   .module-eyebrow {
@@ -165,7 +175,7 @@
   }
 
   .kpi-icon {
-    @apply p-2 rounded-lg bg-accent text-accent-foreground;
+    @apply p-2 rounded-md bg-accent text-accent-foreground;
   }
 
   .progress-track {
@@ -177,15 +187,15 @@
   }
 
   .status-success {
-    @apply bg-emerald-50 text-status-success dark:bg-emerald-950/50 dark:text-emerald-400;
+    @apply bg-emerald-50 text-status-success dark:bg-emerald-950/40 dark:text-emerald-400;
   }
 
   .status-warning {
-    @apply bg-amber-50 text-status-warning dark:bg-amber-950/50 dark:text-amber-400;
+    @apply bg-amber-50 text-status-warning dark:bg-amber-950/40 dark:text-amber-400;
   }
 
   .status-danger {
-    @apply bg-rose-50 text-status-danger dark:bg-rose-950/50 dark:text-rose-400;
+    @apply bg-red-50 text-status-danger dark:bg-red-950/40 dark:text-red-400;
   }
 
   .data-table {
@@ -193,11 +203,11 @@
   }
 
   .data-table thead th {
-    @apply py-3 px-3 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground border-b border-border bg-muted/60;
+    @apply py-3 px-3 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground border-b border-border bg-muted/70;
   }
 
   .data-table tbody td {
-    @apply py-3 px-3 border-b border-border/60 text-foreground/80;
+    @apply py-3 px-3 border-b border-border/70 text-foreground/85;
   }
 
   .data-table tbody tr:last-child td {
@@ -205,11 +215,11 @@
   }
 
   .data-table tbody tr:hover td {
-    @apply bg-accent/40;
+    @apply bg-accent/50;
   }
 
   .input-field {
-    @apply w-full bg-background text-sm text-foreground px-3 py-2 rounded-lg border border-input focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-primary transition-shadow placeholder:text-muted-foreground;
+    @apply w-full bg-background text-sm text-foreground px-3 py-2 rounded-md border border-input focus:outline-none focus:ring-2 focus:ring-ring/25 focus:border-primary transition-shadow placeholder:text-muted-foreground;
   }
 
   .mono-id {
@@ -217,7 +227,7 @@
   }
 
   .nav-active {
-    @apply bg-primary text-primary-foreground shadow-glow;
+    @apply bg-primary text-primary-foreground shadow-sm;
   }
 
   .nav-inactive {
@@ -233,7 +243,7 @@
   }
 
   .filter-chip {
-    @apply shrink-0 px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap touch-manipulation transition-colors;
+    @apply shrink-0 px-3 py-1.5 rounded-md text-xs font-semibold whitespace-nowrap touch-manipulation transition-colors;
   }
 
   .filter-chip-active {

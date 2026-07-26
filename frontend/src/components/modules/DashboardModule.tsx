@@ -83,11 +83,11 @@ export default function DashboardModule({ setActiveModule, allowedModules }: Das
       <div className="hero-banner p-4 sm:p-6">
         <div className="flex flex-col gap-4 relative z-10">
           <div>
-            <p className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-300 mb-2">
+            <p className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.14em] text-sky-200/90 mb-2">
               Operations Center {isLoading ? '· Loading' : isError ? '· API unavailable' : '· Live API'}
             </p>
             <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-white">Factory Executive Dashboard</h2>
-            <p className="text-brand-100/70 text-xs sm:text-sm mt-1.5 max-w-xl">
+            <p className="text-slate-300 text-xs sm:text-sm mt-1.5 max-w-xl">
               Live KPIs and the charts ops managers use daily — cash, orders, lines, and stock risk.
             </p>
           </div>
@@ -95,7 +95,7 @@ export default function DashboardModule({ setActiveModule, allowedModules }: Das
             {can('bom') && (
               <button
                 onClick={() => setActiveModule('bom')}
-                className="btn-primary text-xs !bg-brand-500 hover:!bg-brand-400 w-full sm:w-auto justify-center"
+                className="btn-primary text-xs !bg-sky-500 hover:!bg-sky-400 w-full sm:w-auto justify-center"
               >
                 <Calculator className="w-4 h-4" />
                 BOM Calculator

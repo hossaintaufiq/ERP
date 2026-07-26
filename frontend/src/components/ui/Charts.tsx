@@ -19,16 +19,16 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { cn } from '@/lib/utils';
 
 export const CHART_COLORS = {
-  primary: '#1d727c',
-  primarySoft: '#3faab3',
-  muted: '#a8a29e',
-  success: '#1f8a6a',
-  warning: '#c4841d',
-  danger: '#c45050',
+  primary: '#1e4e79',
+  primarySoft: '#356fb3',
+  muted: '#94a3b8',
+  success: '#147a58',
+  warning: '#b7791f',
+  danger: '#c0392b',
   grid: 'hsl(var(--border))',
 };
 
-const PIE_PALETTE = ['#1d727c', '#3faab3', '#74cbd0', '#c4841d', '#1f8a6a', '#5b6db5', '#c45050', '#8b6bb0'];
+const PIE_PALETTE = ['#1e4e79', '#356fb3', '#1d6fa5', '#147a58', '#b7791f', '#4f63a8', '#c0392b', '#64748b'];
 
 export function ChartCard({
   title,

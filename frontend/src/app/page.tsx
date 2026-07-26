@@ -13,8 +13,10 @@ import {
   canAccessModule,
   firstAllowedModule,
   getAllowedModules,
-  type RoleRecord,
+  mergeRolesCatalog,
+  resolveRole,
 } from '@/lib/rbac';
+import { listPayload } from '@/lib/utils';
 
 import DashboardModule from '@/components/modules/DashboardModule';
 import CustomerModule from '@/components/modules/CustomerModule';
@@ -60,26 +62,21 @@ export default function Home() {
     queryFn: () => resources.list('roles', { limit: 50 }),
     enabled: isAuthenticated,
   });
-  const roles: RoleRecord[] = (rolesQ.data as any)?.data || [];
-  const rolesReady = !rolesQ.isLoading && roles.length > 0;
-  const activeRoleRecord = useMemo(() => {
-    const found = roles.find((r) => r.id === activeRole);
-    if (found) return found;
-    // Avoid full-access flash before roles load
-    return { id: activeRole, name: activeRole, permissions: [] as string[] };
-  }, [roles, activeRole]);
+  // Built-in catalog always available — API merges on top (never grant full access while loading)
+  const roles = useMemo(() => mergeRolesCatalog(listPayload(rolesQ.data).rows), [rolesQ.data]);
+  const activeRoleRecord = useMemo(() => resolveRole(roles, activeRole), [roles, activeRole]);
   const allowedModules = useMemo(() => getAllowedModules(activeRoleRecord), [activeRoleRecord]);
 
+  // Only sync role from login identity — do not overwrite simulator on every user object churn
   React.useEffect(() => {
     if (user?.role) setActiveRole(user.role);
-  }, [user]);
+  }, [user?.id, user?.role]);
 
   React.useEffect(() => {
-    if (!rolesReady) return;
     if (!canAccessModule(activeRoleRecord, activeModule)) {
       setActiveModule(firstAllowedModule(activeRoleRecord, 'dashboard'));
     }
-  }, [activeRole, activeRoleRecord, activeModule, rolesReady]);
+  }, [activeRole, activeRoleRecord, activeModule]);
 
   // Keep <html> in sync so body/theme tokens apply correctly
   React.useEffect(() => {
@@ -103,7 +100,7 @@ export default function Home() {
   };
 
   const renderModuleView = () => {
-    if (rolesReady && !canAccessModule(activeRoleRecord, activeModule)) {
+    if (!canAccessModule(activeRoleRecord, activeModule)) {
       return (
         <AccessDenied
           moduleId={activeModule}

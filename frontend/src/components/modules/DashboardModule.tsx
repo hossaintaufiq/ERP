@@ -35,7 +35,7 @@ export default function DashboardModule({ setActiveModule, allowedModules }: Das
     retry: 1,
   });
 
-  const can = (id: ModuleId) => !allowedModules || allowedModules.includes(id);
+  const can = (id: ModuleId) => Array.isArray(allowedModules) && allowedModules.includes(id);
 
   const kpis = (data as any)?.kpis;
   const charts = (data as any)?.charts;

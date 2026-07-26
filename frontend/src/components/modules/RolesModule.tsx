@@ -9,13 +9,16 @@ import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Skeleton } from '@/components/ui/skeleton';
-import { cn } from '@/lib/utils';
+import { cn, listPayload } from '@/lib/utils';
 import {
   MODULE_ACCESS,
   MODULE_LABELS,
   canAccessModule,
   describeAccess,
   getAllowedModules,
+  isFullAccess,
+  mergeRolesCatalog,
+  resolveRole,
   type RoleRecord,
 } from '@/lib/rbac';
 import type { ModuleId } from '@/components/layout/Sidebar';
@@ -39,9 +42,12 @@ export default function RolesModule({ activeRole, setActiveRole }: RolesModulePr
     queryFn: () => resources.list('users', { limit: 50 }),
   });
 
-  const roles: RoleRecord[] = (rolesQ.data as any)?.data || [];
-  const users = (usersQ.data as any)?.data || [];
-  const selected = roles.find((r) => r.id === activeRole) || roles[0];
+  const roles: RoleRecord[] = React.useMemo(
+    () => mergeRolesCatalog(listPayload(rolesQ.data).rows),
+    [rolesQ.data],
+  );
+  const users = listPayload(usersQ.data).rows;
+  const selected = resolveRole(roles, activeRole);
   const allowed = useMemo(() => getAllowedModules(selected), [selected]);
 
   const usersForRole = users.filter((u: any) => u.role === selected?.id);
@@ -125,7 +131,7 @@ export default function RolesModule({ activeRole, setActiveRole }: RolesModulePr
                   <CardDescription className="mt-1 text-xs font-mono">{selected?.id}</CardDescription>
                 </div>
                 <Badge variant="outline" className="font-normal">
-                  {(selected?.permissions || []).includes('*') ? 'Superuser' : 'Scoped'}
+                  {isFullAccess(selected) ? 'Superuser' : 'Scoped'}
                 </Badge>
               </div>
             </CardHeader>

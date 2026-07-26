@@ -164,10 +164,10 @@ export default function Sidebar({
     onNavigate?.();
   };
 
-  const allowedSet = allowedModules ? new Set(allowedModules) : null;
+  const allowedSet = Array.isArray(allowedModules) ? new Set(allowedModules) : null;
   const categories = NAV_CATEGORIES.map((cat) => ({
     ...cat,
-    items: cat.items.filter((item) => !allowedSet || allowedSet.has(item.id)),
+    items: cat.items.filter((item) => (allowedSet ? allowedSet.has(item.id) : false)),
   })).filter((cat) => cat.items.length > 0);
 
   return (

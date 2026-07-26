@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import {
   Search,
   Bell,
@@ -34,8 +34,9 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { Card } from '@/components/ui/card';
-import { cn } from '@/lib/utils';
+import { cn, listPayload } from '@/lib/utils';
 import { useDebouncedValue } from '@/hooks/useDebouncedValue';
+import { isFullAccess, mergeRolesCatalog, resolveRole } from '@/lib/rbac';
 
 interface HeaderProps {
   activeRole: string;
@@ -68,9 +69,10 @@ export default function Header({
     queryKey: ['roles-header'],
     queryFn: () => resources.list('roles', { limit: 50 }),
   });
-  const roles = ((rolesQ.data as any)?.data || []) as { id: string; name: string; permissions?: string[] }[];
-  const currentRoleObj = roles.find((r) => r.id === activeRole) || roles[0] || { id: activeRole, name: activeRole };
-  const can = (id: ModuleId) => !allowedModules || allowedModules.includes(id);
+  const roles = useMemo(() => mergeRolesCatalog(listPayload(rolesQ.data).rows), [rolesQ.data]);
+  const currentRoleObj = resolveRole(roles, activeRole);
+  const moduleCount = allowedModules?.length ?? 0;
+  const can = (id: ModuleId) => Array.isArray(allowedModules) && allowedModules.includes(id);
   const debouncedQ = useDebouncedValue(searchQ, 320);
 
   useEffect(() => {
@@ -230,24 +232,38 @@ export default function Header({
                   <div className="text-[10px] text-muted-foreground leading-none">Simulate role</div>
                   <div className="text-xs font-semibold truncate max-w-[110px]">{currentRoleObj.name}</div>
                 </div>
+                <Badge
+                  variant={isFullAccess(currentRoleObj) ? 'secondary' : 'outline'}
+                  className="text-[9px] px-1.5 hidden sm:inline-flex"
+                >
+                  {moduleCount}/{30}
+                </Badge>
                 <ChevronsUpDown className="size-3.5 text-muted-foreground hidden sm:block" />
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-64 max-h-72 overflow-y-auto">
+            <DropdownMenuContent align="end" className="w-72 max-h-72 overflow-y-auto">
               <DropdownMenuLabel>Apply access profile</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              {roles.map((r) => (
-                <DropdownMenuItem
-                  key={r.id}
-                  onClick={() => setActiveRole(r.id)}
-                  className={cn(activeRole === r.id && 'bg-accent')}
-                >
-                  <span className="flex-1">{r.name}</span>
-                  <Badge variant="secondary" className="text-[10px]">
-                    {(r.permissions || []).includes('*') ? 'Full' : `${(r.permissions || []).length}`}
-                  </Badge>
-                </DropdownMenuItem>
-              ))}
+              {roles.map((r) => {
+                const full = isFullAccess(r);
+                return (
+                  <DropdownMenuItem
+                    key={r.id}
+                    onClick={() => setActiveRole(r.id)}
+                    className={cn(activeRole === r.id && 'bg-accent')}
+                  >
+                    <span className="flex-1 min-w-0">
+                      <span className="block truncate">{r.name}</span>
+                      <span className="block text-[10px] text-muted-foreground truncate">
+                        {full ? 'Full access' : `${(r.permissions || []).length} permissions`}
+                      </span>
+                    </span>
+                    <Badge variant={full ? 'secondary' : 'outline'} className="text-[10px] shrink-0">
+                      {full ? 'Full' : 'Limited'}
+                    </Badge>
+                  </DropdownMenuItem>
+                );
+              })}
             </DropdownMenuContent>
           </DropdownMenu>
 

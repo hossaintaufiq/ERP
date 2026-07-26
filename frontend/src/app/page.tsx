@@ -1,11 +1,20 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import Sidebar, { ModuleId } from '@/components/layout/Sidebar';
 import Header from '@/components/layout/Header';
 import LoginScreen from '@/components/auth/LoginScreen';
+import AccessDenied from '@/components/auth/AccessDenied';
 import { useAuth } from '@/lib/auth';
+import { resources } from '@/lib/api';
 import { Sheet, SheetContent, SheetTitle } from '@/components/ui/sheet';
+import {
+  canAccessModule,
+  firstAllowedModule,
+  getAllowedModules,
+  type RoleRecord,
+} from '@/lib/rbac';
 
 import DashboardModule from '@/components/modules/DashboardModule';
 import CustomerModule from '@/components/modules/CustomerModule';
@@ -17,6 +26,7 @@ import PurchaseModule from '@/components/modules/PurchaseModule';
 import SupplierModule from '@/components/modules/SupplierModule';
 import ProductionPlanningModule from '@/components/modules/ProductionPlanningModule';
 import ProductionTrackingModule from '@/components/modules/ProductionTrackingModule';
+import CuttingModule from '@/components/modules/CuttingModule';
 import EmployeeModule from '@/components/modules/EmployeeModule';
 import AttendanceModule from '@/components/modules/AttendanceModule';
 import PayrollModule from '@/components/modules/PayrollModule';
@@ -24,11 +34,15 @@ import QcModule from '@/components/modules/QcModule';
 import MachineModule from '@/components/modules/MachineModule';
 import ShipmentModule from '@/components/modules/ShipmentModule';
 import FinanceModule from '@/components/modules/FinanceModule';
+import InvoicesModule from '@/components/modules/InvoicesModule';
+import ExpensesModule from '@/components/modules/ExpensesModule';
 import ReportsModule from '@/components/modules/ReportsModule';
 import RolesModule from '@/components/modules/RolesModule';
 import NotificationsModule from '@/components/modules/NotificationsModule';
 import LeaveModule from '@/components/modules/LeaveModule';
 import WarehouseModule from '@/components/modules/WarehouseModule';
+import OrganizationModule from '@/components/modules/OrganizationModule';
+import AuditModule from '@/components/modules/AuditModule';
 import LeadsModule from '@/components/modules/LeadsModule';
 import AiModule from '@/components/modules/AiModule';
 import SettingsModule from '@/components/modules/SettingsModule';
@@ -41,27 +55,67 @@ export default function Home() {
   const [unreadNotificationsCount, setUnreadNotificationsCount] = useState(0);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
+  const rolesQ = useQuery({
+    queryKey: ['roles-rbac'],
+    queryFn: () => resources.list('roles', { limit: 50 }),
+    enabled: isAuthenticated,
+  });
+  const roles: RoleRecord[] = (rolesQ.data as any)?.data || [];
+  const rolesReady = !rolesQ.isLoading && roles.length > 0;
+  const activeRoleRecord = useMemo(() => {
+    const found = roles.find((r) => r.id === activeRole);
+    if (found) return found;
+    // Avoid full-access flash before roles load
+    return { id: activeRole, name: activeRole, permissions: [] as string[] };
+  }, [roles, activeRole]);
+  const allowedModules = useMemo(() => getAllowedModules(activeRoleRecord), [activeRoleRecord]);
+
   React.useEffect(() => {
-    if (user?.role) setActiveRole(user.role === 'owner' ? 'owner' : user.role);
+    if (user?.role) setActiveRole(user.role);
   }, [user]);
 
   React.useEffect(() => {
+    if (!rolesReady) return;
+    if (!canAccessModule(activeRoleRecord, activeModule)) {
+      setActiveModule(firstAllowedModule(activeRoleRecord, 'dashboard'));
+    }
+  }, [activeRole, activeRoleRecord, activeModule, rolesReady]);
+
+  // Keep <html> in sync so body/theme tokens apply correctly
+  React.useEffect(() => {
+    document.documentElement.classList.toggle('dark', darkMode);
+    return () => document.documentElement.classList.remove('dark');
+  }, [darkMode]);
+
+  React.useEffect(() => {
     if (!isAuthenticated) return;
-    import('@/lib/api').then(({ resources }) => {
-      resources
-        .list('notifications', { limit: 100 })
-        .then((res: any) => {
-          const unread = (res?.data || []).filter((n: any) => !n.read).length;
-          setUnreadNotificationsCount(unread);
-        })
-        .catch(() => setUnreadNotificationsCount(0));
-    });
+    resources
+      .list('notifications', { limit: 100 })
+      .then((res: any) => {
+        const unread = (res?.data || []).filter((n: any) => !n.read).length;
+        setUnreadNotificationsCount(unread);
+      })
+      .catch(() => setUnreadNotificationsCount(0));
   }, [isAuthenticated, activeModule]);
 
+  const handleSetRole = (roleId: string) => {
+    setActiveRole(roleId);
+  };
+
   const renderModuleView = () => {
+    if (rolesReady && !canAccessModule(activeRoleRecord, activeModule)) {
+      return (
+        <AccessDenied
+          moduleId={activeModule}
+          roleName={activeRoleRecord.name}
+          onBack={() => setActiveModule(firstAllowedModule(activeRoleRecord))}
+        />
+      );
+    }
+
     switch (activeModule) {
       case 'dashboard':
-        return <DashboardModule setActiveModule={setActiveModule} />;
+        return <DashboardModule setActiveModule={setActiveModule} allowedModules={allowedModules} />;
       case 'customers':
         return <CustomerModule />;
       case 'sales':
@@ -80,6 +134,8 @@ export default function Home() {
         return <ProductionPlanningModule />;
       case 'production_tracking':
         return <ProductionTrackingModule />;
+      case 'cutting':
+        return <CuttingModule />;
       case 'employee':
         return <EmployeeModule />;
       case 'attendance':
@@ -94,16 +150,24 @@ export default function Home() {
         return <ShipmentModule />;
       case 'finance':
         return <FinanceModule />;
+      case 'invoices':
+        return <InvoicesModule />;
+      case 'expenses':
+        return <ExpensesModule />;
       case 'reports':
         return <ReportsModule />;
       case 'roles':
-        return <RolesModule activeRole={activeRole} setActiveRole={setActiveRole} />;
+        return <RolesModule activeRole={activeRole} setActiveRole={handleSetRole} />;
       case 'notifications':
         return <NotificationsModule />;
       case 'leave':
         return <LeaveModule />;
       case 'warehouse':
         return <WarehouseModule />;
+      case 'organization':
+        return <OrganizationModule />;
+      case 'audit':
+        return <AuditModule />;
       case 'leads':
         return <LeadsModule />;
       case 'ai':
@@ -111,7 +175,7 @@ export default function Home() {
       case 'settings':
         return <SettingsModule />;
       default:
-        return <DashboardModule setActiveModule={setActiveModule} />;
+        return <DashboardModule setActiveModule={setActiveModule} allowedModules={allowedModules} />;
     }
   };
 
@@ -131,17 +195,15 @@ export default function Home() {
     activeModule,
     setActiveModule,
     unreadNotificationsCount,
+    allowedModules,
   };
 
   return (
-    <div className={darkMode ? 'dark' : ''}>
-      <div className="flex h-[100dvh] overflow-hidden bg-background text-foreground font-sans transition-colors duration-200">
-        {/* Desktop sidebar */}
+    <div className="flex h-[100dvh] overflow-hidden bg-background text-foreground font-sans transition-colors duration-200">
         <div className="hidden lg:flex w-72 shrink-0 h-full">
           <Sidebar {...sidebarProps} className="w-full" />
         </div>
 
-        {/* Mobile drawer */}
         <Sheet open={mobileNavOpen} onOpenChange={setMobileNavOpen}>
           <SheetContent side="left" className="p-0 border-0" showClose={false}>
             <SheetTitle className="sr-only">Navigation</SheetTitle>
@@ -156,12 +218,13 @@ export default function Home() {
         <div className="flex-1 flex flex-col min-w-0 h-full overflow-hidden">
           <Header
             activeRole={activeRole}
-            setActiveRole={setActiveRole}
+            setActiveRole={handleSetRole}
             darkMode={darkMode}
             setDarkMode={setDarkMode}
             activeModule={activeModule}
             setActiveModule={setActiveModule}
             unreadCount={unreadNotificationsCount}
+            allowedModules={allowedModules}
             onOpenNav={() => setMobileNavOpen(true)}
           />
 
@@ -172,6 +235,5 @@ export default function Home() {
           </main>
         </div>
       </div>
-    </div>
   );
 }

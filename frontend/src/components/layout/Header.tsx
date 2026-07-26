@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Search,
   Bell,
@@ -35,6 +35,7 @@ import {
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { Card } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
+import { useDebouncedValue } from '@/hooks/useDebouncedValue';
 
 interface HeaderProps {
   activeRole: string;
@@ -45,6 +46,7 @@ interface HeaderProps {
   setActiveModule: (mod: ModuleId) => void;
   unreadCount: number;
   onOpenNav?: () => void;
+  allowedModules?: ModuleId[];
 }
 
 export default function Header({
@@ -56,6 +58,7 @@ export default function Header({
   setActiveModule,
   unreadCount,
   onOpenNav,
+  allowedModules,
 }: HeaderProps) {
   const { user, logout } = useAuth();
   const [searchQ, setSearchQ] = useState('');
@@ -67,31 +70,48 @@ export default function Header({
   });
   const roles = ((rolesQ.data as any)?.data || []) as { id: string; name: string; permissions?: string[] }[];
   const currentRoleObj = roles.find((r) => r.id === activeRole) || roles[0] || { id: activeRole, name: activeRole };
+  const can = (id: ModuleId) => !allowedModules || allowedModules.includes(id);
+  const debouncedQ = useDebouncedValue(searchQ, 320);
 
-  const runSearch = async (q: string) => {
-    setSearchQ(q);
-    if (q.length < 2) {
-      setSearchResults([]);
-      return;
-    }
-    try {
-      const res: any = await erpApi.search(q);
-      setSearchResults(res.results || []);
-    } catch {
-      setSearchResults([]);
-    }
+  useEffect(() => {
+    let cancelled = false;
+    const run = async () => {
+      if (debouncedQ.length < 2) {
+        setSearchResults([]);
+        return;
+      }
+      try {
+        const res: any = await erpApi.search(debouncedQ);
+        if (!cancelled) setSearchResults(res.results || []);
+      } catch {
+        if (!cancelled) setSearchResults([]);
+      }
+    };
+    run();
+    return () => {
+      cancelled = true;
+    };
+  }, [debouncedQ]);
+
+  const typeToModule: Record<string, ModuleId> = {
+    orders: 'sales',
+    employees: 'employee',
+    inventory: 'inventory',
+    buyers: 'customers',
+    styles: 'styles',
+    shipments: 'shipment',
+    invoices: 'invoices',
+    expenses: 'expenses',
+    suppliers: 'suppliers',
+    production: 'production_tracking',
   };
 
   const goResult = (r: any) => {
     setSearchResults([]);
     setSearchQ('');
     setMobileSearchOpen(false);
-    if (r.type === 'orders') setActiveModule('sales');
-    if (r.type === 'employees') setActiveModule('employee');
-    if (r.type === 'inventory') setActiveModule('inventory');
-    if (r.type === 'buyers') setActiveModule('customers');
-    if (r.type === 'styles') setActiveModule('styles');
-    if (r.type === 'shipments') setActiveModule('shipment');
+    const mod = typeToModule[r.type];
+    if (mod && can(mod)) setActiveModule(mod);
   };
 
   const SearchField = ({ className }: { className?: string }) => (
@@ -102,22 +122,31 @@ export default function Header({
         placeholder="Search orders, buyers, styles…"
         className="pl-9 h-9"
         value={searchQ}
-        onChange={(e) => runSearch(e.target.value)}
+        onChange={(e) => setSearchQ(e.target.value)}
         aria-label="Global search"
       />
       {!!searchResults.length && (
         <Card className="absolute top-11 left-0 right-0 z-50 max-h-64 overflow-y-auto py-1 shadow-lg">
-          {searchResults.map((r, i) => (
-            <button
-              key={i}
-              type="button"
-              className="w-full text-left px-3 py-2.5 text-xs hover:bg-accent transition-colors touch-manipulation"
-              onClick={() => goResult(r)}
-            >
-              <span className="font-semibold">{r.label}</span>
-              <span className="text-muted-foreground ml-2">{r.type}</span>
-            </button>
-          ))}
+          {searchResults.map((r, i) => {
+            const mod = typeToModule[r.type];
+            const allowed = !mod || can(mod);
+            return (
+              <button
+                key={i}
+                type="button"
+                disabled={!allowed}
+                className={cn(
+                  'w-full text-left px-3 py-2.5 text-xs transition-colors touch-manipulation',
+                  allowed ? 'hover:bg-accent' : 'opacity-40 cursor-not-allowed',
+                )}
+                onClick={() => allowed && goResult(r)}
+              >
+                <span className="font-semibold">{r.label}</span>
+                <span className="text-muted-foreground ml-2">{r.type}</span>
+                {!allowed && <span className="ml-2 text-[10px] text-muted-foreground">(no access)</span>}
+              </button>
+            );
+          })}
         </Card>
       )}
     </div>
@@ -161,30 +190,36 @@ export default function Header({
           </Button>
 
           <div className="hidden xl:flex items-center gap-1 bg-muted p-1 rounded-lg border border-border">
-            <Button
-              size="sm"
-              variant={activeModule === 'bom' ? 'default' : 'ghost'}
-              onClick={() => setActiveModule('bom')}
-              className="h-7 text-[11px]"
-            >
-              <Calculator /> BOM
-            </Button>
-            <Button
-              size="sm"
-              variant={activeModule === 'production_planning' ? 'default' : 'ghost'}
-              onClick={() => setActiveModule('production_planning')}
-              className="h-7 text-[11px]"
-            >
-              <CalendarDays /> Schedule
-            </Button>
-            <Button
-              size="sm"
-              variant={activeModule === 'payroll' ? 'default' : 'ghost'}
-              onClick={() => setActiveModule('payroll')}
-              className="h-7 text-[11px]"
-            >
-              <Receipt /> Payroll
-            </Button>
+            {can('bom') && (
+              <Button
+                size="sm"
+                variant={activeModule === 'bom' ? 'default' : 'ghost'}
+                onClick={() => setActiveModule('bom')}
+                className="h-7 text-[11px]"
+              >
+                <Calculator /> BOM
+              </Button>
+            )}
+            {can('production_planning') && (
+              <Button
+                size="sm"
+                variant={activeModule === 'production_planning' ? 'default' : 'ghost'}
+                onClick={() => setActiveModule('production_planning')}
+                className="h-7 text-[11px]"
+              >
+                <CalendarDays /> Schedule
+              </Button>
+            )}
+            {can('payroll') && (
+              <Button
+                size="sm"
+                variant={activeModule === 'payroll' ? 'default' : 'ghost'}
+                onClick={() => setActiveModule('payroll')}
+                className="h-7 text-[11px]"
+              >
+                <Receipt /> Payroll
+              </Button>
+            )}
           </div>
 
           <DropdownMenu>
@@ -192,14 +227,14 @@ export default function Header({
               <Button variant="outline" size="sm" className="h-9 gap-1.5 px-2 sm:px-3">
                 <ShieldCheck className="text-primary h-4 w-4" />
                 <div className="text-left hidden lg:block">
-                  <div className="text-[10px] text-muted-foreground leading-none">Role</div>
+                  <div className="text-[10px] text-muted-foreground leading-none">Simulate role</div>
                   <div className="text-xs font-semibold truncate max-w-[110px]">{currentRoleObj.name}</div>
                 </div>
                 <ChevronsUpDown className="size-3.5 text-muted-foreground hidden sm:block" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-64 max-h-72 overflow-y-auto">
-              <DropdownMenuLabel>Select user role</DropdownMenuLabel>
+              <DropdownMenuLabel>Apply access profile</DropdownMenuLabel>
               <DropdownMenuSeparator />
               {roles.map((r) => (
                 <DropdownMenuItem
@@ -262,7 +297,12 @@ export default function Header({
                 <div className="text-xs text-muted-foreground">{user?.email}</div>
               </DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={() => setActiveModule('settings')}>Settings</DropdownMenuItem>
+              <DropdownMenuItem
+                disabled={!can('settings')}
+                onClick={() => can('settings') && setActiveModule('settings')}
+              >
+                Settings
+              </DropdownMenuItem>
               <DropdownMenuItem onClick={logout} className="text-destructive focus:text-destructive">
                 <LogOut className="mr-2 h-4 w-4" /> Logout
               </DropdownMenuItem>

@@ -66,13 +66,13 @@ export default function ReportsModule() {
         }
       />
 
-      <div className="flex items-center justify-between gap-4 flex-wrap">
-        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs font-semibold">
+      <div className="flex flex-col gap-3">
+        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 -mx-1 px-1 text-xs font-semibold scrollbar-thin">
           {reportTabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setReportType(tab.id)}
-              className={`px-3.5 py-2 rounded-xl transition-all whitespace-nowrap ${
+              className={`px-3.5 py-2 rounded-xl transition-all whitespace-nowrap shrink-0 ${
                 reportType === tab.id
                   ? 'bg-brand-600 text-white shadow'
                   : 'bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300'
@@ -82,12 +82,12 @@ export default function ReportsModule() {
             </button>
           ))}
         </div>
-        <div className="flex items-center gap-1 bg-stone-100 dark:bg-stone-800 p-1 rounded-xl text-xs font-semibold">
+        <div className="flex items-center gap-1 bg-stone-100 dark:bg-stone-800 p-1 rounded-xl text-xs font-semibold w-full sm:w-auto self-stretch sm:self-start">
           {(['Daily', 'Monthly', 'Yearly'] as const).map((t) => (
             <button
               key={t}
               onClick={() => setTimeline(t)}
-              className={`px-3 py-1.5 rounded-lg ${timeline === t ? 'bg-white dark:bg-stone-900 text-brand-700 shadow' : 'text-stone-500'}`}
+              className={`flex-1 sm:flex-none px-3 py-1.5 rounded-lg ${timeline === t ? 'bg-white dark:bg-stone-900 text-brand-700 shadow' : 'text-stone-500'}`}
             >
               {t}
             </button>
@@ -95,15 +95,15 @@ export default function ReportsModule() {
         </div>
       </div>
 
-      <div className="panel p-5 space-y-4">
-        <div className="flex justify-between items-center border-b border-stone-200 dark:border-stone-800 pb-3">
-          <div>
+      <div className="panel p-4 sm:p-5 space-y-4">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 border-b border-stone-200 dark:border-stone-800 pb-3">
+          <div className="min-w-0">
             <div className="text-xs font-semibold text-brand-700 uppercase font-mono">{timeline} · {reportType}</div>
-            <h3 className="text-lg font-bold capitalize">
+            <h3 className="text-base sm:text-lg font-bold capitalize">
               {reportTabs.find((r) => r.id === reportType)?.title} report
             </h3>
           </div>
-          <button className="text-xs font-semibold text-accent" onClick={() => refetch()}>
+          <button className="text-xs font-semibold text-accent self-start" onClick={() => refetch()}>
             Refresh
           </button>
         </div>

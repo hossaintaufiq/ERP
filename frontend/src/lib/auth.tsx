@@ -40,6 +40,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       }
     }
     setLoading(false);
+
+    const onExpired = () => {
+      setToken(null);
+      setUser(null);
+    };
+    window.addEventListener('ge:auth-expired', onExpired);
+    return () => window.removeEventListener('ge:auth-expired', onExpired);
   }, []);
 
   const login = async (email: string, password: string) => {

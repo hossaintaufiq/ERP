@@ -4,6 +4,12 @@ import React, { useMemo } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { resources } from '@/lib/api';
 import { DataTable, PageHeader, StatCard } from '@/components/ui/DataTable';
+import {
+  ChartCard,
+  CategoryBarChart,
+  SharePieChart,
+  CHART_COLORS,
+} from '@/components/ui/Charts';
 
 export default function ProductionTrackingModule() {
   const { data, isLoading } = useQuery({
@@ -29,23 +35,68 @@ export default function ProductionTrackingModule() {
     }));
   }, [rows]);
 
+  const stageMix = useMemo(() => {
+    const map = new Map<string, number>();
+    for (const r of rows) {
+      const s = r.stage || 'Other';
+      map.set(s, (map.get(s) || 0) + 1);
+    }
+    return Array.from(map.entries()).map(([name, value]) => ({ name, value }));
+  }, [rows]);
+
+  const lineChart = byLine.map((l) => ({
+    line: l.lineId,
+    efficiency: l.avgEfficiency,
+    output: l.output,
+  }));
+
   const avgEff = rows.length
     ? Math.round(rows.reduce((s: number, r: any) => s + (r.efficiency || 0), 0) / rows.length)
     : 0;
 
   return (
-    <div className="space-y-6 animate-fade-up">
+    <div className="space-y-4 sm:space-y-6 animate-fade-up">
       <PageHeader
         eyebrow="Module 10 · Shop Floor"
         title="Line Output & Efficiency Tracking"
         description="Live production telemetry by sewing line, supervisor, and completion vs target."
       />
 
-      <div className="grid sm:grid-cols-3 gap-4">
+      <div className="grid grid-cols-3 gap-2.5 sm:gap-4">
         <StatCard label="Active jobs" value={rows.length} />
         <StatCard label="Avg efficiency" value={`${avgEff}%`} />
         <StatCard label="Lines" value={byLine.length} />
       </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 sm:gap-4">
+        <ChartCard
+          className="lg:col-span-2"
+          title="Efficiency by line"
+          description="Average % — find underperforming lines fast"
+        >
+          <CategoryBarChart
+            data={lineChart}
+            xKey="line"
+            yKey="efficiency"
+            height={220}
+            valueSuffix="%"
+            color={CHART_COLORS.primary}
+          />
+        </ChartCard>
+        <ChartCard title="Jobs by stage" description="Shop-floor WIP mix">
+          <SharePieChart data={stageMix} height={220} />
+        </ChartCard>
+      </div>
+
+      <ChartCard title="Completed pcs by line" description="Throughput comparison">
+        <CategoryBarChart
+          data={lineChart}
+          xKey="line"
+          yKey="output"
+          height={180}
+          color={CHART_COLORS.primarySoft}
+        />
+      </ChartCard>
 
       <DataTable
         rows={byLine}
@@ -72,11 +123,11 @@ export default function ProductionTrackingModule() {
           rows={rows}
           columns={[
             { key: 'orderNumber', header: 'Order' },
-            { key: 'styleNumber', header: 'Style' },
-            { key: 'buyer', header: 'Buyer' },
+            { key: 'styleNumber', header: 'Style', hideOnMobile: true },
+            { key: 'buyer', header: 'Buyer', hideOnMobile: true },
             { key: 'lineId', header: 'Line' },
             { key: 'stage', header: 'Stage' },
-            { key: 'supervisor', header: 'Supervisor' },
+            { key: 'supervisor', header: 'Supervisor', hideOnMobile: true },
             {
               key: 'completedQty',
               header: 'Done / Target',
@@ -88,7 +139,7 @@ export default function ProductionTrackingModule() {
               header: 'Eff %',
               render: (r: any) => `${r.efficiency}%`,
             },
-            { key: 'status', header: 'Status' },
+            { key: 'status', header: 'Status', hideOnMobile: true },
           ]}
         />
       )}

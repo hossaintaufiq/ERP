@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { Fingerprint, CreditCard, ScanFace, Play } from 'lucide-react';
 import { resources } from '@/lib/api';
@@ -8,6 +8,7 @@ import { DataTable, PageHeader, StatCard } from '@/components/ui/DataTable';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
+import { ChartCard, SharePieChart, CategoryBarChart, CHART_COLORS } from '@/components/ui/Charts';
 
 export default function AttendanceModule() {
   const [scanType, setScanType] = useState<'Fingerprint' | 'RFID' | 'Face'>('Fingerprint');
@@ -36,26 +37,57 @@ export default function AttendanceModule() {
 
   const present = rows.filter((r: any) => r.status === 'Present' || r.status === 'On Time' || r.status === 'Late').length;
 
+  const statusMix = useMemo(() => {
+    const map = new Map<string, number>();
+    for (const r of rows) {
+      map.set(r.status || 'Other', (map.get(r.status || 'Other') || 0) + 1);
+    }
+    return Array.from(map.entries()).map(([name, value]) => ({ name, value }));
+  }, [rows]);
+
+  const methodMix = useMemo(() => {
+    const map = new Map<string, number>();
+    for (const r of rows) {
+      map.set(r.method || 'Other', (map.get(r.method || 'Other') || 0) + 1);
+    }
+    return Array.from(map.entries()).map(([name, value]) => ({ name, value }));
+  }, [rows]);
+
   return (
-    <div className="space-y-6 animate-fade-up">
+    <div className="space-y-4 sm:space-y-6 animate-fade-up">
       <PageHeader
         eyebrow="Module 12 · HR"
         title="Biometric Attendance"
         description="Turnstile fingerprint, RFID, and face recognition logs with late/OT flags."
         actions={
-          <Button type="button" onClick={() => scan.mutate()} disabled={scan.isPending}>
+          <Button type="button" onClick={() => scan.mutate()} disabled={scan.isPending} className="w-full sm:w-auto">
             <Play className="w-4 h-4" /> {scan.isPending ? 'Scanning…' : 'Simulate Scan'}
           </Button>
         }
       />
 
-      <div className="grid sm:grid-cols-3 gap-4">
+      <div className="grid grid-cols-3 gap-2.5 sm:gap-4">
         <StatCard label="Records" value={(data as any)?.meta?.total ?? rows.length} />
         <StatCard label="Present-like" value={present} />
         <StatCard label="Sensor" value={scanType} />
       </div>
 
-      <div className="grid md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+        <ChartCard title="Attendance status" description="Present / late / absent mix">
+          <SharePieChart data={statusMix} height={200} />
+        </ChartCard>
+        <ChartCard title="Check-in method" description="Sensor usage">
+          <CategoryBarChart
+            data={methodMix}
+            xKey="name"
+            yKey="value"
+            height={200}
+            color={CHART_COLORS.primarySoft}
+          />
+        </ChartCard>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
         {(
           [
             { id: 'Fingerprint' as const, icon: Fingerprint, label: 'Fingerprint Scanner' },
@@ -89,12 +121,12 @@ export default function AttendanceModule() {
         <DataTable
           rows={rows}
           columns={[
-            { key: 'employeeCode', header: 'Code' },
+            { key: 'employeeCode', header: 'Code', hideOnMobile: true },
             { key: 'employeeName', header: 'Employee' },
             { key: 'date', header: 'Date' },
             { key: 'checkIn', header: 'In' },
-            { key: 'checkOut', header: 'Out' },
-            { key: 'method', header: 'Method' },
+            { key: 'checkOut', header: 'Out', hideOnMobile: true },
+            { key: 'method', header: 'Method', hideOnMobile: true },
             { key: 'status', header: 'Status' },
           ]}
         />

@@ -24,6 +24,11 @@ import {
   Bell,
   Factory,
   Sparkles,
+  FileText,
+  Wallet,
+  ScrollText,
+  Network,
+  Scissors,
 } from 'lucide-react';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Badge } from '@/components/ui/badge';
@@ -41,6 +46,7 @@ export type ModuleId =
   | 'suppliers'
   | 'production_planning'
   | 'production_tracking'
+  | 'cutting'
   | 'employee'
   | 'attendance'
   | 'payroll'
@@ -48,11 +54,15 @@ export type ModuleId =
   | 'machines'
   | 'shipment'
   | 'finance'
+  | 'invoices'
+  | 'expenses'
   | 'reports'
   | 'roles'
   | 'notifications'
   | 'leave'
   | 'warehouse'
+  | 'organization'
+  | 'audit'
   | 'leads'
   | 'ai'
   | 'settings';
@@ -63,6 +73,8 @@ interface SidebarProps {
   unreadNotificationsCount: number;
   onNavigate?: () => void;
   className?: string;
+  /** If provided, only these modules appear in the nav */
+  allowedModules?: ModuleId[];
 }
 
 interface NavCategory {
@@ -81,7 +93,9 @@ export const NAV_CATEGORIES: NavCategory[] = [
     title: 'Overview & Security',
     items: [
       { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard, number: 1 },
+      { id: 'organization', label: 'Organization', icon: Network, number: 26 },
       { id: 'roles', label: 'User Roles & Access', icon: ShieldAlert, badge: 'RBAC', number: 19 },
+      { id: 'audit', label: 'Audit Trail', icon: ScrollText, badge: 'Compliance', number: 27 },
       { id: 'notifications', label: 'Notifications Hub', icon: Bell, number: 20 },
       { id: 'ai', label: 'AI Assistant', icon: Sparkles, badge: 'Copilot', number: 21 },
       { id: 'settings', label: 'Settings', icon: Cog, number: 22 },
@@ -94,6 +108,8 @@ export const NAV_CATEGORIES: NavCategory[] = [
       { id: 'customers', label: 'Customer Management', icon: Users, badge: 'Buyers', number: 2 },
       { id: 'sales', label: 'Sales & Orders', icon: ShoppingBag, badge: 'SOs', number: 3 },
       { id: 'finance', label: 'Finance & Cash Flow', icon: DollarSign, number: 17 },
+      { id: 'invoices', label: 'Invoices & AR', icon: FileText, badge: 'AR', number: 28 },
+      { id: 'expenses', label: 'Expense Ledger', icon: Wallet, number: 29 },
     ],
   },
   {
@@ -116,6 +132,7 @@ export const NAV_CATEGORIES: NavCategory[] = [
     title: 'Shop Floor & Production',
     items: [
       { id: 'production_planning', label: 'Production Schedule', icon: CalendarDays, badge: '8 Stages', number: 9 },
+      { id: 'cutting', label: 'Cutting & Fabric Issue', icon: Scissors, badge: 'Lay', number: 30 },
       { id: 'production_tracking', label: 'Floor Tracking', icon: LineChartIcon, number: 10 },
       { id: 'qc', label: 'Quality Control (QC)', icon: ShieldCheck, number: 14 },
       { id: 'machines', label: 'Machine OEE', icon: Cog, number: 15 },
@@ -140,11 +157,18 @@ export default function Sidebar({
   unreadNotificationsCount,
   onNavigate,
   className,
+  allowedModules,
 }: SidebarProps) {
   const select = (id: ModuleId) => {
     setActiveModule(id);
     onNavigate?.();
   };
+
+  const allowedSet = allowedModules ? new Set(allowedModules) : null;
+  const categories = NAV_CATEGORIES.map((cat) => ({
+    ...cat,
+    items: cat.items.filter((item) => !allowedSet || allowedSet.has(item.id)),
+  })).filter((cat) => cat.items.length > 0);
 
   return (
     <aside
@@ -166,7 +190,7 @@ export default function Sidebar({
 
       <ScrollArea className="flex-1 px-2 sm:px-3 py-3 sm:py-4">
         <nav className="space-y-5 sm:space-y-6 pr-2 pb-4" aria-label="Main">
-          {NAV_CATEGORIES.map((cat, idx) => (
+          {categories.map((cat, idx) => (
             <div key={idx} className="space-y-1">
               <div className="px-3 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
                 {cat.title}
@@ -217,6 +241,9 @@ export default function Sidebar({
               </div>
             </div>
           ))}
+          {!categories.length && (
+            <p className="px-3 text-xs text-muted-foreground">No modules available for this role.</p>
+          )}
         </nav>
       </ScrollArea>
 

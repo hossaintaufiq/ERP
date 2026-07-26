@@ -53,7 +53,7 @@ export function DataTable<T extends { id?: string }>({
     <Card className="overflow-hidden">
       <CardContent className="p-0">
         <div className="overflow-x-auto -mx-0 scrollbar-thin">
-          <Table className="min-w-[640px]">
+          <Table className="min-w-[520px] md:min-w-[640px]">
             <TableHeader>
               <TableRow className="hover:bg-transparent bg-muted/50">
                 {columns.map((c) => (

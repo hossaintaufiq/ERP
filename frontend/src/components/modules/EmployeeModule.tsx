@@ -4,16 +4,16 @@ import React, { useMemo, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { resources } from '@/lib/api';
 import { DataTable, PageHeader, StatCard, FilterRow } from '@/components/ui/DataTable';
-import { cn } from '@/lib/utils';
+import { cn, listPayload } from '@/lib/utils';
 
 export default function EmployeeModule() {
   const [dept, setDept] = useState('ALL');
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, isError } = useQuery({
     queryKey: ['employees'],
     queryFn: () => resources.list('employees', { limit: 100, sortBy: 'name', sortDir: 'asc' }),
   });
 
-  const rows = (data as any)?.data || [];
+  const { rows, meta } = listPayload(data);
   const departments = useMemo(
     () => ['ALL', ...Array.from(new Set(rows.map((e: any) => e.department).filter(Boolean)))],
     [rows],
@@ -29,7 +29,7 @@ export default function EmployeeModule() {
       />
 
       <div className="grid sm:grid-cols-3 gap-4">
-        <StatCard label="Loaded records" value={(data as any)?.meta?.total ?? filtered.length} />
+        <StatCard label="Loaded records" value={meta?.total ?? filtered.length} />
         <StatCard label="Showing" value={filtered.length} />
         <StatCard label="Departments" value={Math.max(departments.length - 1, 0)} />
       </div>
@@ -47,8 +47,10 @@ export default function EmployeeModule() {
         ))}
       </FilterRow>
 
-      {isLoading ? (
-        <div className="panel p-8 text-center text-sm text-stone-500">Loading employees…</div>
+      {isError ? (
+        <div className="panel p-8 text-center text-sm text-status-danger">Failed to load employees. Is the API running?</div>
+      ) : isLoading ? (
+        <DataTable rows={[]} columns={[]} loading />
       ) : (
         <DataTable
           rows={filtered}

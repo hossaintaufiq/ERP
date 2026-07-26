@@ -70,6 +70,30 @@ export class DashboardService {
           acc[o.status] = (acc[o.status] || 0) + 1;
           return acc;
         }, {}),
+        stockStatus: inventory.reduce((acc: Record<string, number>, i) => {
+          const key = i.status || 'OK';
+          acc[key] = (acc[key] || 0) + 1;
+          return acc;
+        }, {}),
+        qcResults: qc.reduce((acc: Record<string, number>, q) => {
+          const key = q.result || 'Unknown';
+          acc[key] = (acc[key] || 0) + 1;
+          return acc;
+        }, {}),
+        lineEfficiency: Object.values(
+          production.reduce((acc: Record<string, { line: string; output: number; effSum: number; n: number }>, p) => {
+            const line = p.lineId || 'Unassigned';
+            if (!acc[line]) acc[line] = { line, output: 0, effSum: 0, n: 0 };
+            acc[line].output += p.completedQty || 0;
+            acc[line].effSum += p.efficiency || 0;
+            acc[line].n += 1;
+            return acc;
+          }, {}),
+        ).map((l: any) => ({
+          line: l.line,
+          output: l.output,
+          efficiency: l.n ? Math.round(l.effSum / l.n) : 0,
+        })),
       },
       alerts: [
         ...delayed.slice(0, 3).map((o) => ({

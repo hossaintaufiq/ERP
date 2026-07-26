@@ -2,14 +2,32 @@
 
 import React, { useMemo } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { ShieldCheck, CheckCircle2, XCircle } from 'lucide-react';
+import { Shield, Check, Minus } from 'lucide-react';
 import { resources } from '@/lib/api';
-import { PageHeader, StatCard } from '@/components/ui/DataTable';
+import { PageHeader } from '@/components/ui/DataTable';
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Separator } from '@/components/ui/separator';
+import { Skeleton } from '@/components/ui/skeleton';
+import { cn } from '@/lib/utils';
+import {
+  MODULE_ACCESS,
+  MODULE_LABELS,
+  canAccessModule,
+  describeAccess,
+  getAllowedModules,
+  type RoleRecord,
+} from '@/lib/rbac';
+import type { ModuleId } from '@/components/layout/Sidebar';
 
 interface RolesModuleProps {
   activeRole: string;
   setActiveRole: (r: string) => void;
 }
+
+const MATRIX_MODULES = (Object.keys(MODULE_ACCESS) as ModuleId[]).filter(
+  (id) => id !== 'roles' && id !== 'notifications',
+);
 
 export default function RolesModule({ activeRole, setActiveRole }: RolesModuleProps) {
   const rolesQ = useQuery({
@@ -21,119 +39,195 @@ export default function RolesModule({ activeRole, setActiveRole }: RolesModulePr
     queryFn: () => resources.list('users', { limit: 50 }),
   });
 
-  const roles = (rolesQ.data as any)?.data || [];
+  const roles: RoleRecord[] = (rolesQ.data as any)?.data || [];
   const users = (usersQ.data as any)?.data || [];
+  const selected = roles.find((r) => r.id === activeRole) || roles[0];
+  const allowed = useMemo(() => getAllowedModules(selected), [selected]);
 
-  const permissionCatalog = useMemo(() => {
-    const set = new Set<string>();
-    for (const r of roles) {
-      for (const p of r.permissions || []) {
-        if (p !== '*') set.add(p);
-      }
-    }
-    if (!set.size) {
-      [
-        'hr.*',
-        'employees.*',
-        'production.*',
-        'qc.*',
-        'inventory.*',
-        'finance.*',
-        'buyers.*',
-        'orders.*',
-      ].forEach((p) => set.add(p));
-    }
-    return Array.from(set).sort();
-  }, [roles]);
-
-  const hasPerm = (role: any, perm: string) => {
-    const perms: string[] = role.permissions || [];
-    if (perms.includes('*')) return true;
-    if (perms.includes(perm)) return true;
-    const [domain] = perm.split('.');
-    return perms.includes(`${domain}.*`);
-  };
+  const usersForRole = users.filter((u: any) => u.role === selected?.id);
 
   return (
-    <div className="space-y-6 animate-fade-up">
+    <div className="space-y-5 sm:space-y-6 animate-fade-up">
       <PageHeader
-        eyebrow="Module 19 · Security"
-        title="Roles & Permission Matrix"
-        description="Live RBAC definitions from the API. Switch role to simulate authorization context."
+        eyebrow="Security · RBAC"
+        title="Roles & permissions"
+        description="Select a role to apply its access profile. The sidebar and workspaces update immediately — no re-login required."
       />
 
-      <div className="grid sm:grid-cols-3 gap-4">
-        <StatCard label="Roles" value={roles.length} />
-        <StatCard label="Users" value={users.length} />
-        <StatCard label="Active context" value={activeRole} />
+      <div className="rounded-lg border border-border bg-muted/40 px-4 py-3 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm">
+        <div className="flex items-center gap-2 min-w-0">
+          <Shield className="w-4 h-4 text-muted-foreground shrink-0" />
+          <span className="text-muted-foreground shrink-0">Active persona</span>
+          <span className="font-semibold truncate">{selected?.name || activeRole}</span>
+        </div>
+        <Separator orientation="vertical" className="hidden sm:block h-5" />
+        <span className="text-xs text-muted-foreground">
+          {allowed.length} modules visible · {describeAccess(selected)}
+        </span>
       </div>
 
-      {rolesQ.isLoading ? (
-        <div className="panel p-8 text-center text-sm text-stone-500">Loading roles…</div>
-      ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {roles.map((r: any) => {
-            const selected = activeRole === r.id;
-            return (
-              <button
-                key={r.id}
-                type="button"
-                onClick={() => setActiveRole(r.id)}
-                className={`panel p-4 text-left border-2 space-y-2 ${
-                  selected ? 'border-brand-600 shadow-md' : 'border-transparent hover:border-stone-300'
-                }`}
-              >
-                <div className="flex justify-between items-start">
-                  <ShieldCheck className="w-5 h-5 text-brand-600" />
-                  <span className="text-[10px] px-2 py-0.5 rounded font-bold bg-stone-100 dark:bg-stone-800">
-                    {r.id}
-                  </span>
-                </div>
-                <div className="font-bold text-sm">{r.name}</div>
-                <div className="text-[11px] text-stone-400">
-                  {(r.permissions || []).includes('*')
-                    ? 'Full access (*)'
-                    : `${(r.permissions || []).length} permission grants`}
-                </div>
-                <div className="text-[11px] font-semibold text-brand-700">
-                  {selected ? '✓ Active simulation role' : 'Click to simulate'}
-                </div>
-              </button>
-            );
-          })}
-        </div>
-      )}
+      <div className="grid grid-cols-1 xl:grid-cols-[280px_1fr] gap-4 sm:gap-5">
+        {/* Role list */}
+        <Card className="shadow-none border-border/80 overflow-hidden h-fit">
+          <CardHeader className="py-3 px-4 border-b border-border/80 space-y-0">
+            <CardTitle className="text-sm font-semibold">Roles</CardTitle>
+            <CardDescription className="text-xs">Click to activate access profile</CardDescription>
+          </CardHeader>
+          <CardContent className="p-0">
+            {rolesQ.isLoading ? (
+              <div className="p-4 space-y-2">
+                <Skeleton className="h-10 w-full" />
+                <Skeleton className="h-10 w-full" />
+                <Skeleton className="h-10 w-full" />
+              </div>
+            ) : (
+              <ul className="divide-y divide-border/70 max-h-[28rem] overflow-y-auto">
+                {roles.map((r) => {
+                  const isActive = r.id === (selected?.id || activeRole);
+                  const count = getAllowedModules(r).length;
+                  return (
+                    <li key={r.id}>
+                      <button
+                        type="button"
+                        onClick={() => setActiveRole(r.id)}
+                        className={cn(
+                          'w-full text-left px-4 py-3 transition-colors touch-manipulation',
+                          isActive ? 'bg-primary/10 border-l-2 border-l-primary' : 'hover:bg-muted/60 border-l-2 border-l-transparent',
+                        )}
+                      >
+                        <div className="flex items-start justify-between gap-2">
+                          <div className="min-w-0">
+                            <div className={cn('text-sm font-medium truncate', isActive && 'text-primary')}>
+                              {r.name}
+                            </div>
+                            <div className="text-[11px] text-muted-foreground font-mono mt-0.5">{r.id}</div>
+                          </div>
+                          <Badge variant="secondary" className="text-[10px] shrink-0 font-normal">
+                            {count}
+                          </Badge>
+                        </div>
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
+          </CardContent>
+        </Card>
 
-      <div className="panel p-5 space-y-4 overflow-x-auto">
-        <h3 className="font-bold text-sm">Permission matrix</h3>
-        <table className="w-full text-left text-xs border-collapse min-w-[640px]">
-          <thead>
-            <tr className="border-b border-stone-200 dark:border-stone-800 text-stone-400 uppercase text-[10px]">
-              <th className="py-2.5 px-3">Permission</th>
-              {roles.map((r: any) => (
-                <th key={r.id} className="py-2.5 px-2 text-center">
-                  {r.id}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-stone-100 dark:divide-stone-800">
-            {permissionCatalog.map((perm) => (
-              <tr key={perm}>
-                <td className="py-2.5 px-3 font-semibold">{perm}</td>
-                {roles.map((r: any) => (
-                  <td key={r.id} className="py-2.5 px-2 text-center">
-                    {hasPerm(r, perm) ? (
-                      <CheckCircle2 className="w-4 h-4 text-emerald-500 mx-auto" />
-                    ) : (
-                      <XCircle className="w-4 h-4 text-stone-300 dark:text-stone-700 mx-auto" />
-                    )}
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        {/* Role detail */}
+        <div className="space-y-4 min-w-0">
+          <Card className="shadow-none border-border/80">
+            <CardHeader className="pb-3">
+              <div className="flex flex-wrap items-start justify-between gap-3">
+                <div>
+                  <CardTitle className="text-base">{selected?.name || '—'}</CardTitle>
+                  <CardDescription className="mt-1 text-xs font-mono">{selected?.id}</CardDescription>
+                </div>
+                <Badge variant="outline" className="font-normal">
+                  {(selected?.permissions || []).includes('*') ? 'Superuser' : 'Scoped'}
+                </Badge>
+              </div>
+            </CardHeader>
+            <CardContent className="space-y-4 pt-0">
+              <div>
+                <div className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground mb-2">
+                  Permission grants
+                </div>
+                <div className="flex flex-wrap gap-1.5">
+                  {(selected?.permissions || []).map((p) => (
+                    <span
+                      key={p}
+                      className="inline-flex items-center rounded border border-border bg-muted/50 px-2 py-0.5 text-[11px] font-mono text-foreground/80"
+                    >
+                      {p}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <Separator />
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 text-sm">
+                <div>
+                  <div className="text-[11px] text-muted-foreground">Modules</div>
+                  <div className="font-semibold tabular-nums">{allowed.length}</div>
+                </div>
+                <div>
+                  <div className="text-[11px] text-muted-foreground">Assigned users</div>
+                  <div className="font-semibold tabular-nums">{usersForRole.length}</div>
+                </div>
+                <div>
+                  <div className="text-[11px] text-muted-foreground">Total roles</div>
+                  <div className="font-semibold tabular-nums">{roles.length}</div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="shadow-none border-border/80 overflow-hidden">
+            <CardHeader className="py-3 px-4 border-b border-border/80 space-y-0">
+              <CardTitle className="text-sm font-semibold">Module access matrix</CardTitle>
+              <CardDescription className="text-xs">
+                Checkmarks show what the selected role can open. Other columns compare every role.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="p-0 overflow-x-auto">
+              <table className="w-full text-left text-xs min-w-[720px] border-collapse">
+                <thead>
+                  <tr className="bg-muted/50 border-b border-border">
+                    <th className="sticky left-0 z-10 bg-muted/95 backdrop-blur py-2.5 px-3 font-semibold text-muted-foreground w-44">
+                      Module
+                    </th>
+                    {roles.map((r) => (
+                      <th
+                        key={r.id}
+                        className={cn(
+                          'py-2.5 px-2 text-center font-medium whitespace-nowrap',
+                          r.id === selected?.id ? 'text-primary bg-primary/5' : 'text-muted-foreground',
+                        )}
+                      >
+                        {r.name}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {MATRIX_MODULES.map((mod) => (
+                    <tr key={mod} className="border-b border-border/60 hover:bg-muted/30">
+                      <td className="sticky left-0 z-10 bg-card py-2 px-3 font-medium text-foreground/90">
+                        {MODULE_LABELS[mod]}
+                      </td>
+                      {roles.map((r) => {
+                        const ok = canAccessModule(r, mod);
+                        const highlight = r.id === selected?.id;
+                        return (
+                          <td
+                            key={r.id}
+                            className={cn(
+                              'py-2 px-2 text-center',
+                              highlight && 'bg-primary/5',
+                            )}
+                          >
+                            {ok ? (
+                              <Check
+                                className={cn(
+                                  'w-3.5 h-3.5 mx-auto',
+                                  highlight ? 'text-primary' : 'text-muted-foreground',
+                                )}
+                                strokeWidth={2.5}
+                              />
+                            ) : (
+                              <Minus className="w-3.5 h-3.5 mx-auto text-border" strokeWidth={2} />
+                            )}
+                          </td>
+                        );
+                      })}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </div>
   );

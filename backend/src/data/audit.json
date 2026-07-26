@@ -4054,5 +4054,18 @@
     "id": "2df00db9-fc24-473a-a81f-3c0b0cf40958",
     "createdAt": "2026-07-26T14:52:45.550Z",
     "updatedAt": "2026-07-26T14:52:45.550Z"
+  },
+  {
+    "action": "LOGIN",
+    "entity": "User",
+    "entityId": "user-1",
+    "userId": "user-1",
+    "userName": "Al-Mustafiz Rahman",
+    "details": "User logged in",
+    "ip": "0.0.0.0",
+    "companyId": "co-1",
+    "id": "f5bb5cd5-63bb-4f6c-9c9e-6c1090dbc3d0",
+    "createdAt": "2026-07-26T15:02:43.215Z",
+    "updatedAt": "2026-07-26T15:02:43.215Z"
   }
 ]

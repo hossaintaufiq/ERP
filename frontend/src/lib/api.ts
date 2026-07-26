@@ -35,6 +35,9 @@ api.interceptors.response.use(
           localStorage.removeItem('ge_access_token');
           localStorage.removeItem('ge_refresh_token');
           localStorage.removeItem('ge_user');
+          if (typeof window !== 'undefined') {
+            window.dispatchEvent(new Event('ge:auth-expired'));
+          }
         }
       }
     }

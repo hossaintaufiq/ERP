@@ -65,13 +65,14 @@ async function main() {
     { id: 'owner', name: 'Owner', permissions: ['*'] },
     { id: 'ceo', name: 'CEO', permissions: ['*'] },
     { id: 'admin', name: 'Admin', permissions: ['*'] },
-    { id: 'hr', name: 'HR Manager', permissions: ['hr.*', 'employees.*', 'attendance.*', 'leave.*', 'payroll.read'] },
-    { id: 'factory_manager', name: 'Factory Manager', permissions: ['production.*', 'qc.*', 'machines.*', 'employees.read'] },
-    { id: 'store_manager', name: 'Store Manager', permissions: ['inventory.*', 'warehouse.*', 'procurement.*'] },
+    { id: 'hr', name: 'HR Manager', permissions: ['hr.*', 'employees.*', 'attendance.*', 'leave.*', 'payroll.read', 'payroll.*'] },
+    { id: 'factory_manager', name: 'Factory Manager', permissions: ['production.*', 'qc.*', 'machines.*', 'employees.read', 'shipments.*', 'inventory.*'] },
+    { id: 'store_manager', name: 'Store Manager', permissions: ['inventory.*', 'warehouse.*', 'procurement.*', 'suppliers.*', 'bom.*'] },
     { id: 'operator', name: 'Operator', permissions: ['production.read', 'production.write.output'] },
     { id: 'qc_inspector', name: 'QC Inspector', permissions: ['qc.*', 'production.read'] },
-    { id: 'accountant', name: 'Accountant', permissions: ['finance.*', 'reports.finance'] },
-    { id: 'merchandiser', name: 'Merchandiser', permissions: ['buyers.*', 'orders.*', 'styles.*', 'bom.*'] },
+    { id: 'accountant', name: 'Accountant', permissions: ['finance.*', 'invoices.*', 'expenses.*', 'reports.finance', 'reports.*'] },
+    { id: 'merchandiser', name: 'Merchandiser', permissions: ['buyers.*', 'orders.*', 'styles.*', 'bom.*', 'leads.*', 'quotations.*'] },
+    { id: 'cutting_master', name: 'Cutting Master', permissions: ['production.*', 'production.read', 'inventory.*', 'bom.*', 'styles.*'] },
   ];
 
   const users = [

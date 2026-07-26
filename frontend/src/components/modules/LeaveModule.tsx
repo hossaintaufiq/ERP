@@ -3,12 +3,14 @@
 import React, { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { resources } from '@/lib/api';
-import { DataTable, PageHeader } from '@/components/ui/DataTable';
+import { DataTable, PageHeader, FilterRow } from '@/components/ui/DataTable';
+import { Button } from '@/components/ui/button';
+import { cn, listPayload } from '@/lib/utils';
 
 export default function LeaveModule() {
   const qc = useQueryClient();
   const [status, setStatus] = useState('ALL');
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, isError } = useQuery({
     queryKey: ['leave', status],
     queryFn: () =>
       resources.list('leave', {
@@ -22,7 +24,7 @@ export default function LeaveModule() {
     onSuccess: () => qc.invalidateQueries({ queryKey: ['leave'] }),
   });
 
-  const rows = (data as any)?.data || [];
+  const { rows } = listPayload(data);
 
   return (
     <div className="space-y-6 animate-fade-up">
@@ -30,25 +32,26 @@ export default function LeaveModule() {
         eyebrow="HR · Leave Management"
         title="Leave Requests & Approvals"
         description="Manage annual, sick, casual and unpaid leave across the factory workforce."
-        actions={
-          <div className="flex gap-1 bg-stone-100 dark:bg-stone-800 p-1 rounded-lg text-xs font-medium">
-            {['ALL', 'Pending', 'Approved', 'Rejected'].map((s) => (
-              <button
-                key={s}
-                onClick={() => setStatus(s)}
-                className={`px-3 py-1.5 rounded-md ${status === s ? 'bg-brand-600 text-white' : 'text-stone-600 dark:text-stone-300'}`}
-              >
-                {s}
-              </button>
-            ))}
-          </div>
-        }
       />
 
-      {isLoading ? (
-        <div className="panel p-8 text-center text-sm text-stone-500">Loading leave records…</div>
+      <FilterRow>
+        {['ALL', 'Pending', 'Approved', 'Rejected'].map((s) => (
+          <button
+            key={s}
+            type="button"
+            onClick={() => setStatus(s)}
+            className={cn('filter-chip', status === s ? 'filter-chip-active' : 'filter-chip-idle')}
+          >
+            {s}
+          </button>
+        ))}
+      </FilterRow>
+
+      {isError ? (
+        <div className="panel p-8 text-center text-sm text-status-danger">Failed to load leave records.</div>
       ) : (
         <DataTable
+          loading={isLoading}
           rows={rows}
           columns={[
             { key: 'employeeName', header: 'Employee' },
@@ -60,7 +63,15 @@ export default function LeaveModule() {
               key: 'status',
               header: 'Status',
               render: (r: any) => (
-                <span className={`badge ${r.status === 'Approved' ? 'status-success' : r.status === 'Pending' ? 'status-warning' : 'status-danger'}`}>
+                <span
+                  className={`badge ${
+                    r.status === 'Approved'
+                      ? 'status-success'
+                      : r.status === 'Pending'
+                        ? 'status-warning'
+                        : 'status-danger'
+                  }`}
+                >
                   {r.status}
                 </span>
               ),
@@ -70,9 +81,15 @@ export default function LeaveModule() {
               header: '',
               render: (r: any) =>
                 r.status === 'Pending' ? (
-                  <button className="text-xs font-semibold text-accent" onClick={() => approve.mutate(r.id)}>
+                  <Button
+                    variant="link"
+                    size="sm"
+                    className="h-auto p-0"
+                    disabled={approve.isPending}
+                    onClick={() => approve.mutate(r.id)}
+                  >
                     Approve
-                  </button>
+                  </Button>
                 ) : null,
             },
           ]}

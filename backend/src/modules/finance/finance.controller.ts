@@ -27,12 +27,43 @@ export class FinanceController {
       marginPct: 28,
     }));
 
+    const expenseByCategory = expenses.reduce((acc: Record<string, number>, e) => {
+      const key = e.category || 'Other';
+      acc[key] = (acc[key] || 0) + (e.amount || 0);
+      return acc;
+    }, {});
+
+    const revenue = invoices.reduce((s, i) => s + (i.paidAmount || 0), 0);
+    const receivables = invoices.reduce((s, i) => s + (i.amount - (i.paidAmount || 0)), 0);
+    const payables = suppliers.reduce((s, x) => s + (x.apBalance || 0), 0);
+    const expenseTotal = expenses.reduce((s, e) => s + e.amount, 0);
+
     return {
       ...(finance[0] || {}),
       invoiceCount: invoices.length,
-      expenseTotal: expenses.reduce((s, e) => s + e.amount, 0),
-      payables: suppliers.reduce((s, x) => s + (x.apBalance || 0), 0),
+      expenseTotal,
+      revenue: finance[0]?.revenue ?? revenue,
+      receivables: finance[0]?.receivables ?? receivables,
+      payables,
       profitability,
+      cashPosition: [
+        { name: 'Collected', value: finance[0]?.revenue ?? revenue },
+        { name: 'Receivables', value: finance[0]?.receivables ?? receivables },
+        { name: 'Payables', value: payables },
+        { name: 'Expenses', value: expenseTotal },
+      ],
+      expenseByCategory: Object.entries(expenseByCategory).map(([name, value]) => ({
+        name,
+        value,
+      })),
+      topMargins: profitability
+        .slice()
+        .sort((a, b) => b.margin - a.margin)
+        .slice(0, 8)
+        .map((p) => ({
+          order: p.orderNumber,
+          margin: p.margin,
+        })),
     };
   }
 }

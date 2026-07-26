@@ -2,86 +2,56 @@
   {
     "id": "owner",
     "name": "Owner",
-    "permissions": [
-      "*"
-    ]
+    "permissions": ["*"]
   },
   {
     "id": "ceo",
     "name": "CEO",
-    "permissions": [
-      "*"
-    ]
+    "permissions": ["*"]
   },
   {
     "id": "admin",
     "name": "Admin",
-    "permissions": [
-      "*"
-    ]
+    "permissions": ["*"]
   },
   {
     "id": "hr",
     "name": "HR Manager",
-    "permissions": [
-      "hr.*",
-      "employees.*",
-      "attendance.*",
-      "leave.*",
-      "payroll.read"
-    ]
+    "permissions": ["hr.*", "employees.*", "attendance.*", "leave.*", "payroll.read", "payroll.*"]
   },
   {
     "id": "factory_manager",
     "name": "Factory Manager",
-    "permissions": [
-      "production.*",
-      "qc.*",
-      "machines.*",
-      "employees.read"
-    ]
+    "permissions": ["production.*", "qc.*", "machines.*", "employees.read", "shipments.*", "inventory.*"]
   },
   {
     "id": "store_manager",
     "name": "Store Manager",
-    "permissions": [
-      "inventory.*",
-      "warehouse.*",
-      "procurement.*"
-    ]
+    "permissions": ["inventory.*", "warehouse.*", "procurement.*", "suppliers.*", "bom.*"]
   },
   {
     "id": "operator",
     "name": "Operator",
-    "permissions": [
-      "production.read",
-      "production.write.output"
-    ]
+    "permissions": ["production.read", "production.write.output"]
   },
   {
     "id": "qc_inspector",
     "name": "QC Inspector",
-    "permissions": [
-      "qc.*",
-      "production.read"
-    ]
+    "permissions": ["qc.*", "production.read"]
   },
   {
     "id": "accountant",
     "name": "Accountant",
-    "permissions": [
-      "finance.*",
-      "reports.finance"
-    ]
+    "permissions": ["finance.*", "invoices.*", "expenses.*", "reports.finance", "reports.*"]
   },
   {
     "id": "merchandiser",
     "name": "Merchandiser",
-    "permissions": [
-      "buyers.*",
-      "orders.*",
-      "styles.*",
-      "bom.*"
-    ]
+    "permissions": ["buyers.*", "orders.*", "styles.*", "bom.*", "leads.*", "quotations.*"]
+  },
+  {
+    "id": "cutting_master",
+    "name": "Cutting Master",
+    "permissions": ["production.*", "production.read", "inventory.*", "bom.*", "styles.*"]
   }
 ]

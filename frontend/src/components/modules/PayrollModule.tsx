@@ -3,7 +3,8 @@
 import React, { useMemo, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { resources } from '@/lib/api';
-import { DataTable, PageHeader, StatCard } from '@/components/ui/DataTable';
+import { DataTable, PageHeader, StatCard, FilterRow } from '@/components/ui/DataTable';
+import { cn } from '@/lib/utils';
 
 export default function PayrollModule() {
   const [period, setPeriod] = useState('ALL');
@@ -33,20 +34,18 @@ export default function PayrollModule() {
         <StatCard label="Net payroll" value={`BDT ${Math.round(net / 1000).toLocaleString()}k`} />
       </div>
 
-      <div className="flex flex-wrap gap-1.5">
+      <FilterRow>
         {periods.map((p: any) => (
           <button
             key={p}
             type="button"
             onClick={() => setPeriod(p)}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold ${
-              period === p ? 'bg-brand-600 text-white' : 'bg-stone-100 dark:bg-stone-800 text-stone-600'
-            }`}
+            className={cn('filter-chip', period === p ? 'filter-chip-active' : 'filter-chip-idle')}
           >
             {p}
           </button>
         ))}
-      </div>
+      </FilterRow>
 
       {isLoading ? (
         <div className="panel p-8 text-center text-sm text-stone-500">Loading payroll…</div>

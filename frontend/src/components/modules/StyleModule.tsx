@@ -3,7 +3,8 @@
 import React, { useMemo, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { resources } from '@/lib/api';
-import { DataTable, PageHeader, StatCard } from '@/components/ui/DataTable';
+import { DataTable, PageHeader, StatCard, FilterRow } from '@/components/ui/DataTable';
+import { cn } from '@/lib/utils';
 import type { ModuleId } from '@/components/layout/Sidebar';
 
 export default function StyleModule({ setActiveModule }: { setActiveModule?: (m: ModuleId) => void }) {
@@ -47,20 +48,18 @@ export default function StyleModule({ setActiveModule }: { setActiveModule?: (m:
         />
       </div>
 
-      <div className="flex flex-wrap gap-1.5">
+      <FilterRow>
         {seasons.map((s: any) => (
           <button
             key={s}
             type="button"
             onClick={() => setSeason(s)}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold ${
-              season === s ? 'bg-brand-600 text-white' : 'bg-stone-100 dark:bg-stone-800 text-stone-600'
-            }`}
+            className={cn('filter-chip', season === s ? 'filter-chip-active' : 'filter-chip-idle')}
           >
             {s}
           </button>
         ))}
-      </div>
+      </FilterRow>
 
       {isLoading ? (
         <div className="panel p-8 text-center text-sm text-stone-500">Loading styles…</div>

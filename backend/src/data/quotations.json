@@ -1,0 +1,156 @@
+[
+  {
+    "id": "qt-1",
+    "quotationNumber": "QT-2026-1",
+    "leadId": "lead-4",
+    "amount": 363846,
+    "validUntil": "2026-08-25",
+    "status": "Accepted",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.288Z",
+    "updatedAt": "2026-07-26T14:41:23.288Z"
+  },
+  {
+    "id": "qt-2",
+    "quotationNumber": "QT-2026-2",
+    "leadId": "lead-7",
+    "amount": 81223,
+    "validUntil": "2026-08-25",
+    "status": "Accepted",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.288Z",
+    "updatedAt": "2026-07-26T14:41:23.288Z"
+  },
+  {
+    "id": "qt-3",
+    "quotationNumber": "QT-2026-3",
+    "leadId": "lead-8",
+    "amount": 412592,
+    "validUntil": "2026-08-25",
+    "status": "Sent",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.288Z",
+    "updatedAt": "2026-07-26T14:41:23.288Z"
+  },
+  {
+    "id": "qt-4",
+    "quotationNumber": "QT-2026-4",
+    "leadId": "lead-9",
+    "amount": 112088,
+    "validUntil": "2026-08-25",
+    "status": "Sent",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.288Z",
+    "updatedAt": "2026-07-26T14:41:23.288Z"
+  },
+  {
+    "id": "qt-5",
+    "quotationNumber": "QT-2026-5",
+    "leadId": "lead-14",
+    "amount": 137943,
+    "validUntil": "2026-08-25",
+    "status": "Accepted",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.288Z",
+    "updatedAt": "2026-07-26T14:41:23.288Z"
+  },
+  {
+    "id": "qt-6",
+    "quotationNumber": "QT-2026-6",
+    "leadId": "lead-15",
+    "amount": 97133,
+    "validUntil": "2026-08-25",
+    "status": "Sent",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.288Z",
+    "updatedAt": "2026-07-26T14:41:23.288Z"
+  },
+  {
+    "id": "qt-7",
+    "quotationNumber": "QT-2026-7",
+    "leadId": "lead-17",
+    "amount": 192177,
+    "validUntil": "2026-08-25",
+    "status": "Accepted",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.288Z",
+    "updatedAt": "2026-07-26T14:41:23.288Z"
+  },
+  {
+    "id": "qt-8",
+    "quotationNumber": "QT-2026-8",
+    "leadId": "lead-24",
+    "amount": 430933,
+    "validUntil": "2026-08-25",
+    "status": "Accepted",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.288Z",
+    "updatedAt": "2026-07-26T14:41:23.288Z"
+  },
+  {
+    "id": "qt-9",
+    "quotationNumber": "QT-2026-9",
+    "leadId": "lead-25",
+    "amount": 133522,
+    "validUntil": "2026-08-25",
+    "status": "Accepted",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.288Z",
+    "updatedAt": "2026-07-26T14:41:23.288Z"
+  },
+  {
+    "id": "qt-10",
+    "quotationNumber": "QT-2026-10",
+    "leadId": "lead-26",
+    "amount": 339382,
+    "validUntil": "2026-08-25",
+    "status": "Accepted",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.288Z",
+    "updatedAt": "2026-07-26T14:41:23.288Z"
+  },
+  {
+    "id": "qt-11",
+    "quotationNumber": "QT-2026-11",
+    "leadId": "lead-28",
+    "amount": 443130,
+    "validUntil": "2026-08-25",
+    "status": "Sent",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.288Z",
+    "updatedAt": "2026-07-26T14:41:23.288Z"
+  },
+  {
+    "id": "qt-12",
+    "quotationNumber": "QT-2026-12",
+    "leadId": "lead-29",
+    "amount": 448496,
+    "validUntil": "2026-08-25",
+    "status": "Sent",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.288Z",
+    "updatedAt": "2026-07-26T14:41:23.288Z"
+  },
+  {
+    "id": "qt-13",
+    "quotationNumber": "QT-2026-13",
+    "leadId": "lead-30",
+    "amount": 362500,
+    "validUntil": "2026-08-25",
+    "status": "Accepted",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.288Z",
+    "updatedAt": "2026-07-26T14:41:23.288Z"
+  },
+  {
+    "id": "qt-14",
+    "quotationNumber": "QT-2026-14",
+    "leadId": "lead-34",
+    "amount": 187623,
+    "validUntil": "2026-08-25",
+    "status": "Accepted",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.288Z",
+    "updatedAt": "2026-07-26T14:41:23.288Z"
+  }
+]

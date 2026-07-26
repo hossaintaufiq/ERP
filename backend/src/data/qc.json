@@ -1,0 +1,3636 @@
+[
+  {
+    "id": "qc-1",
+    "orderId": "ord-151",
+    "orderNumber": "SO-1150",
+    "gate": "Finishing",
+    "inspector": "Rahim Ahmed",
+    "inspectedQty": 1761,
+    "defectQty": 25,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-07-13",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-2",
+    "orderId": "ord-137",
+    "orderNumber": "SO-1136",
+    "gate": "Cutting",
+    "inspector": "Jamal Akter",
+    "inspectedQty": 1107,
+    "defectQty": 34,
+    "defectTypes": [
+      "Measurement"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-06-14",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-3",
+    "orderId": "ord-18",
+    "orderNumber": "SO-1017",
+    "gate": "Final AQL",
+    "inspector": "Jamal Chowdhury",
+    "inspectedQty": 1594,
+    "defectQty": 54,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-07-06",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-4",
+    "orderId": "ord-80",
+    "orderNumber": "SO-1079",
+    "gate": "Sewing Inline",
+    "inspector": "Rahim Khan",
+    "inspectedQty": 1670,
+    "defectQty": 10,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-07",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-5",
+    "orderId": "ord-38",
+    "orderNumber": "SO-1037",
+    "gate": "Final AQL",
+    "inspector": "Karim Uddin",
+    "inspectedQty": 1202,
+    "defectQty": 37,
+    "defectTypes": [
+      "Measurement"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-07-14",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-6",
+    "orderId": "ord-160",
+    "orderNumber": "SO-1159",
+    "gate": "Final AQL",
+    "inspector": "Mitu Rahman",
+    "inspectedQty": 1519,
+    "defectQty": 10,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-06-28",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-7",
+    "orderId": "ord-158",
+    "orderNumber": "SO-1157",
+    "gate": "Final AQL",
+    "inspector": "Shila Rahman",
+    "inspectedQty": 548,
+    "defectQty": 38,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-11",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-8",
+    "orderId": "ord-41",
+    "orderNumber": "SO-1040",
+    "gate": "Final AQL",
+    "inspector": "Fatema Hossain",
+    "inspectedQty": 1788,
+    "defectQty": 60,
+    "defectTypes": [
+      "Measurement"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-07-25",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-9",
+    "orderId": "ord-87",
+    "orderNumber": "SO-1086",
+    "gate": "Cutting",
+    "inspector": "Rahim Siddique",
+    "inspectedQty": 508,
+    "defectQty": 60,
+    "defectTypes": [
+      "Shade"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-07-06",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-10",
+    "orderId": "ord-98",
+    "orderNumber": "SO-1097",
+    "gate": "Sewing Inline",
+    "inspector": "Jamal Begum",
+    "inspectedQty": 1384,
+    "defectQty": 22,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-09",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-11",
+    "orderId": "ord-35",
+    "orderNumber": "SO-1034",
+    "gate": "Cutting",
+    "inspector": "Shila Uddin",
+    "inspectedQty": 140,
+    "defectQty": 33,
+    "defectTypes": [
+      "Shade"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-06-24",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-12",
+    "orderId": "ord-136",
+    "orderNumber": "SO-1135",
+    "gate": "Finishing",
+    "inspector": "Rahim Siddique",
+    "inspectedQty": 1383,
+    "defectQty": 18,
+    "defectTypes": [
+      "Broken Stitch",
+      "Skip"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-06-30",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-13",
+    "orderId": "ord-145",
+    "orderNumber": "SO-1144",
+    "gate": "Sewing Inline",
+    "inspector": "Rafiq Akter",
+    "inspectedQty": 1617,
+    "defectQty": 69,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-07-19",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-14",
+    "orderId": "ord-68",
+    "orderNumber": "SO-1067",
+    "gate": "Cutting",
+    "inspector": "Imran Rahman",
+    "inspectedQty": 758,
+    "defectQty": 60,
+    "defectTypes": [
+      "Measurement"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-07-04",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-15",
+    "orderId": "ord-16",
+    "orderNumber": "SO-1015",
+    "gate": "Final AQL",
+    "inspector": "Fatema Chowdhury",
+    "inspectedQty": 1028,
+    "defectQty": 30,
+    "defectTypes": [
+      "Broken Stitch",
+      "Skip"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-06-24",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-16",
+    "orderId": "ord-146",
+    "orderNumber": "SO-1145",
+    "gate": "Sewing Inline",
+    "inspector": "Rina Khan",
+    "inspectedQty": 1995,
+    "defectQty": 45,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-23",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-17",
+    "orderId": "ord-142",
+    "orderNumber": "SO-1141",
+    "gate": "Finishing",
+    "inspector": "Kabir Chowdhury",
+    "inspectedQty": 1142,
+    "defectQty": 41,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-06-29",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-18",
+    "orderId": "ord-69",
+    "orderNumber": "SO-1068",
+    "gate": "Finishing",
+    "inspector": "Anwar Khan",
+    "inspectedQty": 1552,
+    "defectQty": 13,
+    "defectTypes": [
+      "Shade"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-05",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-19",
+    "orderId": "ord-43",
+    "orderNumber": "SO-1042",
+    "gate": "Finishing",
+    "inspector": "Hasan Uddin",
+    "inspectedQty": 1688,
+    "defectQty": 35,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-06-12",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-20",
+    "orderId": "ord-50",
+    "orderNumber": "SO-1049",
+    "gate": "Finishing",
+    "inspector": "Mitu Hossain",
+    "inspectedQty": 1062,
+    "defectQty": 53,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-15",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-21",
+    "orderId": "ord-22",
+    "orderNumber": "SO-1021",
+    "gate": "Final AQL",
+    "inspector": "Salma Islam",
+    "inspectedQty": 1078,
+    "defectQty": 49,
+    "defectTypes": [
+      "Broken Stitch",
+      "Skip"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-07-10",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-22",
+    "orderId": "ord-169",
+    "orderNumber": "SO-1168",
+    "gate": "Final AQL",
+    "inspector": "Rahim Khan",
+    "inspectedQty": 1272,
+    "defectQty": 37,
+    "defectTypes": [
+      "Broken Stitch",
+      "Skip"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-07-26",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-23",
+    "orderId": "ord-138",
+    "orderNumber": "SO-1137",
+    "gate": "Final AQL",
+    "inspector": "Nasrin Hossain",
+    "inspectedQty": 1179,
+    "defectQty": 25,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-22",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-24",
+    "orderId": "ord-28",
+    "orderNumber": "SO-1027",
+    "gate": "Final AQL",
+    "inspector": "Kabir Siddique",
+    "inspectedQty": 1258,
+    "defectQty": 37,
+    "defectTypes": [
+      "Measurement"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-06-29",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-25",
+    "orderId": "ord-174",
+    "orderNumber": "SO-1173",
+    "gate": "Finishing",
+    "inspector": "Jamal Chowdhury",
+    "inspectedQty": 404,
+    "defectQty": 77,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-09",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-26",
+    "orderId": "ord-82",
+    "orderNumber": "SO-1081",
+    "gate": "Sewing Inline",
+    "inspector": "Anwar Begum",
+    "inspectedQty": 1432,
+    "defectQty": 72,
+    "defectTypes": [
+      "Broken Stitch",
+      "Skip"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-06-17",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-27",
+    "orderId": "ord-38",
+    "orderNumber": "SO-1037",
+    "gate": "Finishing",
+    "inspector": "Hasan Hossain",
+    "inspectedQty": 1019,
+    "defectQty": 16,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-06-22",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-28",
+    "orderId": "ord-162",
+    "orderNumber": "SO-1161",
+    "gate": "Cutting",
+    "inspector": "Mitu Hossain",
+    "inspectedQty": 797,
+    "defectQty": 72,
+    "defectTypes": [
+      "Broken Stitch",
+      "Skip"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-07-01",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-29",
+    "orderId": "ord-62",
+    "orderNumber": "SO-1061",
+    "gate": "Final AQL",
+    "inspector": "Salma Ahmed",
+    "inspectedQty": 1961,
+    "defectQty": 29,
+    "defectTypes": [
+      "Measurement"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-15",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-30",
+    "orderId": "ord-1",
+    "orderNumber": "SO-1000",
+    "gate": "Final AQL",
+    "inspector": "Salma Khan",
+    "inspectedQty": 1477,
+    "defectQty": 32,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-06-20",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-31",
+    "orderId": "ord-18",
+    "orderNumber": "SO-1017",
+    "gate": "Finishing",
+    "inspector": "Rina Islam",
+    "inspectedQty": 761,
+    "defectQty": 75,
+    "defectTypes": [
+      "Shade"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-06-19",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-32",
+    "orderId": "ord-150",
+    "orderNumber": "SO-1149",
+    "gate": "Final AQL",
+    "inspector": "Hasan Akter",
+    "inspectedQty": 986,
+    "defectQty": 75,
+    "defectTypes": [
+      "Broken Stitch",
+      "Skip"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-07-10",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-33",
+    "orderId": "ord-91",
+    "orderNumber": "SO-1090",
+    "gate": "Sewing Inline",
+    "inspector": "Hasan Islam",
+    "inspectedQty": 1119,
+    "defectQty": 52,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-18",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-34",
+    "orderId": "ord-37",
+    "orderNumber": "SO-1036",
+    "gate": "Finishing",
+    "inspector": "Karim Begum",
+    "inspectedQty": 456,
+    "defectQty": 24,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-06-12",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-35",
+    "orderId": "ord-14",
+    "orderNumber": "SO-1013",
+    "gate": "Final AQL",
+    "inspector": "Rafiq Uddin",
+    "inspectedQty": 291,
+    "defectQty": 45,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-06-21",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-36",
+    "orderId": "ord-71",
+    "orderNumber": "SO-1070",
+    "gate": "Finishing",
+    "inspector": "Shila Rahman",
+    "inspectedQty": 1154,
+    "defectQty": 14,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-06-27",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-37",
+    "orderId": "ord-21",
+    "orderNumber": "SO-1020",
+    "gate": "Cutting",
+    "inspector": "Shila Uddin",
+    "inspectedQty": 1214,
+    "defectQty": 46,
+    "defectTypes": [
+      "Shade"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-06-11",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-38",
+    "orderId": "ord-125",
+    "orderNumber": "SO-1124",
+    "gate": "Finishing",
+    "inspector": "Rina Rahman",
+    "inspectedQty": 105,
+    "defectQty": 26,
+    "defectTypes": [
+      "Shade"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-07-09",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-39",
+    "orderId": "ord-35",
+    "orderNumber": "SO-1034",
+    "gate": "Sewing Inline",
+    "inspector": "Jamal Hossain",
+    "inspectedQty": 507,
+    "defectQty": 50,
+    "defectTypes": [
+      "Shade"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-06-22",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-40",
+    "orderId": "ord-41",
+    "orderNumber": "SO-1040",
+    "gate": "Finishing",
+    "inspector": "Mitu Hossain",
+    "inspectedQty": 1798,
+    "defectQty": 22,
+    "defectTypes": [
+      "Shade"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-19",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-41",
+    "orderId": "ord-10",
+    "orderNumber": "SO-1009",
+    "gate": "Finishing",
+    "inspector": "Rafiq Akter",
+    "inspectedQty": 837,
+    "defectQty": 69,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-03",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-42",
+    "orderId": "ord-43",
+    "orderNumber": "SO-1042",
+    "gate": "Sewing Inline",
+    "inspector": "Karim Uddin",
+    "inspectedQty": 488,
+    "defectQty": 18,
+    "defectTypes": [
+      "Broken Stitch",
+      "Skip"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-06-26",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-43",
+    "orderId": "ord-72",
+    "orderNumber": "SO-1071",
+    "gate": "Cutting",
+    "inspector": "Rahim Khan",
+    "inspectedQty": 525,
+    "defectQty": 7,
+    "defectTypes": [
+      "Measurement"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-06-12",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-44",
+    "orderId": "ord-125",
+    "orderNumber": "SO-1124",
+    "gate": "Sewing Inline",
+    "inspector": "Kabir Rahman",
+    "inspectedQty": 1518,
+    "defectQty": 44,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-06-18",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-45",
+    "orderId": "ord-85",
+    "orderNumber": "SO-1084",
+    "gate": "Cutting",
+    "inspector": "Anwar Chowdhury",
+    "inspectedQty": 376,
+    "defectQty": 28,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-06-24",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-46",
+    "orderId": "ord-115",
+    "orderNumber": "SO-1114",
+    "gate": "Sewing Inline",
+    "inspector": "Jamal Ahmed",
+    "inspectedQty": 1071,
+    "defectQty": 52,
+    "defectTypes": [
+      "Broken Stitch",
+      "Skip"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-06-19",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-47",
+    "orderId": "ord-5",
+    "orderNumber": "SO-1004",
+    "gate": "Final AQL",
+    "inspector": "Imran Islam",
+    "inspectedQty": 553,
+    "defectQty": 17,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-06-22",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-48",
+    "orderId": "ord-106",
+    "orderNumber": "SO-1105",
+    "gate": "Sewing Inline",
+    "inspector": "Anwar Islam",
+    "inspectedQty": 1501,
+    "defectQty": 49,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-06-17",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-49",
+    "orderId": "ord-143",
+    "orderNumber": "SO-1142",
+    "gate": "Cutting",
+    "inspector": "Kabir Khan",
+    "inspectedQty": 1333,
+    "defectQty": 1,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-07-11",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-50",
+    "orderId": "ord-64",
+    "orderNumber": "SO-1063",
+    "gate": "Finishing",
+    "inspector": "Imran Khan",
+    "inspectedQty": 1969,
+    "defectQty": 65,
+    "defectTypes": [
+      "Measurement"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-06-21",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-51",
+    "orderId": "ord-66",
+    "orderNumber": "SO-1065",
+    "gate": "Finishing",
+    "inspector": "Imran Uddin",
+    "inspectedQty": 1681,
+    "defectQty": 8,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-07-01",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-52",
+    "orderId": "ord-59",
+    "orderNumber": "SO-1058",
+    "gate": "Cutting",
+    "inspector": "Salma Ahmed",
+    "inspectedQty": 595,
+    "defectQty": 71,
+    "defectTypes": [
+      "Measurement"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-06-11",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-53",
+    "orderId": "ord-11",
+    "orderNumber": "SO-1010",
+    "gate": "Cutting",
+    "inspector": "Kabir Uddin",
+    "inspectedQty": 200,
+    "defectQty": 11,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-02",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-54",
+    "orderId": "ord-125",
+    "orderNumber": "SO-1124",
+    "gate": "Finishing",
+    "inspector": "Rahim Hossain",
+    "inspectedQty": 1383,
+    "defectQty": 58,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-07-09",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-55",
+    "orderId": "ord-27",
+    "orderNumber": "SO-1026",
+    "gate": "Sewing Inline",
+    "inspector": "Mitu Uddin",
+    "inspectedQty": 995,
+    "defectQty": 20,
+    "defectTypes": [
+      "Measurement"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-06-30",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-56",
+    "orderId": "ord-73",
+    "orderNumber": "SO-1072",
+    "gate": "Sewing Inline",
+    "inspector": "Sultana Siddique",
+    "inspectedQty": 133,
+    "defectQty": 12,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-23",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-57",
+    "orderId": "ord-109",
+    "orderNumber": "SO-1108",
+    "gate": "Final AQL",
+    "inspector": "Anwar Khan",
+    "inspectedQty": 324,
+    "defectQty": 37,
+    "defectTypes": [
+      "Measurement"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-06-22",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-58",
+    "orderId": "ord-7",
+    "orderNumber": "SO-1006",
+    "gate": "Cutting",
+    "inspector": "Karim Ahmed",
+    "inspectedQty": 895,
+    "defectQty": 27,
+    "defectTypes": [
+      "Shade"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-07-26",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-59",
+    "orderId": "ord-12",
+    "orderNumber": "SO-1011",
+    "gate": "Sewing Inline",
+    "inspector": "Anwar Khan",
+    "inspectedQty": 944,
+    "defectQty": 39,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-26",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-60",
+    "orderId": "ord-4",
+    "orderNumber": "SO-1003",
+    "gate": "Sewing Inline",
+    "inspector": "Sultana Begum",
+    "inspectedQty": 1756,
+    "defectQty": 17,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-06-27",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-61",
+    "orderId": "ord-165",
+    "orderNumber": "SO-1164",
+    "gate": "Cutting",
+    "inspector": "Rafiq Ahmed",
+    "inspectedQty": 567,
+    "defectQty": 32,
+    "defectTypes": [
+      "Measurement"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-06-27",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-62",
+    "orderId": "ord-17",
+    "orderNumber": "SO-1016",
+    "gate": "Cutting",
+    "inspector": "Imran Ahmed",
+    "inspectedQty": 199,
+    "defectQty": 28,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-07-07",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-63",
+    "orderId": "ord-31",
+    "orderNumber": "SO-1030",
+    "gate": "Finishing",
+    "inspector": "Shila Ahmed",
+    "inspectedQty": 1389,
+    "defectQty": 78,
+    "defectTypes": [
+      "Broken Stitch",
+      "Skip"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-06-19",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-64",
+    "orderId": "ord-27",
+    "orderNumber": "SO-1026",
+    "gate": "Final AQL",
+    "inspector": "Kabir Chowdhury",
+    "inspectedQty": 336,
+    "defectQty": 60,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-06-23",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-65",
+    "orderId": "ord-16",
+    "orderNumber": "SO-1015",
+    "gate": "Final AQL",
+    "inspector": "Imran Ahmed",
+    "inspectedQty": 354,
+    "defectQty": 6,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-21",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-66",
+    "orderId": "ord-151",
+    "orderNumber": "SO-1150",
+    "gate": "Final AQL",
+    "inspector": "Kabir Chowdhury",
+    "inspectedQty": 432,
+    "defectQty": 12,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-07-10",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-67",
+    "orderId": "ord-92",
+    "orderNumber": "SO-1091",
+    "gate": "Sewing Inline",
+    "inspector": "Rahim Rahman",
+    "inspectedQty": 447,
+    "defectQty": 58,
+    "defectTypes": [
+      "Broken Stitch",
+      "Skip"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-06-17",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-68",
+    "orderId": "ord-117",
+    "orderNumber": "SO-1116",
+    "gate": "Final AQL",
+    "inspector": "Anwar Ahmed",
+    "inspectedQty": 1938,
+    "defectQty": 22,
+    "defectTypes": [
+      "Measurement"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-06-27",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-69",
+    "orderId": "ord-24",
+    "orderNumber": "SO-1023",
+    "gate": "Finishing",
+    "inspector": "Sultana Ahmed",
+    "inspectedQty": 962,
+    "defectQty": 4,
+    "defectTypes": [
+      "Measurement"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-06-24",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-70",
+    "orderId": "ord-167",
+    "orderNumber": "SO-1166",
+    "gate": "Cutting",
+    "inspector": "Rafiq Begum",
+    "inspectedQty": 985,
+    "defectQty": 33,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-06-15",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-71",
+    "orderId": "ord-35",
+    "orderNumber": "SO-1034",
+    "gate": "Final AQL",
+    "inspector": "Jamal Hossain",
+    "inspectedQty": 522,
+    "defectQty": 1,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-07-24",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-72",
+    "orderId": "ord-114",
+    "orderNumber": "SO-1113",
+    "gate": "Cutting",
+    "inspector": "Jamal Ahmed",
+    "inspectedQty": 157,
+    "defectQty": 57,
+    "defectTypes": [
+      "Shade"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-06-18",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-73",
+    "orderId": "ord-165",
+    "orderNumber": "SO-1164",
+    "gate": "Final AQL",
+    "inspector": "Jamal Uddin",
+    "inspectedQty": 684,
+    "defectQty": 19,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-06-28",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-74",
+    "orderId": "ord-167",
+    "orderNumber": "SO-1166",
+    "gate": "Final AQL",
+    "inspector": "Jamal Ahmed",
+    "inspectedQty": 210,
+    "defectQty": 40,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-06-25",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-75",
+    "orderId": "ord-175",
+    "orderNumber": "SO-1174",
+    "gate": "Final AQL",
+    "inspector": "Fatema Siddique",
+    "inspectedQty": 740,
+    "defectQty": 16,
+    "defectTypes": [
+      "Broken Stitch",
+      "Skip"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-06-16",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-76",
+    "orderId": "ord-161",
+    "orderNumber": "SO-1160",
+    "gate": "Final AQL",
+    "inspector": "Rafiq Begum",
+    "inspectedQty": 1688,
+    "defectQty": 22,
+    "defectTypes": [
+      "Shade"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-06-12",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-77",
+    "orderId": "ord-135",
+    "orderNumber": "SO-1134",
+    "gate": "Cutting",
+    "inspector": "Karim Uddin",
+    "inspectedQty": 1017,
+    "defectQty": 65,
+    "defectTypes": [
+      "Shade"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-16",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-78",
+    "orderId": "ord-133",
+    "orderNumber": "SO-1132",
+    "gate": "Final AQL",
+    "inspector": "Nasrin Rahman",
+    "inspectedQty": 308,
+    "defectQty": 30,
+    "defectTypes": [
+      "Shade"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-07-07",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-79",
+    "orderId": "ord-53",
+    "orderNumber": "SO-1052",
+    "gate": "Sewing Inline",
+    "inspector": "Nasrin Akter",
+    "inspectedQty": 1809,
+    "defectQty": 9,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-06-24",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-80",
+    "orderId": "ord-69",
+    "orderNumber": "SO-1068",
+    "gate": "Final AQL",
+    "inspector": "Shila Uddin",
+    "inspectedQty": 1711,
+    "defectQty": 18,
+    "defectTypes": [
+      "Measurement"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-07-08",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-81",
+    "orderId": "ord-86",
+    "orderNumber": "SO-1085",
+    "gate": "Cutting",
+    "inspector": "Sultana Ahmed",
+    "inspectedQty": 1213,
+    "defectQty": 41,
+    "defectTypes": [
+      "Broken Stitch",
+      "Skip"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-06-19",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.283Z",
+    "updatedAt": "2026-07-26T14:41:23.283Z"
+  },
+  {
+    "id": "qc-82",
+    "orderId": "ord-41",
+    "orderNumber": "SO-1040",
+    "gate": "Cutting",
+    "inspector": "Shila Chowdhury",
+    "inspectedQty": 1884,
+    "defectQty": 1,
+    "defectTypes": [
+      "Shade"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-07-26",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-83",
+    "orderId": "ord-67",
+    "orderNumber": "SO-1066",
+    "gate": "Final AQL",
+    "inspector": "Nasrin Hossain",
+    "inspectedQty": 776,
+    "defectQty": 65,
+    "defectTypes": [
+      "Shade"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-06-15",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-84",
+    "orderId": "ord-128",
+    "orderNumber": "SO-1127",
+    "gate": "Final AQL",
+    "inspector": "Fatema Akter",
+    "inspectedQty": 931,
+    "defectQty": 75,
+    "defectTypes": [
+      "Shade"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-06-12",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-85",
+    "orderId": "ord-94",
+    "orderNumber": "SO-1093",
+    "gate": "Finishing",
+    "inspector": "Fatema Khan",
+    "inspectedQty": 1570,
+    "defectQty": 60,
+    "defectTypes": [
+      "Shade"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-07-20",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-86",
+    "orderId": "ord-164",
+    "orderNumber": "SO-1163",
+    "gate": "Finishing",
+    "inspector": "Mitu Hossain",
+    "inspectedQty": 1281,
+    "defectQty": 69,
+    "defectTypes": [
+      "Measurement"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-07-23",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-87",
+    "orderId": "ord-32",
+    "orderNumber": "SO-1031",
+    "gate": "Cutting",
+    "inspector": "Sultana Akter",
+    "inspectedQty": 1718,
+    "defectQty": 5,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-07-26",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-88",
+    "orderId": "ord-79",
+    "orderNumber": "SO-1078",
+    "gate": "Final AQL",
+    "inspector": "Salma Ahmed",
+    "inspectedQty": 937,
+    "defectQty": 48,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-07-01",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-89",
+    "orderId": "ord-86",
+    "orderNumber": "SO-1085",
+    "gate": "Sewing Inline",
+    "inspector": "Hasan Khan",
+    "inspectedQty": 525,
+    "defectQty": 56,
+    "defectTypes": [
+      "Measurement"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-06-17",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-90",
+    "orderId": "ord-106",
+    "orderNumber": "SO-1105",
+    "gate": "Sewing Inline",
+    "inspector": "Karim Ahmed",
+    "inspectedQty": 112,
+    "defectQty": 1,
+    "defectTypes": [
+      "Measurement"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-06-18",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-91",
+    "orderId": "ord-26",
+    "orderNumber": "SO-1025",
+    "gate": "Cutting",
+    "inspector": "Fatema Siddique",
+    "inspectedQty": 1817,
+    "defectQty": 2,
+    "defectTypes": [
+      "Broken Stitch",
+      "Skip"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-06-15",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-92",
+    "orderId": "ord-147",
+    "orderNumber": "SO-1146",
+    "gate": "Final AQL",
+    "inspector": "Nasrin Chowdhury",
+    "inspectedQty": 598,
+    "defectQty": 31,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-07-06",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-93",
+    "orderId": "ord-166",
+    "orderNumber": "SO-1165",
+    "gate": "Sewing Inline",
+    "inspector": "Hasan Uddin",
+    "inspectedQty": 938,
+    "defectQty": 48,
+    "defectTypes": [
+      "Shade"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-06-25",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-94",
+    "orderId": "ord-27",
+    "orderNumber": "SO-1026",
+    "gate": "Finishing",
+    "inspector": "Rahim Islam",
+    "inspectedQty": 111,
+    "defectQty": 50,
+    "defectTypes": [
+      "Measurement"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-07-21",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-95",
+    "orderId": "ord-56",
+    "orderNumber": "SO-1055",
+    "gate": "Final AQL",
+    "inspector": "Anwar Akter",
+    "inspectedQty": 474,
+    "defectQty": 78,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-07-03",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-96",
+    "orderId": "ord-21",
+    "orderNumber": "SO-1020",
+    "gate": "Final AQL",
+    "inspector": "Rahim Ahmed",
+    "inspectedQty": 1806,
+    "defectQty": 73,
+    "defectTypes": [
+      "Shade"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-17",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-97",
+    "orderId": "ord-86",
+    "orderNumber": "SO-1085",
+    "gate": "Final AQL",
+    "inspector": "Salma Hossain",
+    "inspectedQty": 1012,
+    "defectQty": 72,
+    "defectTypes": [
+      "Broken Stitch",
+      "Skip"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-07-24",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-98",
+    "orderId": "ord-177",
+    "orderNumber": "SO-1176",
+    "gate": "Sewing Inline",
+    "inspector": "Mitu Akter",
+    "inspectedQty": 996,
+    "defectQty": 69,
+    "defectTypes": [
+      "Measurement"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-06-21",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-99",
+    "orderId": "ord-129",
+    "orderNumber": "SO-1128",
+    "gate": "Final AQL",
+    "inspector": "Karim Islam",
+    "inspectedQty": 1181,
+    "defectQty": 65,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-20",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-100",
+    "orderId": "ord-161",
+    "orderNumber": "SO-1160",
+    "gate": "Final AQL",
+    "inspector": "Jamal Uddin",
+    "inspectedQty": 560,
+    "defectQty": 36,
+    "defectTypes": [
+      "Shade"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-06-26",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-101",
+    "orderId": "ord-122",
+    "orderNumber": "SO-1121",
+    "gate": "Cutting",
+    "inspector": "Fatema Rahman",
+    "inspectedQty": 906,
+    "defectQty": 41,
+    "defectTypes": [
+      "Measurement"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-06-16",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-102",
+    "orderId": "ord-133",
+    "orderNumber": "SO-1132",
+    "gate": "Finishing",
+    "inspector": "Rahim Ahmed",
+    "inspectedQty": 620,
+    "defectQty": 36,
+    "defectTypes": [
+      "Measurement"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-07-10",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-103",
+    "orderId": "ord-64",
+    "orderNumber": "SO-1063",
+    "gate": "Final AQL",
+    "inspector": "Fatema Akter",
+    "inspectedQty": 1570,
+    "defectQty": 68,
+    "defectTypes": [
+      "Measurement"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-06-21",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-104",
+    "orderId": "ord-96",
+    "orderNumber": "SO-1095",
+    "gate": "Final AQL",
+    "inspector": "Imran Chowdhury",
+    "inspectedQty": 1283,
+    "defectQty": 55,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-07-09",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-105",
+    "orderId": "ord-144",
+    "orderNumber": "SO-1143",
+    "gate": "Cutting",
+    "inspector": "Kabir Hossain",
+    "inspectedQty": 1414,
+    "defectQty": 30,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-04",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-106",
+    "orderId": "ord-173",
+    "orderNumber": "SO-1172",
+    "gate": "Final AQL",
+    "inspector": "Hasan Khan",
+    "inspectedQty": 1402,
+    "defectQty": 25,
+    "defectTypes": [
+      "Broken Stitch",
+      "Skip"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-07-10",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-107",
+    "orderId": "ord-97",
+    "orderNumber": "SO-1096",
+    "gate": "Final AQL",
+    "inspector": "Rina Begum",
+    "inspectedQty": 168,
+    "defectQty": 4,
+    "defectTypes": [
+      "Measurement"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-07-08",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-108",
+    "orderId": "ord-116",
+    "orderNumber": "SO-1115",
+    "gate": "Finishing",
+    "inspector": "Karim Akter",
+    "inspectedQty": 318,
+    "defectQty": 22,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-13",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-109",
+    "orderId": "ord-157",
+    "orderNumber": "SO-1156",
+    "gate": "Cutting",
+    "inspector": "Jamal Akter",
+    "inspectedQty": 1372,
+    "defectQty": 56,
+    "defectTypes": [
+      "Shade"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-07-24",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-110",
+    "orderId": "ord-6",
+    "orderNumber": "SO-1005",
+    "gate": "Cutting",
+    "inspector": "Rahim Ahmed",
+    "inspectedQty": 986,
+    "defectQty": 19,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-06-30",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-111",
+    "orderId": "ord-121",
+    "orderNumber": "SO-1120",
+    "gate": "Finishing",
+    "inspector": "Kabir Chowdhury",
+    "inspectedQty": 1621,
+    "defectQty": 54,
+    "defectTypes": [
+      "Broken Stitch",
+      "Skip"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-03",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-112",
+    "orderId": "ord-40",
+    "orderNumber": "SO-1039",
+    "gate": "Cutting",
+    "inspector": "Anwar Uddin",
+    "inspectedQty": 1571,
+    "defectQty": 64,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-18",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-113",
+    "orderId": "ord-14",
+    "orderNumber": "SO-1013",
+    "gate": "Finishing",
+    "inspector": "Fatema Islam",
+    "inspectedQty": 1252,
+    "defectQty": 31,
+    "defectTypes": [
+      "Shade"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-07-19",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-114",
+    "orderId": "ord-34",
+    "orderNumber": "SO-1033",
+    "gate": "Sewing Inline",
+    "inspector": "Mitu Ahmed",
+    "inspectedQty": 1728,
+    "defectQty": 24,
+    "defectTypes": [
+      "Broken Stitch",
+      "Skip"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-06-15",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-115",
+    "orderId": "ord-6",
+    "orderNumber": "SO-1005",
+    "gate": "Final AQL",
+    "inspector": "Hasan Siddique",
+    "inspectedQty": 1114,
+    "defectQty": 53,
+    "defectTypes": [
+      "Broken Stitch",
+      "Skip"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-07-03",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-116",
+    "orderId": "ord-42",
+    "orderNumber": "SO-1041",
+    "gate": "Finishing",
+    "inspector": "Imran Ahmed",
+    "inspectedQty": 572,
+    "defectQty": 13,
+    "defectTypes": [
+      "Broken Stitch",
+      "Skip"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-01",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-117",
+    "orderId": "ord-109",
+    "orderNumber": "SO-1108",
+    "gate": "Cutting",
+    "inspector": "Imran Ahmed",
+    "inspectedQty": 1216,
+    "defectQty": 48,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-05",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-118",
+    "orderId": "ord-72",
+    "orderNumber": "SO-1071",
+    "gate": "Cutting",
+    "inspector": "Karim Islam",
+    "inspectedQty": 1790,
+    "defectQty": 48,
+    "defectTypes": [
+      "Broken Stitch",
+      "Skip"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-07-05",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-119",
+    "orderId": "ord-169",
+    "orderNumber": "SO-1168",
+    "gate": "Final AQL",
+    "inspector": "Hasan Akter",
+    "inspectedQty": 1561,
+    "defectQty": 80,
+    "defectTypes": [
+      "Measurement"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-14",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-120",
+    "orderId": "ord-85",
+    "orderNumber": "SO-1084",
+    "gate": "Finishing",
+    "inspector": "Rahim Siddique",
+    "inspectedQty": 807,
+    "defectQty": 37,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-03",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-121",
+    "orderId": "ord-90",
+    "orderNumber": "SO-1089",
+    "gate": "Final AQL",
+    "inspector": "Rina Ahmed",
+    "inspectedQty": 1748,
+    "defectQty": 38,
+    "defectTypes": [
+      "Shade"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-06-30",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-122",
+    "orderId": "ord-93",
+    "orderNumber": "SO-1092",
+    "gate": "Finishing",
+    "inspector": "Rina Islam",
+    "inspectedQty": 1137,
+    "defectQty": 9,
+    "defectTypes": [
+      "Broken Stitch",
+      "Skip"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-06-16",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-123",
+    "orderId": "ord-133",
+    "orderNumber": "SO-1132",
+    "gate": "Sewing Inline",
+    "inspector": "Hasan Begum",
+    "inspectedQty": 1308,
+    "defectQty": 34,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-06-19",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-124",
+    "orderId": "ord-18",
+    "orderNumber": "SO-1017",
+    "gate": "Final AQL",
+    "inspector": "Mitu Akter",
+    "inspectedQty": 785,
+    "defectQty": 53,
+    "defectTypes": [
+      "Measurement"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-15",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-125",
+    "orderId": "ord-93",
+    "orderNumber": "SO-1092",
+    "gate": "Cutting",
+    "inspector": "Sultana Hossain",
+    "inspectedQty": 1989,
+    "defectQty": 14,
+    "defectTypes": [
+      "Broken Stitch",
+      "Skip"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-06-24",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-126",
+    "orderId": "ord-29",
+    "orderNumber": "SO-1028",
+    "gate": "Finishing",
+    "inspector": "Mitu Khan",
+    "inspectedQty": 618,
+    "defectQty": 79,
+    "defectTypes": [
+      "Broken Stitch",
+      "Skip"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-06-24",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-127",
+    "orderId": "ord-142",
+    "orderNumber": "SO-1141",
+    "gate": "Sewing Inline",
+    "inspector": "Imran Khan",
+    "inspectedQty": 426,
+    "defectQty": 37,
+    "defectTypes": [
+      "Broken Stitch",
+      "Skip"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-06-26",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-128",
+    "orderId": "ord-39",
+    "orderNumber": "SO-1038",
+    "gate": "Final AQL",
+    "inspector": "Mitu Rahman",
+    "inspectedQty": 783,
+    "defectQty": 23,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-06",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-129",
+    "orderId": "ord-96",
+    "orderNumber": "SO-1095",
+    "gate": "Finishing",
+    "inspector": "Anwar Uddin",
+    "inspectedQty": 841,
+    "defectQty": 25,
+    "defectTypes": [
+      "Measurement"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-06-29",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-130",
+    "orderId": "ord-71",
+    "orderNumber": "SO-1070",
+    "gate": "Sewing Inline",
+    "inspector": "Hasan Chowdhury",
+    "inspectedQty": 120,
+    "defectQty": 37,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-07-12",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-131",
+    "orderId": "ord-113",
+    "orderNumber": "SO-1112",
+    "gate": "Finishing",
+    "inspector": "Fatema Siddique",
+    "inspectedQty": 454,
+    "defectQty": 35,
+    "defectTypes": [
+      "Shade"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-06-21",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-132",
+    "orderId": "ord-75",
+    "orderNumber": "SO-1074",
+    "gate": "Finishing",
+    "inspector": "Nasrin Khan",
+    "inspectedQty": 1424,
+    "defectQty": 24,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-06-29",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-133",
+    "orderId": "ord-56",
+    "orderNumber": "SO-1055",
+    "gate": "Final AQL",
+    "inspector": "Mitu Siddique",
+    "inspectedQty": 325,
+    "defectQty": 50,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-06-15",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-134",
+    "orderId": "ord-178",
+    "orderNumber": "SO-1177",
+    "gate": "Finishing",
+    "inspector": "Imran Siddique",
+    "inspectedQty": 1842,
+    "defectQty": 14,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-08",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-135",
+    "orderId": "ord-107",
+    "orderNumber": "SO-1106",
+    "gate": "Cutting",
+    "inspector": "Rahim Akter",
+    "inspectedQty": 797,
+    "defectQty": 40,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-07-26",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-136",
+    "orderId": "ord-133",
+    "orderNumber": "SO-1132",
+    "gate": "Finishing",
+    "inspector": "Rafiq Ahmed",
+    "inspectedQty": 247,
+    "defectQty": 61,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-02",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-137",
+    "orderId": "ord-51",
+    "orderNumber": "SO-1050",
+    "gate": "Sewing Inline",
+    "inspector": "Shila Islam",
+    "inspectedQty": 1219,
+    "defectQty": 23,
+    "defectTypes": [
+      "Broken Stitch",
+      "Skip"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-07-19",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-138",
+    "orderId": "ord-1",
+    "orderNumber": "SO-1000",
+    "gate": "Sewing Inline",
+    "inspector": "Kabir Siddique",
+    "inspectedQty": 803,
+    "defectQty": 70,
+    "defectTypes": [
+      "Shade"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-06",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-139",
+    "orderId": "ord-172",
+    "orderNumber": "SO-1171",
+    "gate": "Finishing",
+    "inspector": "Sultana Ahmed",
+    "inspectedQty": 1380,
+    "defectQty": 64,
+    "defectTypes": [
+      "Measurement"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-07-08",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-140",
+    "orderId": "ord-48",
+    "orderNumber": "SO-1047",
+    "gate": "Finishing",
+    "inspector": "Anwar Ahmed",
+    "inspectedQty": 1402,
+    "defectQty": 38,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-06-21",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-141",
+    "orderId": "ord-77",
+    "orderNumber": "SO-1076",
+    "gate": "Cutting",
+    "inspector": "Salma Ahmed",
+    "inspectedQty": 979,
+    "defectQty": 79,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-03",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-142",
+    "orderId": "ord-60",
+    "orderNumber": "SO-1059",
+    "gate": "Sewing Inline",
+    "inspector": "Rahim Khan",
+    "inspectedQty": 1364,
+    "defectQty": 64,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-06-12",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-143",
+    "orderId": "ord-3",
+    "orderNumber": "SO-1002",
+    "gate": "Cutting",
+    "inspector": "Shila Chowdhury",
+    "inspectedQty": 854,
+    "defectQty": 45,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-07-07",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-144",
+    "orderId": "ord-43",
+    "orderNumber": "SO-1042",
+    "gate": "Finishing",
+    "inspector": "Rahim Akter",
+    "inspectedQty": 1411,
+    "defectQty": 29,
+    "defectTypes": [
+      "Broken Stitch",
+      "Skip"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-06-20",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-145",
+    "orderId": "ord-80",
+    "orderNumber": "SO-1079",
+    "gate": "Final AQL",
+    "inspector": "Hasan Khan",
+    "inspectedQty": 317,
+    "defectQty": 49,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-07-17",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-146",
+    "orderId": "ord-168",
+    "orderNumber": "SO-1167",
+    "gate": "Cutting",
+    "inspector": "Shila Begum",
+    "inspectedQty": 735,
+    "defectQty": 24,
+    "defectTypes": [
+      "Broken Stitch",
+      "Skip"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-07-10",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-147",
+    "orderId": "ord-32",
+    "orderNumber": "SO-1031",
+    "gate": "Cutting",
+    "inspector": "Mitu Siddique",
+    "inspectedQty": 1228,
+    "defectQty": 58,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-07-26",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-148",
+    "orderId": "ord-57",
+    "orderNumber": "SO-1056",
+    "gate": "Cutting",
+    "inspector": "Imran Siddique",
+    "inspectedQty": 1640,
+    "defectQty": 1,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-06-26",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-149",
+    "orderId": "ord-44",
+    "orderNumber": "SO-1043",
+    "gate": "Final AQL",
+    "inspector": "Mitu Rahman",
+    "inspectedQty": 590,
+    "defectQty": 8,
+    "defectTypes": [
+      "Broken Stitch",
+      "Skip"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-06-30",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-150",
+    "orderId": "ord-88",
+    "orderNumber": "SO-1087",
+    "gate": "Sewing Inline",
+    "inspector": "Rahim Akter",
+    "inspectedQty": 1275,
+    "defectQty": 38,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-06-24",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-151",
+    "orderId": "ord-115",
+    "orderNumber": "SO-1114",
+    "gate": "Sewing Inline",
+    "inspector": "Jamal Uddin",
+    "inspectedQty": 813,
+    "defectQty": 71,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-07-10",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-152",
+    "orderId": "ord-97",
+    "orderNumber": "SO-1096",
+    "gate": "Sewing Inline",
+    "inspector": "Salma Hossain",
+    "inspectedQty": 224,
+    "defectQty": 20,
+    "defectTypes": [
+      "Shade"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-07-06",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-153",
+    "orderId": "ord-109",
+    "orderNumber": "SO-1108",
+    "gate": "Final AQL",
+    "inspector": "Rahim Ahmed",
+    "inspectedQty": 221,
+    "defectQty": 17,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-21",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-154",
+    "orderId": "ord-11",
+    "orderNumber": "SO-1010",
+    "gate": "Finishing",
+    "inspector": "Jamal Siddique",
+    "inspectedQty": 1297,
+    "defectQty": 25,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-07-19",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-155",
+    "orderId": "ord-141",
+    "orderNumber": "SO-1140",
+    "gate": "Finishing",
+    "inspector": "Sultana Hossain",
+    "inspectedQty": 726,
+    "defectQty": 8,
+    "defectTypes": [
+      "Broken Stitch",
+      "Skip"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-06-27",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-156",
+    "orderId": "ord-38",
+    "orderNumber": "SO-1037",
+    "gate": "Sewing Inline",
+    "inspector": "Hasan Rahman",
+    "inspectedQty": 1362,
+    "defectQty": 27,
+    "defectTypes": [
+      "Shade"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-14",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-157",
+    "orderId": "ord-27",
+    "orderNumber": "SO-1026",
+    "gate": "Cutting",
+    "inspector": "Fatema Begum",
+    "inspectedQty": 233,
+    "defectQty": 0,
+    "defectTypes": [
+      "Measurement"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-06-15",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-158",
+    "orderId": "ord-66",
+    "orderNumber": "SO-1065",
+    "gate": "Cutting",
+    "inspector": "Sultana Hossain",
+    "inspectedQty": 1298,
+    "defectQty": 11,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-07-16",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-159",
+    "orderId": "ord-73",
+    "orderNumber": "SO-1072",
+    "gate": "Cutting",
+    "inspector": "Rina Siddique",
+    "inspectedQty": 1616,
+    "defectQty": 19,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-07-14",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-160",
+    "orderId": "ord-60",
+    "orderNumber": "SO-1059",
+    "gate": "Final AQL",
+    "inspector": "Hasan Chowdhury",
+    "inspectedQty": 861,
+    "defectQty": 35,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-06-28",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-161",
+    "orderId": "ord-96",
+    "orderNumber": "SO-1095",
+    "gate": "Sewing Inline",
+    "inspector": "Hasan Hossain",
+    "inspectedQty": 1152,
+    "defectQty": 21,
+    "defectTypes": [
+      "Shade"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-10",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-162",
+    "orderId": "ord-35",
+    "orderNumber": "SO-1034",
+    "gate": "Finishing",
+    "inspector": "Kabir Hossain",
+    "inspectedQty": 1427,
+    "defectQty": 14,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-06-16",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-163",
+    "orderId": "ord-56",
+    "orderNumber": "SO-1055",
+    "gate": "Cutting",
+    "inspector": "Rina Akter",
+    "inspectedQty": 302,
+    "defectQty": 34,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-06-11",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-164",
+    "orderId": "ord-33",
+    "orderNumber": "SO-1032",
+    "gate": "Sewing Inline",
+    "inspector": "Nasrin Hossain",
+    "inspectedQty": 182,
+    "defectQty": 23,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-06-15",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-165",
+    "orderId": "ord-180",
+    "orderNumber": "SO-1179",
+    "gate": "Sewing Inline",
+    "inspector": "Kabir Khan",
+    "inspectedQty": 795,
+    "defectQty": 37,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-06-16",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-166",
+    "orderId": "ord-136",
+    "orderNumber": "SO-1135",
+    "gate": "Final AQL",
+    "inspector": "Salma Ahmed",
+    "inspectedQty": 587,
+    "defectQty": 43,
+    "defectTypes": [
+      "Measurement"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-06-28",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-167",
+    "orderId": "ord-54",
+    "orderNumber": "SO-1053",
+    "gate": "Finishing",
+    "inspector": "Imran Ahmed",
+    "inspectedQty": 681,
+    "defectQty": 76,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-06-13",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-168",
+    "orderId": "ord-81",
+    "orderNumber": "SO-1080",
+    "gate": "Finishing",
+    "inspector": "Hasan Chowdhury",
+    "inspectedQty": 1676,
+    "defectQty": 55,
+    "defectTypes": [
+      "Measurement"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-07-22",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-169",
+    "orderId": "ord-100",
+    "orderNumber": "SO-1099",
+    "gate": "Final AQL",
+    "inspector": "Hasan Khan",
+    "inspectedQty": 1555,
+    "defectQty": 68,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-06-25",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-170",
+    "orderId": "ord-105",
+    "orderNumber": "SO-1104",
+    "gate": "Sewing Inline",
+    "inspector": "Shila Islam",
+    "inspectedQty": 117,
+    "defectQty": 58,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-07-24",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-171",
+    "orderId": "ord-44",
+    "orderNumber": "SO-1043",
+    "gate": "Finishing",
+    "inspector": "Anwar Chowdhury",
+    "inspectedQty": 1532,
+    "defectQty": 18,
+    "defectTypes": [
+      "Shade"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-07-20",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-172",
+    "orderId": "ord-62",
+    "orderNumber": "SO-1061",
+    "gate": "Final AQL",
+    "inspector": "Anwar Hossain",
+    "inspectedQty": 1448,
+    "defectQty": 33,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-07-17",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-173",
+    "orderId": "ord-20",
+    "orderNumber": "SO-1019",
+    "gate": "Cutting",
+    "inspector": "Sultana Hossain",
+    "inspectedQty": 946,
+    "defectQty": 79,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-06-13",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-174",
+    "orderId": "ord-92",
+    "orderNumber": "SO-1091",
+    "gate": "Finishing",
+    "inspector": "Rafiq Chowdhury",
+    "inspectedQty": 132,
+    "defectQty": 54,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-02",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-175",
+    "orderId": "ord-1",
+    "orderNumber": "SO-1000",
+    "gate": "Cutting",
+    "inspector": "Salma Hossain",
+    "inspectedQty": 524,
+    "defectQty": 20,
+    "defectTypes": [
+      "Shade"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-06",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-176",
+    "orderId": "ord-120",
+    "orderNumber": "SO-1119",
+    "gate": "Final AQL",
+    "inspector": "Kabir Begum",
+    "inspectedQty": 1748,
+    "defectQty": 25,
+    "defectTypes": [
+      "Shade"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-06-29",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-177",
+    "orderId": "ord-101",
+    "orderNumber": "SO-1100",
+    "gate": "Sewing Inline",
+    "inspector": "Nasrin Siddique",
+    "inspectedQty": 358,
+    "defectQty": 39,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-17",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-178",
+    "orderId": "ord-96",
+    "orderNumber": "SO-1095",
+    "gate": "Finishing",
+    "inspector": "Hasan Islam",
+    "inspectedQty": 805,
+    "defectQty": 51,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-07-24",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-179",
+    "orderId": "ord-165",
+    "orderNumber": "SO-1164",
+    "gate": "Finishing",
+    "inspector": "Shila Begum",
+    "inspectedQty": 1009,
+    "defectQty": 78,
+    "defectTypes": [
+      "Broken Stitch",
+      "Skip"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-12",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-180",
+    "orderId": "ord-1",
+    "orderNumber": "SO-1000",
+    "gate": "Sewing Inline",
+    "inspector": "Mitu Chowdhury",
+    "inspectedQty": 230,
+    "defectQty": 18,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-07-15",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-181",
+    "orderId": "ord-24",
+    "orderNumber": "SO-1023",
+    "gate": "Cutting",
+    "inspector": "Jamal Chowdhury",
+    "inspectedQty": 1884,
+    "defectQty": 45,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-07-13",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-182",
+    "orderId": "ord-109",
+    "orderNumber": "SO-1108",
+    "gate": "Finishing",
+    "inspector": "Fatema Uddin",
+    "inspectedQty": 1278,
+    "defectQty": 37,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-09",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-183",
+    "orderId": "ord-34",
+    "orderNumber": "SO-1033",
+    "gate": "Finishing",
+    "inspector": "Rina Rahman",
+    "inspectedQty": 813,
+    "defectQty": 0,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-19",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-184",
+    "orderId": "ord-114",
+    "orderNumber": "SO-1113",
+    "gate": "Sewing Inline",
+    "inspector": "Imran Akter",
+    "inspectedQty": 1364,
+    "defectQty": 48,
+    "defectTypes": [
+      "Measurement"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-17",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-185",
+    "orderId": "ord-8",
+    "orderNumber": "SO-1007",
+    "gate": "Finishing",
+    "inspector": "Imran Hossain",
+    "inspectedQty": 1924,
+    "defectQty": 14,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-20",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-186",
+    "orderId": "ord-43",
+    "orderNumber": "SO-1042",
+    "gate": "Final AQL",
+    "inspector": "Mitu Akter",
+    "inspectedQty": 1431,
+    "defectQty": 41,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-14",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-187",
+    "orderId": "ord-31",
+    "orderNumber": "SO-1030",
+    "gate": "Sewing Inline",
+    "inspector": "Rina Islam",
+    "inspectedQty": 364,
+    "defectQty": 18,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-09",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-188",
+    "orderId": "ord-175",
+    "orderNumber": "SO-1174",
+    "gate": "Cutting",
+    "inspector": "Jamal Uddin",
+    "inspectedQty": 232,
+    "defectQty": 40,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-07-18",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-189",
+    "orderId": "ord-177",
+    "orderNumber": "SO-1176",
+    "gate": "Cutting",
+    "inspector": "Hasan Ahmed",
+    "inspectedQty": 1998,
+    "defectQty": 54,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-07-15",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-190",
+    "orderId": "ord-11",
+    "orderNumber": "SO-1010",
+    "gate": "Sewing Inline",
+    "inspector": "Rahim Siddique",
+    "inspectedQty": 664,
+    "defectQty": 22,
+    "defectTypes": [
+      "Broken Stitch",
+      "Skip"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-06-15",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-191",
+    "orderId": "ord-126",
+    "orderNumber": "SO-1125",
+    "gate": "Final AQL",
+    "inspector": "Fatema Begum",
+    "inspectedQty": 1913,
+    "defectQty": 52,
+    "defectTypes": [
+      "Measurement"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-07-04",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-192",
+    "orderId": "ord-105",
+    "orderNumber": "SO-1104",
+    "gate": "Sewing Inline",
+    "inspector": "Rafiq Ahmed",
+    "inspectedQty": 276,
+    "defectQty": 25,
+    "defectTypes": [
+      "Shade"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-07-15",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-193",
+    "orderId": "ord-125",
+    "orderNumber": "SO-1124",
+    "gate": "Sewing Inline",
+    "inspector": "Rafiq Rahman",
+    "inspectedQty": 1759,
+    "defectQty": 54,
+    "defectTypes": [
+      "Spot"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-20",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-194",
+    "orderId": "ord-164",
+    "orderNumber": "SO-1163",
+    "gate": "Cutting",
+    "inspector": "Salma Uddin",
+    "inspectedQty": 924,
+    "defectQty": 69,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-19",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-195",
+    "orderId": "ord-144",
+    "orderNumber": "SO-1143",
+    "gate": "Final AQL",
+    "inspector": "Imran Siddique",
+    "inspectedQty": 576,
+    "defectQty": 27,
+    "defectTypes": [
+      "Broken Stitch",
+      "Skip"
+    ],
+    "result": "Fail",
+    "aql": "2.5",
+    "date": "2026-06-20",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-196",
+    "orderId": "ord-66",
+    "orderNumber": "SO-1065",
+    "gate": "Finishing",
+    "inspector": "Rafiq Ahmed",
+    "inspectedQty": 1497,
+    "defectQty": 14,
+    "defectTypes": [
+      "Shade"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-06",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-197",
+    "orderId": "ord-23",
+    "orderNumber": "SO-1022",
+    "gate": "Sewing Inline",
+    "inspector": "Rahim Ahmed",
+    "inspectedQty": 282,
+    "defectQty": 50,
+    "defectTypes": [
+      "Broken Stitch",
+      "Skip"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-06-12",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-198",
+    "orderId": "ord-111",
+    "orderNumber": "SO-1110",
+    "gate": "Finishing",
+    "inspector": "Karim Khan",
+    "inspectedQty": 125,
+    "defectQty": 64,
+    "defectTypes": [
+      "Shade"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-07",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-199",
+    "orderId": "ord-134",
+    "orderNumber": "SO-1133",
+    "gate": "Sewing Inline",
+    "inspector": "Nasrin Siddique",
+    "inspectedQty": 733,
+    "defectQty": 59,
+    "defectTypes": [
+      "Stitch"
+    ],
+    "result": "Rework",
+    "aql": "2.5",
+    "date": "2026-07-20",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  },
+  {
+    "id": "qc-200",
+    "orderId": "ord-47",
+    "orderNumber": "SO-1046",
+    "gate": "Sewing Inline",
+    "inspector": "Kabir Khan",
+    "inspectedQty": 540,
+    "defectQty": 34,
+    "defectTypes": [
+      "Shade"
+    ],
+    "result": "Pass",
+    "aql": "2.5",
+    "date": "2026-07-06",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.284Z",
+    "updatedAt": "2026-07-26T14:41:23.284Z"
+  }
+]

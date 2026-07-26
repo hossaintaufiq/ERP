@@ -1,0 +1,29 @@
+[
+  {
+    "id": "br-1",
+    "companyId": "co-1",
+    "name": "Chittagong Factory",
+    "code": "CTG",
+    "type": "factory",
+    "createdAt": "2026-07-26T14:41:23.258Z",
+    "updatedAt": "2026-07-26T14:41:23.258Z"
+  },
+  {
+    "id": "br-2",
+    "companyId": "co-1",
+    "name": "Dhaka Head Office",
+    "code": "DAC",
+    "type": "office",
+    "createdAt": "2026-07-26T14:41:23.258Z",
+    "updatedAt": "2026-07-26T14:41:23.258Z"
+  },
+  {
+    "id": "br-3",
+    "companyId": "co-1",
+    "name": "CEPZ Warehouse",
+    "code": "WH1",
+    "type": "warehouse",
+    "createdAt": "2026-07-26T14:41:23.258Z",
+    "updatedAt": "2026-07-26T14:41:23.258Z"
+  }
+]

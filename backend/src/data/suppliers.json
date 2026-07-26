@@ -1,0 +1,729 @@
+[
+  {
+    "id": "sup-1",
+    "name": "Global Accessories Ltd",
+    "code": "SUP-001",
+    "country": "Bangladesh",
+    "materials": [
+      "Cartons"
+    ],
+    "leadTimeDays": 38,
+    "rating": 4.1,
+    "apBalance": 11307,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-2",
+    "name": "Global Accessories Ltd",
+    "code": "SUP-002",
+    "country": "Vietnam",
+    "materials": [
+      "Thread"
+    ],
+    "leadTimeDays": 36,
+    "rating": 3,
+    "apBalance": 32372,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-3",
+    "name": "Apex Trims Ltd",
+    "code": "SUP-003",
+    "country": "Bangladesh",
+    "materials": [
+      "Thread"
+    ],
+    "leadTimeDays": 35,
+    "rating": 4.9,
+    "apBalance": 75070,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-4",
+    "name": "Global Yarn Ltd",
+    "code": "SUP-004",
+    "country": "Bangladesh",
+    "materials": [
+      "Fabric"
+    ],
+    "leadTimeDays": 18,
+    "rating": 3,
+    "apBalance": 63273,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-5",
+    "name": "Delta Textile Ltd",
+    "code": "SUP-005",
+    "country": "Bangladesh",
+    "materials": [
+      "Thread"
+    ],
+    "leadTimeDays": 20,
+    "rating": 5,
+    "apBalance": 20452,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-6",
+    "name": "Prime Textile Ltd",
+    "code": "SUP-006",
+    "country": "Vietnam",
+    "materials": [
+      "Elastics"
+    ],
+    "leadTimeDays": 24,
+    "rating": 4.6,
+    "apBalance": 51842,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-7",
+    "name": "Delta Trims Ltd",
+    "code": "SUP-007",
+    "country": "Bangladesh",
+    "materials": [
+      "Labels"
+    ],
+    "leadTimeDays": 7,
+    "rating": 3,
+    "apBalance": 27774,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-8",
+    "name": "Delta Packaging Ltd",
+    "code": "SUP-008",
+    "country": "Bangladesh",
+    "materials": [
+      "Elastics"
+    ],
+    "leadTimeDays": 28,
+    "rating": 3,
+    "apBalance": 32006,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-9",
+    "name": "Delta Packaging Ltd",
+    "code": "SUP-009",
+    "country": "Vietnam",
+    "materials": [
+      "Elastics"
+    ],
+    "leadTimeDays": 32,
+    "rating": 4.8,
+    "apBalance": 37416,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-10",
+    "name": "Nova Accessories Ltd",
+    "code": "SUP-010",
+    "country": "Turkey",
+    "materials": [
+      "Buttons",
+      "Zippers"
+    ],
+    "leadTimeDays": 27,
+    "rating": 3.7,
+    "apBalance": 22463,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-11",
+    "name": "Pacific Packaging Ltd",
+    "code": "SUP-011",
+    "country": "Bangladesh",
+    "materials": [
+      "Fabric"
+    ],
+    "leadTimeDays": 14,
+    "rating": 4,
+    "apBalance": 60382,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-12",
+    "name": "Apex Textile Ltd",
+    "code": "SUP-012",
+    "country": "Bangladesh",
+    "materials": [
+      "Buttons",
+      "Zippers"
+    ],
+    "leadTimeDays": 19,
+    "rating": 4.8,
+    "apBalance": 6178,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-13",
+    "name": "Delta Yarn Ltd",
+    "code": "SUP-013",
+    "country": "Turkey",
+    "materials": [
+      "Cartons"
+    ],
+    "leadTimeDays": 19,
+    "rating": 3.7,
+    "apBalance": 24476,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-14",
+    "name": "Nova Textile Ltd",
+    "code": "SUP-014",
+    "country": "Bangladesh",
+    "materials": [
+      "Fabric"
+    ],
+    "leadTimeDays": 36,
+    "rating": 3.2,
+    "apBalance": 14769,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-15",
+    "name": "Pacific Textile Ltd",
+    "code": "SUP-015",
+    "country": "Vietnam",
+    "materials": [
+      "Thread"
+    ],
+    "leadTimeDays": 7,
+    "rating": 4.5,
+    "apBalance": 63758,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-16",
+    "name": "Nova Packaging Ltd",
+    "code": "SUP-016",
+    "country": "Turkey",
+    "materials": [
+      "Fabric"
+    ],
+    "leadTimeDays": 40,
+    "rating": 3.7,
+    "apBalance": 70439,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-17",
+    "name": "Pacific Trims Ltd",
+    "code": "SUP-017",
+    "country": "India",
+    "materials": [
+      "Buttons",
+      "Zippers"
+    ],
+    "leadTimeDays": 38,
+    "rating": 4.5,
+    "apBalance": 79547,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-18",
+    "name": "Apex Packaging Ltd",
+    "code": "SUP-018",
+    "country": "India",
+    "materials": [
+      "Fabric"
+    ],
+    "leadTimeDays": 41,
+    "rating": 4.4,
+    "apBalance": 1264,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-19",
+    "name": "Nova Trims Ltd",
+    "code": "SUP-019",
+    "country": "Vietnam",
+    "materials": [
+      "Elastics"
+    ],
+    "leadTimeDays": 22,
+    "rating": 3.4,
+    "apBalance": 42198,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-20",
+    "name": "Nova Accessories Ltd",
+    "code": "SUP-020",
+    "country": "Bangladesh",
+    "materials": [
+      "Elastics"
+    ],
+    "leadTimeDays": 12,
+    "rating": 3,
+    "apBalance": 17041,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-21",
+    "name": "Prime Trims Ltd",
+    "code": "SUP-021",
+    "country": "Bangladesh",
+    "materials": [
+      "Elastics"
+    ],
+    "leadTimeDays": 35,
+    "rating": 4.9,
+    "apBalance": 12050,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-22",
+    "name": "Prime Trims Ltd",
+    "code": "SUP-022",
+    "country": "Turkey",
+    "materials": [
+      "Labels"
+    ],
+    "leadTimeDays": 16,
+    "rating": 4.6,
+    "apBalance": 73798,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-23",
+    "name": "Orient Yarn Ltd",
+    "code": "SUP-023",
+    "country": "China",
+    "materials": [
+      "Elastics"
+    ],
+    "leadTimeDays": 26,
+    "rating": 3.9,
+    "apBalance": 54197,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-24",
+    "name": "Delta Accessories Ltd",
+    "code": "SUP-024",
+    "country": "Bangladesh",
+    "materials": [
+      "Labels"
+    ],
+    "leadTimeDays": 42,
+    "rating": 4.1,
+    "apBalance": 53529,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-25",
+    "name": "Global Yarn Ltd",
+    "code": "SUP-025",
+    "country": "India",
+    "materials": [
+      "Elastics"
+    ],
+    "leadTimeDays": 45,
+    "rating": 4.2,
+    "apBalance": 75916,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-26",
+    "name": "Prime Textile Ltd",
+    "code": "SUP-026",
+    "country": "Bangladesh",
+    "materials": [
+      "Elastics"
+    ],
+    "leadTimeDays": 10,
+    "rating": 3.2,
+    "apBalance": 60334,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-27",
+    "name": "Orient Textile Ltd",
+    "code": "SUP-027",
+    "country": "China",
+    "materials": [
+      "Fabric"
+    ],
+    "leadTimeDays": 31,
+    "rating": 3.8,
+    "apBalance": 54712,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-28",
+    "name": "Pacific Textile Ltd",
+    "code": "SUP-028",
+    "country": "Bangladesh",
+    "materials": [
+      "Elastics"
+    ],
+    "leadTimeDays": 35,
+    "rating": 3.5,
+    "apBalance": 77134,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-29",
+    "name": "Global Yarn Ltd",
+    "code": "SUP-029",
+    "country": "Bangladesh",
+    "materials": [
+      "Labels"
+    ],
+    "leadTimeDays": 39,
+    "rating": 3.8,
+    "apBalance": 5939,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-30",
+    "name": "Apex Yarn Ltd",
+    "code": "SUP-030",
+    "country": "India",
+    "materials": [
+      "Labels"
+    ],
+    "leadTimeDays": 43,
+    "rating": 3,
+    "apBalance": 37805,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-31",
+    "name": "Prime Trims Ltd",
+    "code": "SUP-031",
+    "country": "Vietnam",
+    "materials": [
+      "Labels"
+    ],
+    "leadTimeDays": 28,
+    "rating": 3,
+    "apBalance": 60375,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-32",
+    "name": "Apex Packaging Ltd",
+    "code": "SUP-032",
+    "country": "Vietnam",
+    "materials": [
+      "Fabric"
+    ],
+    "leadTimeDays": 23,
+    "rating": 4.9,
+    "apBalance": 42862,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-33",
+    "name": "Global Accessories Ltd",
+    "code": "SUP-033",
+    "country": "India",
+    "materials": [
+      "Buttons",
+      "Zippers"
+    ],
+    "leadTimeDays": 31,
+    "rating": 4.7,
+    "apBalance": 37519,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-34",
+    "name": "Pacific Trims Ltd",
+    "code": "SUP-034",
+    "country": "Turkey",
+    "materials": [
+      "Fabric"
+    ],
+    "leadTimeDays": 18,
+    "rating": 4.4,
+    "apBalance": 50946,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-35",
+    "name": "Orient Packaging Ltd",
+    "code": "SUP-035",
+    "country": "Turkey",
+    "materials": [
+      "Thread"
+    ],
+    "leadTimeDays": 27,
+    "rating": 4.4,
+    "apBalance": 56073,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-36",
+    "name": "Global Yarn Ltd",
+    "code": "SUP-036",
+    "country": "India",
+    "materials": [
+      "Cartons"
+    ],
+    "leadTimeDays": 8,
+    "rating": 4.2,
+    "apBalance": 27960,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-37",
+    "name": "Pacific Trims Ltd",
+    "code": "SUP-037",
+    "country": "Vietnam",
+    "materials": [
+      "Elastics"
+    ],
+    "leadTimeDays": 35,
+    "rating": 4.1,
+    "apBalance": 20160,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-38",
+    "name": "Global Accessories Ltd",
+    "code": "SUP-038",
+    "country": "China",
+    "materials": [
+      "Labels"
+    ],
+    "leadTimeDays": 40,
+    "rating": 3.8,
+    "apBalance": 40000,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-39",
+    "name": "Prime Packaging Ltd",
+    "code": "SUP-039",
+    "country": "India",
+    "materials": [
+      "Buttons",
+      "Zippers"
+    ],
+    "leadTimeDays": 19,
+    "rating": 4.5,
+    "apBalance": 52435,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-40",
+    "name": "Orient Textile Ltd",
+    "code": "SUP-040",
+    "country": "Vietnam",
+    "materials": [
+      "Cartons"
+    ],
+    "leadTimeDays": 19,
+    "rating": 4.7,
+    "apBalance": 60391,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-41",
+    "name": "Prime Packaging Ltd",
+    "code": "SUP-041",
+    "country": "Bangladesh",
+    "materials": [
+      "Buttons",
+      "Zippers"
+    ],
+    "leadTimeDays": 44,
+    "rating": 3.4,
+    "apBalance": 4875,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-42",
+    "name": "Nova Accessories Ltd",
+    "code": "SUP-042",
+    "country": "Vietnam",
+    "materials": [
+      "Fabric"
+    ],
+    "leadTimeDays": 33,
+    "rating": 3.2,
+    "apBalance": 67977,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-43",
+    "name": "Apex Textile Ltd",
+    "code": "SUP-043",
+    "country": "India",
+    "materials": [
+      "Buttons",
+      "Zippers"
+    ],
+    "leadTimeDays": 45,
+    "rating": 4.4,
+    "apBalance": 57458,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-44",
+    "name": "Global Textile Ltd",
+    "code": "SUP-044",
+    "country": "India",
+    "materials": [
+      "Cartons"
+    ],
+    "leadTimeDays": 7,
+    "rating": 4.4,
+    "apBalance": 57505,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  },
+  {
+    "id": "sup-45",
+    "name": "Nova Trims Ltd",
+    "code": "SUP-045",
+    "country": "Vietnam",
+    "materials": [
+      "Elastics"
+    ],
+    "leadTimeDays": 15,
+    "rating": 4.6,
+    "apBalance": 26057,
+    "status": "active",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.266Z",
+    "updatedAt": "2026-07-26T14:41:23.266Z"
+  }
+]

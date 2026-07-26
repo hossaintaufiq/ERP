@@ -1,0 +1,35 @@
+[
+  {
+    "id": "wh-1",
+    "branchId": "br-3",
+    "name": "CEPZ Raw Materials",
+    "code": "RM-01",
+    "capacity": 50000,
+    "utilized": 32000,
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.287Z",
+    "updatedAt": "2026-07-26T14:41:23.287Z"
+  },
+  {
+    "id": "wh-2",
+    "branchId": "br-1",
+    "name": "Finished Goods Bay",
+    "code": "FG-01",
+    "capacity": 20000,
+    "utilized": 8500,
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.287Z",
+    "updatedAt": "2026-07-26T14:41:23.287Z"
+  },
+  {
+    "id": "wh-3",
+    "branchId": "br-1",
+    "name": "Trims Store",
+    "code": "TR-01",
+    "capacity": 10000,
+    "utilized": 4200,
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.287Z",
+    "updatedAt": "2026-07-26T14:41:23.287Z"
+  }
+]

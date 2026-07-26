@@ -1,0 +1,27 @@
+[
+  {
+    "id": "settings-1",
+    "companyId": "co-1",
+    "timezone": "Asia/Dhaka",
+    "currency": "USD",
+    "dateFormat": "YYYY-MM-DD",
+    "fiscalYearStart": "07-01",
+    "aqlDefault": "2.5",
+    "overtimeRate": 1.5,
+    "theme": "system",
+    "modulesEnabled": [
+      "owner",
+      "ceo",
+      "admin",
+      "hr",
+      "factory_manager",
+      "store_manager",
+      "operator",
+      "qc_inspector",
+      "accountant",
+      "merchandiser"
+    ],
+    "updatedAt": "2026-07-26T14:41:23.288Z",
+    "createdAt": "2026-07-26T14:41:23.288Z"
+  }
+]

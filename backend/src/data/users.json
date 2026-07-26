@@ -1,0 +1,79 @@
+[
+  {
+    "id": "user-1",
+    "email": "owner@garmentserp.com",
+    "name": "Al-Mustafiz Rahman",
+    "role": "owner",
+    "passwordHash": "$2b$10$wWFQJX2JnaqSi4PwkKpceO/UlfK3qRiNZIYWSzyFb74FEZxWgPKOS",
+    "companyId": "co-1",
+    "status": "active",
+    "createdAt": "2026-07-26T14:41:23.258Z",
+    "updatedAt": "2026-07-26T14:41:23.258Z"
+  },
+  {
+    "id": "user-2",
+    "email": "hr@garmentserp.com",
+    "name": "Ayesha Siddiqua",
+    "role": "hr",
+    "passwordHash": "$2b$10$wWFQJX2JnaqSi4PwkKpceO/UlfK3qRiNZIYWSzyFb74FEZxWgPKOS",
+    "companyId": "co-1",
+    "status": "active",
+    "createdAt": "2026-07-26T14:41:23.258Z",
+    "updatedAt": "2026-07-26T14:41:23.258Z"
+  },
+  {
+    "id": "user-3",
+    "email": "factory@garmentserp.com",
+    "name": "MD. Tariqul Islam",
+    "role": "factory_manager",
+    "passwordHash": "$2b$10$wWFQJX2JnaqSi4PwkKpceO/UlfK3qRiNZIYWSzyFb74FEZxWgPKOS",
+    "companyId": "co-1",
+    "status": "active",
+    "createdAt": "2026-07-26T14:41:23.258Z",
+    "updatedAt": "2026-07-26T14:41:23.258Z"
+  },
+  {
+    "id": "user-4",
+    "email": "store@garmentserp.com",
+    "name": "Mahbub Alam",
+    "role": "store_manager",
+    "passwordHash": "$2b$10$wWFQJX2JnaqSi4PwkKpceO/UlfK3qRiNZIYWSzyFb74FEZxWgPKOS",
+    "companyId": "co-1",
+    "status": "active",
+    "createdAt": "2026-07-26T14:41:23.258Z",
+    "updatedAt": "2026-07-26T14:41:23.258Z"
+  },
+  {
+    "id": "user-5",
+    "email": "accounts@garmentserp.com",
+    "name": "Nusrat Jahan",
+    "role": "accountant",
+    "passwordHash": "$2b$10$wWFQJX2JnaqSi4PwkKpceO/UlfK3qRiNZIYWSzyFb74FEZxWgPKOS",
+    "companyId": "co-1",
+    "status": "active",
+    "createdAt": "2026-07-26T14:41:23.258Z",
+    "updatedAt": "2026-07-26T14:41:23.258Z"
+  },
+  {
+    "id": "user-6",
+    "email": "qc@garmentserp.com",
+    "name": "Shahadat Hossain",
+    "role": "qc_inspector",
+    "passwordHash": "$2b$10$wWFQJX2JnaqSi4PwkKpceO/UlfK3qRiNZIYWSzyFb74FEZxWgPKOS",
+    "companyId": "co-1",
+    "status": "active",
+    "createdAt": "2026-07-26T14:41:23.258Z",
+    "updatedAt": "2026-07-26T14:41:23.258Z"
+  },
+  {
+    "id": "user-7",
+    "email": "merch@garmentserp.com",
+    "name": "Farhana Akter",
+    "role": "merchandiser",
+    "passwordHash": "$2b$10$wWFQJX2JnaqSi4PwkKpceO/UlfK3qRiNZIYWSzyFb74FEZxWgPKOS",
+    "companyId": "co-1",
+    "status": "active",
+    "createdAt": "2026-07-26T14:41:23.258Z",
+    "updatedAt": "2026-07-26T14:41:23.258Z"
+  }
+]

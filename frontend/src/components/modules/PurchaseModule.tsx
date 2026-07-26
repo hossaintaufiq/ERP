@@ -1,208 +1,144 @@
 'use client';
 
 import React, { useState } from 'react';
-import {
-  ShoppingCart,
-  ArrowRight,
-  CheckCircle2,
-  FileCheck,
-  PackageCheck,
-  DollarSign,
-  Plus,
-  Clock,
-  Sparkles
-} from 'lucide-react';
-import { MOCK_PURCHASE_ORDERS, PurchaseOrder } from '@/data/mockData';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { Plus, Sparkles } from 'lucide-react';
+import { erpApi, resources } from '@/lib/api';
+import { DataTable, PageHeader } from '@/components/ui/DataTable';
 
 export default function PurchaseModule() {
-  const [purchaseOrders, setPurchaseOrders] = useState<PurchaseOrder[]>(MOCK_PURCHASE_ORDERS);
-  const [prMaterial, setPrMaterial] = useState('Zara Main Neck Label');
+  const qc = useQueryClient();
+  const [prMaterial, setPrMaterial] = useState('Combed Cotton Pique');
   const [prQuantity, setPrQuantity] = useState(10000);
   const [prSupplier, setPrSupplier] = useState('Apex Textile Mills Ltd');
+  const [msg, setMsg] = useState('');
 
-  const handleCreatePr = (e: React.FormEvent) => {
-    e.preventDefault();
-    const newPo: PurchaseOrder = {
-      poNumber: `PO-2026-${Math.floor(880 + Math.random() * 100)}`,
-      prNumber: `PR-${Math.floor(900 + Math.random() * 100)}`,
-      supplier: prSupplier,
-      materials: [{ name: prMaterial, qty: prQuantity, unit: 'Pcs', price: 0.09 }],
-      totalCost: prQuantity * 0.09,
-      issueDate: new Date().toISOString().split('T')[0],
-      expectedDelivery: '2026-08-05',
-      status: 'PR Approved',
-    };
-    setPurchaseOrders([newPo, ...purchaseOrders]);
-  };
+  const { data, isLoading } = useQuery({
+    queryKey: ['purchase-orders'],
+    queryFn: () => resources.list('purchase-orders', { limit: 40, sortBy: 'issueDate' }),
+  });
 
-  const updateStatus = (poNumber: string, nextStatus: PurchaseOrder['status']) => {
-    setPurchaseOrders(
-      purchaseOrders.map((p) => (p.poNumber === poNumber ? { ...p, status: nextStatus } : p))
-    );
-  };
+  const createPr = useMutation({
+    mutationFn: () =>
+      resources.create('purchase-orders', {
+        poNumber: `PO-2026-${Math.floor(800 + Math.random() * 200)}`,
+        prNumber: `PR-${Math.floor(900 + Math.random() * 100)}`,
+        supplier: prSupplier,
+        materials: [{ name: prMaterial, qty: prQuantity, unit: 'Pcs', price: 0.09 }],
+        totalCost: prQuantity * 0.09,
+        issueDate: new Date().toISOString().slice(0, 10),
+        expectedDelivery: new Date(Date.now() + 14 * 86400000).toISOString().slice(0, 10),
+        status: 'PR Approved',
+        companyId: 'co-1',
+      }),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ['purchase-orders'] });
+      setMsg('Purchase request created');
+    },
+    onError: () => setMsg('Create failed — check API connection'),
+  });
+
+  const advance = useMutation({
+    mutationFn: (id: string) => erpApi.advancePo(id),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ['purchase-orders'] });
+      qc.invalidateQueries({ queryKey: ['inventory'] });
+      qc.invalidateQueries({ queryKey: ['dashboard'] });
+      setMsg('PO advanced — inventory/notifications/audit updated');
+    },
+    onError: (e: any) => setMsg(e?.response?.data?.error?.message || 'Advance failed'),
+  });
+
+  const rows = (data as any)?.data || [];
 
   return (
-    <div className="space-y-6 animate-in fade-in duration-200">
-      {/* Header */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+    <div className="space-y-6 animate-fade-up">
+      <PageHeader
+        eyebrow="Module 7 · Procurement"
+        title="Purchase Management"
+        description="PR → PO → GRN → stock update → payment. Advancing a PO runs the full ERP workflow."
+      />
+
+      <div className="glass-panel p-5 space-y-3">
+        <div className="text-xs font-bold text-brand-700 dark:text-brand-400 uppercase tracking-wider flex items-center gap-2">
+          <Sparkles className="w-4 h-4" /> Procurement lifecycle
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 text-center text-[11px]">
+          {['Create PR', 'Issue PO', 'Receive', 'Update Stock', 'Payment'].map((s, i) => (
+            <div key={s} className="p-3 rounded-lg bg-stone-50 dark:bg-stone-800 border border-stone-200 dark:border-stone-700">
+              <div className="font-mono text-brand-600 text-[10px]">STAGE {i + 1}</div>
+              <div className="font-semibold text-stone-800 dark:text-stone-100">{s}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          createPr.mutate();
+        }}
+        className="panel p-5 grid md:grid-cols-4 gap-3 items-end"
+      >
         <div>
-          <div className="flex items-center gap-2 text-xs font-bold text-brand-700 dark:text-brand-400 uppercase tracking-wider">
-            Module 7: Purchase Management
-          </div>
-          <h2 className="text-2xl font-extrabold text-slate-900 dark:text-slate-100">Procurement & Material Requisition Workflow</h2>
-          <p className="text-xs text-slate-500">Automate raw material sourcing when stock drops below safety thresholds.</p>
+          <label className="text-xs font-semibold text-stone-500">Material</label>
+          <input className="input-field mt-1" value={prMaterial} onChange={(e) => setPrMaterial(e.target.value)} />
         </div>
-      </div>
-
-      {/* 5-Step Workflow Pipeline Visualizer (As requested in prompt!) */}
-      <div className="glass-panel rounded-2xl p-6 space-y-4 bg-gradient-to-r from-stone-900/10 via-stone-950/10 to-stone-950/10 border-brand-600/30">
-        <div className="text-xs font-extrabold text-brand-700 dark:text-brand-400 uppercase tracking-wider flex items-center gap-2">
-          <Sparkles className="w-4 h-4" /> Automated 5-Stage Procurement Lifecycle
+        <div>
+          <label className="text-xs font-semibold text-stone-500">Quantity</label>
+          <input
+            type="number"
+            className="input-field mt-1"
+            value={prQuantity}
+            onChange={(e) => setPrQuantity(Number(e.target.value))}
+          />
         </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-5 gap-3 text-center text-xs">
-          <div className="p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-1">
-            <div className="font-mono font-bold text-brand-700 text-[10px]">STAGE 1</div>
-            <div className="font-extrabold text-slate-900 dark:text-slate-100">Create PR</div>
-            <div className="text-[10px] text-slate-400">Requisition Request</div>
-          </div>
-          <div className="p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-1">
-            <div className="font-mono font-bold text-brand-700 text-[10px]">STAGE 2</div>
-            <div className="font-extrabold text-slate-900 dark:text-slate-100">Issue PO</div>
-            <div className="text-[10px] text-slate-400">Sent to Supplier</div>
-          </div>
-          <div className="p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-1">
-            <div className="font-mono font-bold text-brand-700 text-[10px]">STAGE 3</div>
-            <div className="font-extrabold text-slate-900 dark:text-slate-100">Receive Materials</div>
-            <div className="text-[10px] text-slate-400">Goods Receiving (GRN)</div>
-          </div>
-          <div className="p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-1">
-            <div className="font-mono font-bold text-status-success text-[10px]">STAGE 4</div>
-            <div className="font-extrabold text-slate-900 dark:text-slate-100">Update Stock</div>
-            <div className="text-[10px] text-slate-400">Inventory Sync</div>
-          </div>
-          <div className="p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-1">
-            <div className="font-mono font-bold text-teal-600 text-[10px]">STAGE 5</div>
-            <div className="font-extrabold text-slate-900 dark:text-slate-100">Supplier Payment</div>
-            <div className="text-[10px] text-slate-400">Accounts Payable</div>
-          </div>
+        <div>
+          <label className="text-xs font-semibold text-stone-500">Supplier</label>
+          <input className="input-field mt-1" value={prSupplier} onChange={(e) => setPrSupplier(e.target.value)} />
         </div>
-      </div>
+        <button type="submit" className="btn-primary" disabled={createPr.isPending}>
+          <Plus className="w-4 h-4" />
+          {createPr.isPending ? 'Creating…' : 'Create PR'}
+        </button>
+      </form>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Create PR Form */}
-        <form onSubmit={handleCreatePr} className="glass-panel rounded-2xl p-5 space-y-4">
-          <h3 className="font-extrabold text-sm text-slate-900 dark:text-slate-100 flex items-center gap-2">
-            <Plus className="w-4 h-4 text-brand-600" /> Create Purchase Request (PR)
-          </h3>
+      {msg && <p className="text-xs text-brand-700 dark:text-brand-400">{msg}</p>}
 
-          <div className="space-y-3 text-xs">
-            <div>
-              <label className="block text-slate-400 font-bold mb-1">Material Needed</label>
-              <input
-                type="text"
-                value={prMaterial}
-                onChange={(e) => setPrMaterial(e.target.value)}
-                className="w-full bg-slate-100 dark:bg-slate-800 p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 font-bold focus:outline-none"
-              />
-            </div>
-
-            <div>
-              <label className="block text-slate-400 font-bold mb-1">Quantity</label>
-              <input
-                type="number"
-                value={prQuantity}
-                onChange={(e) => setPrQuantity(Number(e.target.value))}
-                className="w-full bg-slate-100 dark:bg-slate-800 p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 font-bold focus:outline-none"
-              />
-            </div>
-
-            <div>
-              <label className="block text-slate-400 font-bold mb-1">Target Supplier</label>
-              <select
-                value={prSupplier}
-                onChange={(e) => setPrSupplier(e.target.value)}
-                className="w-full bg-slate-100 dark:bg-slate-800 p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 font-bold focus:outline-none"
-              >
-                <option value="Apex Textile Mills Ltd">Apex Textile Mills Ltd</option>
-                <option value="YKK Fastening Accessories">YKK Fastening Accessories</option>
-                <option value="Coats Thread Bangladesh">Coats Thread Bangladesh</option>
-              </select>
-            </div>
-
-            <button type="submit" className="w-full bg-brand-800 hover:bg-brand-700 text-white font-bold py-2.5 rounded-xl shadow transition-colors">
-              Submit Purchase Request →
-            </button>
-          </div>
-        </form>
-
-        {/* PO List & Lifecycle Advancement */}
-        <div className="lg:col-span-2 glass-panel rounded-2xl p-5 space-y-4">
-          <h3 className="font-extrabold text-sm text-slate-900 dark:text-slate-100">Active Purchase Orders & Lifecycle Controls</h3>
-
-          <div className="space-y-3">
-            {purchaseOrders.map((po) => (
-              <div key={po.poNumber} className="p-4 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200/60 dark:border-slate-700/60 space-y-3 text-xs">
-                <div className="flex justify-between items-center">
-                  <div className="flex items-center gap-2">
-                    <span className="font-mono font-black text-brand-700 dark:text-brand-400">{po.poNumber}</span>
-                    <span className="text-slate-400 font-mono">({po.prNumber})</span>
-                  </div>
-                  <span className="badge bg-stone-100 text-brand-800 dark:bg-stone-900 dark:text-brand-300 font-bold">
-                    {po.status}
-                  </span>
-                </div>
-
-                <div className="flex justify-between items-center text-slate-600 dark:text-slate-300">
-                  <div>
-                    <div className="font-bold text-slate-900 dark:text-slate-100">{po.supplier}</div>
-                    <div className="text-[11px] text-slate-400">
-                      {po.materials.map((m) => `${m.name} (${m.qty} ${m.unit})`).join(', ')}
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <div className="font-black text-status-success text-sm">${po.totalCost.toLocaleString()}</div>
-                    <div className="text-[10px] text-slate-400">Exp: {po.expectedDelivery}</div>
-                  </div>
-                </div>
-
-                {/* Status Advancement Buttons */}
-                <div className="pt-2 border-t border-slate-200/60 dark:border-slate-700/60 flex items-center justify-end gap-2">
-                  {po.status === 'PR Approved' && (
-                    <button
-                      onClick={() => updateStatus(po.poNumber, 'PO Issued')}
-                      className="bg-brand-800 text-white font-bold px-3 py-1.5 rounded-lg"
-                    >
-                      Issue PO to Supplier →
-                    </button>
-                  )}
-                  {po.status === 'PO Issued' && (
-                    <button
-                      onClick={() => updateStatus(po.poNumber, 'Materials Received')}
-                      className="bg-brand-800 text-white font-bold px-3 py-1.5 rounded-lg"
-                    >
-                      Receive Materials & Stock GRN →
-                    </button>
-                  )}
-                  {po.status === 'Materials Received' && (
-                    <button
-                      onClick={() => updateStatus(po.poNumber, 'Paid')}
-                      className="bg-status-success text-white font-bold px-3 py-1.5 rounded-lg"
-                    >
-                      Process Supplier Payment →
-                    </button>
-                  )}
-                  {po.status === 'Paid' && (
-                    <span className="text-status-success font-bold flex items-center gap-1">
-                      <CheckCircle2 className="w-4 h-4" /> Cycle Completed & Paid
-                    </span>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+      {isLoading ? (
+        <div className="panel p-8 text-center text-sm text-stone-500">Loading purchase orders…</div>
+      ) : (
+        <DataTable
+          rows={rows}
+          columns={[
+            { key: 'poNumber', header: 'PO #' },
+            { key: 'supplier', header: 'Supplier' },
+            {
+              key: 'totalCost',
+              header: 'Total',
+              render: (r: any) => `$${Number(r.totalCost || 0).toLocaleString()}`,
+            },
+            { key: 'status', header: 'Status' },
+            { key: 'expectedDelivery', header: 'ETA' },
+            {
+              key: 'actions',
+              header: '',
+              render: (r: any) =>
+                r.status !== 'Closed' ? (
+                  <button
+                    type="button"
+                    className="text-xs font-semibold text-accent"
+                    onClick={() => advance.mutate(r.id)}
+                  >
+                    Advance →
+                  </button>
+                ) : (
+                  '—'
+                ),
+            },
+          ]}
+        />
+      )}
     </div>
   );
 }

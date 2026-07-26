@@ -1,93 +1,77 @@
 'use client';
 
-import React, { useState } from 'react';
-import {
-  UserCheck,
-  Building,
-  Plus,
-  Phone,
-  Calendar,
-  DollarSign,
-  Award,
-  Search
-} from 'lucide-react';
-import { MOCK_EMPLOYEES, Employee } from '@/data/mockData';
+import React, { useMemo, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import { resources } from '@/lib/api';
+import { DataTable, PageHeader, StatCard } from '@/components/ui/DataTable';
 
 export default function EmployeeModule() {
-  const [department, setDepartment] = useState<string>('ALL');
+  const [dept, setDept] = useState('ALL');
+  const { data, isLoading } = useQuery({
+    queryKey: ['employees'],
+    queryFn: () => resources.list('employees', { limit: 100, sortBy: 'name', sortDir: 'asc' }),
+  });
 
-  const filteredEmployees = department === 'ALL' ? MOCK_EMPLOYEES : MOCK_EMPLOYEES.filter((e) => e.department === department);
+  const rows = (data as any)?.data || [];
+  const departments = useMemo(
+    () => ['ALL', ...Array.from(new Set(rows.map((e: any) => e.department).filter(Boolean)))],
+    [rows],
+  );
+  const filtered = dept === 'ALL' ? rows : rows.filter((e: any) => e.department === dept);
 
   return (
-    <div className="space-y-6 animate-in fade-in duration-200">
-      {/* Header */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-        <div>
-          <div className="flex items-center gap-2 text-xs font-bold text-brand-700 dark:text-brand-400 uppercase tracking-wider">
-            Module 11: Employee Management
-          </div>
-          <h2 className="text-2xl font-extrabold text-slate-900 dark:text-slate-100">Factory Staff & Worker Directory</h2>
-          <p className="text-xs text-slate-500">Manage 450 factory operators, line masters, QC technicians, HR officers, and maintenance engineers.</p>
-        </div>
-        <button className="bg-brand-800 hover:bg-brand-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-lg shadow-brand-900/30 flex items-center gap-2">
-          <Plus className="w-4 h-4" /> Add New Employee
-        </button>
+    <div className="space-y-6 animate-fade-up">
+      <PageHeader
+        eyebrow="Module 11 · HR"
+        title="Employee Directory"
+        description="Factory workforce profiles, departments, salaries, and performance scores."
+      />
+
+      <div className="grid sm:grid-cols-3 gap-4">
+        <StatCard label="Loaded records" value={(data as any)?.meta?.total ?? filtered.length} />
+        <StatCard label="Showing" value={filtered.length} />
+        <StatCard label="Departments" value={Math.max(departments.length - 1, 0)} />
       </div>
 
-      {/* Filter Tabs */}
-      <div className="flex items-center gap-2 overflow-x-auto pb-2 text-xs font-bold">
-        {['ALL', 'Sewing', 'Cutting', 'Quality', 'Maintenance', 'HR & Admin'].map((dep) => (
+      <div className="flex flex-wrap gap-1.5">
+        {departments.map((d: any) => (
           <button
-            key={dep}
-            onClick={() => setDepartment(dep)}
-            className={`px-3 py-1.5 rounded-xl transition-all ${
-              department === dep
-                ? 'bg-brand-800 text-white shadow'
-                : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200'
+            key={d}
+            type="button"
+            onClick={() => setDept(d)}
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold ${
+              dept === d ? 'bg-brand-600 text-white' : 'bg-stone-100 dark:bg-stone-800 text-stone-600'
             }`}
           >
-            {dep}
+            {d}
           </button>
         ))}
       </div>
 
-      {/* Staff Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredEmployees.map((emp) => (
-          <div key={emp.id} className="glass-panel p-5 rounded-2xl space-y-4 hover:border-brand-600/30 transition-all flex flex-col justify-between">
-            <div className="flex items-center gap-3">
-              <img src={emp.avatar} alt={emp.name} className="w-14 h-14 rounded-full object-cover ring-2 ring-brand-600/30" />
-              <div>
-                <span className="font-mono text-[10px] font-bold text-brand-700 dark:text-brand-400">{emp.employeeCode}</span>
-                <h3 className="font-extrabold text-base text-slate-900 dark:text-slate-100">{emp.name}</h3>
-                <div className="text-xs text-slate-500 font-semibold">{emp.designation}</div>
-              </div>
-            </div>
-
-            <div className="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl space-y-1.5 text-xs">
-              <div className="flex justify-between">
-                <span className="text-slate-500">Department:</span>
-                <span className="font-bold text-slate-900 dark:text-slate-100">{emp.department}</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-slate-500">Base Salary:</span>
-                <span className="font-bold text-status-success">BDT {emp.salary.toLocaleString()} / mo</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-slate-500">Shift Schedule:</span>
-                <span className="font-medium text-slate-600 dark:text-slate-300">{emp.shift}</span>
-              </div>
-            </div>
-
-            <div className="pt-3 border-t border-slate-200 dark:border-slate-800 flex justify-between items-center text-xs">
-              <div className="flex items-center gap-1 text-status-success font-bold">
-                <Award className="w-4 h-4 text-emerald-500" /> {emp.performanceScore}% Rating
-              </div>
-              <div className="text-slate-400">Attendance: <strong className="text-slate-900 dark:text-slate-100">{emp.attendanceRate}%</strong></div>
-            </div>
-          </div>
-        ))}
-      </div>
+      {isLoading ? (
+        <div className="panel p-8 text-center text-sm text-stone-500">Loading employees…</div>
+      ) : (
+        <DataTable
+          rows={filtered}
+          columns={[
+            { key: 'employeeCode', header: 'Code' },
+            { key: 'name', header: 'Name' },
+            { key: 'department', header: 'Department' },
+            { key: 'designation', header: 'Role' },
+            {
+              key: 'salary',
+              header: 'Salary (BDT)',
+              render: (r: any) => Number(r.salary || 0).toLocaleString(),
+            },
+            { key: 'shift', header: 'Shift' },
+            {
+              key: 'performanceScore',
+              header: 'Score',
+              render: (r: any) => `${r.performanceScore}%`,
+            },
+          ]}
+        />
+      )}
     </div>
   );
 }

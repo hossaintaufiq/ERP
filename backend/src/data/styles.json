@@ -1,0 +1,2645 @@
+[
+  {
+    "id": "stl-1",
+    "styleNumber": "STL-2000",
+    "name": "Jogger Pant",
+    "buyerId": "buy-5",
+    "buyer": "Uniqlo (Fast Retailing)",
+    "season": "SS27",
+    "fabricSpec": "Poplin 120 GSM",
+    "colors": [
+      "Navy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "archived",
+    "unitCost": 4,
+    "sellingPrice": 31,
+    "bomRatio": {
+      "fabricMeters": 1.5,
+      "buttons": 6,
+      "threadCones": 0.2,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-2",
+    "styleNumber": "STL-2001",
+    "name": "Jogger Pant",
+    "buyerId": "buy-5",
+    "buyer": "Uniqlo (Fast Retailing)",
+    "season": "AW26",
+    "fabricSpec": "Fleece 280 GSM",
+    "colors": [
+      "Red",
+      "Blue",
+      "Green"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "archived",
+    "unitCost": 5,
+    "sellingPrice": 19,
+    "bomRatio": {
+      "fabricMeters": 1.1,
+      "buttons": 2,
+      "threadCones": 0.2,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-3",
+    "styleNumber": "STL-2002",
+    "name": "Fleece Hoodie",
+    "buyerId": "buy-4",
+    "buyer": "Walmart Global Procurement",
+    "season": "AW26",
+    "fabricSpec": "Organic Jersey 180 GSM",
+    "colors": [
+      "Olive",
+      "Sand"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "approved",
+    "unitCost": 11,
+    "sellingPrice": 28,
+    "bomRatio": {
+      "fabricMeters": 2.1,
+      "buttons": 3,
+      "threadCones": 0.3,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-4",
+    "styleNumber": "STL-2003",
+    "name": "Kids Tee",
+    "buyerId": "buy-8",
+    "buyer": "Target Corporation",
+    "season": "AW26",
+    "fabricSpec": "Organic Jersey 180 GSM",
+    "colors": [
+      "Olive",
+      "Sand"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "approved",
+    "unitCost": 10,
+    "sellingPrice": 22,
+    "bomRatio": {
+      "fabricMeters": 1.2,
+      "buttons": 2,
+      "threadCones": 0.1,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-5",
+    "styleNumber": "STL-2004",
+    "name": "Oxford Shirt",
+    "buyerId": "buy-6",
+    "buyer": "Gap Inc.",
+    "season": "SS27",
+    "fabricSpec": "Cotton Pique 220 GSM",
+    "colors": [
+      "Olive",
+      "Sand"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "approved",
+    "unitCost": 12,
+    "sellingPrice": 22,
+    "bomRatio": {
+      "fabricMeters": 1.8,
+      "buttons": 6,
+      "threadCones": 0.3,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-6",
+    "styleNumber": "STL-2005",
+    "name": "Slim Fit Polo",
+    "buyerId": "buy-7",
+    "buyer": "C&A Mode",
+    "season": "SS26",
+    "fabricSpec": "Fleece 280 GSM",
+    "colors": [
+      "White",
+      "Black"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "sampling",
+    "unitCost": 16,
+    "sellingPrice": 32,
+    "bomRatio": {
+      "fabricMeters": 2.1,
+      "buttons": 0,
+      "threadCones": 0.3,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-7",
+    "styleNumber": "STL-2006",
+    "name": "Chino Shorts",
+    "buyerId": "buy-1",
+    "buyer": "Zara (Inditex)",
+    "season": "SS26",
+    "fabricSpec": "Poplin 120 GSM",
+    "colors": [
+      "White",
+      "Black"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "approved",
+    "unitCost": 9,
+    "sellingPrice": 26,
+    "bomRatio": {
+      "fabricMeters": 1.4,
+      "buttons": 8,
+      "threadCones": 0.2,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-8",
+    "styleNumber": "STL-2007",
+    "name": "Denim Jacket",
+    "buyerId": "buy-8",
+    "buyer": "Target Corporation",
+    "season": "SS26",
+    "fabricSpec": "Denim 12oz",
+    "colors": [
+      "White",
+      "Black"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "approved",
+    "unitCost": 10,
+    "sellingPrice": 32,
+    "bomRatio": {
+      "fabricMeters": 1.5,
+      "buttons": 7,
+      "threadCones": 0.3,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-9",
+    "styleNumber": "STL-2008",
+    "name": "Chino Shorts",
+    "buyerId": "buy-7",
+    "buyer": "C&A Mode",
+    "season": "AW26",
+    "fabricSpec": "Poplin 120 GSM",
+    "colors": [
+      "Red",
+      "Blue",
+      "Green"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "approved",
+    "unitCost": 12,
+    "sellingPrice": 22,
+    "bomRatio": {
+      "fabricMeters": 2.5,
+      "buttons": 2,
+      "threadCones": 0.1,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-10",
+    "styleNumber": "STL-2009",
+    "name": "Fleece Hoodie",
+    "buyerId": "buy-2",
+    "buyer": "H&M Hennes & Mauritz",
+    "season": "AW26",
+    "fabricSpec": "Cotton Pique 220 GSM",
+    "colors": [
+      "Red",
+      "Blue",
+      "Green"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "archived",
+    "unitCost": 6,
+    "sellingPrice": 8,
+    "bomRatio": {
+      "fabricMeters": 1.8,
+      "buttons": 3,
+      "threadCones": 0.3,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-11",
+    "styleNumber": "STL-2010",
+    "name": "Fleece Hoodie",
+    "buyerId": "buy-4",
+    "buyer": "Walmart Global Procurement",
+    "season": "AW26",
+    "fabricSpec": "Poplin 120 GSM",
+    "colors": [
+      "Heather Grey"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "approved",
+    "unitCost": 11,
+    "sellingPrice": 16,
+    "bomRatio": {
+      "fabricMeters": 1.9,
+      "buttons": 4,
+      "threadCones": 0.3,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-12",
+    "styleNumber": "STL-2011",
+    "name": "Kids Tee",
+    "buyerId": "buy-4",
+    "buyer": "Walmart Global Procurement",
+    "season": "SS26",
+    "fabricSpec": "Organic Jersey 180 GSM",
+    "colors": [
+      "Navy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "production",
+    "unitCost": 7,
+    "sellingPrice": 17,
+    "bomRatio": {
+      "fabricMeters": 1.8,
+      "buttons": 5,
+      "threadCones": 0.2,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-13",
+    "styleNumber": "STL-2012",
+    "name": "Crewneck Tee",
+    "buyerId": "buy-8",
+    "buyer": "Target Corporation",
+    "season": "SS26",
+    "fabricSpec": "Denim 12oz",
+    "colors": [
+      "Red",
+      "Blue",
+      "Green"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "approved",
+    "unitCost": 16,
+    "sellingPrice": 30,
+    "bomRatio": {
+      "fabricMeters": 2.3,
+      "buttons": 8,
+      "threadCones": 0.2,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-14",
+    "styleNumber": "STL-2013",
+    "name": "Chino Shorts",
+    "buyerId": "buy-1",
+    "buyer": "Zara (Inditex)",
+    "season": "SS26",
+    "fabricSpec": "Cotton Pique 220 GSM",
+    "colors": [
+      "Olive",
+      "Sand"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "production",
+    "unitCost": 8,
+    "sellingPrice": 10,
+    "bomRatio": {
+      "fabricMeters": 2.2,
+      "buttons": 1,
+      "threadCones": 0.2,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-15",
+    "styleNumber": "STL-2014",
+    "name": "Chino Shorts",
+    "buyerId": "buy-2",
+    "buyer": "H&M Hennes & Mauritz",
+    "season": "AW26",
+    "fabricSpec": "Poplin 120 GSM",
+    "colors": [
+      "Navy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "sampling",
+    "unitCost": 13,
+    "sellingPrice": 21,
+    "bomRatio": {
+      "fabricMeters": 2.5,
+      "buttons": 6,
+      "threadCones": 0.2,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-16",
+    "styleNumber": "STL-2015",
+    "name": "Jogger Pant",
+    "buyerId": "buy-1",
+    "buyer": "Zara (Inditex)",
+    "season": "SS26",
+    "fabricSpec": "Organic Jersey 180 GSM",
+    "colors": [
+      "Red",
+      "Blue",
+      "Green"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "archived",
+    "unitCost": 5,
+    "sellingPrice": 13,
+    "bomRatio": {
+      "fabricMeters": 1,
+      "buttons": 4,
+      "threadCones": 0.3,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-17",
+    "styleNumber": "STL-2016",
+    "name": "Jogger Pant",
+    "buyerId": "buy-4",
+    "buyer": "Walmart Global Procurement",
+    "season": "SS26",
+    "fabricSpec": "Denim 12oz",
+    "colors": [
+      "Olive",
+      "Sand"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "sampling",
+    "unitCost": 12,
+    "sellingPrice": 30,
+    "bomRatio": {
+      "fabricMeters": 2.1,
+      "buttons": 7,
+      "threadCones": 0.2,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-18",
+    "styleNumber": "STL-2017",
+    "name": "Crewneck Tee",
+    "buyerId": "buy-6",
+    "buyer": "Gap Inc.",
+    "season": "SS26",
+    "fabricSpec": "Denim 12oz",
+    "colors": [
+      "Olive",
+      "Sand"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "archived",
+    "unitCost": 5,
+    "sellingPrice": 30,
+    "bomRatio": {
+      "fabricMeters": 1,
+      "buttons": 2,
+      "threadCones": 0.3,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-19",
+    "styleNumber": "STL-2018",
+    "name": "Slim Fit Polo",
+    "buyerId": "buy-3",
+    "buyer": "Primark Stores Ltd",
+    "season": "SS27",
+    "fabricSpec": "Denim 12oz",
+    "colors": [
+      "White",
+      "Black"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "archived",
+    "unitCost": 18,
+    "sellingPrice": 35,
+    "bomRatio": {
+      "fabricMeters": 2.3,
+      "buttons": 2,
+      "threadCones": 0.3,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-20",
+    "styleNumber": "STL-2019",
+    "name": "Jogger Pant",
+    "buyerId": "buy-5",
+    "buyer": "Uniqlo (Fast Retailing)",
+    "season": "AW26",
+    "fabricSpec": "Cotton Pique 220 GSM",
+    "colors": [
+      "White",
+      "Black"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "sampling",
+    "unitCost": 18,
+    "sellingPrice": 10,
+    "bomRatio": {
+      "fabricMeters": 2.1,
+      "buttons": 0,
+      "threadCones": 0.1,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-21",
+    "styleNumber": "STL-2020",
+    "name": "Crewneck Tee",
+    "buyerId": "buy-2",
+    "buyer": "H&M Hennes & Mauritz",
+    "season": "AW26",
+    "fabricSpec": "Denim 12oz",
+    "colors": [
+      "Red",
+      "Blue",
+      "Green"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "production",
+    "unitCost": 5,
+    "sellingPrice": 21,
+    "bomRatio": {
+      "fabricMeters": 2.2,
+      "buttons": 1,
+      "threadCones": 0.2,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-22",
+    "styleNumber": "STL-2021",
+    "name": "Denim Jacket",
+    "buyerId": "buy-2",
+    "buyer": "H&M Hennes & Mauritz",
+    "season": "SS27",
+    "fabricSpec": "Poplin 120 GSM",
+    "colors": [
+      "Red",
+      "Blue",
+      "Green"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "approved",
+    "unitCost": 16,
+    "sellingPrice": 14,
+    "bomRatio": {
+      "fabricMeters": 1.3,
+      "buttons": 4,
+      "threadCones": 0.3,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-23",
+    "styleNumber": "STL-2022",
+    "name": "Kids Tee",
+    "buyerId": "buy-6",
+    "buyer": "Gap Inc.",
+    "season": "SS27",
+    "fabricSpec": "Organic Jersey 180 GSM",
+    "colors": [
+      "Olive",
+      "Sand"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "approved",
+    "unitCost": 8,
+    "sellingPrice": 25,
+    "bomRatio": {
+      "fabricMeters": 2.5,
+      "buttons": 8,
+      "threadCones": 0.1,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-24",
+    "styleNumber": "STL-2023",
+    "name": "Fleece Hoodie",
+    "buyerId": "buy-8",
+    "buyer": "Target Corporation",
+    "season": "SS27",
+    "fabricSpec": "Denim 12oz",
+    "colors": [
+      "Heather Grey"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "production",
+    "unitCost": 13,
+    "sellingPrice": 20,
+    "bomRatio": {
+      "fabricMeters": 1.9,
+      "buttons": 0,
+      "threadCones": 0.3,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-25",
+    "styleNumber": "STL-2024",
+    "name": "Crewneck Tee",
+    "buyerId": "buy-4",
+    "buyer": "Walmart Global Procurement",
+    "season": "AW26",
+    "fabricSpec": "Poplin 120 GSM",
+    "colors": [
+      "White",
+      "Black"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "production",
+    "unitCost": 6,
+    "sellingPrice": 16,
+    "bomRatio": {
+      "fabricMeters": 2.3,
+      "buttons": 0,
+      "threadCones": 0.1,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-26",
+    "styleNumber": "STL-2025",
+    "name": "Crewneck Tee",
+    "buyerId": "buy-5",
+    "buyer": "Uniqlo (Fast Retailing)",
+    "season": "SS27",
+    "fabricSpec": "Organic Jersey 180 GSM",
+    "colors": [
+      "Red",
+      "Blue",
+      "Green"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "sampling",
+    "unitCost": 15,
+    "sellingPrice": 31,
+    "bomRatio": {
+      "fabricMeters": 2.1,
+      "buttons": 4,
+      "threadCones": 0.1,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-27",
+    "styleNumber": "STL-2026",
+    "name": "Slim Fit Polo",
+    "buyerId": "buy-7",
+    "buyer": "C&A Mode",
+    "season": "AW26",
+    "fabricSpec": "Poplin 120 GSM",
+    "colors": [
+      "Heather Grey"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "approved",
+    "unitCost": 5,
+    "sellingPrice": 30,
+    "bomRatio": {
+      "fabricMeters": 1.2,
+      "buttons": 1,
+      "threadCones": 0.1,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-28",
+    "styleNumber": "STL-2027",
+    "name": "Jogger Pant",
+    "buyerId": "buy-4",
+    "buyer": "Walmart Global Procurement",
+    "season": "AW26",
+    "fabricSpec": "Denim 12oz",
+    "colors": [
+      "Heather Grey"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "sampling",
+    "unitCost": 17,
+    "sellingPrice": 31,
+    "bomRatio": {
+      "fabricMeters": 2.3,
+      "buttons": 2,
+      "threadCones": 0.3,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-29",
+    "styleNumber": "STL-2028",
+    "name": "Jogger Pant",
+    "buyerId": "buy-2",
+    "buyer": "H&M Hennes & Mauritz",
+    "season": "SS26",
+    "fabricSpec": "Organic Jersey 180 GSM",
+    "colors": [
+      "White",
+      "Black"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "production",
+    "unitCost": 15,
+    "sellingPrice": 35,
+    "bomRatio": {
+      "fabricMeters": 1.8,
+      "buttons": 0,
+      "threadCones": 0.1,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-30",
+    "styleNumber": "STL-2029",
+    "name": "Fleece Hoodie",
+    "buyerId": "buy-1",
+    "buyer": "Zara (Inditex)",
+    "season": "AW26",
+    "fabricSpec": "Fleece 280 GSM",
+    "colors": [
+      "White",
+      "Black"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "production",
+    "unitCost": 17,
+    "sellingPrice": 30,
+    "bomRatio": {
+      "fabricMeters": 2,
+      "buttons": 6,
+      "threadCones": 0.2,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-31",
+    "styleNumber": "STL-2030",
+    "name": "Crewneck Tee",
+    "buyerId": "buy-6",
+    "buyer": "Gap Inc.",
+    "season": "AW26",
+    "fabricSpec": "Cotton Pique 220 GSM",
+    "colors": [
+      "Olive",
+      "Sand"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "production",
+    "unitCost": 14,
+    "sellingPrice": 18,
+    "bomRatio": {
+      "fabricMeters": 2,
+      "buttons": 0,
+      "threadCones": 0.2,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-32",
+    "styleNumber": "STL-2031",
+    "name": "Fleece Hoodie",
+    "buyerId": "buy-2",
+    "buyer": "H&M Hennes & Mauritz",
+    "season": "SS27",
+    "fabricSpec": "Poplin 120 GSM",
+    "colors": [
+      "Red",
+      "Blue",
+      "Green"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "sampling",
+    "unitCost": 18,
+    "sellingPrice": 20,
+    "bomRatio": {
+      "fabricMeters": 1.1,
+      "buttons": 2,
+      "threadCones": 0.2,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-33",
+    "styleNumber": "STL-2032",
+    "name": "Oxford Shirt",
+    "buyerId": "buy-2",
+    "buyer": "H&M Hennes & Mauritz",
+    "season": "SS27",
+    "fabricSpec": "Fleece 280 GSM",
+    "colors": [
+      "Red",
+      "Blue",
+      "Green"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "archived",
+    "unitCost": 16,
+    "sellingPrice": 20,
+    "bomRatio": {
+      "fabricMeters": 1.5,
+      "buttons": 1,
+      "threadCones": 0.3,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-34",
+    "styleNumber": "STL-2033",
+    "name": "Slim Fit Polo",
+    "buyerId": "buy-7",
+    "buyer": "C&A Mode",
+    "season": "SS26",
+    "fabricSpec": "Denim 12oz",
+    "colors": [
+      "Red",
+      "Blue",
+      "Green"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "archived",
+    "unitCost": 5,
+    "sellingPrice": 26,
+    "bomRatio": {
+      "fabricMeters": 2.4,
+      "buttons": 3,
+      "threadCones": 0.1,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-35",
+    "styleNumber": "STL-2034",
+    "name": "Chino Shorts",
+    "buyerId": "buy-1",
+    "buyer": "Zara (Inditex)",
+    "season": "SS26",
+    "fabricSpec": "Denim 12oz",
+    "colors": [
+      "White",
+      "Black"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "approved",
+    "unitCost": 18,
+    "sellingPrice": 25,
+    "bomRatio": {
+      "fabricMeters": 1.1,
+      "buttons": 3,
+      "threadCones": 0.1,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-36",
+    "styleNumber": "STL-2035",
+    "name": "Slim Fit Polo",
+    "buyerId": "buy-2",
+    "buyer": "H&M Hennes & Mauritz",
+    "season": "AW26",
+    "fabricSpec": "Cotton Pique 220 GSM",
+    "colors": [
+      "Heather Grey"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "production",
+    "unitCost": 13,
+    "sellingPrice": 24,
+    "bomRatio": {
+      "fabricMeters": 1.8,
+      "buttons": 8,
+      "threadCones": 0.1,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-37",
+    "styleNumber": "STL-2036",
+    "name": "Slim Fit Polo",
+    "buyerId": "buy-3",
+    "buyer": "Primark Stores Ltd",
+    "season": "SS26",
+    "fabricSpec": "Poplin 120 GSM",
+    "colors": [
+      "White",
+      "Black"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "archived",
+    "unitCost": 12,
+    "sellingPrice": 27,
+    "bomRatio": {
+      "fabricMeters": 2.5,
+      "buttons": 1,
+      "threadCones": 0.2,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-38",
+    "styleNumber": "STL-2037",
+    "name": "Crewneck Tee",
+    "buyerId": "buy-5",
+    "buyer": "Uniqlo (Fast Retailing)",
+    "season": "SS26",
+    "fabricSpec": "Organic Jersey 180 GSM",
+    "colors": [
+      "Red",
+      "Blue",
+      "Green"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "archived",
+    "unitCost": 8,
+    "sellingPrice": 17,
+    "bomRatio": {
+      "fabricMeters": 1.8,
+      "buttons": 5,
+      "threadCones": 0.2,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-39",
+    "styleNumber": "STL-2038",
+    "name": "Fleece Hoodie",
+    "buyerId": "buy-2",
+    "buyer": "H&M Hennes & Mauritz",
+    "season": "SS27",
+    "fabricSpec": "Fleece 280 GSM",
+    "colors": [
+      "Heather Grey"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "archived",
+    "unitCost": 16,
+    "sellingPrice": 18,
+    "bomRatio": {
+      "fabricMeters": 2,
+      "buttons": 0,
+      "threadCones": 0.1,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-40",
+    "styleNumber": "STL-2039",
+    "name": "Chino Shorts",
+    "buyerId": "buy-7",
+    "buyer": "C&A Mode",
+    "season": "AW26",
+    "fabricSpec": "Cotton Pique 220 GSM",
+    "colors": [
+      "Heather Grey"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "archived",
+    "unitCost": 5,
+    "sellingPrice": 8,
+    "bomRatio": {
+      "fabricMeters": 1.8,
+      "buttons": 1,
+      "threadCones": 0.2,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-41",
+    "styleNumber": "STL-2040",
+    "name": "Oxford Shirt",
+    "buyerId": "buy-1",
+    "buyer": "Zara (Inditex)",
+    "season": "SS26",
+    "fabricSpec": "Fleece 280 GSM",
+    "colors": [
+      "Red",
+      "Blue",
+      "Green"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "approved",
+    "unitCost": 9,
+    "sellingPrice": 12,
+    "bomRatio": {
+      "fabricMeters": 1.2,
+      "buttons": 7,
+      "threadCones": 0.3,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-42",
+    "styleNumber": "STL-2041",
+    "name": "Fleece Hoodie",
+    "buyerId": "buy-6",
+    "buyer": "Gap Inc.",
+    "season": "SS26",
+    "fabricSpec": "Organic Jersey 180 GSM",
+    "colors": [
+      "Olive",
+      "Sand"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "approved",
+    "unitCost": 12,
+    "sellingPrice": 18,
+    "bomRatio": {
+      "fabricMeters": 1.8,
+      "buttons": 5,
+      "threadCones": 0.1,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-43",
+    "styleNumber": "STL-2042",
+    "name": "Fleece Hoodie",
+    "buyerId": "buy-4",
+    "buyer": "Walmart Global Procurement",
+    "season": "AW26",
+    "fabricSpec": "Fleece 280 GSM",
+    "colors": [
+      "White",
+      "Black"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "sampling",
+    "unitCost": 4,
+    "sellingPrice": 15,
+    "bomRatio": {
+      "fabricMeters": 1.4,
+      "buttons": 7,
+      "threadCones": 0.3,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-44",
+    "styleNumber": "STL-2043",
+    "name": "Jogger Pant",
+    "buyerId": "buy-1",
+    "buyer": "Zara (Inditex)",
+    "season": "AW26",
+    "fabricSpec": "Denim 12oz",
+    "colors": [
+      "Olive",
+      "Sand"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "archived",
+    "unitCost": 6,
+    "sellingPrice": 8,
+    "bomRatio": {
+      "fabricMeters": 2.2,
+      "buttons": 0,
+      "threadCones": 0.1,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-45",
+    "styleNumber": "STL-2044",
+    "name": "Chino Shorts",
+    "buyerId": "buy-2",
+    "buyer": "H&M Hennes & Mauritz",
+    "season": "AW26",
+    "fabricSpec": "Organic Jersey 180 GSM",
+    "colors": [
+      "White",
+      "Black"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "sampling",
+    "unitCost": 12,
+    "sellingPrice": 27,
+    "bomRatio": {
+      "fabricMeters": 1.1,
+      "buttons": 7,
+      "threadCones": 0.1,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-46",
+    "styleNumber": "STL-2045",
+    "name": "Jogger Pant",
+    "buyerId": "buy-8",
+    "buyer": "Target Corporation",
+    "season": "SS27",
+    "fabricSpec": "Cotton Pique 220 GSM",
+    "colors": [
+      "Heather Grey"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "approved",
+    "unitCost": 14,
+    "sellingPrice": 31,
+    "bomRatio": {
+      "fabricMeters": 2,
+      "buttons": 6,
+      "threadCones": 0.1,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-47",
+    "styleNumber": "STL-2046",
+    "name": "Slim Fit Polo",
+    "buyerId": "buy-8",
+    "buyer": "Target Corporation",
+    "season": "SS26",
+    "fabricSpec": "Denim 12oz",
+    "colors": [
+      "Red",
+      "Blue",
+      "Green"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "approved",
+    "unitCost": 6,
+    "sellingPrice": 33,
+    "bomRatio": {
+      "fabricMeters": 2.1,
+      "buttons": 5,
+      "threadCones": 0.3,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-48",
+    "styleNumber": "STL-2047",
+    "name": "Slim Fit Polo",
+    "buyerId": "buy-6",
+    "buyer": "Gap Inc.",
+    "season": "AW26",
+    "fabricSpec": "Cotton Pique 220 GSM",
+    "colors": [
+      "Olive",
+      "Sand"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "production",
+    "unitCost": 17,
+    "sellingPrice": 11,
+    "bomRatio": {
+      "fabricMeters": 1.2,
+      "buttons": 3,
+      "threadCones": 0.1,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-49",
+    "styleNumber": "STL-2048",
+    "name": "Denim Jacket",
+    "buyerId": "buy-8",
+    "buyer": "Target Corporation",
+    "season": "SS27",
+    "fabricSpec": "Poplin 120 GSM",
+    "colors": [
+      "White",
+      "Black"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "sampling",
+    "unitCost": 7,
+    "sellingPrice": 23,
+    "bomRatio": {
+      "fabricMeters": 1.5,
+      "buttons": 6,
+      "threadCones": 0.3,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-50",
+    "styleNumber": "STL-2049",
+    "name": "Denim Jacket",
+    "buyerId": "buy-1",
+    "buyer": "Zara (Inditex)",
+    "season": "SS26",
+    "fabricSpec": "Poplin 120 GSM",
+    "colors": [
+      "Red",
+      "Blue",
+      "Green"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "archived",
+    "unitCost": 10,
+    "sellingPrice": 21,
+    "bomRatio": {
+      "fabricMeters": 2.2,
+      "buttons": 0,
+      "threadCones": 0.2,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-51",
+    "styleNumber": "STL-2050",
+    "name": "Crewneck Tee",
+    "buyerId": "buy-3",
+    "buyer": "Primark Stores Ltd",
+    "season": "SS27",
+    "fabricSpec": "Poplin 120 GSM",
+    "colors": [
+      "Olive",
+      "Sand"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "archived",
+    "unitCost": 17,
+    "sellingPrice": 35,
+    "bomRatio": {
+      "fabricMeters": 1.8,
+      "buttons": 3,
+      "threadCones": 0.1,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-52",
+    "styleNumber": "STL-2051",
+    "name": "Oxford Shirt",
+    "buyerId": "buy-3",
+    "buyer": "Primark Stores Ltd",
+    "season": "SS27",
+    "fabricSpec": "Organic Jersey 180 GSM",
+    "colors": [
+      "Heather Grey"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "sampling",
+    "unitCost": 12,
+    "sellingPrice": 27,
+    "bomRatio": {
+      "fabricMeters": 1.3,
+      "buttons": 4,
+      "threadCones": 0.2,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-53",
+    "styleNumber": "STL-2052",
+    "name": "Slim Fit Polo",
+    "buyerId": "buy-5",
+    "buyer": "Uniqlo (Fast Retailing)",
+    "season": "SS27",
+    "fabricSpec": "Cotton Pique 220 GSM",
+    "colors": [
+      "Olive",
+      "Sand"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "approved",
+    "unitCost": 7,
+    "sellingPrice": 28,
+    "bomRatio": {
+      "fabricMeters": 1.3,
+      "buttons": 1,
+      "threadCones": 0.2,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-54",
+    "styleNumber": "STL-2053",
+    "name": "Fleece Hoodie",
+    "buyerId": "buy-8",
+    "buyer": "Target Corporation",
+    "season": "AW26",
+    "fabricSpec": "Cotton Pique 220 GSM",
+    "colors": [
+      "Red",
+      "Blue",
+      "Green"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "sampling",
+    "unitCost": 4,
+    "sellingPrice": 23,
+    "bomRatio": {
+      "fabricMeters": 2.3,
+      "buttons": 3,
+      "threadCones": 0.3,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-55",
+    "styleNumber": "STL-2054",
+    "name": "Oxford Shirt",
+    "buyerId": "buy-2",
+    "buyer": "H&M Hennes & Mauritz",
+    "season": "SS27",
+    "fabricSpec": "Cotton Pique 220 GSM",
+    "colors": [
+      "Navy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "production",
+    "unitCost": 14,
+    "sellingPrice": 18,
+    "bomRatio": {
+      "fabricMeters": 1.9,
+      "buttons": 7,
+      "threadCones": 0.1,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-56",
+    "styleNumber": "STL-2055",
+    "name": "Slim Fit Polo",
+    "buyerId": "buy-6",
+    "buyer": "Gap Inc.",
+    "season": "SS27",
+    "fabricSpec": "Fleece 280 GSM",
+    "colors": [
+      "Red",
+      "Blue",
+      "Green"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "sampling",
+    "unitCost": 12,
+    "sellingPrice": 22,
+    "bomRatio": {
+      "fabricMeters": 1.1,
+      "buttons": 4,
+      "threadCones": 0.2,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-57",
+    "styleNumber": "STL-2056",
+    "name": "Chino Shorts",
+    "buyerId": "buy-2",
+    "buyer": "H&M Hennes & Mauritz",
+    "season": "SS26",
+    "fabricSpec": "Poplin 120 GSM",
+    "colors": [
+      "Red",
+      "Blue",
+      "Green"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "approved",
+    "unitCost": 17,
+    "sellingPrice": 10,
+    "bomRatio": {
+      "fabricMeters": 2.5,
+      "buttons": 2,
+      "threadCones": 0.2,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-58",
+    "styleNumber": "STL-2057",
+    "name": "Kids Tee",
+    "buyerId": "buy-7",
+    "buyer": "C&A Mode",
+    "season": "AW26",
+    "fabricSpec": "Fleece 280 GSM",
+    "colors": [
+      "Olive",
+      "Sand"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "sampling",
+    "unitCost": 14,
+    "sellingPrice": 21,
+    "bomRatio": {
+      "fabricMeters": 2,
+      "buttons": 4,
+      "threadCones": 0.3,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-59",
+    "styleNumber": "STL-2058",
+    "name": "Crewneck Tee",
+    "buyerId": "buy-4",
+    "buyer": "Walmart Global Procurement",
+    "season": "SS27",
+    "fabricSpec": "Denim 12oz",
+    "colors": [
+      "Olive",
+      "Sand"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "approved",
+    "unitCost": 9,
+    "sellingPrice": 35,
+    "bomRatio": {
+      "fabricMeters": 2.2,
+      "buttons": 0,
+      "threadCones": 0.3,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-60",
+    "styleNumber": "STL-2059",
+    "name": "Jogger Pant",
+    "buyerId": "buy-1",
+    "buyer": "Zara (Inditex)",
+    "season": "SS26",
+    "fabricSpec": "Poplin 120 GSM",
+    "colors": [
+      "Olive",
+      "Sand"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "approved",
+    "unitCost": 12,
+    "sellingPrice": 35,
+    "bomRatio": {
+      "fabricMeters": 1.9,
+      "buttons": 1,
+      "threadCones": 0.1,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-61",
+    "styleNumber": "STL-2060",
+    "name": "Jogger Pant",
+    "buyerId": "buy-1",
+    "buyer": "Zara (Inditex)",
+    "season": "AW26",
+    "fabricSpec": "Poplin 120 GSM",
+    "colors": [
+      "Red",
+      "Blue",
+      "Green"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "production",
+    "unitCost": 10,
+    "sellingPrice": 10,
+    "bomRatio": {
+      "fabricMeters": 1.6,
+      "buttons": 5,
+      "threadCones": 0.2,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-62",
+    "styleNumber": "STL-2061",
+    "name": "Kids Tee",
+    "buyerId": "buy-3",
+    "buyer": "Primark Stores Ltd",
+    "season": "AW26",
+    "fabricSpec": "Poplin 120 GSM",
+    "colors": [
+      "Heather Grey"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "archived",
+    "unitCost": 4,
+    "sellingPrice": 30,
+    "bomRatio": {
+      "fabricMeters": 1.5,
+      "buttons": 6,
+      "threadCones": 0.3,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-63",
+    "styleNumber": "STL-2062",
+    "name": "Fleece Hoodie",
+    "buyerId": "buy-7",
+    "buyer": "C&A Mode",
+    "season": "SS26",
+    "fabricSpec": "Denim 12oz",
+    "colors": [
+      "White",
+      "Black"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "archived",
+    "unitCost": 9,
+    "sellingPrice": 9,
+    "bomRatio": {
+      "fabricMeters": 2.2,
+      "buttons": 5,
+      "threadCones": 0.1,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-64",
+    "styleNumber": "STL-2063",
+    "name": "Chino Shorts",
+    "buyerId": "buy-2",
+    "buyer": "H&M Hennes & Mauritz",
+    "season": "SS27",
+    "fabricSpec": "Poplin 120 GSM",
+    "colors": [
+      "White",
+      "Black"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "sampling",
+    "unitCost": 4,
+    "sellingPrice": 24,
+    "bomRatio": {
+      "fabricMeters": 1,
+      "buttons": 3,
+      "threadCones": 0.2,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-65",
+    "styleNumber": "STL-2064",
+    "name": "Chino Shorts",
+    "buyerId": "buy-7",
+    "buyer": "C&A Mode",
+    "season": "SS26",
+    "fabricSpec": "Denim 12oz",
+    "colors": [
+      "Red",
+      "Blue",
+      "Green"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "sampling",
+    "unitCost": 14,
+    "sellingPrice": 34,
+    "bomRatio": {
+      "fabricMeters": 2.2,
+      "buttons": 3,
+      "threadCones": 0.3,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-66",
+    "styleNumber": "STL-2065",
+    "name": "Oxford Shirt",
+    "buyerId": "buy-5",
+    "buyer": "Uniqlo (Fast Retailing)",
+    "season": "SS27",
+    "fabricSpec": "Organic Jersey 180 GSM",
+    "colors": [
+      "Navy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "production",
+    "unitCost": 12,
+    "sellingPrice": 20,
+    "bomRatio": {
+      "fabricMeters": 1.5,
+      "buttons": 3,
+      "threadCones": 0.1,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-67",
+    "styleNumber": "STL-2066",
+    "name": "Denim Jacket",
+    "buyerId": "buy-4",
+    "buyer": "Walmart Global Procurement",
+    "season": "SS27",
+    "fabricSpec": "Organic Jersey 180 GSM",
+    "colors": [
+      "Heather Grey"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "sampling",
+    "unitCost": 17,
+    "sellingPrice": 16,
+    "bomRatio": {
+      "fabricMeters": 1.4,
+      "buttons": 8,
+      "threadCones": 0.3,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-68",
+    "styleNumber": "STL-2067",
+    "name": "Fleece Hoodie",
+    "buyerId": "buy-3",
+    "buyer": "Primark Stores Ltd",
+    "season": "AW26",
+    "fabricSpec": "Organic Jersey 180 GSM",
+    "colors": [
+      "Red",
+      "Blue",
+      "Green"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "approved",
+    "unitCost": 7,
+    "sellingPrice": 13,
+    "bomRatio": {
+      "fabricMeters": 1,
+      "buttons": 7,
+      "threadCones": 0.2,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-69",
+    "styleNumber": "STL-2068",
+    "name": "Crewneck Tee",
+    "buyerId": "buy-3",
+    "buyer": "Primark Stores Ltd",
+    "season": "SS26",
+    "fabricSpec": "Denim 12oz",
+    "colors": [
+      "White",
+      "Black"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "archived",
+    "unitCost": 6,
+    "sellingPrice": 10,
+    "bomRatio": {
+      "fabricMeters": 1.1,
+      "buttons": 3,
+      "threadCones": 0.3,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-70",
+    "styleNumber": "STL-2069",
+    "name": "Oxford Shirt",
+    "buyerId": "buy-8",
+    "buyer": "Target Corporation",
+    "season": "SS27",
+    "fabricSpec": "Denim 12oz",
+    "colors": [
+      "Red",
+      "Blue",
+      "Green"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "approved",
+    "unitCost": 4,
+    "sellingPrice": 29,
+    "bomRatio": {
+      "fabricMeters": 1,
+      "buttons": 3,
+      "threadCones": 0.3,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-71",
+    "styleNumber": "STL-2070",
+    "name": "Oxford Shirt",
+    "buyerId": "buy-8",
+    "buyer": "Target Corporation",
+    "season": "SS26",
+    "fabricSpec": "Organic Jersey 180 GSM",
+    "colors": [
+      "Navy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "approved",
+    "unitCost": 13,
+    "sellingPrice": 35,
+    "bomRatio": {
+      "fabricMeters": 1.1,
+      "buttons": 1,
+      "threadCones": 0.3,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-72",
+    "styleNumber": "STL-2071",
+    "name": "Denim Jacket",
+    "buyerId": "buy-1",
+    "buyer": "Zara (Inditex)",
+    "season": "AW26",
+    "fabricSpec": "Fleece 280 GSM",
+    "colors": [
+      "Heather Grey"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "approved",
+    "unitCost": 13,
+    "sellingPrice": 19,
+    "bomRatio": {
+      "fabricMeters": 1,
+      "buttons": 3,
+      "threadCones": 0.2,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-73",
+    "styleNumber": "STL-2072",
+    "name": "Kids Tee",
+    "buyerId": "buy-2",
+    "buyer": "H&M Hennes & Mauritz",
+    "season": "SS26",
+    "fabricSpec": "Organic Jersey 180 GSM",
+    "colors": [
+      "White",
+      "Black"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "approved",
+    "unitCost": 10,
+    "sellingPrice": 34,
+    "bomRatio": {
+      "fabricMeters": 1.7,
+      "buttons": 1,
+      "threadCones": 0.3,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-74",
+    "styleNumber": "STL-2073",
+    "name": "Slim Fit Polo",
+    "buyerId": "buy-7",
+    "buyer": "C&A Mode",
+    "season": "AW26",
+    "fabricSpec": "Organic Jersey 180 GSM",
+    "colors": [
+      "Heather Grey"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "production",
+    "unitCost": 5,
+    "sellingPrice": 18,
+    "bomRatio": {
+      "fabricMeters": 1.8,
+      "buttons": 5,
+      "threadCones": 0.3,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-75",
+    "styleNumber": "STL-2074",
+    "name": "Kids Tee",
+    "buyerId": "buy-2",
+    "buyer": "H&M Hennes & Mauritz",
+    "season": "SS26",
+    "fabricSpec": "Fleece 280 GSM",
+    "colors": [
+      "Olive",
+      "Sand"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "sampling",
+    "unitCost": 8,
+    "sellingPrice": 15,
+    "bomRatio": {
+      "fabricMeters": 1.9,
+      "buttons": 2,
+      "threadCones": 0.3,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-76",
+    "styleNumber": "STL-2075",
+    "name": "Slim Fit Polo",
+    "buyerId": "buy-2",
+    "buyer": "H&M Hennes & Mauritz",
+    "season": "SS27",
+    "fabricSpec": "Organic Jersey 180 GSM",
+    "colors": [
+      "Navy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "approved",
+    "unitCost": 6,
+    "sellingPrice": 25,
+    "bomRatio": {
+      "fabricMeters": 2.4,
+      "buttons": 7,
+      "threadCones": 0.3,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-77",
+    "styleNumber": "STL-2076",
+    "name": "Crewneck Tee",
+    "buyerId": "buy-3",
+    "buyer": "Primark Stores Ltd",
+    "season": "SS27",
+    "fabricSpec": "Denim 12oz",
+    "colors": [
+      "Red",
+      "Blue",
+      "Green"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "sampling",
+    "unitCost": 13,
+    "sellingPrice": 22,
+    "bomRatio": {
+      "fabricMeters": 1.2,
+      "buttons": 8,
+      "threadCones": 0.1,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-78",
+    "styleNumber": "STL-2077",
+    "name": "Oxford Shirt",
+    "buyerId": "buy-2",
+    "buyer": "H&M Hennes & Mauritz",
+    "season": "SS27",
+    "fabricSpec": "Organic Jersey 180 GSM",
+    "colors": [
+      "Red",
+      "Blue",
+      "Green"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "production",
+    "unitCost": 10,
+    "sellingPrice": 13,
+    "bomRatio": {
+      "fabricMeters": 1.9,
+      "buttons": 8,
+      "threadCones": 0.1,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-79",
+    "styleNumber": "STL-2078",
+    "name": "Crewneck Tee",
+    "buyerId": "buy-7",
+    "buyer": "C&A Mode",
+    "season": "SS26",
+    "fabricSpec": "Denim 12oz",
+    "colors": [
+      "Navy"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "approved",
+    "unitCost": 8,
+    "sellingPrice": 8,
+    "bomRatio": {
+      "fabricMeters": 1.4,
+      "buttons": 7,
+      "threadCones": 0.2,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  },
+  {
+    "id": "stl-80",
+    "styleNumber": "STL-2079",
+    "name": "Denim Jacket",
+    "buyerId": "buy-3",
+    "buyer": "Primark Stores Ltd",
+    "season": "SS26",
+    "fabricSpec": "Organic Jersey 180 GSM",
+    "colors": [
+      "White",
+      "Black"
+    ],
+    "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "status": "approved",
+    "unitCost": 9,
+    "sellingPrice": 18,
+    "bomRatio": {
+      "fabricMeters": 1.6,
+      "buttons": 4,
+      "threadCones": 0.2,
+      "labels": 1
+    },
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.267Z",
+    "updatedAt": "2026-07-26T14:41:23.267Z"
+  }
+]

@@ -1,0 +1,110 @@
+[
+  {
+    "id": "dept-1",
+    "companyId": "co-1",
+    "branchId": "br-1",
+    "name": "Merchandising",
+    "code": "MER",
+    "createdAt": "2026-07-26T14:41:23.258Z",
+    "updatedAt": "2026-07-26T14:41:23.258Z"
+  },
+  {
+    "id": "dept-2",
+    "companyId": "co-1",
+    "branchId": "br-1",
+    "name": "Cutting",
+    "code": "CUT",
+    "createdAt": "2026-07-26T14:41:23.258Z",
+    "updatedAt": "2026-07-26T14:41:23.258Z"
+  },
+  {
+    "id": "dept-3",
+    "companyId": "co-1",
+    "branchId": "br-1",
+    "name": "Sewing",
+    "code": "SEW",
+    "createdAt": "2026-07-26T14:41:23.258Z",
+    "updatedAt": "2026-07-26T14:41:23.258Z"
+  },
+  {
+    "id": "dept-4",
+    "companyId": "co-1",
+    "branchId": "br-1",
+    "name": "Quality",
+    "code": "QUA",
+    "createdAt": "2026-07-26T14:41:23.258Z",
+    "updatedAt": "2026-07-26T14:41:23.258Z"
+  },
+  {
+    "id": "dept-5",
+    "companyId": "co-1",
+    "branchId": "br-1",
+    "name": "Finishing",
+    "code": "FIN",
+    "createdAt": "2026-07-26T14:41:23.258Z",
+    "updatedAt": "2026-07-26T14:41:23.258Z"
+  },
+  {
+    "id": "dept-6",
+    "companyId": "co-1",
+    "branchId": "br-1",
+    "name": "Packing",
+    "code": "PAC",
+    "createdAt": "2026-07-26T14:41:23.258Z",
+    "updatedAt": "2026-07-26T14:41:23.258Z"
+  },
+  {
+    "id": "dept-7",
+    "companyId": "co-1",
+    "branchId": "br-1",
+    "name": "Warehouse",
+    "code": "WAR",
+    "createdAt": "2026-07-26T14:41:23.258Z",
+    "updatedAt": "2026-07-26T14:41:23.258Z"
+  },
+  {
+    "id": "dept-8",
+    "companyId": "co-1",
+    "branchId": "br-1",
+    "name": "HR",
+    "code": "HR",
+    "createdAt": "2026-07-26T14:41:23.258Z",
+    "updatedAt": "2026-07-26T14:41:23.258Z"
+  },
+  {
+    "id": "dept-9",
+    "companyId": "co-1",
+    "branchId": "br-1",
+    "name": "Accounts",
+    "code": "ACC",
+    "createdAt": "2026-07-26T14:41:23.258Z",
+    "updatedAt": "2026-07-26T14:41:23.258Z"
+  },
+  {
+    "id": "dept-10",
+    "companyId": "co-1",
+    "branchId": "br-1",
+    "name": "Maintenance",
+    "code": "MAI",
+    "createdAt": "2026-07-26T14:41:23.258Z",
+    "updatedAt": "2026-07-26T14:41:23.258Z"
+  },
+  {
+    "id": "dept-11",
+    "companyId": "co-1",
+    "branchId": "br-1",
+    "name": "IE",
+    "code": "IE",
+    "createdAt": "2026-07-26T14:41:23.258Z",
+    "updatedAt": "2026-07-26T14:41:23.258Z"
+  },
+  {
+    "id": "dept-12",
+    "companyId": "co-1",
+    "branchId": "br-1",
+    "name": "Planning",
+    "code": "PLA",
+    "createdAt": "2026-07-26T14:41:23.258Z",
+    "updatedAt": "2026-07-26T14:41:23.258Z"
+  }
+]

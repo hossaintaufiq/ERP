@@ -11,9 +11,12 @@ import {
   CalendarDays,
   Receipt,
   ChevronDown,
+  LogOut,
 } from 'lucide-react';
 import { MOCK_USER_ROLES } from '@/data/mockData';
 import { ModuleId } from './Sidebar';
+import { useAuth } from '@/lib/auth';
+import { erpApi } from '@/lib/api';
 
 interface HeaderProps {
   activeRole: string;
@@ -34,7 +37,10 @@ export default function Header({
   setActiveModule,
   unreadCount,
 }: HeaderProps) {
+  const { user, logout } = useAuth();
   const [roleDropdownOpen, setRoleDropdownOpen] = useState(false);
+  const [searchQ, setSearchQ] = useState('');
+  const [searchResults, setSearchResults] = useState<any[]>([]);
   const currentRoleObj = MOCK_USER_ROLES.find((r) => r.id === activeRole) || MOCK_USER_ROLES[0];
   const roleDropdownRef = useRef<HTMLDivElement | null>(null);
 
@@ -71,15 +77,54 @@ export default function Header({
 
   return (
     <header className="h-16 bg-white/90 dark:bg-stone-900/90 backdrop-blur-md border-b border-stone-200 dark:border-stone-800 px-6 flex items-center justify-between sticky top-0 z-10 transition-colors duration-200">
-      <div className="flex items-center gap-4 flex-1 max-w-xl">
+      <div className="flex items-center gap-4 flex-1 max-w-xl relative">
         <div className="relative w-full">
           <Search className="w-4 h-4 text-stone-400 absolute left-3 top-1/2 -translate-y-1/2" />
           <input
             type="text"
             placeholder="Search PO #, buyer, style, material, employee..."
             className="input-field pl-9 py-2"
+            value={searchQ}
+            onChange={async (e) => {
+              const q = e.target.value;
+              setSearchQ(q);
+              if (q.length < 2) {
+                setSearchResults([]);
+                return;
+              }
+              try {
+                const res: any = await erpApi.search(q);
+                setSearchResults(res.results || []);
+              } catch {
+                setSearchResults([]);
+              }
+            }}
           />
         </div>
+        {!!searchResults.length && (
+          <div className="absolute top-11 left-0 right-0 panel z-50 max-h-64 overflow-y-auto py-2">
+            {searchResults.map((r, i) => (
+              <button
+                key={i}
+                type="button"
+                className="w-full text-left px-3 py-2 text-xs hover:bg-stone-50 dark:hover:bg-stone-800"
+                onClick={() => {
+                  setSearchResults([]);
+                  setSearchQ('');
+                  if (r.type === 'orders') setActiveModule('sales');
+                  if (r.type === 'employees') setActiveModule('employee');
+                  if (r.type === 'inventory') setActiveModule('inventory');
+                  if (r.type === 'buyers') setActiveModule('customers');
+                  if (r.type === 'styles') setActiveModule('styles');
+                  if (r.type === 'shipments') setActiveModule('shipment');
+                }}
+              >
+                <span className="font-semibold">{r.label}</span>
+                <span className="text-stone-400 ml-2">{r.type}</span>
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
       <div className="flex items-center gap-3">
@@ -165,12 +210,22 @@ export default function Header({
 
         <div className="flex items-center gap-2 pl-2 border-l border-stone-200 dark:border-stone-800">
           <div className="w-8 h-8 rounded-full bg-brand-600 text-white font-semibold flex items-center justify-center text-xs shadow-glow">
-            GE
+            {(user?.name || 'GE').slice(0, 2).toUpperCase()}
           </div>
           <div className="hidden xl:block text-left">
-            <div className="text-xs font-semibold leading-tight text-stone-900 dark:text-stone-100">Al-Mustafiz Rahman</div>
-            <div className="text-[10px] text-stone-500 font-medium">Owner & CEO</div>
+            <div className="text-xs font-semibold leading-tight text-stone-900 dark:text-stone-100">
+              {user?.name || 'Al-Mustafiz Rahman'}
+            </div>
+            <div className="text-[10px] text-stone-500 font-medium">{user?.role || 'Owner & CEO'}</div>
           </div>
+          <button
+            type="button"
+            onClick={logout}
+            className="p-2 text-stone-500 hover:text-status-danger hover:bg-stone-100 dark:hover:bg-stone-800 rounded-lg"
+            title="Logout"
+          >
+            <LogOut className="w-4 h-4" />
+          </button>
         </div>
       </div>
     </header>

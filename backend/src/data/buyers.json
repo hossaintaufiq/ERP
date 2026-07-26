@@ -1,0 +1,146 @@
+[
+  {
+    "id": "buy-1",
+    "name": "Zara (Inditex)",
+    "code": "ZARA",
+    "country": "Spain",
+    "paymentTerms": "LC 60 Days",
+    "creditLimit": 2500000,
+    "status": "active",
+    "compliance": [
+      "BSCI",
+      "OEKO-TEX"
+    ],
+    "contactPerson": "Carlos Mendez",
+    "email": "sourcing@zara.com",
+    "phone": "+34 900 100 200",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.264Z",
+    "updatedAt": "2026-07-26T14:41:23.265Z"
+  },
+  {
+    "id": "buy-2",
+    "name": "H&M Hennes & Mauritz",
+    "code": "HM",
+    "country": "Sweden",
+    "paymentTerms": "TT 45 Days",
+    "creditLimit": 1800000,
+    "status": "active",
+    "compliance": [
+      "HIGG",
+      "GOTS"
+    ],
+    "contactPerson": "Anna Lindberg",
+    "email": "vendor@hm.com",
+    "phone": "+46 8 796 5500",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.265Z",
+    "updatedAt": "2026-07-26T14:41:23.265Z"
+  },
+  {
+    "id": "buy-3",
+    "name": "Primark Stores Ltd",
+    "code": "PRIM",
+    "country": "Ireland",
+    "paymentTerms": "LC 90 Days",
+    "creditLimit": 1200000,
+    "status": "active",
+    "compliance": [
+      "WRAP"
+    ],
+    "contactPerson": "James O'Connor",
+    "email": "buy@primark.com",
+    "phone": "+353 1 888 0000",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.265Z",
+    "updatedAt": "2026-07-26T14:41:23.265Z"
+  },
+  {
+    "id": "buy-4",
+    "name": "Walmart Global Procurement",
+    "code": "WMT",
+    "country": "USA",
+    "paymentTerms": "Net 60",
+    "creditLimit": 3000000,
+    "status": "active",
+    "compliance": [
+      "Walmart Ethical"
+    ],
+    "contactPerson": "Sarah Chen",
+    "email": "gp@walmart.com",
+    "phone": "+1 479 273 4000",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.265Z",
+    "updatedAt": "2026-07-26T14:41:23.265Z"
+  },
+  {
+    "id": "buy-5",
+    "name": "Uniqlo (Fast Retailing)",
+    "code": "UNQ",
+    "country": "Japan",
+    "paymentTerms": "LC 30 Days",
+    "creditLimit": 1500000,
+    "status": "active",
+    "compliance": [
+      "GOTS"
+    ],
+    "contactPerson": "Kenji Sato",
+    "email": "vendor@uniqlo.com",
+    "phone": "+81 3 6865 0000",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.265Z",
+    "updatedAt": "2026-07-26T14:41:23.265Z"
+  },
+  {
+    "id": "buy-6",
+    "name": "Gap Inc.",
+    "code": "GAP",
+    "country": "USA",
+    "paymentTerms": "Net 45",
+    "creditLimit": 900000,
+    "status": "active",
+    "compliance": [
+      "BSCI"
+    ],
+    "contactPerson": "Emily Ross",
+    "email": "sourcing@gap.com",
+    "phone": "+1 415 427 0100",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.265Z",
+    "updatedAt": "2026-07-26T14:41:23.265Z"
+  },
+  {
+    "id": "buy-7",
+    "name": "C&A Mode",
+    "code": "CA",
+    "country": "Germany",
+    "paymentTerms": "TT 30 Days",
+    "creditLimit": 700000,
+    "status": "prospect",
+    "compliance": [],
+    "contactPerson": "Hans Mueller",
+    "email": "buy@c-and-a.com",
+    "phone": "+49 211 0000",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.265Z",
+    "updatedAt": "2026-07-26T14:41:23.265Z"
+  },
+  {
+    "id": "buy-8",
+    "name": "Target Corporation",
+    "code": "TGT",
+    "country": "USA",
+    "paymentTerms": "Net 60",
+    "creditLimit": 1100000,
+    "status": "active",
+    "compliance": [
+      "WRAP"
+    ],
+    "contactPerson": "Lisa Park",
+    "email": "gp@target.com",
+    "phone": "+1 612 304 6073",
+    "companyId": "co-1",
+    "createdAt": "2026-07-26T14:41:23.265Z",
+    "updatedAt": "2026-07-26T14:41:23.265Z"
+  }
+]

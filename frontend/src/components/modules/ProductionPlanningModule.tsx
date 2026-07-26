@@ -1,132 +1,78 @@
 'use client';
 
-import React, { useState } from 'react';
-import {
-  CalendarDays,
-  Scissors,
-  Printer,
-  Sparkles,
-  Shirt,
-  Waves,
-  Flame,
-  Package,
-  Truck,
-  ArrowRight,
-  ChevronRight,
-  Clock,
-  AlertCircle
-} from 'lucide-react';
-import { MOCK_PIPELINE_STAGES, MOCK_ORDERS, SalesOrder } from '@/data/mockData';
+import React from 'react';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { erpApi, resources } from '@/lib/api';
+import { PageHeader } from '@/components/ui/DataTable';
+
+const STAGES = ['cutting', 'printing', 'embroidery', 'sewing', 'washing', 'ironing', 'packing', 'shipment'];
 
 export default function ProductionPlanningModule() {
-  const [orders, setOrders] = useState<SalesOrder[]>(MOCK_ORDERS);
+  const qc = useQueryClient();
+  const { data, isLoading } = useQuery({
+    queryKey: ['production'],
+    queryFn: () => resources.list('production', { limit: 100 }),
+  });
 
-  // Map order status to stage index
-  const stageMap: Record<string, string> = {
-    'Cutting': 'cutting',
-    'In Production': 'sewing',
-    'Sewing': 'sewing',
-    'QC Inspection': 'ironing',
-    'Delayed': 'sewing',
-    'Packing': 'packing',
-    'Shipped': 'shipment',
-  };
+  const advance = useMutation({
+    mutationFn: (id: string) => erpApi.advanceProduction(id),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ['production'] });
+      qc.invalidateQueries({ queryKey: ['dashboard'] });
+    },
+  });
 
-  const advanceOrderStage = (orderNumber: string) => {
-    const stageFlow: SalesOrder['status'][] = ['Cutting', 'Sewing', 'QC Inspection', 'Packing', 'Shipped'];
-    setOrders(
-      orders.map((ord) => {
-        if (ord.orderNumber === orderNumber) {
-          const currentIdx = stageFlow.indexOf(ord.status);
-          const nextStatus = stageFlow[Math.min(currentIdx + 1, stageFlow.length - 1)];
-          return { ...ord, status: nextStatus, progress: Math.min(ord.progress + 20, 100) };
-        }
-        return ord;
-      })
-    );
-  };
+  const rows = (data as any)?.data || [];
 
   return (
-    <div className="space-y-6 animate-in fade-in duration-200">
-      {/* Header */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-        <div>
-          <div className="flex items-center gap-2 text-xs font-bold text-brand-700 dark:text-brand-400 uppercase tracking-wider">
-            Module 9: Production Planning & Schedule
-          </div>
-          <h2 className="text-2xl font-extrabold text-slate-900 dark:text-slate-100">8-Stage Garment Production Pipeline</h2>
-          <p className="text-xs text-slate-500">Floor managers track exactly which department and stage every buyer order is currently located in.</p>
-        </div>
-      </div>
+    <div className="space-y-6 animate-fade-up">
+      <PageHeader
+        eyebrow="Module 9 · Production Planning"
+        title="8-Stage Factory Pipeline"
+        description="Advance jobs through cutting → sewing → finish → pack → shipment. Each advance updates orders, notifications, and audit."
+      />
 
-      {/* 8-Stage Visual Schedule Pipeline */}
-      <div className="overflow-x-auto pb-4">
-        <div className="flex items-stretch gap-3 min-w-[1200px]">
-          {MOCK_PIPELINE_STAGES.map((stage, idx) => {
-            const activeStageOrders = orders.filter((o) => stageMap[o.status] === stage.id);
-            return (
-              <div
-                key={stage.id}
-                className="flex-1 bg-white dark:bg-slate-900 rounded-2xl p-4 border border-slate-200 dark:border-slate-800 space-y-4 flex flex-col justify-between shadow-sm"
-              >
-                {/* Stage Header */}
-                <div className="space-y-2">
+      {isLoading ? (
+        <div className="panel p-8 text-center text-sm text-stone-500">Loading production board…</div>
+      ) : (
+        <div className="overflow-x-auto pb-2">
+          <div className="flex gap-3 min-w-[1200px]">
+            {STAGES.map((stage) => {
+              const cards = rows.filter((r: any) => r.stage === stage);
+              return (
+                <div key={stage} className="w-56 flex-shrink-0 panel p-3 space-y-2">
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-mono font-extrabold text-slate-400">STAGE {idx + 1}</span>
-                    <span
-                      className="w-3 h-3 rounded-full"
-                      style={{ backgroundColor: stage.color }}
-                    />
+                    <h3 className="text-xs font-bold uppercase tracking-wider text-stone-500">{stage}</h3>
+                    <span className="badge bg-brand-50 text-brand-800 dark:bg-brand-950 dark:text-brand-300">{cards.length}</span>
                   </div>
-                  <h3 className="font-extrabold text-sm text-slate-900 dark:text-slate-100">{stage.name}</h3>
-                  <div className="flex justify-between items-center text-[10px] text-slate-500 font-medium">
-                    <span>Target: {stage.dailyTargetPcs.toLocaleString()}</span>
-                    <span className="font-bold text-status-success dark:text-stone-400">{stage.efficiencyPercent}% Eff</span>
-                  </div>
-                </div>
-
-                {/* Orders Stacked in this Stage */}
-                <div className="space-y-2 flex-1 my-2">
-                  {activeStageOrders.length === 0 ? (
-                    <div className="p-3 border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-xl text-center text-[11px] text-slate-400">
-                      No active orders
-                    </div>
-                  ) : (
-                    activeStageOrders.map((ord) => (
-                      <div
-                        key={ord.orderNumber}
-                        className="p-3 bg-slate-50 dark:bg-slate-800/80 rounded-xl border border-slate-200 dark:border-slate-700 space-y-2 text-xs shadow-sm hover:shadow transition-shadow"
-                      >
-                        <div className="flex justify-between items-center font-mono font-bold text-brand-700 dark:text-brand-400 text-[11px]">
-                          <span>{ord.orderNumber}</span>
-                          <span className="text-slate-500 font-sans">{ord.buyer}</span>
+                  <div className="space-y-2 max-h-[70vh] overflow-y-auto">
+                    {cards.map((job: any) => (
+                      <div key={job.id} className="rounded-lg border border-stone-200 dark:border-stone-700 p-3 bg-stone-50 dark:bg-stone-900 space-y-1.5">
+                        <div className="text-xs font-semibold text-stone-900 dark:text-stone-100">{job.orderNumber}</div>
+                        <div className="text-[11px] text-stone-500">{job.buyer}</div>
+                        <div className="text-[11px] font-mono text-brand-700 dark:text-brand-400">{job.styleNumber}</div>
+                        <div className="text-[11px] text-stone-500">
+                          {job.completedQty?.toLocaleString()} / {job.targetQty?.toLocaleString()} pcs
                         </div>
-                        <div className="font-bold text-slate-900 dark:text-slate-100 text-[11px] truncate">{ord.productName}</div>
-                        <div className="text-[10px] text-slate-400 flex justify-between">
-                          <span>{ord.totalQuantity.toLocaleString()} Pcs</span>
-                          <span>Due: {ord.deliveryDate}</span>
-                        </div>
-
-                        <button
-                          onClick={() => advanceOrderStage(ord.orderNumber)}
-                          className="w-full text-[10px] font-bold bg-brand-800 hover:bg-brand-700 text-white py-1 rounded-lg transition-colors flex items-center justify-center gap-1"
-                        >
-                          Advance to Next Stage →
-                        </button>
+                        {stage !== 'shipment' && (
+                          <button
+                            type="button"
+                            className="text-[11px] font-semibold text-accent"
+                            onClick={() => advance.mutate(job.id)}
+                          >
+                            Advance →
+                          </button>
+                        )}
                       </div>
-                    ))
-                  )}
+                    ))}
+                    {!cards.length && <div className="text-[11px] text-stone-400 p-2">No jobs</div>}
+                  </div>
                 </div>
-
-                {/* Stage Total Count */}
-                <div className="pt-2 border-t border-slate-100 dark:border-slate-800 text-center font-bold text-[11px] text-slate-500">
-                  {activeStageOrders.length} Order(s) in {stage.name}
-                </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "co-1",
+    "name": "Garments ERP Apparel Ltd",
+    "code": "GEA",
+    "country": "Bangladesh",
+    "city": "Dhaka",
+    "address": "Plot 12, CEPZ, Chittagong",
+    "currency": "USD",
+    "fiscalYearStart": "07-01",
+    "createdAt": "2026-07-26T14:41:23.257Z",
+    "updatedAt": "2026-07-26T14:41:23.258Z"
+  }
+]

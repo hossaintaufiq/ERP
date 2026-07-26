@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import { AppProviders } from '@/lib/providers';
 
 export const metadata: Metadata = {
-  title: 'Garments ERP - Garment & Textile Enterprise',
-  description: 'Comprehensive 20-module ERP solution for apparel & garment manufacturing, BOM calculation, shop floor telemetry, buyer portal, and biometric payroll.',
+  title: 'Garments ERP — Enterprise Manufacturing Platform',
+  description:
+    'Production-grade garments ERP: merchandising, BOM, production, QC, payroll, shipment, finance, and AI assistant.',
 };
 
 export default function RootLayout({
@@ -14,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased selection:bg-brand-500/25 selection:text-inherit">
-        {children}
+        <AppProviders>{children}</AppProviders>
       </body>
     </html>
   );

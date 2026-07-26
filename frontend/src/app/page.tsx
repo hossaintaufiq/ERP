@@ -3,8 +3,9 @@
 import React, { useState } from 'react';
 import Sidebar, { ModuleId } from '@/components/layout/Sidebar';
 import Header from '@/components/layout/Header';
+import LoginScreen from '@/components/auth/LoginScreen';
+import { useAuth } from '@/lib/auth';
 
-// 20 Module Components
 import DashboardModule from '@/components/modules/DashboardModule';
 import CustomerModule from '@/components/modules/CustomerModule';
 import SalesModule from '@/components/modules/SalesModule';
@@ -25,14 +26,36 @@ import FinanceModule from '@/components/modules/FinanceModule';
 import ReportsModule from '@/components/modules/ReportsModule';
 import RolesModule from '@/components/modules/RolesModule';
 import NotificationsModule from '@/components/modules/NotificationsModule';
+import LeaveModule from '@/components/modules/LeaveModule';
+import WarehouseModule from '@/components/modules/WarehouseModule';
+import LeadsModule from '@/components/modules/LeadsModule';
+import AiModule from '@/components/modules/AiModule';
+import SettingsModule from '@/components/modules/SettingsModule';
 
 export default function Home() {
+  const { isAuthenticated, loading, user } = useAuth();
   const [activeModule, setActiveModule] = useState<ModuleId>('dashboard');
   const [activeRole, setActiveRole] = useState<string>('owner');
   const [darkMode, setDarkMode] = useState<boolean>(true);
-  const unreadNotificationsCount = 3;
+  const [unreadNotificationsCount, setUnreadNotificationsCount] = useState(0);
 
-  // Render the current module based on activeModule
+  React.useEffect(() => {
+    if (user?.role) setActiveRole(user.role === 'owner' ? 'owner' : user.role);
+  }, [user]);
+
+  React.useEffect(() => {
+    if (!isAuthenticated) return;
+    import('@/lib/api').then(({ resources }) => {
+      resources
+        .list('notifications', { limit: 100 })
+        .then((res: any) => {
+          const unread = (res?.data || []).filter((n: any) => !n.read).length;
+          setUnreadNotificationsCount(unread);
+        })
+        .catch(() => setUnreadNotificationsCount(0));
+    });
+  }, [isAuthenticated, activeModule]);
+
   const renderModuleView = () => {
     switch (activeModule) {
       case 'dashboard':
@@ -75,24 +98,43 @@ export default function Home() {
         return <RolesModule activeRole={activeRole} setActiveRole={setActiveRole} />;
       case 'notifications':
         return <NotificationsModule />;
+      case 'leave':
+        return <LeaveModule />;
+      case 'warehouse':
+        return <WarehouseModule />;
+      case 'leads':
+        return <LeadsModule />;
+      case 'ai':
+        return <AiModule />;
+      case 'settings':
+        return <SettingsModule />;
       default:
         return <DashboardModule setActiveModule={setActiveModule} />;
     }
   };
 
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-canvas dark:bg-canvas-dark text-stone-500 text-sm">
+        Loading Garments ERP…
+      </div>
+    );
+  }
+
+  if (!isAuthenticated) {
+    return <LoginScreen />;
+  }
+
   return (
     <div className={darkMode ? 'dark' : ''}>
       <div className="flex h-screen overflow-hidden bg-canvas dark:bg-canvas-dark text-stone-900 dark:text-stone-100 font-sans transition-colors duration-200">
-        {/* Left Sidebar with 20 modules navigation */}
         <Sidebar
           activeModule={activeModule}
           setActiveModule={setActiveModule}
           unreadNotificationsCount={unreadNotificationsCount}
         />
 
-        {/* Main Content Area */}
         <div className="flex-1 flex flex-col min-w-0 h-screen overflow-hidden">
-          {/* Header with Search, Role Switcher (Module 19), Notifications (Module 20), Dark/Light toggle */}
           <Header
             activeRole={activeRole}
             setActiveRole={setActiveRole}
@@ -103,11 +145,8 @@ export default function Home() {
             unreadCount={unreadNotificationsCount}
           />
 
-          {/* Dynamic Module Workspace */}
           <main className="flex-1 overflow-y-auto p-6 md:p-8 bg-transparent">
-            <div className="max-w-7xl mx-auto space-y-6">
-              {renderModuleView()}
-            </div>
+            <div className="max-w-7xl mx-auto space-y-6">{renderModuleView()}</div>
           </main>
         </div>
       </div>

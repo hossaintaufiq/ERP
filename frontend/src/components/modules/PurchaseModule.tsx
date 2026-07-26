@@ -5,6 +5,11 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { Plus, Sparkles } from 'lucide-react';
 import { erpApi, resources } from '@/lib/api';
 import { DataTable, PageHeader } from '@/components/ui/DataTable';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 
 export default function PurchaseModule() {
   const qc = useQueryClient();
@@ -59,54 +64,55 @@ export default function PurchaseModule() {
         description="PR → PO → GRN → stock update → payment. Advancing a PO runs the full ERP workflow."
       />
 
-      <div className="glass-panel p-5 space-y-3">
-        <div className="text-xs font-bold text-brand-700 dark:text-brand-400 uppercase tracking-wider flex items-center gap-2">
-          <Sparkles className="w-4 h-4" /> Procurement lifecycle
-        </div>
-        <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 text-center text-[11px]">
-          {['Create PR', 'Issue PO', 'Receive', 'Update Stock', 'Payment'].map((s, i) => (
-            <div key={s} className="p-3 rounded-lg bg-stone-50 dark:bg-stone-800 border border-stone-200 dark:border-stone-700">
-              <div className="font-mono text-brand-600 text-[10px]">STAGE {i + 1}</div>
-              <div className="font-semibold text-stone-800 dark:text-stone-100">{s}</div>
-            </div>
-          ))}
-        </div>
-      </div>
+      <Card>
+        <CardContent className="p-5 space-y-3">
+          <div className="text-xs font-bold text-primary uppercase tracking-wider flex items-center gap-2">
+            <Sparkles className="w-4 h-4" /> Procurement lifecycle
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 text-center text-[11px]">
+            {['Create PR', 'Issue PO', 'Receive', 'Update Stock', 'Payment'].map((s, i) => (
+              <div key={s} className="p-3 rounded-lg bg-muted border border-border">
+                <div className="font-mono text-primary text-[10px]">STAGE {i + 1}</div>
+                <div className="font-semibold">{s}</div>
+              </div>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
 
       <form
         onSubmit={(e) => {
           e.preventDefault();
           createPr.mutate();
         }}
-        className="panel p-5 grid md:grid-cols-4 gap-3 items-end"
+        className="panel p-4 sm:p-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 items-end"
       >
-        <div>
-          <label className="text-xs font-semibold text-stone-500">Material</label>
-          <input className="input-field mt-1" value={prMaterial} onChange={(e) => setPrMaterial(e.target.value)} />
+        <div className="space-y-1.5">
+          <Label>Material</Label>
+          <Input value={prMaterial} onChange={(e) => setPrMaterial(e.target.value)} />
         </div>
-        <div>
-          <label className="text-xs font-semibold text-stone-500">Quantity</label>
-          <input
+        <div className="space-y-1.5">
+          <Label>Quantity</Label>
+          <Input
             type="number"
-            className="input-field mt-1"
             value={prQuantity}
             onChange={(e) => setPrQuantity(Number(e.target.value))}
           />
         </div>
-        <div>
-          <label className="text-xs font-semibold text-stone-500">Supplier</label>
-          <input className="input-field mt-1" value={prSupplier} onChange={(e) => setPrSupplier(e.target.value)} />
+        <div className="space-y-1.5">
+          <Label>Supplier</Label>
+          <Input value={prSupplier} onChange={(e) => setPrSupplier(e.target.value)} />
         </div>
-        <button type="submit" className="btn-primary" disabled={createPr.isPending}>
+        <Button type="submit" disabled={createPr.isPending}>
           <Plus className="w-4 h-4" />
           {createPr.isPending ? 'Creating…' : 'Create PR'}
-        </button>
+        </Button>
       </form>
 
-      {msg && <p className="text-xs text-brand-700 dark:text-brand-400">{msg}</p>}
+      {msg && <Badge variant="secondary">{msg}</Badge>}
 
       {isLoading ? (
-        <div className="panel p-8 text-center text-sm text-stone-500">Loading purchase orders…</div>
+        <DataTable rows={[]} columns={[]} loading />
       ) : (
         <DataTable
           rows={rows}
@@ -125,13 +131,15 @@ export default function PurchaseModule() {
               header: '',
               render: (r: any) =>
                 r.status !== 'Closed' ? (
-                  <button
+                  <Button
                     type="button"
-                    className="text-xs font-semibold text-accent"
+                    variant="link"
+                    size="sm"
+                    className="h-auto p-0"
                     onClick={() => advance.mutate(r.id)}
                   >
                     Advance →
-                  </button>
+                  </Button>
                 ) : (
                   '—'
                 ),

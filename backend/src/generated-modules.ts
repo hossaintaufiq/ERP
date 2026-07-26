@@ -24,6 +24,7 @@ import { CompaniesModule } from './modules/companies/companies.module';
 import { BranchesModule } from './modules/branches/branches.module';
 import { DepartmentsModule } from './modules/departments/departments.module';
 import { UsersModule } from './modules/users/users.module';
+import { RolesModule } from './modules/roles/roles.module';
 
 export const GENERATED_MODULES = [
     EmployeesModule,
@@ -51,5 +52,6 @@ export const GENERATED_MODULES = [
     CompaniesModule,
     BranchesModule,
     DepartmentsModule,
-    UsersModule
+    UsersModule,
+    RolesModule
 ];

@@ -39,7 +39,7 @@
     "unitPrice": 32,
     "totalValue": 799456,
     "currency": "USD",
-    "stage": "packing",
+    "stage": "shipment",
     "status": "Delayed",
     "orderDate": "2026-02-08",
     "deliveryDate": "2026-09-18",
@@ -53,7 +53,7 @@
     },
     "companyId": "co-1",
     "createdAt": "2026-07-26T14:41:23.267Z",
-    "updatedAt": "2026-07-26T14:41:23.267Z"
+    "updatedAt": "2026-07-26T14:50:25.903Z"
   },
   {
     "id": "ord-3",

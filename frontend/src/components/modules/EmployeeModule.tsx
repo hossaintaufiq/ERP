@@ -3,7 +3,8 @@
 import React, { useMemo, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { resources } from '@/lib/api';
-import { DataTable, PageHeader, StatCard } from '@/components/ui/DataTable';
+import { DataTable, PageHeader, StatCard, FilterRow } from '@/components/ui/DataTable';
+import { cn } from '@/lib/utils';
 
 export default function EmployeeModule() {
   const [dept, setDept] = useState('ALL');
@@ -33,20 +34,18 @@ export default function EmployeeModule() {
         <StatCard label="Departments" value={Math.max(departments.length - 1, 0)} />
       </div>
 
-      <div className="flex flex-wrap gap-1.5">
+      <FilterRow>
         {departments.map((d: any) => (
           <button
             key={d}
             type="button"
             onClick={() => setDept(d)}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold ${
-              dept === d ? 'bg-brand-600 text-white' : 'bg-stone-100 dark:bg-stone-800 text-stone-600'
-            }`}
+            className={cn('filter-chip', dept === d ? 'filter-chip-active' : 'filter-chip-idle')}
           >
             {d}
           </button>
         ))}
-      </div>
+      </FilterRow>
 
       {isLoading ? (
         <div className="panel p-8 text-center text-sm text-stone-500">Loading employees…</div>

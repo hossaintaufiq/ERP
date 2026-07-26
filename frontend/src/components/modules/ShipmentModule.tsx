@@ -1,113 +1,98 @@
 'use client';
 
-import React, { useState } from 'react';
-import {
-  Truck,
-  FileCheck,
-  Download,
-  CheckCircle2,
-  Anchor,
-  Globe,
-  Plus
-} from 'lucide-react';
-import { MOCK_SHIPMENTS, ShipmentRecord } from '@/data/mockData';
+import React, { useMemo, useState } from 'react';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { erpApi, resources } from '@/lib/api';
+import { DataTable, PageHeader, StatCard } from '@/components/ui/DataTable';
 
 export default function ShipmentModule() {
-  const [selectedDocShipment, setSelectedDocShipment] = useState<ShipmentRecord | null>(null);
+  const [status, setStatus] = useState('ALL');
+  const qc = useQueryClient();
+  const { data, isLoading } = useQuery({
+    queryKey: ['shipments'],
+    queryFn: () => resources.list('shipments', { limit: 100, sortBy: 'etd', sortDir: 'desc' }),
+  });
+  const rows = (data as any)?.data || [];
+  const statuses = useMemo(
+    () => ['ALL', ...Array.from(new Set(rows.map((s: any) => s.status).filter(Boolean)))],
+    [rows],
+  );
+  const filtered = status === 'ALL' ? rows : rows.filter((s: any) => s.status === status);
+
+  const invoice = useMutation({
+    mutationFn: (id: string) => erpApi.invoiceShipment(id),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ['shipments'] });
+      qc.invalidateQueries({ queryKey: ['finance'] });
+      qc.invalidateQueries({ queryKey: ['dashboard'] });
+    },
+  });
 
   return (
-    <div className="space-y-6 animate-in fade-in duration-200">
-      {/* Header */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-        <div>
-          <div className="flex items-center gap-2 text-xs font-bold text-brand-700 dark:text-brand-400 uppercase tracking-wider">
-            Module 16: Shipment & Export Management
-          </div>
-          <h2 className="text-2xl font-extrabold text-slate-900 dark:text-slate-100">Export Containers & Documentation Package</h2>
-          <p className="text-xs text-slate-500">Track container bookings, vessel schedules, tracking IDs, Commercial Invoices, Packing Lists, and Certificates of Origin.</p>
-        </div>
+    <div className="space-y-6 animate-fade-up">
+      <PageHeader
+        eyebrow="Module 16 · Logistics"
+        title="Shipments & Export Docs"
+        description="Containers, ports, ETD/ETA, and invoice generation from delivered shipments."
+      />
+
+      <div className="grid sm:grid-cols-3 gap-4">
+        <StatCard label="Shipments" value={(data as any)?.meta?.total ?? rows.length} />
+        <StatCard
+          label="In transit"
+          value={rows.filter((s: any) => String(s.status).includes('Transit') || s.status === 'Shipped').length}
+        />
+        <StatCard label="Showing" value={filtered.length} />
       </div>
 
-      {/* Shipment Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {MOCK_SHIPMENTS.map((shp) => (
-          <div key={shp.id} className="glass-panel p-5 rounded-2xl space-y-4 hover:border-brand-600/30 transition-all flex flex-col justify-between">
-            <div className="space-y-3">
-              <div className="flex justify-between items-start">
-                <div>
-                  <span className="font-mono font-black text-brand-700 dark:text-brand-400 text-xs">{shp.shipmentCode}</span>
-                  <h3 className="font-extrabold text-base text-slate-900 dark:text-slate-100">{shp.buyer}</h3>
-                  <div className="text-xs text-slate-500 font-mono">Order {shp.orderNumber}</div>
-                </div>
-                <span className="badge bg-stone-100 text-brand-800 dark:bg-stone-900 dark:text-brand-300 font-bold">
-                  {shp.status}
-                </span>
-              </div>
-
-              <div className="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl space-y-2 text-xs">
-                <div className="flex justify-between">
-                  <span className="text-slate-500">Container Number:</span>
-                  <span className="font-mono font-bold text-slate-900 dark:text-slate-100">{shp.containerNumber}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-slate-500">Courier / Shipping Line:</span>
-                  <span className="font-bold text-slate-900 dark:text-slate-100">{shp.courier} ({shp.trackingNumber})</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-slate-500">Port Route:</span>
-                  <span className="font-medium text-slate-600 dark:text-slate-300">{shp.portOfLoading} → {shp.destinationPort}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-slate-500">Total Cartons & Weight:</span>
-                  <span className="font-bold text-slate-900 dark:text-slate-100">{shp.totalCartons} Cartons ({shp.totalGrossWeightKg} kg)</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="pt-3 border-t border-slate-200 dark:border-slate-800 flex justify-between items-center text-xs">
-              <div className="font-bold text-status-success dark:text-stone-400">${shp.invoiceAmount.toLocaleString()}</div>
-              <button
-                onClick={() => setSelectedDocShipment(shp)}
-                className="bg-brand-800 hover:bg-brand-700 text-white font-bold text-xs px-3 py-1.5 rounded-lg flex items-center gap-1.5"
-              >
-                <FileCheck className="w-4 h-4" /> Generate Export Docs
-              </button>
-            </div>
-          </div>
+      <div className="flex flex-wrap gap-1.5">
+        {statuses.map((s: any) => (
+          <button
+            key={s}
+            type="button"
+            onClick={() => setStatus(s)}
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold ${
+              status === s ? 'bg-brand-600 text-white' : 'bg-stone-100 dark:bg-stone-800 text-stone-600'
+            }`}
+          >
+            {s}
+          </button>
         ))}
       </div>
 
-      {/* Export Documentation Package Preview Drawer / Modal */}
-      {selectedDocShipment && (
-        <div className="glass-panel rounded-2xl p-6 space-y-4 border-2 border-brand-600">
-          <div className="flex justify-between items-center border-b border-slate-200 dark:border-slate-800 pb-3">
-            <div>
-              <div className="text-xs font-bold text-brand-700 uppercase font-mono">{selectedDocShipment.shipmentCode} Export Documentation Package</div>
-              <h3 className="text-lg font-black text-slate-900 dark:text-slate-100">Ready for Customs Clearance & Bank Submission</h3>
-            </div>
-            <button onClick={() => setSelectedDocShipment(null)} className="text-xs font-bold text-slate-400 hover:text-slate-600">Close</button>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
-            <div className="p-4 bg-slate-50 dark:bg-slate-800/60 rounded-xl space-y-2">
-              <div className="font-bold text-slate-900 dark:text-slate-100">1. Commercial Invoice</div>
-              <div className="text-[11px] text-slate-500">Invoice Amount: ${selectedDocShipment.invoiceAmount.toLocaleString()}</div>
-              <button className="text-brand-700 font-bold hover:underline">Download Commercial Invoice (PDF) →</button>
-            </div>
-
-            <div className="p-4 bg-slate-50 dark:bg-slate-800/60 rounded-xl space-y-2">
-              <div className="font-bold text-slate-900 dark:text-slate-100">2. Master Packing List</div>
-              <div className="text-[11px] text-slate-500">{selectedDocShipment.totalCartons} Cartons detailed by size breakdown</div>
-              <button className="text-brand-700 font-bold hover:underline">Download Packing List (PDF) →</button>
-            </div>
-
-            <div className="p-4 bg-slate-50 dark:bg-slate-800/60 rounded-xl space-y-2">
-              <div className="font-bold text-slate-900 dark:text-slate-100">3. Certificate of Origin (GSP)</div>
-              <div className="text-[11px] text-slate-500">Chamber of Commerce Verified</div>
-              <button className="text-brand-700 font-bold hover:underline">Download Certificate (PDF) →</button>
-            </div>
-          </div>
-        </div>
+      {isLoading ? (
+        <div className="panel p-8 text-center text-sm text-stone-500">Loading shipments…</div>
+      ) : (
+        <DataTable
+          rows={filtered}
+          columns={[
+            { key: 'shipmentNumber', header: 'Shipment' },
+            { key: 'orderNumber', header: 'Order' },
+            { key: 'buyer', header: 'Buyer' },
+            { key: 'containerNo', header: 'Container' },
+            { key: 'port', header: 'Port' },
+            { key: 'etd', header: 'ETD' },
+            { key: 'eta', header: 'ETA' },
+            { key: 'status', header: 'Status' },
+            {
+              key: 'actions',
+              header: 'Actions',
+              render: (r: any) => (
+                <button
+                  type="button"
+                  disabled={invoice.isPending}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    invoice.mutate(r.id);
+                  }}
+                  className="text-xs font-semibold text-brand-700 hover:underline"
+                >
+                  Invoice
+                </button>
+              ),
+            },
+          ]}
+        />
       )}
     </div>
   );

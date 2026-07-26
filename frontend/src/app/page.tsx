@@ -5,6 +5,7 @@ import Sidebar, { ModuleId } from '@/components/layout/Sidebar';
 import Header from '@/components/layout/Header';
 import LoginScreen from '@/components/auth/LoginScreen';
 import { useAuth } from '@/lib/auth';
+import { Sheet, SheetContent, SheetTitle } from '@/components/ui/sheet';
 
 import DashboardModule from '@/components/modules/DashboardModule';
 import CustomerModule from '@/components/modules/CustomerModule';
@@ -38,6 +39,7 @@ export default function Home() {
   const [activeRole, setActiveRole] = useState<string>('owner');
   const [darkMode, setDarkMode] = useState<boolean>(true);
   const [unreadNotificationsCount, setUnreadNotificationsCount] = useState(0);
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   React.useEffect(() => {
     if (user?.role) setActiveRole(user.role === 'owner' ? 'owner' : user.role);
@@ -115,7 +117,7 @@ export default function Home() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-canvas dark:bg-canvas-dark text-stone-500 text-sm">
+      <div className="min-h-screen flex items-center justify-center bg-background text-muted-foreground text-sm px-4 text-center">
         Loading Garments ERP…
       </div>
     );
@@ -125,16 +127,33 @@ export default function Home() {
     return <LoginScreen />;
   }
 
+  const sidebarProps = {
+    activeModule,
+    setActiveModule,
+    unreadNotificationsCount,
+  };
+
   return (
     <div className={darkMode ? 'dark' : ''}>
-      <div className="flex h-screen overflow-hidden bg-canvas dark:bg-canvas-dark text-stone-900 dark:text-stone-100 font-sans transition-colors duration-200">
-        <Sidebar
-          activeModule={activeModule}
-          setActiveModule={setActiveModule}
-          unreadNotificationsCount={unreadNotificationsCount}
-        />
+      <div className="flex h-[100dvh] overflow-hidden bg-background text-foreground font-sans transition-colors duration-200">
+        {/* Desktop sidebar */}
+        <div className="hidden lg:flex w-72 shrink-0 h-full">
+          <Sidebar {...sidebarProps} className="w-full" />
+        </div>
 
-        <div className="flex-1 flex flex-col min-w-0 h-screen overflow-hidden">
+        {/* Mobile drawer */}
+        <Sheet open={mobileNavOpen} onOpenChange={setMobileNavOpen}>
+          <SheetContent side="left" className="p-0 border-0" showClose={false}>
+            <SheetTitle className="sr-only">Navigation</SheetTitle>
+            <Sidebar
+              {...sidebarProps}
+              className="w-full border-0"
+              onNavigate={() => setMobileNavOpen(false)}
+            />
+          </SheetContent>
+        </Sheet>
+
+        <div className="flex-1 flex flex-col min-w-0 h-full overflow-hidden">
           <Header
             activeRole={activeRole}
             setActiveRole={setActiveRole}
@@ -143,10 +162,13 @@ export default function Home() {
             activeModule={activeModule}
             setActiveModule={setActiveModule}
             unreadCount={unreadNotificationsCount}
+            onOpenNav={() => setMobileNavOpen(true)}
           />
 
-          <main className="flex-1 overflow-y-auto p-6 md:p-8 bg-transparent">
-            <div className="max-w-7xl mx-auto space-y-6">{renderModuleView()}</div>
+          <main className="flex-1 overflow-y-auto overflow-x-hidden overscroll-contain">
+            <div className="p-3 sm:p-5 md:p-6 lg:p-8 pb-safe">
+              <div className="max-w-7xl mx-auto space-y-4 sm:space-y-6">{renderModuleView()}</div>
+            </div>
           </main>
         </div>
       </div>

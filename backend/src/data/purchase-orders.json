@@ -14,12 +14,12 @@
       }
     ],
     "totalCost": 32057,
-    "status": "Materials Received",
+    "status": "Stock Updated",
     "issueDate": "2026-06-06",
     "expectedDelivery": "2026-08-01",
     "companyId": "co-1",
     "createdAt": "2026-07-26T14:41:23.271Z",
-    "updatedAt": "2026-07-26T14:41:23.271Z"
+    "updatedAt": "2026-07-26T14:50:25.886Z"
   },
   {
     "id": "po-2",

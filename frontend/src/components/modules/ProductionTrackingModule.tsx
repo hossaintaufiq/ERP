@@ -1,102 +1,97 @@
 'use client';
 
-import React from 'react';
-import {
-  LineChart,
-  Activity,
-  AlertTriangle,
-  CheckCircle2,
-  RotateCcw,
-  Users,
-  Cog,
-  Sparkles
-} from 'lucide-react';
-import { MOCK_LINE_TRACKING } from '@/data/mockData';
+import React, { useMemo } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import { resources } from '@/lib/api';
+import { DataTable, PageHeader, StatCard } from '@/components/ui/DataTable';
 
 export default function ProductionTrackingModule() {
+  const { data, isLoading } = useQuery({
+    queryKey: ['production-tracking'],
+    queryFn: () => resources.list('production', { limit: 100, sortBy: 'efficiency', sortDir: 'desc' }),
+  });
+  const rows = (data as any)?.data || [];
+
+  const byLine = useMemo(() => {
+    const map = new Map<string, { lineId: string; jobs: number; efficiency: number; output: number }>();
+    for (const r of rows) {
+      const key = r.lineId || 'Unassigned';
+      const cur = map.get(key) || { lineId: key, jobs: 0, efficiency: 0, output: 0 };
+      cur.jobs += 1;
+      cur.efficiency += r.efficiency || 0;
+      cur.output += r.completedQty || 0;
+      map.set(key, cur);
+    }
+    return Array.from(map.values()).map((l) => ({
+      ...l,
+      id: l.lineId,
+      avgEfficiency: l.jobs ? Math.round(l.efficiency / l.jobs) : 0,
+    }));
+  }, [rows]);
+
+  const avgEff = rows.length
+    ? Math.round(rows.reduce((s: number, r: any) => s + (r.efficiency || 0), 0) / rows.length)
+    : 0;
+
   return (
-    <div className="space-y-6 animate-in fade-in duration-200">
-      {/* Header */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-        <div>
-          <div className="flex items-center gap-2 text-xs font-bold text-brand-700 dark:text-brand-400 uppercase tracking-wider">
-            Module 10: Production Tracking
-          </div>
-          <h2 className="text-2xl font-extrabold text-slate-900 dark:text-slate-100">Shop Floor Sewing Line Telemetry</h2>
-          <p className="text-xs text-slate-500">Live hourly tracking: Daily targets, actual completed output, efficiency %, rejected pieces, rework counts, assigned machines, and line supervisors.</p>
-        </div>
+    <div className="space-y-6 animate-fade-up">
+      <PageHeader
+        eyebrow="Module 10 · Shop Floor"
+        title="Line Output & Efficiency Tracking"
+        description="Live production telemetry by sewing line, supervisor, and completion vs target."
+      />
+
+      <div className="grid sm:grid-cols-3 gap-4">
+        <StatCard label="Active jobs" value={rows.length} />
+        <StatCard label="Avg efficiency" value={`${avgEff}%`} />
+        <StatCard label="Lines" value={byLine.length} />
       </div>
 
-      {/* Production Lines Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {MOCK_LINE_TRACKING.map((line) => (
-          <div key={line.lineId} className="glass-panel p-5 rounded-2xl space-y-4 hover:border-brand-600/30 transition-all">
-            <div className="flex justify-between items-start">
-              <div>
-                <div className="flex items-center gap-2">
-                  <span className="font-mono font-black text-brand-700 dark:text-brand-400 text-sm">{line.lineId}</span>
-                  <h3 className="font-extrabold text-base text-slate-900 dark:text-slate-100">{line.lineName}</h3>
-                </div>
-                <div className="text-xs text-slate-500 font-medium mt-0.5">
-                  Supervisor: <strong className="text-slate-700 dark:text-slate-300">{line.supervisor}</strong>
-                </div>
-              </div>
-              <span
-                className={`badge ${
-                  line.status === 'Optimal'
-                    ? 'bg-emerald-100 text-emerald-800 dark:bg-stone-900 dark:text-emerald-300 font-bold'
-                    : line.status === 'Behind Schedule'
-                    ? 'bg-amber-100 text-amber-800 dark:bg-stone-900 dark:text-amber-300 font-bold'
-                    : 'bg-rose-100 text-rose-800 dark:bg-stone-900 dark:text-rose-300 font-bold animate-pulse'
-                }`}
-              >
-                {line.status}
-              </span>
-            </div>
+      <DataTable
+        rows={byLine}
+        columns={[
+          { key: 'lineId', header: 'Line' },
+          { key: 'jobs', header: 'Jobs' },
+          {
+            key: 'output',
+            header: 'Completed pcs',
+            render: (r: any) => Number(r.output).toLocaleString(),
+          },
+          {
+            key: 'avgEfficiency',
+            header: 'Avg efficiency',
+            render: (r: any) => `${r.avgEfficiency}%`,
+          },
+        ]}
+      />
 
-            <div className="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl space-y-2 text-xs">
-              <div className="flex justify-between">
-                <span className="text-slate-500">Buyer Order:</span>
-                <span className="font-bold text-slate-900 dark:text-slate-100">{line.buyer} ({line.styleNumber})</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-slate-500">Active Machines Assigned:</span>
-                <span className="font-bold text-slate-900 dark:text-slate-100">{line.machineCount} Sewing Machines</span>
-              </div>
-            </div>
-
-            {/* Target vs Actual Progress */}
-            <div className="space-y-1.5 text-xs">
-              <div className="flex justify-between font-bold">
-                <span className="text-slate-500">Daily Output Progress:</span>
-                <span className="text-brand-700 dark:text-brand-400 font-mono">
-                  {line.actualDaily} / {line.targetDaily} Pcs ({line.efficiency}%)
-                </span>
-              </div>
-              <div className="w-full bg-slate-200 dark:bg-slate-700 h-2.5 rounded-full overflow-hidden">
-                <div
-                  className={`h-full rounded-full transition-all ${
-                    line.efficiency >= 90 ? 'bg-brand-600' : line.efficiency >= 80 ? 'bg-brand-600' : 'bg-brand-600'
-                  }`}
-                  style={{ width: `${Math.min(line.efficiency, 100)}%` }}
-                />
-              </div>
-            </div>
-
-            {/* Rejection & Rework Counters */}
-            <div className="pt-3 border-t border-slate-200 dark:border-slate-800 grid grid-cols-2 gap-3 text-xs">
-              <div className="p-2.5 bg-stone-100 dark:bg-stone-900/40 rounded-xl border border-rose-200 dark:border-rose-900/60">
-                <div className="text-status-danger text-[10px] font-bold uppercase">Rejected Pieces</div>
-                <div className="font-black text-status-danger dark:text-stone-400 text-lg">{line.rejections} Pcs</div>
-              </div>
-              <div className="p-2.5 bg-stone-100 dark:bg-stone-900/40 rounded-xl border border-amber-200 dark:border-amber-900/60">
-                <div className="text-status-warning text-[10px] font-bold uppercase">Rework Pieces</div>
-                <div className="font-black text-status-warning dark:text-stone-400 text-lg">{line.rework} Pcs</div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
+      {isLoading ? (
+        <div className="panel p-8 text-center text-sm text-stone-500">Loading line telemetry…</div>
+      ) : (
+        <DataTable
+          rows={rows}
+          columns={[
+            { key: 'orderNumber', header: 'Order' },
+            { key: 'styleNumber', header: 'Style' },
+            { key: 'buyer', header: 'Buyer' },
+            { key: 'lineId', header: 'Line' },
+            { key: 'stage', header: 'Stage' },
+            { key: 'supervisor', header: 'Supervisor' },
+            {
+              key: 'completedQty',
+              header: 'Done / Target',
+              render: (r: any) =>
+                `${Number(r.completedQty || 0).toLocaleString()} / ${Number(r.targetQty || 0).toLocaleString()}`,
+            },
+            {
+              key: 'efficiency',
+              header: 'Eff %',
+              render: (r: any) => `${r.efficiency}%`,
+            },
+            { key: 'status', header: 'Status' },
+          ]}
+        />
+      )}
     </div>
   );
 }

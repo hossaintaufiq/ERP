@@ -3219,15 +3219,15 @@
     "category": "Trims",
     "warehouseId": "br-3",
     "warehouse": "CEPZ Warehouse",
-    "currentStock": 30107,
+    "currentStock": 37799,
     "minAlertLevel": 5100,
     "unit": "Kg",
     "unitCost": 1.1,
     "status": "In Stock",
-    "lastRestocked": "2026-06-23",
+    "lastRestocked": "2026-07-26",
     "companyId": "co-1",
     "createdAt": "2026-07-26T14:41:23.271Z",
-    "updatedAt": "2026-07-26T14:41:23.271Z"
+    "updatedAt": "2026-07-26T14:50:25.889Z"
   },
   {
     "id": "inv-191",

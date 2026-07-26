@@ -5,7 +5,7 @@
     "orderNumber": "SO-1001",
     "styleNumber": "STL-2007",
     "buyer": "Gap Inc.",
-    "stage": "packing",
+    "stage": "shipment",
     "targetQty": 24983,
     "completedQty": 19825,
     "efficiency": 85,
@@ -14,7 +14,7 @@
     "status": "Delayed",
     "companyId": "co-1",
     "createdAt": "2026-07-26T14:41:23.274Z",
-    "updatedAt": "2026-07-26T14:41:23.274Z"
+    "updatedAt": "2026-07-26T14:50:25.901Z"
   },
   {
     "id": "prod-2",

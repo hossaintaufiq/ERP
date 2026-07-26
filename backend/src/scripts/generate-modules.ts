@@ -34,6 +34,7 @@ const modules: { name: string; collection: string; searchFields: string[]; route
   { name: 'branches', collection: 'branches', searchFields: ['name', 'code'], route: 'branches' },
   { name: 'departments', collection: 'departments', searchFields: ['name', 'code'], route: 'departments' },
   { name: 'users', collection: 'users', searchFields: ['name', 'email', 'role'], route: 'users' },
+  { name: 'roles', collection: 'roles', searchFields: ['name', 'id'], route: 'roles' },
 ];
 
 function pascal(s: string) {

@@ -1198,5 +1198,29 @@
     "companyId": "co-1",
     "createdAt": "2026-07-22T14:41:23.285Z",
     "updatedAt": "2026-07-26T14:41:23.285Z"
+  },
+  {
+    "title": "PO PO-2026-800 → Stock Updated",
+    "message": "Purchase order advanced to Stock Updated",
+    "type": "procurement",
+    "severity": "info",
+    "read": false,
+    "userId": "user-1",
+    "companyId": "co-1",
+    "id": "e0d8e4fc-b0e5-4d71-b929-a4c6db7f56e7",
+    "createdAt": "2026-07-26T14:50:25.891Z",
+    "updatedAt": "2026-07-26T14:50:25.891Z"
+  },
+  {
+    "title": "Production advanced",
+    "message": "SO-1001 moved to shipment",
+    "type": "production",
+    "severity": "info",
+    "read": false,
+    "userId": "user-1",
+    "companyId": "co-1",
+    "id": "3173904c-7b18-4f55-8514-62c9c717c5e6",
+    "createdAt": "2026-07-26T14:50:25.904Z",
+    "updatedAt": "2026-07-26T14:50:25.904Z"
   }
 ]

@@ -23,8 +23,12 @@ import {
   ShieldAlert,
   Bell,
   Factory,
-  Sparkles
+  Sparkles,
 } from 'lucide-react';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { Badge } from '@/components/ui/badge';
+import { Separator } from '@/components/ui/separator';
+import { cn } from '@/lib/utils';
 
 export type ModuleId =
   | 'dashboard'
@@ -57,6 +61,8 @@ interface SidebarProps {
   activeModule: ModuleId;
   setActiveModule: (id: ModuleId) => void;
   unreadNotificationsCount: number;
+  onNavigate?: () => void;
+  className?: string;
 }
 
 interface NavCategory {
@@ -128,82 +134,94 @@ export const NAV_CATEGORIES: NavCategory[] = [
   },
 ];
 
-export default function Sidebar({ activeModule, setActiveModule, unreadNotificationsCount }: SidebarProps) {
+export default function Sidebar({
+  activeModule,
+  setActiveModule,
+  unreadNotificationsCount,
+  onNavigate,
+  className,
+}: SidebarProps) {
+  const select = (id: ModuleId) => {
+    setActiveModule(id);
+    onNavigate?.();
+  };
+
   return (
-    <aside className="w-72 h-screen bg-white dark:bg-[rgb(15_18_22)] text-stone-700 dark:text-stone-300 flex flex-col flex-shrink-0 border-r border-stone-200 dark:border-stone-800 select-none z-20">
-      {/* Brand Header */}
-      <div className="p-5 border-b border-stone-200 dark:border-stone-800 flex items-center gap-3">
-        <div className="w-10 h-10 rounded-xl bg-brand-600 flex items-center justify-center text-white shadow-glow ring-1 ring-brand-400/30">
+    <aside
+      className={cn(
+        'h-full bg-card text-card-foreground flex flex-col flex-shrink-0 border-r border-border select-none',
+        className,
+      )}
+    >
+      <div className="p-4 sm:p-5 flex items-center gap-3 min-h-[4rem]">
+        <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-primary-foreground shadow-glow ring-1 ring-primary/30 shrink-0">
           <Factory className="w-5 h-5" />
         </div>
-        <div>
-          <h1 className="font-bold text-stone-900 dark:text-stone-100 tracking-tight text-[15px]">GARMENTS ERP</h1>
-          <p className="text-[11px] text-brand-600 dark:text-brand-400 font-medium tracking-wide">Enterprise Manufacturing</p>
+        <div className="min-w-0">
+          <h1 className="font-bold tracking-tight text-[15px] truncate">GARMENTS ERP</h1>
+          <p className="text-[11px] text-primary font-medium tracking-wide truncate">Enterprise Manufacturing</p>
         </div>
       </div>
+      <Separator />
 
-      {/* Navigation Menu */}
-      <div className="flex-1 overflow-y-auto px-3 py-4 space-y-6">
-        {NAV_CATEGORIES.map((cat, idx) => (
-          <div key={idx} className="space-y-1">
-            <div className="px-3 text-[10px] font-semibold uppercase tracking-[0.12em] text-stone-400 dark:text-stone-500">
-              {cat.title}
-            </div>
-            <div className="space-y-0.5 mt-1.5">
-              {cat.items.map((item) => {
-                const Icon = item.icon;
-                const isActive = activeModule === item.id;
-                const isNotifications = item.id === 'notifications';
+      <ScrollArea className="flex-1 px-2 sm:px-3 py-3 sm:py-4">
+        <nav className="space-y-5 sm:space-y-6 pr-2 pb-4" aria-label="Main">
+          {NAV_CATEGORIES.map((cat, idx) => (
+            <div key={idx} className="space-y-1">
+              <div className="px-3 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+                {cat.title}
+              </div>
+              <div className="space-y-0.5 mt-1.5">
+                {cat.items.map((item) => {
+                  const Icon = item.icon;
+                  const isActive = activeModule === item.id;
+                  const isNotifications = item.id === 'notifications';
 
-                return (
-                  <button
-                    type="button"
-                    key={item.id}
-                    onClick={() => setActiveModule(item.id)}
-                    className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition-all group relative z-10 cursor-pointer ${
-                      isActive ? 'nav-active' : 'nav-inactive'
-                    }`}
-                  >
-                    <div className="flex items-center gap-2.5 min-w-0">
-                      <Icon className={`w-4 h-4 flex-shrink-0 ${isActive ? 'text-white' : 'text-stone-400 group-hover:text-brand-600 dark:group-hover:text-brand-400'}`} />
-                      <span className="truncate">{item.label}</span>
-                    </div>
-
-                    <div className="flex items-center gap-1.5 flex-shrink-0">
-                      {isNotifications && unreadNotificationsCount > 0 && (
-                        <span className="bg-status-danger text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">
-                          {unreadNotificationsCount}
-                        </span>
+                  return (
+                    <button
+                      type="button"
+                      key={item.id}
+                      onClick={() => select(item.id)}
+                      className={cn(
+                        'w-full flex items-center justify-between px-3 py-2.5 sm:py-2 rounded-lg text-xs font-medium transition-all group relative z-10 cursor-pointer touch-manipulation',
+                        isActive ? 'nav-active' : 'nav-inactive',
                       )}
-                      {!isNotifications && item.badge && (
-                        <span
-                          className={`text-[10px] px-1.5 py-0.5 rounded font-medium ${
-                            isActive
-                              ? 'bg-brand-700/80 text-brand-100'
-                              : 'bg-brand-50 text-brand-700 border border-brand-100 dark:bg-brand-950 dark:text-brand-400 dark:border-brand-900'
-                          }`}
-                        >
-                          {item.badge}
-                        </span>
-                      )}
-                      <span className="text-[10px] opacity-35 font-mono">#{item.number}</span>
-                    </div>
-                  </button>
-                );
-              })}
+                    >
+                      <div className="flex items-center gap-2.5 min-w-0">
+                        <Icon
+                          className={cn(
+                            'w-4 h-4 flex-shrink-0',
+                            isActive ? 'text-primary-foreground' : 'text-muted-foreground group-hover:text-primary',
+                          )}
+                        />
+                        <span className="truncate text-left">{item.label}</span>
+                      </div>
+                      <div className="flex items-center gap-1.5 shrink-0">
+                        {isNotifications && unreadNotificationsCount > 0 && (
+                          <Badge variant="destructive" className="h-5 min-w-5 justify-center px-1.5">
+                            {unreadNotificationsCount > 99 ? '99+' : unreadNotificationsCount}
+                          </Badge>
+                        )}
+                        {item.badge && !isNotifications && (
+                          <Badge
+                            variant={isActive ? 'secondary' : 'outline'}
+                            className="text-[9px] px-1.5 py-0 hidden sm:inline-flex"
+                          >
+                            {item.badge}
+                          </Badge>
+                        )}
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </nav>
+      </ScrollArea>
 
-      {/* Footer Info */}
-      <div className="p-3 border-t border-stone-200 dark:border-stone-800 bg-brand-50/60 dark:bg-brand-950/30 flex items-center justify-between text-xs text-stone-500">
-        <div className="flex items-center gap-2">
-          <div className="w-1.5 h-1.5 rounded-full bg-status-success shadow-[0_0_8px_rgb(31_138_106/0.6)]" />
-          <span className="font-mono text-[11px]">System Online · v4.2</span>
-        </div>
-        <span className="text-[10px] bg-brand-100 dark:bg-brand-900 px-2 py-0.5 rounded text-brand-700 dark:text-brand-300 font-mono">20 Modules</span>
-      </div>
+      <Separator />
+      <div className="p-3 sm:p-4 text-[10px] text-muted-foreground">Softlligence · Garments ERP v1.0</div>
     </aside>
   );
 }

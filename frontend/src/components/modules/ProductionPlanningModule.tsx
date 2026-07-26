@@ -4,6 +4,10 @@ import React from 'react';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { erpApi, resources } from '@/lib/api';
 import { PageHeader } from '@/components/ui/DataTable';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent } from '@/components/ui/card';
+import { Skeleton } from '@/components/ui/skeleton';
 
 const STAGES = ['cutting', 'printing', 'embroidery', 'sewing', 'washing', 'ironing', 'packing', 'shipment'];
 
@@ -25,49 +29,68 @@ export default function ProductionPlanningModule() {
   const rows = (data as any)?.data || [];
 
   return (
-    <div className="space-y-6 animate-fade-up">
+    <div className="space-y-4 sm:space-y-6 animate-fade-up">
       <PageHeader
         eyebrow="Module 9 · Production Planning"
         title="8-Stage Factory Pipeline"
-        description="Advance jobs through cutting → sewing → finish → pack → shipment. Each advance updates orders, notifications, and audit."
+        description="Advance jobs through cutting → sewing → finish → pack → shipment. Swipe horizontally on mobile."
       />
 
       {isLoading ? (
-        <div className="panel p-8 text-center text-sm text-stone-500">Loading production board…</div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          {[1, 2, 3, 4].map((i) => (
+            <Skeleton key={i} className="h-48 w-full rounded-xl" />
+          ))}
+        </div>
       ) : (
-        <div className="overflow-x-auto pb-2">
-          <div className="flex gap-3 min-w-[1200px]">
+        <div className="overflow-x-auto pb-2 -mx-3 px-3 sm:mx-0 sm:px-0 snap-x snap-mandatory scrollbar-thin">
+          <div className="flex gap-3 w-max min-w-full">
             {STAGES.map((stage) => {
               const cards = rows.filter((r: any) => r.stage === stage);
               return (
-                <div key={stage} className="w-56 flex-shrink-0 panel p-3 space-y-2">
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-xs font-bold uppercase tracking-wider text-stone-500">{stage}</h3>
-                    <span className="badge bg-brand-50 text-brand-800 dark:bg-brand-950 dark:text-brand-300">{cards.length}</span>
-                  </div>
-                  <div className="space-y-2 max-h-[70vh] overflow-y-auto">
-                    {cards.map((job: any) => (
-                      <div key={job.id} className="rounded-lg border border-stone-200 dark:border-stone-700 p-3 bg-stone-50 dark:bg-stone-900 space-y-1.5">
-                        <div className="text-xs font-semibold text-stone-900 dark:text-stone-100">{job.orderNumber}</div>
-                        <div className="text-[11px] text-stone-500">{job.buyer}</div>
-                        <div className="text-[11px] font-mono text-brand-700 dark:text-brand-400">{job.styleNumber}</div>
-                        <div className="text-[11px] text-stone-500">
-                          {job.completedQty?.toLocaleString()} / {job.targetQty?.toLocaleString()} pcs
+                <Card
+                  key={stage}
+                  className="w-[min(16rem,80vw)] sm:w-56 flex-shrink-0 snap-start"
+                >
+                  <CardContent className="p-3 space-y-2">
+                    <div className="flex items-center justify-between gap-2">
+                      <h3 className="text-xs font-bold uppercase tracking-wider text-muted-foreground truncate">
+                        {stage}
+                      </h3>
+                      <Badge variant="secondary">{cards.length}</Badge>
+                    </div>
+                    <div className="space-y-2 max-h-[55vh] sm:max-h-[70vh] overflow-y-auto overscroll-contain">
+                      {cards.map((job: any) => (
+                        <div
+                          key={job.id}
+                          className="rounded-lg border border-border p-3 bg-muted/40 space-y-1.5"
+                        >
+                          <div className="text-xs font-semibold">{job.orderNumber}</div>
+                          <div className="text-[11px] text-muted-foreground truncate">{job.buyer}</div>
+                          <div className="text-[11px] font-mono text-primary">{job.styleNumber}</div>
+                          <div className="text-[11px] text-muted-foreground">
+                            {job.completedQty?.toLocaleString()} / {job.targetQty?.toLocaleString()} pcs
+                          </div>
+                          {stage !== 'shipment' && (
+                            <Button
+                              type="button"
+                              variant="link"
+                              size="sm"
+                              className="h-auto p-0 text-[11px]"
+                              disabled={advance.isPending}
+                              onClick={() => advance.mutate(job.id)}
+                            >
+                              Advance →
+                            </Button>
+                          )}
                         </div>
-                        {stage !== 'shipment' && (
-                          <button
-                            type="button"
-                            className="text-[11px] font-semibold text-accent"
-                            onClick={() => advance.mutate(job.id)}
-                          >
-                            Advance →
-                          </button>
-                        )}
-                      </div>
-                    ))}
-                    {!cards.length && <div className="text-[11px] text-stone-400 p-2">No jobs</div>}
-                  </div>
-                </div>
+                      ))}
+                      {!cards.length && (
+                        <div className="text-[11px] text-muted-foreground p-2">No jobs</div>
+                      )}
+                    </div>
+                  </CardContent>
+                </Card>
               );
             })}
           </div>

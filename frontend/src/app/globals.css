@@ -6,15 +6,43 @@
 
 @layer base {
   :root {
+    /* Legacy ERP tokens */
     --canvas: 247 246 243;
     --surface: 255 255 255;
     --surface-muted: 247 246 243;
     --surface-raised: 255 255 255;
-    --border: 228 226 222;
+    --border-legacy: 228 226 222;
     --text: 28 25 23;
     --text-muted: 87 83 78;
-    --accent: 29 114 124;
+    --accent-legacy: 29 114 124;
     --accent-hover: 28 92 101;
+
+    /* shadcn/ui — deep teal primary on stone neutrals */
+    --background: 40 20% 97%;
+    --foreground: 24 10% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 24 10% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 24 10% 10%;
+    --primary: 186 62% 30%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 40 12% 94%;
+    --secondary-foreground: 24 10% 18%;
+    --muted: 40 12% 94%;
+    --muted-foreground: 25 5% 40%;
+    --accent: 186 35% 94%;
+    --accent-foreground: 186 62% 24%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 30 10% 88%;
+    --input: 30 10% 88%;
+    --ring: 186 62% 30%;
+    --radius: 0.625rem;
+    --chart-1: 186 62% 37%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 45%;
+    --chart-4: 43 74% 49%;
+    --chart-5: 27 87% 55%;
   }
 
   .dark {
@@ -22,35 +50,64 @@
     --surface: 22 27 32;
     --surface-muted: 15 18 22;
     --surface-raised: 30 36 42;
-    --border: 42 50 58;
+    --border-legacy: 42 50 58;
     --text: 245 245 244;
     --text-muted: 168 162 158;
-    --accent: 63 170 179;
+    --accent-legacy: 63 170 179;
     --accent-hover: 116 203 208;
+
+    --background: 210 20% 6%;
+    --foreground: 40 10% 96%;
+    --card: 210 16% 10%;
+    --card-foreground: 40 10% 96%;
+    --popover: 210 16% 10%;
+    --popover-foreground: 40 10% 96%;
+    --primary: 185 48% 45%;
+    --primary-foreground: 210 20% 6%;
+    --secondary: 210 14% 16%;
+    --secondary-foreground: 40 10% 96%;
+    --muted: 210 14% 16%;
+    --muted-foreground: 30 8% 65%;
+    --accent: 186 30% 16%;
+    --accent-foreground: 185 55% 72%;
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 14% 18%;
+    --input: 210 14% 18%;
+    --ring: 185 48% 45%;
+    --chart-1: 185 48% 45%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+
+  * {
+    @apply border-border;
   }
 
   html {
     @apply antialiased;
+    -webkit-tap-highlight-color: transparent;
   }
 
   body {
     font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
-    color: rgb(var(--text));
-    background-color: rgb(var(--canvas));
+    @apply bg-background text-foreground;
     background-image:
-      radial-gradient(ellipse 70% 45% at 0% -10%, rgb(38 143 153 / 0.09), transparent 55%),
-      radial-gradient(ellipse 50% 35% at 100% 0%, rgb(196 132 29 / 0.04), transparent 50%);
+      radial-gradient(ellipse 70% 45% at 0% -10%, hsl(186 62% 37% / 0.09), transparent 55%),
+      radial-gradient(ellipse 50% 35% at 100% 0%, hsl(43 74% 49% / 0.04), transparent 50%);
   }
 
   .dark body,
   .dark {
     background-image:
-      radial-gradient(ellipse 70% 45% at 0% -10%, rgb(38 143 153 / 0.14), transparent 55%),
-      radial-gradient(ellipse 50% 35% at 100% 0%, rgb(63 170 179 / 0.06), transparent 50%);
+      radial-gradient(ellipse 70% 45% at 0% -10%, hsl(185 48% 45% / 0.14), transparent 55%),
+      radial-gradient(ellipse 50% 35% at 100% 0%, hsl(185 48% 45% / 0.06), transparent 50%);
   }
 
   ::selection {
-    @apply bg-brand-500/25 text-inherit;
+    @apply bg-primary/25 text-inherit;
   }
 }
 
@@ -73,11 +130,11 @@
 
 @layer components {
   .glass-panel {
-    @apply bg-white/95 dark:bg-[rgb(22_27_32/0.95)] backdrop-blur-md border border-stone-200/90 dark:border-stone-800/80 shadow-panel dark:shadow-panel-dark rounded-panel transition-shadow hover:shadow-md dark:hover:shadow-panel-dark;
+    @apply bg-card/95 backdrop-blur-md border border-border shadow-panel dark:shadow-panel-dark rounded-panel transition-shadow hover:shadow-md;
   }
 
   .panel {
-    @apply bg-white dark:bg-[rgb(22_27_32)] border border-stone-200 dark:border-stone-800 shadow-panel dark:shadow-panel-dark rounded-panel;
+    @apply bg-card border border-border shadow-panel dark:shadow-panel-dark rounded-panel;
   }
 
   .badge {
@@ -85,11 +142,11 @@
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 bg-brand-600 hover:bg-brand-500 dark:bg-brand-500 dark:hover:bg-brand-400 text-white text-sm font-semibold px-4 py-2.5 rounded-lg transition-all shadow-sm hover:shadow-glow;
+    @apply inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground text-sm font-semibold px-4 py-2.5 rounded-lg transition-all shadow-sm hover:shadow-glow;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 bg-white dark:bg-stone-800 hover:bg-brand-50 dark:hover:bg-stone-700 text-stone-700 dark:text-stone-200 text-sm font-semibold px-4 py-2.5 rounded-lg border border-stone-200 dark:border-stone-700 hover:border-brand-300 dark:hover:border-brand-700 transition-colors;
+    @apply inline-flex items-center justify-center gap-2 bg-secondary hover:bg-accent text-secondary-foreground text-sm font-semibold px-4 py-2.5 rounded-lg border border-border transition-colors;
   }
 
   .text-accent {
@@ -104,19 +161,19 @@
   }
 
   .module-eyebrow {
-    @apply text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-600 dark:text-brand-400;
+    @apply text-[11px] font-semibold uppercase tracking-[0.14em] text-primary;
   }
 
   .kpi-icon {
-    @apply p-2 rounded-lg bg-brand-50 dark:bg-brand-950 text-brand-700 dark:text-brand-400;
+    @apply p-2 rounded-lg bg-accent text-accent-foreground;
   }
 
   .progress-track {
-    @apply w-full bg-stone-200 dark:bg-stone-800 h-1.5 rounded-full overflow-hidden;
+    @apply w-full bg-muted h-1.5 rounded-full overflow-hidden;
   }
 
   .progress-fill {
-    @apply h-full rounded-full bg-brand-500;
+    @apply h-full rounded-full bg-primary;
   }
 
   .status-success {
@@ -136,11 +193,11 @@
   }
 
   .data-table thead th {
-    @apply py-3 px-3 text-[11px] font-semibold uppercase tracking-wider text-stone-500 dark:text-stone-400 border-b border-stone-200 dark:border-stone-800 bg-stone-50/90 dark:bg-stone-950/50;
+    @apply py-3 px-3 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground border-b border-border bg-muted/60;
   }
 
   .data-table tbody td {
-    @apply py-3 px-3 border-b border-stone-100 dark:border-stone-800/80 text-stone-700 dark:text-stone-300;
+    @apply py-3 px-3 border-b border-border/60 text-foreground/80;
   }
 
   .data-table tbody tr:last-child td {
@@ -148,22 +205,42 @@
   }
 
   .data-table tbody tr:hover td {
-    @apply bg-brand-50/40 dark:bg-brand-950/20;
+    @apply bg-accent/40;
   }
 
   .input-field {
-    @apply w-full bg-white dark:bg-stone-950/60 text-sm text-stone-900 dark:text-stone-100 px-3 py-2 rounded-lg border border-stone-200 dark:border-stone-700 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 transition-shadow placeholder:text-stone-400;
+    @apply w-full bg-background text-sm text-foreground px-3 py-2 rounded-lg border border-input focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-primary transition-shadow placeholder:text-muted-foreground;
   }
 
   .mono-id {
-    @apply font-mono text-[12px] font-medium tracking-tight text-brand-700 dark:text-brand-400;
+    @apply font-mono text-[12px] font-medium tracking-tight text-primary;
   }
 
   .nav-active {
-    @apply bg-brand-600 dark:bg-brand-600 text-white shadow-glow;
+    @apply bg-primary text-primary-foreground shadow-glow;
   }
 
   .nav-inactive {
-    @apply text-stone-600 dark:text-stone-400 hover:bg-brand-50 dark:hover:bg-brand-950/40 hover:text-brand-800 dark:hover:text-brand-300;
+    @apply text-muted-foreground hover:bg-accent hover:text-accent-foreground;
+  }
+
+  .pb-safe {
+    padding-bottom: max(1.25rem, env(safe-area-inset-bottom));
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+
+  .filter-chip {
+    @apply shrink-0 px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap touch-manipulation transition-colors;
+  }
+
+  .filter-chip-active {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  .filter-chip-idle {
+    @apply bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground;
   }
 }

@@ -1,85 +1,77 @@
 'use client';
 
-import React from 'react';
-import {
-  Cog,
-  Wrench,
-  Activity,
-  CheckCircle2,
-  AlertTriangle,
-  UserCheck,
-  Plus
-} from 'lucide-react';
-import { MOCK_MACHINES } from '@/data/mockData';
+import React, { useMemo, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import { resources } from '@/lib/api';
+import { DataTable, PageHeader, StatCard } from '@/components/ui/DataTable';
 
 export default function MachineModule() {
+  const [status, setStatus] = useState('ALL');
+  const { data, isLoading } = useQuery({
+    queryKey: ['machines'],
+    queryFn: () => resources.list('machines', { limit: 100, sortBy: 'code' }),
+  });
+  const rows = (data as any)?.data || [];
+  const statuses = useMemo(
+    () => ['ALL', ...Array.from(new Set(rows.map((m: any) => m.status).filter(Boolean)))],
+    [rows],
+  );
+  const filtered = status === 'ALL' ? rows : rows.filter((m: any) => m.status === status);
+  const running = rows.filter((m: any) => m.status === 'Running').length;
+  const avgEff = rows.length
+    ? Math.round(rows.reduce((s: number, m: any) => s + (m.efficiency || 0), 0) / rows.length)
+    : 0;
+
   return (
-    <div className="space-y-6 animate-in fade-in duration-200">
-      {/* Header */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-        <div>
-          <div className="flex items-center gap-2 text-xs font-bold text-brand-700 dark:text-brand-400 uppercase tracking-wider">
-            Module 15: Machine Management
-          </div>
-          <h2 className="text-2xl font-extrabold text-slate-900 dark:text-slate-100">Equipment OEE & Preventive Maintenance</h2>
-          <p className="text-xs text-slate-500">Track 132 sewing machines, embroidery heads, auto-cutters, assigned operators, breakdown logs, and service schedules.</p>
-        </div>
-        <button className="bg-brand-800 hover:bg-brand-700 text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-lg shadow-brand-900/30 flex items-center gap-2">
-          <Plus className="w-4 h-4" /> Register New Machine
-        </button>
+    <div className="space-y-6 animate-fade-up">
+      <PageHeader
+        eyebrow="Module 15 · Assets"
+        title="Machine & Maintenance Board"
+        description="Sewing / cutting / finishing assets with utilization and PM schedules."
+      />
+
+      <div className="grid sm:grid-cols-3 gap-4">
+        <StatCard label="Machines" value={(data as any)?.meta?.total ?? rows.length} />
+        <StatCard label="Running" value={running} />
+        <StatCard label="Avg efficiency" value={`${avgEff}%`} />
       </div>
 
-      {/* Machine Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {MOCK_MACHINES.map((mc) => (
-          <div key={mc.id} className="glass-panel p-5 rounded-2xl space-y-4 hover:border-brand-600/30 transition-all flex flex-col justify-between">
-            <div className="space-y-3">
-              <div className="flex justify-between items-start">
-                <div>
-                  <span className="font-mono font-black text-brand-700 dark:text-brand-400 text-xs">{mc.code}</span>
-                  <h3 className="font-extrabold text-base text-slate-900 dark:text-slate-100">{mc.name}</h3>
-                  <div className="text-xs text-slate-500 font-medium">{mc.type}</div>
-                </div>
-                <span
-                  className={`badge ${
-                    mc.status === 'Running'
-                      ? 'bg-emerald-100 text-emerald-800 dark:bg-stone-900 dark:text-emerald-300 font-bold'
-                      : 'bg-amber-100 text-amber-800 dark:bg-stone-900 dark:text-amber-300 font-bold'
-                  }`}
-                >
-                  {mc.status}
-                </span>
-              </div>
-
-              <div className="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-xl space-y-2 text-xs">
-                <div className="flex justify-between">
-                  <span className="text-slate-500">Floor Location:</span>
-                  <span className="font-bold text-slate-900 dark:text-slate-100">{mc.floorLocation}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-slate-500">Assigned Operator:</span>
-                  <span className="font-bold text-brand-700 dark:text-brand-400">{mc.operatorAssigned}</span>
-                </div>
-              </div>
-
-              <div className="space-y-1 text-xs">
-                <div className="flex justify-between font-bold">
-                  <span className="text-slate-500">Machine OEE Efficiency:</span>
-                  <span className="text-status-success font-mono">{mc.efficiency}%</span>
-                </div>
-                <div className="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
-                  <div className="bg-brand-600 h-full rounded-full" style={{ width: `${mc.efficiency}%` }} />
-                </div>
-              </div>
-            </div>
-
-            <div className="pt-3 border-t border-slate-200 dark:border-slate-800 flex justify-between items-center text-[11px] text-slate-500">
-              <div>Last Calibration: <strong className="text-slate-700 dark:text-slate-300">{mc.lastMaintenance}</strong></div>
-              <div>Next Due: <strong className="text-brand-700">{mc.nextMaintenance}</strong></div>
-            </div>
-          </div>
+      <div className="flex flex-wrap gap-1.5">
+        {statuses.map((s: any) => (
+          <button
+            key={s}
+            type="button"
+            onClick={() => setStatus(s)}
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold ${
+              status === s ? 'bg-brand-600 text-white' : 'bg-stone-100 dark:bg-stone-800 text-stone-600'
+            }`}
+          >
+            {s}
+          </button>
         ))}
       </div>
+
+      {isLoading ? (
+        <div className="panel p-8 text-center text-sm text-stone-500">Loading machines…</div>
+      ) : (
+        <DataTable
+          rows={filtered}
+          columns={[
+            { key: 'code', header: 'Code' },
+            { key: 'name', header: 'Machine' },
+            { key: 'type', header: 'Type' },
+            { key: 'floorLocation', header: 'Location' },
+            { key: 'status', header: 'Status' },
+            {
+              key: 'efficiency',
+              header: 'Eff %',
+              render: (r: any) => `${r.efficiency}%`,
+            },
+            { key: 'lastMaintenance', header: 'Last PM' },
+            { key: 'nextMaintenance', header: 'Next PM' },
+          ]}
+        />
+      )}
     </div>
   );
 }

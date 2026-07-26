@@ -1,204 +1,290 @@
 # Garments ERP
 
-**Enterprise Garments Manufacturing ERP** — a production-oriented platform for apparel factories covering commercial, merchandising, supply chain, shop-floor production, quality, HR/payroll, logistics, and finance.
+### Enterprise Garments Manufacturing ERP — Full-Stack Product Showcase
 
-Built as a full-stack system with a **Next.js** client and **NestJS** API. Persistence uses a **JSON Repository layer** designed so PostgreSQL (or any SQL store) can replace storage later **without rewriting controllers or business services**.
+**A production-style ERP for apparel factories** that connects commercial, merchandising, procurement, warehouse, shop-floor production, quality, HR/payroll, logistics, and finance in one workflow-driven platform.
+
+Built as a **real full-stack system** (not a CRUD demo): **Next.js 14** frontend + **NestJS 10** API + **Clean Architecture** with a swappable JSON → PostgreSQL repository layer.
+
+| | |
+|---|---|
+| **Live UI** | `http://localhost:3000` |
+| **API** | `http://localhost:4000/api` |
+| **Swagger** | `http://localhost:4000/docs` |
+| **Stack** | Next.js · React · TypeScript · NestJS · JWT · TanStack Query · Tailwind · Recharts |
+| **Modules** | **25** authenticated business screens + Login |
+| **Seed data** | **2,500+** linked enterprise records |
+
+---
+
+## Why this project (recruiter summary)
+
+Garment factories still run on spreadsheets and disconnected tools. This project demonstrates how a **modular ERP** can digitize the full apparel value chain — from buyer lead to shipment invoice — with:
+
+- **End-to-end domain coverage** across commercial → production → finance  
+- **Cross-module workflows** (PO advance, production stage advance, shipment invoicing) that update inventory, orders, notifications, and audit logs  
+- **Enterprise UI shell** — auth gate, categorized sidebar, global search, dark/light theme, RBAC role simulator, notifications badge  
+- **Backend engineering maturity** — NestJS modules, JWT guards, Swagger, throttling, helmet, repository pattern, seed generator  
+- **Portfolio-grade documentation** — architecture, API, modules, workflow, deployment, roadmap  
+
+> **Hiring signal:** This is systems thinking + product UX + backend architecture in one repo — closer to Odoo / ERPNext / Dynamics modularity than a todo-app portfolio piece.
 
 ---
 
 ## Table of contents
 
-1. [Product overview](#product-overview)
-2. [Architecture](#architecture)
-3. [Repository & folder structure](#repository--folder-structure)
-4. [Technology stack](#technology-stack)
-5. [Domain modules](#domain-modules)
-6. [Garments workflow](#garments-workflow)
-7. [Getting started](#getting-started)
-8. [Authentication & security](#authentication--security)
-9. [API surface](#api-surface)
-10. [Frontend application shell](#frontend-application-shell)
-11. [Data model & seed](#data-model--seed)
-12. [Swapping JSON for PostgreSQL](#swapping-json-for-postgresql)
-13. [Operations & deployment](#operations--deployment)
-14. [Roadmap](#roadmap)
+1. [Product highlight reel](#product-highlight-reel)  
+2. [Website tour — every screen](#website-tour--every-screen)  
+3. [User journeys & workflows](#user-journeys--workflows)  
+4. [Architecture](#architecture)  
+5. [Technology stack](#technology-stack)  
+6. [Engineering highlights](#engineering-highlights)  
+7. [Data model & seed volume](#data-model--seed-volume)  
+8. [Getting started (5 minutes)](#getting-started-5-minutes)  
+9. [Demo accounts](#demo-accounts)  
+10. [API & security](#api--security)  
+11. [Repository structure](#repository-structure)  
+12. [PostgreSQL migration path](#postgresql-migration-path)  
+13. [Docs index](#docs-index)  
+14. [Roadmap](#roadmap)  
+15. [Skills demonstrated](#skills-demonstrated)
 
 ---
 
-## Product overview
+## Product highlight reel
 
-Garments ERP digitizes the end-to-end apparel manufacturing value chain:
+### What you see when you open the app
 
-| Capability | What it delivers |
-|------------|------------------|
-| Commercial | Leads, quotations, buyers, sales orders, style catalog |
-| Engineering | Tech packs, BOM calculation, costing inputs |
-| Procurement | PR/PO lifecycle with inventory side effects |
-| Warehouse | Multi-warehouse capacity & stock transfers |
-| Production | 8-stage planning board + line telemetry |
-| Quality | QC gates / AQL inspection records |
-| HR | Employees, attendance, leave, payroll |
-| Logistics | Shipments, containers, export documentation hooks |
-| Finance | Invoices, expenses, receivables/payables, margins |
-| Platform | RBAC, audit trail, notifications, settings, AI assistant, reports |
+1. **Login screen** — branded auth gate with JWT session  
+2. **Executive dashboard** — live KPIs, revenue chart, stage mix, action alerts  
+3. **Categorized sidebar** — 25 modules grouped like a real ERP navigation  
+4. **Header command bar** — global search, role switcher, theme toggle, notifications, logout  
+5. **Domain workspaces** — filterable tables, stat cards, workflow action buttons  
 
-**Design intent:** behave like a serious ERP (Odoo / ERPNext / Dynamics-class modularity), not a CRUD demo. Cross-module workflows mutate related aggregates and emit notifications + audit events.
+### Capabilities at a glance
+
+| Pillar | What the product does |
+|--------|------------------------|
+| **Commercial** | Leads, quotations, global buyers, sales orders, finance cash view |
+| **Engineering** | Style catalog, tech-pack fields, interactive BOM calculator |
+| **Supply chain** | Inventory alerts, multi-warehouse, PO lifecycle, supplier ratings |
+| **Production** | 8-stage Kanban planning, line efficiency tracking, machine OEE |
+| **Quality** | Cutting → Sewing → Finishing → Final AQL inspection logs |
+| **People** | 520-employee directory, biometric attendance, leave approvals, payroll |
+| **Logistics** | Containers, ports, ETD/ETA, one-click invoice from shipment |
+| **Platform** | RBAC matrix, notifications hub, AI operations copilot, reports CSV, settings |
+
+### Design language
+
+- Premium **deep teal + stone** enterprise theme (not generic purple AI defaults)  
+- Dark / light mode with consistent panels, badges, and data tables  
+- Motion used for hierarchy (`animate-fade-up`) — not decorative noise  
+- Shared primitives: **shadcn/ui** (`Button`, `Card`, `Table`, `Input`, `DropdownMenu`, `Avatar`, `Tabs`, `Tooltip`, `ScrollArea`…) plus ERP helpers `PageHeader`, `StatCard`, `DataTable`
+
+---
+
+## Website tour — every screen
+
+The app is an **authenticated SPA shell**: one Next.js page switches modules via sidebar state (ERP-style workspace, not a marketing multi-page site).
+
+### Overview & platform
+
+| # | Screen | What recruiters should notice |
+|---|--------|-------------------------------|
+| 1 | **Dashboard** | Live executive KPIs from `/dashboard/executive` — production, orders, delays, low stock, OEE, workforce, revenue/AR, shipments, QC pass rate + Recharts revenue trend + alert feed |
+| 19 | **User Roles & Access** | Live RBAC from `/roles` — permission matrix, role simulation cards |
+| 20 | **Notifications Hub** | Operational alerts with mark-as-read against API |
+| 21 | **AI Assistant** | Operations copilot (`/ai/ask`) for delayed orders, stock, attendance, buyers |
+| 22 | **Settings** | Company configuration load/save via `/settings` |
+
+### Commercial & sales
+
+| # | Screen | Showcase value |
+|---|--------|----------------|
+| 23 | **Leads & Quotations** | Pipeline + quotation list from API |
+| 2 | **Customer Management** | Global buyer directory — codes, countries, credit limits, compliance tags |
+| 3 | **Sales & Orders** | Full SO book — qty, FOB value, stage, status, delivery dates + status filters |
+| 17 | **Finance & Cash Flow** | Receivables/payables style summary from `/finance/summary` |
+
+### Product engineering
+
+| # | Screen | Showcase value |
+|---|--------|----------------|
+| 4 | **Product & Styles** | Style masters — season, fabric, colors, cost/FOB, buyer link |
+| 5 | **BOM Calculator** | Select style + order qty → explode `bomRatio` into material requirements & cost |
+
+### Supply chain & procurement
+
+| # | Screen | Showcase value |
+|---|--------|----------------|
+| 6 | **Inventory & Stock** | SKU stock, warehouse, min alerts, low/critical filters |
+| 24 | **Warehouses & Transfers** | Capacity + stock transfer records |
+| 7 | **Purchase Management** | Create PR/PO + **Advance workflow** (status → inventory side effects) |
+| 8 | **Supplier Directory** | Ratings, lead times, materials, AP balances |
+
+### Shop floor & production
+
+| # | Screen | Showcase value |
+|---|--------|----------------|
+| 9 | **Production Schedule** | 8-stage planning board + **Advance stage** workflow |
+| 10 | **Floor Tracking** | Line-level output, efficiency, supervisor telemetry |
+| 14 | **Quality Control** | Gate filters + AQL defect logs |
+| 15 | **Machine OEE** | Running/idle assets, PM dates, efficiency |
+
+### Human capital & logistics
+
+| # | Screen | Showcase value |
+|---|--------|----------------|
+| 11 | **Employees** | Large directory with department filters (520 seeded) |
+| 12 | **Biometric Attendance** | Sensor modes + **Simulate scan → POST /attendance** |
+| 25 | **Leave Management** | Requests + approve mutation |
+| 13 | **Payroll** | Period payslips — basic/OT/allowances/deductions/net |
+| 16 | **Shipments** | Containers + **Invoice** workflow action |
+| 18 | **Reports** | Report types + authenticated CSV download |
+
+### Auth
+
+| Screen | Showcase value |
+|--------|----------------|
+| **Login** | JWT login, role-aware session, demo multi-persona accounts |
+
+---
+
+## User journeys & workflows
+
+### End-to-end garments value chain
+
+```
+Lead → Buyer → Quotation → Sales Order → Style / BOM
+  → Material Purchase Order → Warehouse / Inventory
+  → Production Planning (8 stages)
+  → Cutting → Sewing → Print/Embroidery → Washing
+  → Ironing → Finishing → QC → Packing
+  → Shipment → Invoice → Payment
+```
+
+### Interactive workflows implemented in API + UI
+
+| Action | User path | Side effects |
+|--------|-----------|--------------|
+| **Advance Purchase Order** | Purchase → Advance | Next PO status → inventory update on receive → notification → audit |
+| **Advance Production** | Production Schedule → Advance | Next of 8 stages → sync related sales order stage → notification → audit |
+| **Invoice Shipment** | Shipments → Invoice | Create invoice → mark order invoiced → notification |
+| **Approve Leave** | Leave → Approve | Status patch on leave record |
+| **Biometric Scan** | Attendance → Simulate | Creates live attendance row via API |
+| **Global Search** | Header search | Multi-entity search (`orders`, `buyers`, `employees`, `inventory`, …) |
+| **Role Simulation** | Header / Roles module | Switches active RBAC context for demo |
 
 ---
 
 ## Architecture
 
 ```
-┌────────────────────────────────────────────────────────────┐
-│                     Presentation Layer                      │
-│  Next.js 14 (App Router) · TypeScript · Tailwind · TanStack │
-│  Query · Axios · Recharts · Auth-gated SPA shell            │
-└─────────────────────────────┬──────────────────────────────┘
-                              │ REST + JWT Bearer
-┌─────────────────────────────▼──────────────────────────────┐
-│                      Application Layer                      │
-│  NestJS Controllers · DTOs · ValidationPipe · Swagger       │
-│  Guards (JWT / Roles / Permissions) · Throttling · Helmet   │
-└─────────────────────────────┬──────────────────────────────┘
-                              │
-┌─────────────────────────────▼──────────────────────────────┐
-│                       Domain Layer                          │
-│  Services · Workflow orchestrator · Dashboard / AI / Reports│
-└─────────────────────────────┬──────────────────────────────┘
-                              │ IRepository<T>
-┌─────────────────────────────▼──────────────────────────────┐
-│                   Infrastructure Layer                      │
-│  JsonRepository · JsonFileStore (atomic write)              │
-│  backend/src/data/*.json                                    │
-│  (future) PostgresRepository / Prisma / TypeORM             │
-└────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────┐
+│                    Presentation Layer                         │
+│  Next.js 14 (App Router) · React 18 · TypeScript · Tailwind  │
+│  TanStack Query · Axios · Recharts · Auth-gated SPA shell    │
+└──────────────────────────────┬───────────────────────────────┘
+                               │ REST + JWT Bearer
+┌──────────────────────────────▼───────────────────────────────┐
+│                    Application Layer                          │
+│  NestJS Controllers · DTOs · ValidationPipe · Swagger         │
+│  Guards (JWT / Roles / Permissions) · Helmet · Throttler      │
+└──────────────────────────────┬───────────────────────────────┘
+                               │
+┌──────────────────────────────▼───────────────────────────────┐
+│                      Domain Layer                             │
+│  Services · Workflow orchestrator · Dashboard / AI / Reports  │
+└──────────────────────────────┬───────────────────────────────┘
+                               │ IRepository<T>
+┌──────────────────────────────▼───────────────────────────────┐
+│                   Infrastructure Layer                        │
+│  JsonRepository · JsonFileStore (atomic writes)               │
+│  backend/src/data/*.json                                      │
+│  Ready seam → PostgresRepository / Prisma / TypeORM           │
+└──────────────────────────────────────────────────────────────┘
 ```
 
-### Architectural principles
+### Principles
 
-1. **Clean Architecture** — Controllers never touch files; services never know JSON vs SQL.
-2. **Repository Pattern** — `IRepository<T>` + `JsonRepository<T>` isolate persistence.
-3. **Dependency Injection** — NestJS modules wire services and storage.
-4. **Workflow orchestration** — Purchase / Production / Invoice transitions update related domains.
-5. **Security by default** — Global JWT guard; `@Public()` for login/health only.
-6. **Observable API** — Uniform `{ success, data, meta }` envelope + global exception filter.
-
-### Key documents
-
-| Document | Purpose |
-|----------|---------|
-| [`docs/architecture.md`](docs/architecture.md) | System design summary |
-| [`docs/api.md`](docs/api.md) | Endpoint catalog |
-| [`docs/modules.md`](docs/modules.md) | Module map |
-| [`docs/workflow.md`](docs/workflow.md) | Manufacturing workflow |
-| [`docs/deployment.md`](docs/deployment.md) | Runbook |
-| [`docs/development-roadmap.md`](docs/development-roadmap.md) | Next milestones |
-| [`docs/checklist.md`](docs/checklist.md) | Delivery checklist |
-
----
-
-## Repository & folder structure
-
-```
-Garment ERP/
-├── README.md
-├── .gitignore
-├── docs/                      # Architecture & runbooks
-├── frontend/                  # Next.js ERP client
-│   ├── src/
-│   │   ├── app/               # layout, page, globals
-│   │   ├── components/
-│   │   │   ├── auth/          # Login
-│   │   │   ├── layout/        # Sidebar, Header
-│   │   │   ├── modules/       # Domain screens
-│   │   │   └── ui/            # DataTable, PageHeader, StatCard
-│   │   ├── data/              # Legacy mock fallbacks
-│   │   └── lib/               # api, auth, providers, cn
-│   └── package.json
-└── backend/                   # NestJS ERP API
-    ├── src/
-    │   ├── common/            # filters, guards, repository, storage
-    │   ├── data/              # JSON collections (seeded)
-    │   ├── modules/           # auth, dashboard, workflow, CRUD domains…
-    │   ├── scripts/           # seed.ts, generate-modules.ts
-    │   ├── app.module.ts
-    │   └── main.ts
-    └── package.json
-```
+1. **Clean Architecture** — Controllers never touch files; services never know JSON vs SQL  
+2. **Repository Pattern** — `IRepository<T>` + `JsonRepository<T>` isolate persistence  
+3. **Dependency Injection** — NestJS modules wire domain services  
+4. **Workflow orchestration** — Purchase / Production / Invoice mutate related aggregates  
+5. **Security by default** — Global JWT guard; `@Public()` only for login/health  
+6. **Uniform API envelope** — `{ success, data, meta }` + global exception filter  
 
 ---
 
 ## Technology stack
 
 ### Frontend
-- **Next.js 14** (App Router) + **React 18** + **TypeScript**
-- **Tailwind CSS** design system (premium teal/stone ERP theme)
-- **TanStack Query** for server state
-- **Axios** API client with refresh-token interceptor
-- **Recharts** for executive dashboards
-- **Lucide** icons
+| Layer | Choice |
+|-------|--------|
+| Framework | **Next.js 14** (App Router) |
+| UI | **React 18** + **TypeScript** |
+| Styling | **Tailwind CSS** + **shadcn/ui** (Radix primitives, CVA, CSS variables — teal primary) |
+| Server state | **TanStack Query** |
+| HTTP | **Axios** + refresh-token interceptor |
+| Charts | **Recharts** |
+| Icons | **Lucide React** |
 
 ### Backend
-- **NestJS 10** + TypeScript
-- **Passport JWT** authentication
-- **class-validator** / **class-transformer**
-- **Swagger** (`/docs`)
-- **Helmet**, **CORS**, **Throttler**
-- **bcryptjs** password hashing
-- **JSON file store** with atomic rename writes
+| Layer | Choice |
+|-------|--------|
+| Framework | **NestJS 10** + TypeScript |
+| Auth | **Passport JWT** + **bcryptjs** |
+| Validation | **class-validator** / **class-transformer** |
+| Docs | **Swagger** (`/docs`) |
+| Hardening | **Helmet**, **CORS**, **Throttler** |
+| Persistence | JSON file store with **atomic rename** writes |
+| Tooling | Seed script + CRUD module generator |
 
 ---
 
-## Domain modules
+## Engineering highlights
 
-### Backend collections (CRUD + stats)
-
-`employees`, `buyers`, `suppliers`, `styles`, `orders`, `inventory`, `purchase-orders`, `machines`, `production`, `attendance`, `leave`, `payroll`, `shipments`, `invoices`, `qc`, `expenses`, `notifications`, `audit`, `warehouses`, `stock-transfers`, `leads`, `quotations`, `companies`, `branches`, `departments`, `users`
-
-Each supports: list (search/sort/filter/pagination), get, create, patch, delete, `stats/summary`.
-
-### Special services
-
-| Service | Responsibility |
-|---------|----------------|
-| `auth` | Login, refresh, forgot-password, profile |
-| `dashboard` | Executive KPIs, charts, alerts |
-| `workflow` | Cross-module PO / production / invoice transitions |
-| `finance` | Cash summary + order profitability |
-| `reports` | Report preview + authenticated CSV export |
-| `ai` | Rule-based operations copilot |
-| `search` | Global entity search |
-| `settings` | Company configuration |
-| `health` | Public liveness probe |
-
-### Frontend screens
-
-Dashboard, Leads, Customers, Sales, Styles, BOM, Inventory, Warehouse, Purchase, Suppliers, Production Planning/Tracking, QC, Machines, Employees, Attendance, Leave, Payroll, Shipment, Finance, Reports, Roles, Notifications, AI Assistant, Settings — plus Login.
+- **shadcn/ui design system** — Radix + CVA + CSS variables (teal primary on stone); Login, Header, Sidebar, DataTable, Purchase, Attendance migrated  
+- **25 API-backed screens** — no dead nav items; modules load live data  
+- **27 domain collections** with list/search/sort/filter/pagination/CRUD/stats  
+- **Workflow engine** for PO, production stages, and shipment invoicing  
+- **Executive dashboard** aggregating KPIs across production, finance, HR, QC  
+- **RBAC** with roles + permission matrix surfaced in UI  
+- **Global search** across entities from the header  
+- **Reports** with auth-protected CSV export (Bearer token download)  
+- **AI operations assistant** for factory Q&A intents  
+- **Code generation** — `generate-modules.ts` scaffolds consistent Nest CRUD modules  
+- **Realistic seed** — relational IDs across buyers ↔ orders ↔ production ↔ shipments  
 
 ---
 
-## Garments workflow
+## Data model & seed volume
 
-```
-Lead → Buyer → Quotation → Sales Order → BOM
-  → Material PO → Warehouse → Production Planning
-  → Cutting → Sewing → Print/Embroidery → Washing
-  → Finishing → QC → Packing → Shipment → Invoice → Payment
-```
+Run `npm run seed` in `backend/` to regenerate demo data under `backend/src/data/`.
 
-### Implemented side effects
+| Entity | Approx. volume |
+|--------|----------------|
+| Employees | 520 |
+| Attendance logs | 600 |
+| Orders | 180 |
+| Inventory SKUs | 220 |
+| Machines | 140 |
+| Purchase orders | 120 |
+| Payroll rows | ~389 |
+| QC inspections | 200 |
+| Notifications | 100 |
+| Audit events | 300 |
+| Shipments / invoices | 60 |
+| Buyers, suppliers, styles, warehouses, leads, quotations, roles, users… | Included |
 
-1. **Advance PO** → next lifecycle status → inventory increment on receive/stock → notification → audit  
-2. **Advance Production** → next of 8 stages → sync order stage → notification → audit  
-3. **Invoice Shipment** → create invoice → mark order invoiced → notification  
+Relationships are intentional (order → buyer/style, production → order, shipment → order, invoice → shipment).
 
 ---
 
-## Getting started
+## Getting started (5 minutes)
 
 ### Prerequisites
-
-- Node.js **18+** (20/24 recommended)
+- Node.js **18+** (20/24 recommended)  
 - npm 9+
 
 ### 1) Backend
@@ -206,58 +292,65 @@ Lead → Buyer → Quotation → Sales Order → BOM
 ```bash
 cd backend
 npm install
-npm run seed          # writes backend/src/data/*.json
-npm run start:dev     # http://localhost:4000/api
+npm run seed
+npm run start:dev
 ```
 
-- API base: `http://localhost:4000/api`
-- Swagger: `http://localhost:4000/docs`
-- Health: `http://localhost:4000/api/health`
+- API: http://localhost:4000/api  
+- Swagger: http://localhost:4000/docs  
+- Health: http://localhost:4000/api/health  
 
 ### 2) Frontend
 
 ```bash
 cd frontend
 npm install
-# ensure frontend/.env.local contains:
-# NEXT_PUBLIC_API_URL=http://localhost:4000/api
-npm run dev           # http://localhost:3000
 ```
 
-### Demo credentials
+Create `frontend/.env.local`:
 
-| Role | Email | Password |
-|------|-------|----------|
-| Owner | `owner@garmentserp.com` | `Password@123` |
-| HR | `hr@garmentserp.com` | `Password@123` |
+```env
+NEXT_PUBLIC_API_URL=http://localhost:4000/api
+```
+
+```bash
+npm run dev
+```
+
+Open **http://localhost:3000** → login → explore every module from the sidebar.
+
+---
+
+## Demo accounts
+
+| Persona | Email | Password |
+|---------|-------|----------|
+| Owner / MD | `owner@garmentserp.com` | `Password@123` |
+| HR Manager | `hr@garmentserp.com` | `Password@123` |
 | Factory Manager | `factory@garmentserp.com` | `Password@123` |
 | Store Manager | `store@garmentserp.com` | `Password@123` |
 | Accountant | `accounts@garmentserp.com` | `Password@123` |
-| QC | `qc@garmentserp.com` | `Password@123` |
+| QC Inspector | `qc@garmentserp.com` | `Password@123` |
 | Merchandiser | `merch@garmentserp.com` | `Password@123` |
 
----
-
-## Authentication & security
-
-- Passwords hashed with **bcrypt**
-- Access token (default 8h) + refresh token (7d)
-- Global `JwtAuthGuard`; mark public routes with `@Public()`
-- Optional `@Roles()` / `@Permissions()` metadata
-- Login writes an **audit** event
-- Frontend stores tokens in `localStorage` and refreshes on `401`
-
-> For production: rotate `JWT_SECRET`, prefer httpOnly cookies or a BFF, and terminate TLS at the reverse proxy.
+Tip: after login, use the **Active role** control in the header to simulate different RBAC personas while browsing.
 
 ---
 
-## API surface
+## API & security
 
-Standard list query parameters:
+### Auth model
+- Passwords hashed with **bcrypt**  
+- Access token (default **8h**) + refresh token (**7d**)  
+- Global `JwtAuthGuard`; public routes marked `@Public()`  
+- Optional `@Roles()` / `@Permissions()` metadata  
+- Login writes an **audit** event  
+- Frontend stores tokens and auto-refreshes on `401`
 
-`page`, `limit`, `search`, `sortBy`, `sortDir`, plus equality filters for entity fields.
+### Standard list query
+`page`, `limit`, `search`, `sortBy`, `sortDir` + field equality filters
 
-Envelope:
+### Response envelope
 
 ```json
 {
@@ -267,83 +360,149 @@ Envelope:
 }
 ```
 
-Useful endpoints:
+### Signature endpoints
 
 ```http
 POST /api/auth/login
 GET  /api/dashboard/executive
 GET  /api/finance/summary
+GET  /api/roles
 POST /api/workflow/purchase-orders/:id/advance
 POST /api/workflow/production/:id/advance
+POST /api/workflow/shipments/:id/invoice
 POST /api/ai/ask
 GET  /api/search?q=zara
 GET  /api/reports/production?timeline=Monthly
+GET  /api/reports/production/export
 ```
 
 Full catalog: [`docs/api.md`](docs/api.md).
 
----
-
-## Frontend application shell
-
-1. User authenticates via Login screen  
-2. `AuthProvider` + `QueryClientProvider` wrap the app  
-3. Sidebar switches domain modules (SPA)  
-4. Header provides global search (API), role simulator, theme toggle, logout  
-5. Modules that are API-first: Dashboard, Purchase, Production Planning, Employees, Leave, Warehouse, Leads, Notifications, Finance, Reports, AI, Settings  
-
-Legacy mock screens remain available for offline demo continuity where not yet fully migrated.
+> Production note: rotate `JWT_SECRET`, prefer httpOnly cookies or a BFF, terminate TLS at the reverse proxy.
 
 ---
 
-## Data model & seed
+## Repository structure
 
-`npm run seed` generates relational demo data under `backend/src/data/`, including approximately:
+```
+Garment ERP/
+├── README.md                 ← You are here (product + architecture showcase)
+├── .gitignore
+├── docs/                     ← Deep-dive architecture & runbooks
+│   ├── architecture.md
+│   ├── api.md
+│   ├── modules.md
+│   ├── workflow.md
+│   ├── deployment.md
+│   ├── development-roadmap.md
+│   └── checklist.md
+├── frontend/                 ← Next.js ERP client
+│   ├── src/app/              ← layout, page shell, globals
+│   ├── src/components/
+│   │   ├── auth/             ← LoginScreen
+│   │   ├── layout/           ← Sidebar, Header
+│   │   ├── modules/          ← 25 domain workspaces
+│   │   └── ui/               ← DataTable, PageHeader, StatCard
+│   └── src/lib/              ← api, auth, providers, cn
+└── backend/                  ← NestJS ERP API
+    ├── src/common/           ← filters, guards, repository, storage
+    ├── src/data/             ← JSON collections (seeded)
+    ├── src/modules/          ← auth, dashboard, workflow, CRUD domains…
+    ├── src/scripts/          ← seed.ts, generate-modules.ts
+    ├── src/app.module.ts
+    └── src/main.ts
+```
 
-| Entity | Volume |
-|--------|--------|
-| Employees | 520 |
-| Orders | 180 |
-| Inventory SKUs | 220 |
-| Machines | 140 |
-| Attendance logs | 600 |
-| Payroll rows | ~389 |
-| QC inspections | 200 |
-| Notifications | 100 |
-| Audit events | 300 |
-| Purchase orders | 120 |
-| Shipments / invoices | 60 |
+### Backend collections (CRUD + stats)
 
-Entities are linked (order → buyer/style, production → order, shipment → order, invoice → shipment, etc.).
+`employees`, `buyers`, `suppliers`, `styles`, `orders`, `inventory`, `purchase-orders`, `machines`, `production`, `attendance`, `leave`, `payroll`, `shipments`, `invoices`, `qc`, `expenses`, `notifications`, `audit`, `warehouses`, `stock-transfers`, `leads`, `quotations`, `companies`, `branches`, `departments`, `users`, `roles`
+
+### Special services
+
+| Service | Responsibility |
+|---------|----------------|
+| `auth` | Login, refresh, forgot-password, profile |
+| `dashboard` | Executive KPIs, charts, alerts |
+| `workflow` | Cross-module PO / production / invoice transitions |
+| `finance` | Cash summary + profitability |
+| `reports` | Preview + authenticated CSV export |
+| `ai` | Rule-based operations copilot |
+| `search` | Global entity search |
+| `settings` | Company configuration |
+| `health` | Public liveness probe |
 
 ---
 
-## Swapping JSON for PostgreSQL
+## PostgreSQL migration path
+
+Designed so storage can harden without rewriting business logic:
 
 1. Keep `IRepository<T>` unchanged  
-2. Implement `PostgresRepository<T>` (Prisma/TypeORM/Knex)  
+2. Implement `PostgresRepository<T>` (Prisma / TypeORM / Knex)  
 3. Rebind providers in Nest modules  
-4. Migrate seed script to SQL migrations / fixtures  
+4. Migrate seed → SQL migrations / fixtures  
 5. Controllers & services stay intact  
-
-This is the intentional seam for enterprise hardening.
 
 ---
 
-## Operations & deployment
+## Docs index
 
-| Environment | Command |
-|-------------|---------|
+| Document | Purpose |
+|----------|---------|
+| [`docs/architecture.md`](docs/architecture.md) | System design summary |
+| [`docs/api.md`](docs/api.md) | Endpoint catalog |
+| [`docs/modules.md`](docs/modules.md) | Module map |
+| [`docs/workflow.md`](docs/workflow.md) | Manufacturing workflow |
+| [`docs/deployment.md`](docs/deployment.md) | Ops runbook |
+| [`docs/development-roadmap.md`](docs/development-roadmap.md) | Next milestones |
+| [`docs/checklist.md`](docs/checklist.md) | Delivery checklist |
+
+---
+
+## Roadmap
+
+Tracked in [`docs/development-roadmap.md`](docs/development-roadmap.md):
+
+- [ ] PostgreSQL repository adapter + migrations  
+- [ ] Deep-linkable App Router paths (`/sales`, `/inventory/:id`)  
+- [x] shadcn/ui system migration (Button, Card, Table, Input, Dropdown, Avatar, Tabs, Tooltip, ScrollArea…)  
+- [ ] PDF generation (invoice, packing list, payslip)  
+- [ ] Permission-gated UI from JWT claims  
+- [ ] Playwright + Nest e2e for workflow paths  
+- [ ] Buyer portal & biometric device webhooks  
+
+---
+
+## Skills demonstrated
+
+| Area | Evidence in this repo |
+|------|------------------------|
+| **Full-stack TypeScript** | Shared language across Next.js + NestJS |
+| **Frontend architecture** | Auth provider, Query client, **shadcn/ui** + Radix, modular ERP screens |
+| **Backend architecture** | Clean layers, DI modules, repository abstraction |
+| **API design** | REST, pagination, Swagger, consistent envelopes, error filter |
+| **Security** | JWT, refresh flow, bcrypt, guards, RBAC metadata |
+| **Domain modeling** | Apparel manufacturing entities + linked seed graph |
+| **Workflow / BPM thinking** | Multi-aggregate state transitions with audit + notifications |
+| **UX for enterprise software** | Dense but scannable ERP navigation, filters, KPIs, dark mode |
+| **DX & documentation** | Seed + codegen scripts, architecture docs, recruiter-ready README |
+| **Product sense** | End-to-end factory story, not isolated widgets |
+
+---
+
+## Operations cheat sheet
+
+| Task | Command |
+|------|---------|
 | API dev | `cd backend && npm run start:dev` |
 | UI dev | `cd frontend && npm run dev` |
 | API build | `cd backend && npm run build && npm run start:prod` |
 | UI build | `cd frontend && npm run build && npm run start` |
-| Reseed | `cd backend && npm run seed` |
-
-Environment variables:
+| Reseed data | `cd backend && npm run seed` |
+| Regenerate CRUD modules | `cd backend && npm run generate:modules` |
 
 **`backend/.env`**
-```
+```env
 PORT=4000
 JWT_SECRET=change-me-in-production
 JWT_EXPIRES=8h
@@ -351,30 +510,20 @@ CORS_ORIGIN=http://localhost:3000
 ```
 
 **`frontend/.env.local`**
-```
+```env
 NEXT_PUBLIC_API_URL=http://localhost:4000/api
 ```
 
 ---
 
-## Roadmap
-
-Near-term enterprise upgrades (tracked in `docs/development-roadmap.md`):
-
-- [ ] PostgreSQL repository adapter + migrations  
-- [ ] Deep-linkable App Router paths (`/sales`, `/inventory/:id`)  
-- [ ] shadcn/ui component system migration  
-- [ ] Real PDF generation (invoice, packing list, payslip)  
-- [ ] Permission-gated UI by JWT claims  
-- [ ] Playwright + Nest e2e for workflow paths  
-- [ ] Buyer portal & biometric device webhooks  
-
----
-
 ## License
 
-Portfolio / demonstration software for Softlligence. Contact for commercial licensing.
+Portfolio / demonstration software for **Softlligence**. Contact for commercial licensing.
 
 ---
 
-**Garments ERP** — modular, workflow-driven, architecture-ready for real factory operations.
+### Bottom line
+
+**Garments ERP** is a recruiter-ready, architecture-friendly full-stack ERP showcase: **25 live modules**, **workflow side effects**, **JWT security**, **executive analytics**, and a **clean path to PostgreSQL** — built to look and behave like software a real garments factory could grow into.
+
+**Open the app → login as Owner → walk the sidebar top to bottom.** That is the product.

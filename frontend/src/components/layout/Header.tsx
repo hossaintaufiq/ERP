@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import {
   Search,
   Bell,
@@ -10,13 +10,31 @@ import {
   Calculator,
   CalendarDays,
   Receipt,
-  ChevronDown,
   LogOut,
+  ChevronsUpDown,
+  Menu,
+  X,
 } from 'lucide-react';
-import { MOCK_USER_ROLES } from '@/data/mockData';
+import { useQuery } from '@tanstack/react-query';
 import { ModuleId } from './Sidebar';
 import { useAuth } from '@/lib/auth';
-import { erpApi } from '@/lib/api';
+import { erpApi, resources } from '@/lib/api';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Badge } from '@/components/ui/badge';
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
+import { Separator } from '@/components/ui/separator';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
+import { Card } from '@/components/ui/card';
+import { cn } from '@/lib/utils';
 
 interface HeaderProps {
   activeRole: string;
@@ -26,6 +44,7 @@ interface HeaderProps {
   activeModule: ModuleId;
   setActiveModule: (mod: ModuleId) => void;
   unreadCount: number;
+  onOpenNav?: () => void;
 }
 
 export default function Header({
@@ -36,198 +55,227 @@ export default function Header({
   activeModule,
   setActiveModule,
   unreadCount,
+  onOpenNav,
 }: HeaderProps) {
   const { user, logout } = useAuth();
-  const [roleDropdownOpen, setRoleDropdownOpen] = useState(false);
   const [searchQ, setSearchQ] = useState('');
   const [searchResults, setSearchResults] = useState<any[]>([]);
-  const currentRoleObj = MOCK_USER_ROLES.find((r) => r.id === activeRole) || MOCK_USER_ROLES[0];
-  const roleDropdownRef = useRef<HTMLDivElement | null>(null);
+  const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
+  const rolesQ = useQuery({
+    queryKey: ['roles-header'],
+    queryFn: () => resources.list('roles', { limit: 50 }),
+  });
+  const roles = ((rolesQ.data as any)?.data || []) as { id: string; name: string; permissions?: string[] }[];
+  const currentRoleObj = roles.find((r) => r.id === activeRole) || roles[0] || { id: activeRole, name: activeRole };
 
-  useEffect(() => {
-    if (!roleDropdownOpen) return;
+  const runSearch = async (q: string) => {
+    setSearchQ(q);
+    if (q.length < 2) {
+      setSearchResults([]);
+      return;
+    }
+    try {
+      const res: any = await erpApi.search(q);
+      setSearchResults(res.results || []);
+    } catch {
+      setSearchResults([]);
+    }
+  };
 
-    const onMouseDown = (e: MouseEvent) => {
-      const target = e.target as Node | null;
-      if (!target) return;
-      if (roleDropdownRef.current && !roleDropdownRef.current.contains(target)) {
-        setRoleDropdownOpen(false);
-      }
-    };
+  const goResult = (r: any) => {
+    setSearchResults([]);
+    setSearchQ('');
+    setMobileSearchOpen(false);
+    if (r.type === 'orders') setActiveModule('sales');
+    if (r.type === 'employees') setActiveModule('employee');
+    if (r.type === 'inventory') setActiveModule('inventory');
+    if (r.type === 'buyers') setActiveModule('customers');
+    if (r.type === 'styles') setActiveModule('styles');
+    if (r.type === 'shipments') setActiveModule('shipment');
+  };
 
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setRoleDropdownOpen(false);
-    };
-
-    document.addEventListener('mousedown', onMouseDown);
-    document.addEventListener('keydown', onKeyDown);
-
-    return () => {
-      document.removeEventListener('mousedown', onMouseDown);
-      document.removeEventListener('keydown', onKeyDown);
-    };
-  }, [roleDropdownOpen]);
-
-  const shortcutClass = (active: boolean) =>
-    `inline-flex items-center gap-2 px-2.5 py-1 rounded-md transition-colors ${
-      active
-        ? 'bg-brand-600 text-white shadow-sm'
-        : 'text-stone-600 dark:text-stone-300 hover:bg-brand-50 dark:hover:bg-brand-950/50 hover:text-brand-700 dark:hover:text-brand-300'
-    }`;
+  const SearchField = ({ className }: { className?: string }) => (
+    <div className={cn('relative w-full', className)}>
+      <Search className="w-4 h-4 text-muted-foreground absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+      <Input
+        type="search"
+        placeholder="Search orders, buyers, styles…"
+        className="pl-9 h-9"
+        value={searchQ}
+        onChange={(e) => runSearch(e.target.value)}
+        aria-label="Global search"
+      />
+      {!!searchResults.length && (
+        <Card className="absolute top-11 left-0 right-0 z-50 max-h-64 overflow-y-auto py-1 shadow-lg">
+          {searchResults.map((r, i) => (
+            <button
+              key={i}
+              type="button"
+              className="w-full text-left px-3 py-2.5 text-xs hover:bg-accent transition-colors touch-manipulation"
+              onClick={() => goResult(r)}
+            >
+              <span className="font-semibold">{r.label}</span>
+              <span className="text-muted-foreground ml-2">{r.type}</span>
+            </button>
+          ))}
+        </Card>
+      )}
+    </div>
+  );
 
   return (
-    <header className="h-16 bg-white/90 dark:bg-stone-900/90 backdrop-blur-md border-b border-stone-200 dark:border-stone-800 px-6 flex items-center justify-between sticky top-0 z-10 transition-colors duration-200">
-      <div className="flex items-center gap-4 flex-1 max-w-xl relative">
-        <div className="relative w-full">
-          <Search className="w-4 h-4 text-stone-400 absolute left-3 top-1/2 -translate-y-1/2" />
-          <input
-            type="text"
-            placeholder="Search PO #, buyer, style, material, employee..."
-            className="input-field pl-9 py-2"
-            value={searchQ}
-            onChange={async (e) => {
-              const q = e.target.value;
-              setSearchQ(q);
-              if (q.length < 2) {
-                setSearchResults([]);
-                return;
-              }
-              try {
-                const res: any = await erpApi.search(q);
-                setSearchResults(res.results || []);
-              } catch {
-                setSearchResults([]);
-              }
-            }}
-          />
-        </div>
-        {!!searchResults.length && (
-          <div className="absolute top-11 left-0 right-0 panel z-50 max-h-64 overflow-y-auto py-2">
-            {searchResults.map((r, i) => (
-              <button
-                key={i}
-                type="button"
-                className="w-full text-left px-3 py-2 text-xs hover:bg-stone-50 dark:hover:bg-stone-800"
-                onClick={() => {
-                  setSearchResults([]);
-                  setSearchQ('');
-                  if (r.type === 'orders') setActiveModule('sales');
-                  if (r.type === 'employees') setActiveModule('employee');
-                  if (r.type === 'inventory') setActiveModule('inventory');
-                  if (r.type === 'buyers') setActiveModule('customers');
-                  if (r.type === 'styles') setActiveModule('styles');
-                  if (r.type === 'shipments') setActiveModule('shipment');
-                }}
-              >
-                <span className="font-semibold">{r.label}</span>
-                <span className="text-stone-400 ml-2">{r.type}</span>
-              </button>
-            ))}
-          </div>
-        )}
-      </div>
-
-      <div className="flex items-center gap-3">
-        <div className="hidden lg:flex items-center gap-1 bg-stone-100 dark:bg-stone-800 p-1 rounded-lg border border-stone-200 dark:border-stone-700 text-[11px] font-medium">
-          <button onClick={() => setActiveModule('bom')} className={shortcutClass(activeModule === 'bom')}>
-            <Calculator className="w-4 h-4" />
-            <span>BOM</span>
-          </button>
-          <button
-            onClick={() => setActiveModule('production_planning')}
-            className={shortcutClass(activeModule === 'production_planning')}
-          >
-            <CalendarDays className="w-4 h-4" />
-            <span>Schedule</span>
-          </button>
-          <button onClick={() => setActiveModule('payroll')} className={shortcutClass(activeModule === 'payroll')}>
-            <Receipt className="w-4 h-4" />
-            <span>Payroll</span>
-          </button>
-        </div>
-
-        <div ref={roleDropdownRef} className="relative">
-          <button
-            onClick={() => setRoleDropdownOpen(!roleDropdownOpen)}
-            className="flex items-center gap-2 bg-stone-100 dark:bg-stone-800 px-3 py-1.5 rounded-lg border border-stone-200 dark:border-stone-700 hover:border-brand-600/40 transition-all text-xs font-medium"
-          >
-            <ShieldCheck className="w-4 h-4 text-brand-600 dark:text-brand-400" />
-            <div className="text-left hidden sm:block">
-              <div className="text-[10px] text-stone-400 leading-none">Active role</div>
-              <div className="text-stone-800 dark:text-stone-100 font-semibold truncate max-w-[130px]">
-                {currentRoleObj.name}
-              </div>
-            </div>
-            <ChevronDown className="w-3.5 h-3.5 text-stone-400" />
-          </button>
-
-          {roleDropdownOpen && (
-            <div className="absolute right-0 mt-2 w-64 bg-white dark:bg-stone-900 rounded-lg shadow-panel-dark border border-stone-200 dark:border-stone-800 py-2 z-50 animate-fade-up duration-200">
-              <div className="px-3 py-1.5 border-b border-stone-100 dark:border-stone-800 text-[11px] font-semibold text-stone-400 uppercase tracking-wider">
-                Select user role
-              </div>
-              <div className="max-h-64 overflow-y-auto py-1">
-                {MOCK_USER_ROLES.map((r) => (
-                  <button
-                    key={r.id}
-                    onClick={() => {
-                      setActiveRole(r.id);
-                      setRoleDropdownOpen(false);
-                    }}
-                    className={`w-full text-left px-3 py-2 text-xs flex items-center justify-between hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors ${
-                      activeRole === r.id
-                        ? 'bg-brand-50 dark:bg-brand-950/40 text-brand-800 dark:text-brand-300 font-semibold'
-                        : 'text-stone-700 dark:text-stone-300'
-                    }`}
-                  >
-                    <span>{r.name}</span>
-                    <span className={`text-[10px] px-1.5 py-0.5 rounded font-medium ${r.color}`}>{r.badge}</span>
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
-
-        <button
-          onClick={() => setActiveModule('notifications')}
-          className="relative p-2 text-stone-600 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800 rounded-lg transition-colors"
-          title="Notifications"
+    <header className="sticky top-0 z-30 border-b border-border bg-card/95 backdrop-blur-md">
+      <div className="h-14 sm:h-16 px-3 sm:px-4 lg:px-6 flex items-center gap-2 sm:gap-3">
+        <Button
+          type="button"
+          variant="ghost"
+          size="icon"
+          className="lg:hidden shrink-0"
+          onClick={onOpenNav}
+          aria-label="Open navigation"
         >
-          <Bell className="w-5 h-5" />
-          {unreadCount > 0 && (
-            <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-status-danger rounded-full ring-2 ring-white dark:ring-stone-900" />
-          )}
-        </button>
+          <Menu className="h-5 w-5" />
+        </Button>
 
-        <button
-          onClick={() => setDarkMode(!darkMode)}
-          className="p-2 text-stone-600 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800 rounded-lg transition-colors"
-          title="Toggle theme"
-        >
-          {darkMode ? <Sun className="w-5 h-5 text-stone-400" /> : <Moon className="w-5 h-5 text-stone-600" />}
-        </button>
+        <div className="hidden md:block flex-1 max-w-xl min-w-0">
+          <SearchField />
+        </div>
 
-        <div className="flex items-center gap-2 pl-2 border-l border-stone-200 dark:border-stone-800">
-          <div className="w-8 h-8 rounded-full bg-brand-600 text-white font-semibold flex items-center justify-center text-xs shadow-glow">
-            {(user?.name || 'GE').slice(0, 2).toUpperCase()}
+        <div className="flex-1 md:hidden min-w-0">
+          <div className="text-xs font-semibold truncate capitalize text-foreground/90">
+            {activeModule.replace(/_/g, ' ')}
           </div>
-          <div className="hidden xl:block text-left">
-            <div className="text-xs font-semibold leading-tight text-stone-900 dark:text-stone-100">
-              {user?.name || 'Al-Mustafiz Rahman'}
-            </div>
-            <div className="text-[10px] text-stone-500 font-medium">{user?.role || 'Owner & CEO'}</div>
-          </div>
-          <button
+          <div className="text-[10px] text-muted-foreground truncate">Garments ERP</div>
+        </div>
+
+        <div className="flex items-center gap-1 sm:gap-1.5 shrink-0">
+          <Button
             type="button"
-            onClick={logout}
-            className="p-2 text-stone-500 hover:text-status-danger hover:bg-stone-100 dark:hover:bg-stone-800 rounded-lg"
-            title="Logout"
+            variant="ghost"
+            size="icon"
+            className="md:hidden"
+            onClick={() => setMobileSearchOpen((v) => !v)}
+            aria-label="Toggle search"
           >
-            <LogOut className="w-4 h-4" />
-          </button>
+            {mobileSearchOpen ? <X className="h-5 w-5" /> : <Search className="h-5 w-5" />}
+          </Button>
+
+          <div className="hidden xl:flex items-center gap-1 bg-muted p-1 rounded-lg border border-border">
+            <Button
+              size="sm"
+              variant={activeModule === 'bom' ? 'default' : 'ghost'}
+              onClick={() => setActiveModule('bom')}
+              className="h-7 text-[11px]"
+            >
+              <Calculator /> BOM
+            </Button>
+            <Button
+              size="sm"
+              variant={activeModule === 'production_planning' ? 'default' : 'ghost'}
+              onClick={() => setActiveModule('production_planning')}
+              className="h-7 text-[11px]"
+            >
+              <CalendarDays /> Schedule
+            </Button>
+            <Button
+              size="sm"
+              variant={activeModule === 'payroll' ? 'default' : 'ghost'}
+              onClick={() => setActiveModule('payroll')}
+              className="h-7 text-[11px]"
+            >
+              <Receipt /> Payroll
+            </Button>
+          </div>
+
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" size="sm" className="h-9 gap-1.5 px-2 sm:px-3">
+                <ShieldCheck className="text-primary h-4 w-4" />
+                <div className="text-left hidden lg:block">
+                  <div className="text-[10px] text-muted-foreground leading-none">Role</div>
+                  <div className="text-xs font-semibold truncate max-w-[110px]">{currentRoleObj.name}</div>
+                </div>
+                <ChevronsUpDown className="size-3.5 text-muted-foreground hidden sm:block" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-64 max-h-72 overflow-y-auto">
+              <DropdownMenuLabel>Select user role</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              {roles.map((r) => (
+                <DropdownMenuItem
+                  key={r.id}
+                  onClick={() => setActiveRole(r.id)}
+                  className={cn(activeRole === r.id && 'bg-accent')}
+                >
+                  <span className="flex-1">{r.name}</span>
+                  <Badge variant="secondary" className="text-[10px]">
+                    {(r.permissions || []).includes('*') ? 'Full' : `${(r.permissions || []).length}`}
+                  </Badge>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="relative"
+                onClick={() => setActiveModule('notifications')}
+              >
+                <Bell className="h-5 w-5" />
+                {unreadCount > 0 && (
+                  <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-destructive rounded-full ring-2 ring-background" />
+                )}
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent>Notifications</TooltipContent>
+          </Tooltip>
+
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button variant="ghost" size="icon" onClick={() => setDarkMode(!darkMode)}>
+                {darkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent>Toggle theme</TooltipContent>
+          </Tooltip>
+
+          <Separator orientation="vertical" className="h-8 mx-0.5 hidden sm:block" />
+
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" className="h-9 gap-2 px-1.5 sm:px-2">
+                <Avatar className="h-8 w-8 shadow-glow">
+                  <AvatarFallback>{(user?.name || 'GE').slice(0, 2).toUpperCase()}</AvatarFallback>
+                </Avatar>
+                <div className="hidden xl:block text-left">
+                  <div className="text-xs font-semibold leading-tight">{user?.name || 'User'}</div>
+                  <div className="text-[10px] text-muted-foreground font-medium">{user?.role || 'role'}</div>
+                </div>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-52">
+              <DropdownMenuLabel className="font-normal">
+                <div className="text-sm font-semibold">{user?.name}</div>
+                <div className="text-xs text-muted-foreground">{user?.email}</div>
+              </DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem onClick={() => setActiveModule('settings')}>Settings</DropdownMenuItem>
+              <DropdownMenuItem onClick={logout} className="text-destructive focus:text-destructive">
+                <LogOut className="mr-2 h-4 w-4" /> Logout
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </div>
+
+      {mobileSearchOpen && (
+        <div className="md:hidden px-3 pb-3 border-t border-border/60 pt-2 animate-fade-up">
+          <SearchField />
+        </div>
+      )}
     </header>
   );
 }
